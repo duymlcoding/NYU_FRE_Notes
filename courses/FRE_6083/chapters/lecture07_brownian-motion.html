@@ -1,0 +1,1502 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The Continuous-Time Limit of the Random Walk &#8212; FRE 6083: Quantitative Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/lecture07_brownian-motion';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Brownian Motion" href="lecture09_brownian-motion.html" />
+    <link rel="prev" title="Introduction to Stochastic Processes" href="lecture06_stochastic-processes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6083: Quantitative Methods</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lecture01_sequences-and-sums.html">Lecture 1: Sequences and Sums of Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture02_convergence-and-limits.html">Lecture 2: Convergence and Limit Theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture03_markov-chains.html">Lecture 3: Markov Chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture04_poisson-process.html">Lecture 4: The Poisson Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture05_binomial-asset-pricing.html">Lecture 5: Binomial Asset Pricing Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture06_stochastic-processes.html">Lecture 6: Stochastic Processes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 7: Random Walk Limit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture09_brownian-motion.html">Lecture 9: Brownian Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture10_stochastic-calculus.html">Lecture 10: Stochastic Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture11_black-scholes-model.html">Lecture 11: Black-Scholes Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture12_black-scholes-pde-finite-difference.html">Lecture 12: Black-Scholes PDE and Finite Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture13_portfolio-optimization-discrete-time.html">Lecture 13: Portfolio Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture14_american-options-greeks.html">Lecture 14: American Options and Greeks</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/chapters/lecture07_brownian-motion.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fchapters/lecture07_brownian-motion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/lecture07_brownian-motion.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Continuous-Time Limit of the Random Walk</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-symmetric-random-walk">The Symmetric Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-variation-of-the-random-walk">Quadratic Variation of the Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation">Computation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-symmetric-random-walk">Scaled Symmetric Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-parameters">Scaling Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rescaled-random-walk">Rescaled Random Walk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-non-integer-times">Handling Non-Integer Times</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-limiting-process">The Limiting Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-scaled-random-walk">Properties of the Scaled Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-increments">Independent Increments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationary-increments">Stationary Increments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-and-variance">Expectation and Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#martingale-property">Martingale Property</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-variation">Quadratic Variation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">Central Limit Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#different-parameterization">Different Parameterization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-arithmetic-brownian-motion-model">The Arithmetic Brownian Motion Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discretized-version">Discretized Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moments">Moments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-brownian-motion-with-drift">Arithmetic Brownian Motion with Drift</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution">Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawback">Drawback</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binomial-tree-model-a-geometric-random-walk">The Binomial Tree Model: A Geometric Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-setup">Initial Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-period-evolution">One-Period Evolution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-period-extension">Multi-Period Extension</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#re-scaled-binomial-asset-pricing-model">Re-Scaled Binomial Asset Pricing Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplifications-and-setup">Simplifications and Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#up-and-down-factors">Up and Down Factors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#counting-heads-and-tails">Counting Heads and Tails</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-asset-price-formula">Scaled Asset Price Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passage-to-the-limit">Passage to the Limit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal-distribution">Log-Normal Distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometric-brownian-motion-asset-price-model">The Geometric Brownian Motion Asset Price Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-drift">Adding Drift</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-volatility-coefficient">The Volatility Coefficient</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-price-and-log-returns">Log Price and Log Returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-price">Log Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-return">Log Return</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-rate-of-return">Relative Rate of Return</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuously-compounded-rate-of-return">Continuously Compounded Rate of Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-the-compounded-return">Distribution of the Compounded Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-frac-1-2-sigma-2-term">The <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2\)</span> Term</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-random-walk-with-drift">A Random Walk with Drift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction">Construction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-continuous-time-limit-of-the-random-walk">
+<h1>The Continuous-Time Limit of the Random Walk<a class="headerlink" href="#the-continuous-time-limit-of-the-random-walk" title="Link to this heading">#</a></h1>
+<p>This chapter discusses the passage to the continuous-time limit of the discrete-time random walk and the binomial tree model, and introduces the Wiener process (Brownian motion) for the first time. Starting in the next chapter, we will move away from discrete-time processes in order to focus more on continuous-time processes.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><strong>Recommended References:</strong></p>
+<ul class="simple">
+<li><p>Steven E. Shreve, “Stochastic Calculus for Finance I: The Binomial Asset Pricing Model”, 2004, Springer</p></li>
+<li><p>Steven E. Shreve, “Stochastic Calculus for Finance II: Continuous-time Finance”, 2004, Springer</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Acknowledgment:</strong></p>
+<p>In this chapter, we draw heavily from Shreve [1] and [2]. Any mistake is the sole responsibility of the author of these slides.</p>
+</div>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The transition from discrete-time to continuous-time models is a fundamental step in quantitative finance. By taking appropriate limits of discrete models, we obtain continuous-time processes that are both mathematically elegant and practically useful for modeling financial markets.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key Objectives</p>
+<p>This lecture will show how:</p>
+<ul class="simple">
+<li><p>The discrete random walk converges to Brownian motion</p></li>
+<li><p>The binomial tree model converges to the geometric Brownian motion</p></li>
+<li><p>These limiting processes provide realistic models for stock prices</p></li>
+</ul>
+</div>
+</section>
+<section id="the-symmetric-random-walk">
+<h2>The Symmetric Random Walk<a class="headerlink" href="#the-symmetric-random-walk" title="Link to this heading">#</a></h2>
+<p>First of all, we recall the definition of the basic memoryless symmetric random walk that was presented earlier.</p>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h3>
+<p>We toss a <strong>fair coin</strong> infinitely many times.</p>
+<p>On each toss <span class="math notranslate nohighlight">\(i\)</span>:</p>
+<ul class="simple">
+<li><p>Probability of getting a <strong>head</strong>: <span class="math notranslate nohighlight">\(p = \frac{1}{2}\)</span></p></li>
+<li><p>Probability of getting a <strong>tail</strong>: <span class="math notranslate nohighlight">\(q = 1 - p = \frac{1}{2}\)</span></p></li>
+</ul>
+</section>
+<section id="definition">
+<h3>Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
+<p>We denote the <strong>one-step increment</strong> by <span class="math notranslate nohighlight">\(Y_i\)</span> and the <strong>random walk</strong> itself by <span class="math notranslate nohighlight">\(X_n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+X_n = \sum_{i=1}^{n} Y_i
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Y_i\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y_i = \begin{cases}
++1 &amp; \text{with probability } p \\
+-1 &amp; \text{with probability } 1-p
+\end{cases}
+\end{split}\]</div>
+<p><strong>Physical Meaning:</strong> At each time step, the process randomly moves up or down by 1. This models random fluctuations in a simple, discrete way.</p>
+</section>
+</section>
+<section id="quadratic-variation-of-the-random-walk">
+<h2>Quadratic Variation of the Random Walk<a class="headerlink" href="#quadratic-variation-of-the-random-walk" title="Link to this heading">#</a></h2>
+<p>The quadratic variation of the random walk is a quantity of great interest (it makes the Black-Scholes theory work).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Definition: Quadratic Variation</strong></p>
+<p>The <strong>quadratic variation</strong> of the symmetric random walk up to time <span class="math notranslate nohighlight">\(k\)</span> is denoted by <span class="math notranslate nohighlight">\([X, X]_k\)</span> and is defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+[X, X]_k = \sum_{j=1}^{k} (X_j - X_{j-1})^2
+\]</div>
+</div>
+<section id="computation">
+<h3>Computation<a class="headerlink" href="#computation" title="Link to this heading">#</a></h3>
+<p>Then, we can compute the quadratic variation of the random walk along each path, by writing:</p>
+<div class="math notranslate nohighlight">
+\[
+[X, X]_k = \sum_{j=1}^{k} (X_j - X_{j-1})^2 = \sum_{j=1}^{k} 1 = k
+\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Key Observation:</strong></p>
+<p>The quadratic variation of the random walk is:</p>
+<ul class="simple">
+<li><p><strong>Independent of the path</strong> considered</p></li>
+<li><p>Equal to <span class="math notranslate nohighlight">\(\text{Var}[X_k]\)</span></p></li>
+<li><p>Equal to <span class="math notranslate nohighlight">\(k\)</span> (the number of steps)</p></li>
+</ul>
+</div>
+<p><strong>Physical Meaning:</strong> The cumulative squared changes always sum to <span class="math notranslate nohighlight">\(k\)</span>, regardless of whether the walk went mostly up, mostly down, or oscillated. This deterministic accumulation of variance is crucial for continuous-time limits.</p>
+</section>
+</section>
+<section id="scaled-symmetric-random-walk">
+<h2>Scaled Symmetric Random Walk<a class="headerlink" href="#scaled-symmetric-random-walk" title="Link to this heading">#</a></h2>
+<p>We apply to the symmetric random walk a well-chosen scaling that will allow us to pass to the continuous-time limit by using the Central Limit Theorem.</p>
+<section id="scaling-parameters">
+<h3>Scaling Parameters<a class="headerlink" href="#scaling-parameters" title="Link to this heading">#</a></h3>
+<p>First of all, we denote by <span class="math notranslate nohighlight">\(n\)</span> the <strong>number of coin tosses per unit of time</strong>.</p>
+<p>We will let <span class="math notranslate nohighlight">\(n \to +\infty\)</span> later in this discussion.</p>
+<p>Secondly, since the aim is to derive a continuous-time model, we introduce the <strong>continuous time variable</strong> <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</section>
+<section id="rescaled-random-walk">
+<h3>Rescaled Random Walk<a class="headerlink" href="#rescaled-random-walk" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Definition: Rescaled Random Walk</strong></p>
+<p>The rescaled random walk is then defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+W^{(n)}(t) = \frac{1}{\sqrt{n}} X_{nt}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(nt\)</span> represents the total number of coin tosses in the time interval <span class="math notranslate nohighlight">\([0, t]\)</span>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> We shrink the step size by <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{n}}\)</span> while speeding up time by a factor of <span class="math notranslate nohighlight">\(n\)</span>. This particular scaling preserves the variance structure in the limit.</p>
+</section>
+<section id="handling-non-integer-times">
+<h3>Handling Non-Integer Times<a class="headerlink" href="#handling-non-integer-times" title="Link to this heading">#</a></h3>
+<p>Of course, the number <span class="math notranslate nohighlight">\(nt\)</span> is not always an integer and, at first, we do not know how to interpret <span class="math notranslate nohighlight">\(X_{nt}\)</span> in the case when <span class="math notranslate nohighlight">\(nt\)</span> is not an integer. Here is how this small technical issue can be handled in practice:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Linear Interpolation:</strong></p>
+<ul class="simple">
+<li><p><strong>If <span class="math notranslate nohighlight">\(nt\)</span> is an integer:</strong> <span class="math notranslate nohighlight">\(X_{nt}\)</span> is already defined without ambiguity</p></li>
+<li><p><strong>If <span class="math notranslate nohighlight">\(nt\)</span> is not an integer:</strong> We define <span class="math notranslate nohighlight">\(W^{(n)}(t)\)</span> by <strong>linear interpolation</strong> on the interval <span class="math notranslate nohighlight">\([s, u]\)</span> where:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(s\)</span> is the nearest real number on the left of <span class="math notranslate nohighlight">\(t\)</span> such that <span class="math notranslate nohighlight">\(ns\)</span> is an integer</p></li>
+<li><p><span class="math notranslate nohighlight">\(u\)</span> is the nearest real number to the right of <span class="math notranslate nohighlight">\(t\)</span> such that <span class="math notranslate nohighlight">\(nu\)</span> is an integer</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="the-limiting-process">
+<h3>The Limiting Process<a class="headerlink" href="#the-limiting-process" title="Link to this heading">#</a></h3>
+<p>Next, our goal here is to let <span class="math notranslate nohighlight">\(n \to +\infty\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Interpretation of the Limit:</strong></p>
+<p>As <span class="math notranslate nohighlight">\(n\)</span> increases:</p>
+<ul class="simple">
+<li><p>We are <strong>accelerating time</strong> (more tosses per unit time)</p></li>
+<li><p>We are <strong>reducing the size of the steps</strong> (dividing by <span class="math notranslate nohighlight">\(\sqrt{n}\)</span>)</p></li>
+</ul>
+<p>At the limit <span class="math notranslate nohighlight">\(n \to +\infty\)</span>:</p>
+<ul class="simple">
+<li><p>We toss the coin <strong>infinitely fast</strong></p></li>
+<li><p>The size of each step is <strong>infinitesimally small</strong></p></li>
+</ul>
+</div>
+<p><strong>Physical Meaning:</strong> In the limit, we obtain a continuous-time process with continuous paths but infinite variation (infinitely many infinitesimal jumps).</p>
+<p>The particular choice for the step size (<span class="math notranslate nohighlight">\(\frac{1}{\sqrt{n}}\)</span>) versus the total number of coin tosses (<span class="math notranslate nohighlight">\(nt\)</span>) is dictated by the <strong>Central Limit Theorem</strong>.</p>
+</section>
+</section>
+<section id="properties-of-the-scaled-random-walk">
+<h2>Properties of the Scaled Random Walk<a class="headerlink" href="#properties-of-the-scaled-random-walk" title="Link to this heading">#</a></h2>
+<section id="independent-increments">
+<h3>Independent Increments<a class="headerlink" href="#independent-increments" title="Link to this heading">#</a></h3>
+<p>The increments of the scaled random walk are <strong>independent</strong>.</p>
+<p>For a collection of times:</p>
+<div class="math notranslate nohighlight">
+\[
+0 = t_0 &lt; t_1 &lt; t_2 &lt; \cdots &lt; t_{m-1} &lt; t_m
+\]</div>
+<p>such that each <span class="math notranslate nohighlight">\(nt_j\)</span> is an integer, the increments:</p>
+<div class="math notranslate nohighlight">
+\[
+W^{(n)}(t_1) - W^{(n)}(t_0), \quad W^{(n)}(t_2) - W^{(n)}(t_1), \quad \ldots, \quad W^{(n)}(t_m) - W^{(n)}(t_{m-1})
+\]</div>
+<p>are <strong>independent random variables</strong>.</p>
+<p><strong>Physical Meaning:</strong> What happens in non-overlapping time intervals are independent events, just as in the original random walk.</p>
+</section>
+<section id="stationary-increments">
+<h3>Stationary Increments<a class="headerlink" href="#stationary-increments" title="Link to this heading">#</a></h3>
+<p>The increments of the rescaled random walk are <strong>stationary</strong>.</p>
+<p><strong>Physical Meaning:</strong> The distribution of changes depends only on the time interval length, not on when the interval starts.</p>
+</section>
+<section id="expectation-and-variance">
+<h3>Expectation and Variance<a class="headerlink" href="#expectation-and-variance" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Mean of Increment:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E[W^{(n)}(t) - W^{(n)}(s)] = 0
+\]</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Derivation of Variance</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The variance of an increment of the scaled random walk is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\text{Var}[W^{(n)}(t) - W^{(n)}(s)] &amp;= E\left[\left(\frac{1}{\sqrt{n}} X_{nt} - \frac{1}{\sqrt{n}} X_{ns}\right)^2\right] \\
+&amp;= \frac{1}{n} E[(X_{nt} - X_{ns})^2] \\
+&amp;= \frac{1}{n}(nt - ns) \\
+&amp;= t - s
+\end{align}
+\end{split}\]</div>
+</div>
+</details><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Variance of Increment:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}[W^{(n)}(t) - W^{(n)}(s)] = t - s
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> Even though we’re taking many small steps, the cumulative variance over a time interval <span class="math notranslate nohighlight">\([s, t]\)</span> is <span class="math notranslate nohighlight">\(t-s\)</span>. The scaling balances step size against number of steps perfectly.</p>
+</section>
+<section id="martingale-property">
+<h3>Martingale Property<a class="headerlink" href="#martingale-property" title="Link to this heading">#</a></h3>
+<p>The rescaled random walk satisfies the <strong>martingale property</strong> with respect to itself.</p>
+<p>Let <span class="math notranslate nohighlight">\(0 \leq s \leq t\)</span> such that <span class="math notranslate nohighlight">\(nt\)</span> and <span class="math notranslate nohighlight">\(ns\)</span> are integers:</p>
+<div class="math notranslate nohighlight">
+\[
+E[W^{(n)}(t) \mid \{W^{(n)}(\tau); 0 \leq \tau \leq s\}] = W^{(n)}(s)
+\]</div>
+<p><strong>Physical Meaning:</strong> The best prediction of the future value, given all past information, is the current value. This is a “fair game” property.</p>
+</section>
+<section id="quadratic-variation">
+<h3>Quadratic Variation<a class="headerlink" href="#quadratic-variation" title="Link to this heading">#</a></h3>
+<p>We can define the <strong>quadratic variation</strong> of the rescaled random walk by using its natural partition.</p>
+<p>Letting <span class="math notranslate nohighlight">\(t \geq 0\)</span> be such that <span class="math notranslate nohighlight">\(nt\)</span> is an integer, we have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+[W^{(n)}, W^{(n)}](t) &amp;= \sum_{j=1}^{nt} \left\{W^{(n)}\left(\frac{j}{n}\right) - W^{(n)}\left(\frac{j-1}{n}\right)\right\}^2 \\
+&amp;= \sum_{j=1}^{nt} \left\{\frac{1}{\sqrt{n}} Y_j\right\}^2 \\
+&amp;= \sum_{j=1}^{nt} \frac{1}{n} \\
+&amp;= t
+\end{align}
+\end{split}\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Quadratic Variation Result:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+[W^{(n)}, W^{(n)}](t) = t
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> The quadratic variation equals time itself. This is a fundamental property that distinguishes Brownian motion from smooth functions (which have zero quadratic variation).</p>
+<p>Clearly, when <span class="math notranslate nohighlight">\(nt\)</span> is not an integer, one can prove the above properties by using interpolations.</p>
+</section>
+</section>
+<section id="central-limit-theorem">
+<h2>Central Limit Theorem<a class="headerlink" href="#central-limit-theorem" title="Link to this heading">#</a></h2>
+<p>As <span class="math notranslate nohighlight">\(n \to +\infty\)</span>, the distribution of the scaled random walk at time <span class="math notranslate nohighlight">\(t\)</span> converges to the <strong>normal distribution</strong> with mean 0 and variance <span class="math notranslate nohighlight">\(t\)</span>, with density function:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1}{\sqrt{2\pi t}} \exp\left(-\frac{x^2}{2t}\right)
+\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Justification via Central Limit Theorem</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">To see this, we can apply the Central Limit Theorem to the random walk:</p>
+<div class="math notranslate nohighlight">
+\[
+X_{nt} = \sum_{i=1}^{nt} Y_i
+\]</div>
+<p class="sd-card-text">where the variables <span class="math notranslate nohighlight">\(Y_i\)</span> have common mean 0 and common variance 1.</p>
+<p class="sd-card-text">Then, by the Central Limit Theorem, we have that:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{X_{nt}}{\sqrt{nt}}
+\]</div>
+<p class="sd-card-text">converges in distribution to a standard normal distribution.</p>
+<p class="sd-card-text">Equivalently, <span class="math notranslate nohighlight">\(W^{(n)}(t)\)</span> converges to a normal distribution with mean 0 and variance <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</div>
+</details><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Convergence to Brownian Motion:</strong></p>
+<p>As <span class="math notranslate nohighlight">\(n \to +\infty\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+W^{(n)}(t) \xrightarrow{d} \mathcal{N}(0, t)
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> No matter what the original step distribution (as long as it has mean 0 and variance 1), the rescaled sum converges to a normal distribution. This is the power of the Central Limit Theorem.</p>
+<section id="different-parameterization">
+<h3>Different Parameterization<a class="headerlink" href="#different-parameterization" title="Link to this heading">#</a></h3>
+<p>Sometimes, the parameterization will be presented differently in the literature.</p>
+<p>Consider a time frame of one year, i.e., <span class="math notranslate nohighlight">\(T = 1\)</span>.</p>
+<p>You may for instance construct a random walk whose step size is <span class="math notranslate nohighlight">\(\sqrt{\Delta}\)</span>, where <span class="math notranslate nohighlight">\(\Delta\)</span> is small.</p>
+<p>The relationship between <span class="math notranslate nohighlight">\(\Delta\)</span> and <span class="math notranslate nohighlight">\(n\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta = \frac{1}{n}
+\]</div>
+<p>In this situation, the number of coin tosses is <span class="math notranslate nohighlight">\(\frac{1}{\Delta}\)</span> on the time interval of length one, or in other words, there is one coin toss every <span class="math notranslate nohighlight">\(\Delta\)</span> units of time.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Existence of Brownian Motion:</strong></p>
+<p>Proving the <strong>existence</strong> of the Brownian motion requires the use of more advanced theorems that won’t be presented here.</p>
+</div>
+</section>
+</section>
+<section id="the-arithmetic-brownian-motion-model">
+<h2>The Arithmetic Brownian Motion Model<a class="headerlink" href="#the-arithmetic-brownian-motion-model" title="Link to this heading">#</a></h2>
+<p>In continuous-time, one can define the <strong>random walk without drift</strong> as:</p>
+<div class="math notranslate nohighlight">
+\[
+X(t) = X(0) + \sigma W(t)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(W(t)\)</span> is a <strong>standard Brownian motion</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Volatility Parameter:</strong></p>
+<p>We have incorporated a volatility parameter <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span> in the above model.</p>
+</div>
+<section id="discretized-version">
+<h3>Discretized Version<a class="headerlink" href="#discretized-version" title="Link to this heading">#</a></h3>
+<p>A discretized version of the above model is:</p>
+<div class="math notranslate nohighlight">
+\[
+X(\Delta) = X(0) + \sigma \sqrt{\Delta} \mathcal{N}(0, 1)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{N}(0, 1)\)</span> denotes a normal random variable with mean 0 and variance 1, and <span class="math notranslate nohighlight">\(\Delta\)</span> is the time step.</p>
+<p>The above evolution equation must be coupled with an <strong>initial condition</strong>, such as <span class="math notranslate nohighlight">\(X(0) = X_0\)</span>, where <span class="math notranslate nohighlight">\(X_0\)</span> is a given constant.</p>
+</section>
+<section id="moments">
+<h3>Moments<a class="headerlink" href="#moments" title="Link to this heading">#</a></h3>
+<p>In addition, we have:</p>
+<div class="math notranslate nohighlight">
+\[
+E[X(t)] = X(0), \quad \text{var}[X(t)] = \sigma^2 t
+\]</div>
+<p><strong>Physical Meaning:</strong> The process has constant expected value but variance that grows linearly with time. This captures the increasing uncertainty over longer time horizons.</p>
+</section>
+<section id="arithmetic-brownian-motion-with-drift">
+<h3>Arithmetic Brownian Motion with Drift<a class="headerlink" href="#arithmetic-brownian-motion-with-drift" title="Link to this heading">#</a></h3>
+<p>More generally, we can define the <strong>arithmetic Brownian motion with drift</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+X(t) = X(0) + \mu t + \sigma W(t)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the <strong>drift parameter</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Interpretation of Drift:</strong></p>
+<p>This adds the deterministic trend <span class="math notranslate nohighlight">\(\mu t\)</span> to the model.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\mu &gt; 0\)</span>: the random walk drifts <strong>upward</strong> over time and <span class="math notranslate nohighlight">\(X\)</span> is a <strong>submartingale</strong></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\mu &lt; 0\)</span>: the random walk drifts <strong>downward</strong> and <span class="math notranslate nohighlight">\(X\)</span> is a <strong>supermartingale</strong></p></li>
+</ul>
+</div>
+<p><strong>Physical Meaning:</strong> The drift <span class="math notranslate nohighlight">\(\mu\)</span> represents the expected change per unit time. This models trends in addition to random fluctuations.</p>
+</section>
+<section id="distribution">
+<h3>Distribution<a class="headerlink" href="#distribution" title="Link to this heading">#</a></h3>
+<p>Clearly, the distribution of <span class="math notranslate nohighlight">\(X(t)\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is normal with:</p>
+<ul class="simple">
+<li><p>Mean: <span class="math notranslate nohighlight">\(X(0) + \mu t\)</span></p></li>
+<li><p>Variance: <span class="math notranslate nohighlight">\(\sigma^2 t\)</span></p></li>
+</ul>
+<p>Both the expectation and the variance grow linearly in the time variable <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</section>
+<section id="drawback">
+<h3>Drawback<a class="headerlink" href="#drawback" title="Link to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Flaw of Arithmetic Brownian Motion:</strong></p>
+<p><span class="math notranslate nohighlight">\(X(t)\)</span> may take <strong>negative values</strong>, even if <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(X_0\)</span> are both positive.</p>
+<p>This makes it unsuitable for modeling stock prices, which must remain non-negative.</p>
+</div>
+<p><strong>Physical Meaning:</strong> While arithmetic Brownian motion is mathematically convenient, it can produce negative values, which is unrealistic for prices. This motivates the geometric Brownian motion model.</p>
+</section>
+</section>
+<section id="the-binomial-tree-model-a-geometric-random-walk">
+<h2>The Binomial Tree Model: A Geometric Random Walk<a class="headerlink" href="#the-binomial-tree-model-a-geometric-random-walk" title="Link to this heading">#</a></h2>
+<p>In this model, the beginning of the time period is denoted by 0 and the end by 1.</p>
+<section id="initial-setup">
+<h3>Initial Setup<a class="headerlink" href="#initial-setup" title="Link to this heading">#</a></h3>
+<p>At time 0, the asset price per share is denoted by <span class="math notranslate nohighlight">\(S_0\)</span>, where <span class="math notranslate nohighlight">\(S_0\)</span> is a positive number.</p>
+<p>A coin is tossed once and falls either on:</p>
+<ul class="simple">
+<li><p><strong>Head</strong> with probability <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p><strong>Tail</strong> with probability <span class="math notranslate nohighlight">\(1-p\)</span></p></li>
+</ul>
+<p>We assume that <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(1-p\)</span> are both positive but they are not necessarily equal.</p>
+</section>
+<section id="one-period-evolution">
+<h3>One-Period Evolution<a class="headerlink" href="#one-period-evolution" title="Link to this heading">#</a></h3>
+<p>If a <strong>head</strong> is obtained:</p>
+<div class="math notranslate nohighlight">
+\[
+S_1(H) = uS_0 \quad \text{at time 1}
+\]</div>
+<p>If a <strong>tail</strong> is obtained:</p>
+<div class="math notranslate nohighlight">
+\[
+S_1(T) = dS_0
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(u, d\)</span> represent respectively the <strong>up and down factors</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Visual Representation:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ccc}
+&amp; &amp; S_1(H) = S_0 u \\
+S_0 &amp; \nearrow &amp; \\
+&amp; \searrow &amp; \\
+&amp; &amp; S_1(T) = S_0 d
+\end{array}
+\end{split}\]</div>
+</div>
+</section>
+<section id="multi-period-extension">
+<h3>Multi-Period Extension<a class="headerlink" href="#multi-period-extension" title="Link to this heading">#</a></h3>
+<p>The experiment can be repeated infinitely many times and we can iterate this procedure for determining the next asset price from the previous one.</p>
+<p>At each step, the next asset price <span class="math notranslate nohighlight">\(S_{n+1}\)</span>:</p>
+<ul class="simple">
+<li><p>Goes <strong>up</strong> by a multiplicative factor <span class="math notranslate nohighlight">\(u\)</span> if a head is obtained</p></li>
+<li><p>Goes <strong>down</strong> by a multiplicative factor <span class="math notranslate nohighlight">\(d\)</span> if a tail is obtained</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+S_{n+1}(H) = uS_n, \quad S_{n+1}(T) = dS_n
+\]</div>
+<p>In particular, after the toss number 2, the price at time 2 becomes:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+S_2(HH) &amp;= uS_1(H) = u^2 S_0 \\
+S_2(HT) &amp;= dS_1(H) = du S_0 \\
+S_2(TH) &amp;= uS_1(T) = du S_0 \\
+S_2(TT) &amp;= dS_1(T) = d^2 S_0
+\end{align}
+\end{split}\]</div>
+<p>The third toss has 8 possible outcomes and, given <span class="math notranslate nohighlight">\(S_2\)</span>, you can compute the asset price <span class="math notranslate nohighlight">\(S_3\)</span> for each of these outcomes.</p>
+<p><strong>Physical Meaning:</strong> The multiplicative structure ensures prices remain positive, addressing the main flaw of arithmetic Brownian motion.</p>
+</section>
+</section>
+<section id="re-scaled-binomial-asset-pricing-model">
+<h2>Re-Scaled Binomial Asset Pricing Model<a class="headerlink" href="#re-scaled-binomial-asset-pricing-model" title="Link to this heading">#</a></h2>
+<p>We re-scale the Binomial asset pricing model in order to be able to pass to the continuous-time limit.</p>
+<p>At the limit, we obtain the <strong>geometric Brownian motion</strong> asset price model.</p>
+<section id="simplifications-and-setup">
+<h3>Simplifications and Setup<a class="headerlink" href="#simplifications-and-setup" title="Link to this heading">#</a></h3>
+<p>To simplify, we assume that the probabilities are <span class="math notranslate nohighlight">\(p = q = 1/2\)</span> (the coin is fair).</p>
+<p>Again, <span class="math notranslate nohighlight">\(n\)</span> denotes the <strong>number of coin tosses per unit of time</strong> and we introduce a continuous-time variable <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>Hence, there are <span class="math notranslate nohighlight">\(nt\)</span> tosses on the interval <span class="math notranslate nohighlight">\([0, t]\)</span>.</p>
+<p>We denote by <span class="math notranslate nohighlight">\(S_n(t)\)</span> the <strong>scaled asset price</strong> at time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</section>
+<section id="up-and-down-factors">
+<h3>Up and Down Factors<a class="headerlink" href="#up-and-down-factors" title="Link to this heading">#</a></h3>
+<p>Next, the <strong>up and down factors</strong> are defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+u_n = 1 + \frac{\sigma}{\sqrt{n}}, \quad d_n = 1 - \frac{\sigma}{\sqrt{n}}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span> is the <strong>volatility coefficient</strong>.</p>
+<p><strong>Physical Meaning:</strong> As <span class="math notranslate nohighlight">\(n\)</span> increases, the up and down factors get closer to 1, but there are more tosses. The <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{n}}\)</span> scaling is crucial for convergence.</p>
+</section>
+<section id="counting-heads-and-tails">
+<h3>Counting Heads and Tails<a class="headerlink" href="#counting-heads-and-tails" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(H_{nt}\)</span> and <span class="math notranslate nohighlight">\(T_{nt}\)</span> denote respectively the number of heads and tails in the first <span class="math notranslate nohighlight">\(nt\)</span> coin tosses, we have:</p>
+<div class="math notranslate nohighlight">
+\[
+nt = H_{nt} + T_{nt}
+\]</div>
+<p>Next, we use the notation <span class="math notranslate nohighlight">\(X_{nt}\)</span> introduced earlier:</p>
+<div class="math notranslate nohighlight">
+\[
+X_{nt} = \sum_{i=1}^{nt} Y_i
+\]</div>
+<p>Furthermore, we notice that we can rewrite it as:</p>
+<div class="math notranslate nohighlight">
+\[
+X_{nt} = H_{nt} - T_{nt}
+\]</div>
+<p>We have the equations:</p>
+<div class="math notranslate nohighlight">
+\[
+H_{nt} = \frac{1}{2}(nt + X_{nt}), \quad T_{nt} = \frac{1}{2}(nt - X_{nt})
+\]</div>
+</section>
+<section id="scaled-asset-price-formula">
+<h3>Scaled Asset Price Formula<a class="headerlink" href="#scaled-asset-price-formula" title="Link to this heading">#</a></h3>
+<p>We can now write the scaled asset price as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+S_n(t) &amp;= S(0) u_n^{H_{nt}} d_n^{T_{nt}} \\
+&amp;= S(0) \left(1 + \frac{\sigma}{\sqrt{n}}\right)^{\frac{1}{2}(nt + X_{nt})} \left(1 - \frac{\sigma}{\sqrt{n}}\right)^{\frac{1}{2}(nt - X_{nt})}
+\end{align}
+\end{split}\]</div>
+<p><strong>Physical Meaning:</strong> The stock price is the initial price multiplied by the up factor raised to the number of up moves and the down factor raised to the number of down moves.</p>
+</section>
+</section>
+<section id="passage-to-the-limit">
+<h2>Passage to the Limit<a class="headerlink" href="#passage-to-the-limit" title="Link to this heading">#</a></h2>
+<p>One can prove the following theorem by using the Central Limit Theorem and Taylor expansions.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Theorem: Convergence to Geometric Brownian Motion</strong></p>
+<p>As <span class="math notranslate nohighlight">\(n \to +\infty\)</span>, <span class="math notranslate nohighlight">\(S_n(t)\)</span> converges in distribution to the <strong>geometric Brownian motion</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+S(t) = S(0) \exp\left\{\sigma W(t) - \frac{1}{2}\sigma^2 t\right\}
+\]</div>
+<p>We refer to Shreve [2] for the proof.</p>
+</div>
+<p><strong>Physical Meaning:</strong> The limiting continuous-time model is the exponential of an arithmetic Brownian motion. The <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2 t\)</span> term (called the “drift correction”) arises from Jensen’s inequality and ensures the stock price is a martingale under the risk-neutral measure.</p>
+<section id="log-normal-distribution">
+<h3>Log-Normal Distribution<a class="headerlink" href="#log-normal-distribution" title="Link to this heading">#</a></h3>
+<p>The distribution of <span class="math notranslate nohighlight">\(S(t)\)</span> for fixed <span class="math notranslate nohighlight">\(t\)</span> is called <strong>log-normal</strong> because <span class="math notranslate nohighlight">\(\log(S(t)/S(0))\)</span> is distributed normally with:</p>
+<ul class="simple">
+<li><p>Mean: <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2 t\)</span></p></li>
+<li><p>Variance: <span class="math notranslate nohighlight">\(\sigma^2 t\)</span></p></li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Verification</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">To see this, we write:</p>
+<div class="math notranslate nohighlight">
+\[
+\log\frac{S(t)}{S(0)} = \sigma W(t) - \frac{1}{2}\sigma^2 t
+\]</div>
+<p class="sd-card-text">Since <span class="math notranslate nohighlight">\(W(t)\)</span> has a normal distribution with mean 0 and variance <span class="math notranslate nohighlight">\(t\)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[
+\log\frac{S(t)}{S(0)} \sim \mathcal{N}\left(-\frac{1}{2}\sigma^2 t, \sigma^2 t\right)
+\]</div>
+<p class="sd-card-text">Equivalently, <span class="math notranslate nohighlight">\(\log(S(t))\)</span> has a normal distribution with:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Mean: <span class="math notranslate nohighlight">\(\log(S(0)) - \frac{1}{2}\sigma^2 t\)</span></p></li>
+<li><p class="sd-card-text">Variance: <span class="math notranslate nohighlight">\(\sigma^2 t\)</span></p></li>
+</ul>
+</div>
+</details><p><strong>Physical Meaning:</strong> Log-normality ensures prices are always positive and can grow without bound, consistent with limited liability for stocks.</p>
+</section>
+</section>
+<section id="the-geometric-brownian-motion-asset-price-model">
+<h2>The Geometric Brownian Motion Asset Price Model<a class="headerlink" href="#the-geometric-brownian-motion-asset-price-model" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Geometric Brownian Motion (without drift):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+S(t) = S(0) e^{-\frac{1}{2}\sigma^2 t + \sigma W(t)}, \quad t \in [0, T]
+\]</div>
+</div>
+<section id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading">#</a></h3>
+<p>The geometric Brownian motion is commonly used for modeling stock prices because:</p>
+<ol class="arabic simple">
+<li><p>The process <span class="math notranslate nohighlight">\(S(t)\)</span> <strong>stays nonnegative</strong> for every time <span class="math notranslate nohighlight">\(t \geq 0\)</span></p></li>
+<li><p>It incorporates into the price a <strong>multiplicative effect</strong> that makes it a better fit for historical financial data over the long term, compared to the arithmetic Brownian motion (with the exception of high-frequency data)</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Intraday Data:</strong></p>
+<p>For intraday data, the arithmetic Brownian motion model tends to perform better.</p>
+</div>
+<p><strong>Physical Meaning:</strong> Percentage changes (not absolute changes) are normally distributed, which better matches how we think about stock returns.</p>
+</section>
+<section id="adding-drift">
+<h3>Adding Drift<a class="headerlink" href="#adding-drift" title="Link to this heading">#</a></h3>
+<p>One can also add a drift term to the above model which then becomes:</p>
+<div class="math notranslate nohighlight">
+\[
+S(t) = S(0) e^{(\mu - \frac{1}{2}\sigma^2)t + \sigma W(t)}, \quad t \in [0, T]
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu &gt; 0\)</span> is the <strong>actual instantaneous mean rate of return</strong> of the stock.</p>
+<p>In other words, <span class="math notranslate nohighlight">\(\mu\)</span> is the return earned per unit of time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Estimating the Drift:</strong></p>
+<p>The value of <span class="math notranslate nohighlight">\(\mu\)</span>, which is notoriously hard to estimate, depends on:</p>
+<ul class="simple">
+<li><p>The <strong>risk</strong> of the stock (higher returns should correspond to higher risks)</p></li>
+<li><p>The level of <strong>interest rates</strong> in the economy (the higher the interest rates, the higher the expected return)</p></li>
+</ul>
+</div>
+<p><strong>Physical Meaning:</strong> The drift <span class="math notranslate nohighlight">\(\mu\)</span> represents the expected instantaneous return. In equilibrium, riskier stocks should have higher <span class="math notranslate nohighlight">\(\mu\)</span> to compensate investors.</p>
+</section>
+<section id="the-volatility-coefficient">
+<h3>The Volatility Coefficient<a class="headerlink" href="#the-volatility-coefficient" title="Link to this heading">#</a></h3>
+<p>The coefficient <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span> is called the <strong>volatility</strong>.</p>
+<p>More accurately, it is the <strong>proportional change in the standard deviation</strong> per unit of time.</p>
+<p>A proportional change in the standard deviation of the stock price over a time interval of length <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(\sigma\sqrt{\Delta t}\)</span>.</p>
+<p>Usually, the time unit is <strong>years</strong>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Example: Interpreting Volatility</p>
+<p><strong>Setup:</strong> Suppose that <span class="math notranslate nohighlight">\(\sigma = 0.3 = 30\%\)</span> per year and the current stock price is 50 dollars.</p>
+<p><strong>Question:</strong> What is the standard deviation of the percentage change in the stock price in 1 week?</p>
+<p><strong>Solution:</strong></p>
+<p>The standard deviation of the percentage change in 1 week is:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma \sqrt{\Delta t} = 30\% \times \sqrt{\frac{1}{52}} = 30\% \times \frac{1}{\sqrt{52}} \approx 4.16\%
+\]</div>
+<p><strong>Interpretation:</strong> A one-standard deviation move in the stock price in 1 week is:</p>
+<div class="math notranslate nohighlight">
+\[
+50 \times 0.0416 = 2.08 \text{ dollars}
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> Volatility measures the intensity of random fluctuations. Higher volatility means more uncertain price movements and higher option values.</p>
+</section>
+</section>
+<section id="log-price-and-log-returns">
+<h2>Log Price and Log Returns<a class="headerlink" href="#log-price-and-log-returns" title="Link to this heading">#</a></h2>
+<section id="log-price">
+<h3>Log Price<a class="headerlink" href="#log-price" title="Link to this heading">#</a></h3>
+<p>Taking the log of the left and right hand sides in the definition of the Geometric Brownian motion with drift, we obtain the <strong>log price</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\log S(t) = \log S(0) + \left(\mu - \frac{1}{2}\sigma^2\right)t + \sigma W(t)
+\]</div>
+<p>Furthermore, the distribution of the log price <span class="math notranslate nohighlight">\(\log S(t)\)</span> is normal with:</p>
+<ul class="simple">
+<li><p>Mean: <span class="math notranslate nohighlight">\(\log S(0) + (\mu - \frac{1}{2}\sigma^2)t\)</span></p></li>
+<li><p>Variance: <span class="math notranslate nohighlight">\(\sigma^2 t\)</span></p></li>
+</ul>
+<p><strong>Physical Meaning:</strong> The log price follows an arithmetic Brownian motion with drift, which is why we often work with log returns in practice.</p>
+</section>
+<section id="log-return">
+<h3>Log Return<a class="headerlink" href="#log-return" title="Link to this heading">#</a></h3>
+<p>Similarly, we can compute the <strong>log return</strong> of the asset price over the time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+r(t, \Delta t) = \log\frac{S(t + \Delta t)}{S(t)} = \left(\mu - \frac{1}{2}\sigma^2\right)\Delta t + \sigma(W(t + \Delta t) - W(t))
+\]</div>
+<p>It has a normal distribution with:</p>
+<ul class="simple">
+<li><p>Mean: <span class="math notranslate nohighlight">\((\mu - \frac{1}{2}\sigma^2)\Delta t\)</span></p></li>
+<li><p>Variance: <span class="math notranslate nohighlight">\(\sigma^2 \Delta t\)</span></p></li>
+</ul>
+<p><strong>Physical Meaning:</strong> Log returns are normally distributed, additive over time, and symmetric (unlike simple returns which are multiplicative and right-skewed).</p>
+</section>
+</section>
+<section id="relative-rate-of-return">
+<h2>Relative Rate of Return<a class="headerlink" href="#relative-rate-of-return" title="Link to this heading">#</a></h2>
+<p>One can alternately compute the <strong>relative rate of return</strong>, which is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+r(t, \Delta t) &amp;= \frac{S(t + \Delta t) - S(t)}{S(t)} \\
+&amp;= \frac{S(t)e^{(\mu - \frac{1}{2}\sigma^2)\Delta t + \sigma(W(t + \Delta t) - W(t))} - S(t)}{S(t)} \\
+&amp;= e^{(\mu - \frac{1}{2}\sigma^2)\Delta t + \sigma(W(t + \Delta t) - W(t))} - 1
+\end{align}
+\end{split}\]</div>
+<p><strong>Physical Meaning:</strong> This is the actual percentage change in price. It’s related to but distinct from the log return.</p>
+<section id="continuously-compounded-rate-of-return">
+<h3>Continuously Compounded Rate of Return<a class="headerlink" href="#continuously-compounded-rate-of-return" title="Link to this heading">#</a></h3>
+<p>A slightly different point of view: we seek the constant continuously compounded rate of return <span class="math notranslate nohighlight">\(x\)</span> earned on a stock between time <span class="math notranslate nohighlight">\(t\)</span> and time <span class="math notranslate nohighlight">\(t + \Delta t\)</span>.</p>
+<p>By definition, <span class="math notranslate nohighlight">\(x\)</span> solves the equation:</p>
+<div class="math notranslate nohighlight">
+\[
+S(t + \Delta t) = S(t) e^{x \Delta t}
+\]</div>
+<p>Then, using the Geometric Brownian motion model for <span class="math notranslate nohighlight">\(S\)</span>, we compute:</p>
+<div class="math notranslate nohighlight">
+\[
+x = \frac{1}{\Delta t} \log\frac{S(t + \Delta t)}{S(t)} = \left(\mu - \frac{1}{2}\sigma^2\right) + \frac{1}{\Delta t}\sigma(W(t + \Delta t) - W(t))
+\]</div>
+</section>
+<section id="distribution-of-the-compounded-return">
+<h3>Distribution of the Compounded Return<a class="headerlink" href="#distribution-of-the-compounded-return" title="Link to this heading">#</a></h3>
+<p>The distribution of <span class="math notranslate nohighlight">\(x\)</span> is normal with:</p>
+<ul class="simple">
+<li><p>Mean: <span class="math notranslate nohighlight">\(\mu - \frac{1}{2}\sigma^2\)</span></p></li>
+<li><p>Standard deviation: <span class="math notranslate nohighlight">\(\frac{\sigma}{\sqrt{\Delta t}}\)</span></p></li>
+</ul>
+<p>In particular, the <strong>expected compounded rate of return</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[
+E[x] = \mu - \frac{1}{2}\sigma^2
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Relationship to Log Return:</strong></p>
+<p>One can also relate <span class="math notranslate nohighlight">\(x\)</span> to the log return we computed earlier:</p>
+<div class="math notranslate nohighlight">
+\[
+x = \frac{r(t, \Delta t)}{\Delta t}
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> The continuously compounded return is just the log return divided by the time interval. Its expected value is less than <span class="math notranslate nohighlight">\(\mu\)</span> by the amount <span class="math notranslate nohighlight">\(\frac{1}{2}\sigma^2\)</span>, which is the Jensen’s inequality correction term.</p>
+</section>
+<section id="the-frac-1-2-sigma-2-term">
+<h3>The <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2\)</span> Term<a class="headerlink" href="#the-frac-1-2-sigma-2-term" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Where Does the <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2\)</span> Term Come From?</p>
+<p>Finally, you may wonder: <strong>Where does the <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2\)</span> term come from?</strong></p>
+<p>This will be made much clearer later, when we study the <strong>chain rule of Stochastic Calculus</strong> (Itô’s Lemma).</p>
+<p><strong>Preview:</strong> It arises from the fact that <span class="math notranslate nohighlight">\((dW)^2 = dt\)</span> in stochastic calculus, leading to second-order terms that don’t vanish in the limit.</p>
+</div>
+<p><strong>Physical Meaning:</strong> This term corrects for the difference between the arithmetic mean and the geometric mean. It ensures that the expected stock price at time <span class="math notranslate nohighlight">\(t\)</span> under geometric Brownian motion grows at exactly rate <span class="math notranslate nohighlight">\(\mu\)</span>, not faster.</p>
+</section>
+</section>
+<section id="a-random-walk-with-drift">
+<h2>A Random Walk with Drift<a class="headerlink" href="#a-random-walk-with-drift" title="Link to this heading">#</a></h2>
+<p>Consider a time horizon of 1 year and toss a coin <span class="math notranslate nohighlight">\(n\)</span> times per year.</p>
+<p>We consider time steps of size <span class="math notranslate nohighlight">\(\Delta = 1/n\)</span>.</p>
+<p>The probability of landing on heads is:</p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{1}{2}\left(1 + \mu\sqrt{\Delta}\right)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu &gt; 0\)</span>.</p>
+<section id="construction">
+<h3>Construction<a class="headerlink" href="#construction" title="Link to this heading">#</a></h3>
+<p>We construct the discrete random walk <span class="math notranslate nohighlight">\(X_i\)</span> after <span class="math notranslate nohighlight">\(i\)</span> coin tosses by setting:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X_0 = 0, \quad X_{i+1} - X_i = \begin{cases}
++\sqrt{\Delta} &amp; \text{if a head is obtained} \\
+-\sqrt{\Delta} &amp; \text{if a tail is obtained}
+\end{cases}
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Problem 1</p>
+<ol class="arabic simple">
+<li><p>Compute <span class="math notranslate nohighlight">\(E[X_{i+1} - X_i]\)</span>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\text{var}[X_{i+1} - X_i]\)</span>.</p></li>
+<li><p>What is the limit distribution of <span class="math notranslate nohighlight">\(X_n\)</span> as <span class="math notranslate nohighlight">\(n \to +\infty\)</span>? Justify your answer.</p></li>
+</ol>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Part 1: Expected Increment</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+E[X_{i+1} - X_i] &amp;= p \cdot \sqrt{\Delta} + (1-p) \cdot (-\sqrt{\Delta}) \\
+&amp;= \sqrt{\Delta}(2p - 1) \\
+&amp;= \sqrt{\Delta} \left(2 \cdot \frac{1}{2}(1 + \mu\sqrt{\Delta}) - 1\right) \\
+&amp;= \sqrt{\Delta} \cdot \mu\sqrt{\Delta} \\
+&amp;= \mu \Delta
+\end{align}
+\end{split}\]</div>
+<p class="sd-card-text"><strong>Part 2: Variance of Increment</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\text{var}[X_{i+1} - X_i] &amp;= E[(X_{i+1} - X_i)^2] - (E[X_{i+1} - X_i])^2 \\
+&amp;= \Delta - (\mu \Delta)^2 \\
+&amp;\approx \Delta \quad \text{(for small } \Delta\text{)}
+\end{align}
+\end{split}\]</div>
+<p class="sd-card-text"><strong>Part 3: Limit Distribution</strong></p>
+<p class="sd-card-text">As <span class="math notranslate nohighlight">\(n \to +\infty\)</span> (so <span class="math notranslate nohighlight">\(\Delta \to 0\)</span>):</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(X_n\)</span> has mean <span class="math notranslate nohighlight">\(\approx n \cdot \mu \Delta = \mu\)</span> (since <span class="math notranslate nohighlight">\(n\Delta = 1\)</span>)</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(X_n\)</span> has variance <span class="math notranslate nohighlight">\(\approx n \cdot \Delta = 1\)</span></p></li>
+</ul>
+<p class="sd-card-text">By the Central Limit Theorem:</p>
+<div class="math notranslate nohighlight">
+\[
+X_n \xrightarrow{d} \mathcal{N}(\mu, 1)
+\]</div>
+<p class="sd-card-text"><strong>Conclusion:</strong> <span class="math notranslate nohighlight">\(X_n\)</span> converges to an arithmetic Brownian motion with drift <span class="math notranslate nohighlight">\(\mu\)</span> and volatility <span class="math notranslate nohighlight">\(\sigma = 1\)</span>.</p>
+</div>
+</details><p><strong>Physical Meaning:</strong> By biasing the coin slightly (making heads more likely), we introduce a drift into the random walk. In the limit, this produces Brownian motion with drift.</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this lecture, we covered:</p>
+<ol class="arabic simple">
+<li><p><strong>From Discrete to Continuous:</strong></p>
+<ul class="simple">
+<li><p>Scaling the random walk appropriately</p></li>
+<li><p>Taking limits using the Central Limit Theorem</p></li>
+<li><p>Convergence to Brownian motion</p></li>
+</ul>
+</li>
+<li><p><strong>Quadratic Variation:</strong></p>
+<ul class="simple">
+<li><p>Definition and computation</p></li>
+<li><p>The key property <span class="math notranslate nohighlight">\([W, W](t) = t\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Arithmetic Brownian Motion:</strong></p>
+<ul class="simple">
+<li><p>Models with and without drift</p></li>
+<li><p>Drawback: can become negative</p></li>
+</ul>
+</li>
+<li><p><strong>Geometric Brownian Motion:</strong></p>
+<ul class="simple">
+<li><p>Convergence of binomial tree model</p></li>
+<li><p>Log-normal distribution</p></li>
+<li><p>Always positive prices</p></li>
+</ul>
+</li>
+<li><p><strong>Key Formulas:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S(t) = S(0) e^{(\mu - \frac{1}{2}\sigma^2)t + \sigma W(t)}\)</span></p></li>
+<li><p>Log returns are normally distributed</p></li>
+<li><p>The <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2\)</span> drift correction</p></li>
+</ul>
+</li>
+<li><p><strong>Applications:</strong></p>
+<ul class="simple">
+<li><p>Stock price modeling</p></li>
+<li><p>Option pricing foundation</p></li>
+<li><p>Understanding volatility</p></li>
+</ul>
+</li>
+</ol>
+<p>These continuous-time models form the foundation for modern quantitative finance, including the Black-Scholes-Merton option pricing theory and continuous-time portfolio optimization.</p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Steven E. Shreve, “Stochastic Calculus for Finance I: The Binomial Asset Pricing Model”, 2004, Springer</p></li>
+<li><p>Steven E. Shreve, “Stochastic Calculus for Finance II: Continuous-time Finance”, 2004, Springer</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lecture06_stochastic-processes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to Stochastic Processes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lecture09_brownian-motion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Brownian Motion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-symmetric-random-walk">The Symmetric Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-variation-of-the-random-walk">Quadratic Variation of the Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation">Computation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-symmetric-random-walk">Scaled Symmetric Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-parameters">Scaling Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rescaled-random-walk">Rescaled Random Walk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-non-integer-times">Handling Non-Integer Times</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-limiting-process">The Limiting Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-scaled-random-walk">Properties of the Scaled Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-increments">Independent Increments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationary-increments">Stationary Increments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-and-variance">Expectation and Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#martingale-property">Martingale Property</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-variation">Quadratic Variation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">Central Limit Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#different-parameterization">Different Parameterization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-arithmetic-brownian-motion-model">The Arithmetic Brownian Motion Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discretized-version">Discretized Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moments">Moments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-brownian-motion-with-drift">Arithmetic Brownian Motion with Drift</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution">Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drawback">Drawback</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binomial-tree-model-a-geometric-random-walk">The Binomial Tree Model: A Geometric Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-setup">Initial Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-period-evolution">One-Period Evolution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-period-extension">Multi-Period Extension</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#re-scaled-binomial-asset-pricing-model">Re-Scaled Binomial Asset Pricing Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplifications-and-setup">Simplifications and Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#up-and-down-factors">Up and Down Factors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#counting-heads-and-tails">Counting Heads and Tails</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-asset-price-formula">Scaled Asset Price Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passage-to-the-limit">Passage to the Limit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal-distribution">Log-Normal Distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometric-brownian-motion-asset-price-model">The Geometric Brownian Motion Asset Price Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-drift">Adding Drift</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-volatility-coefficient">The Volatility Coefficient</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-price-and-log-returns">Log Price and Log Returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-price">Log Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-return">Log Return</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-rate-of-return">Relative Rate of Return</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuously-compounded-rate-of-return">Continuously Compounded Rate of Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-the-compounded-return">Distribution of the Compounded Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-frac-1-2-sigma-2-term">The <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2\)</span> Term</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-random-walk-with-drift">A Random Walk with Drift</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#construction">Construction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Agnès Tourin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

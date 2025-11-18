@@ -1,0 +1,1453 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The Black-Scholes Lognormal Model via Formal Integration &#8212; FRE 6083: Quantitative Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/lecture11_black-scholes-model';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Black-Scholes Partial Differential Equation and the Finite Difference Method" href="lecture12_black-scholes-pde-finite-difference.html" />
+    <link rel="prev" title="A Basic Introduction to Stochastic Calculus and Its Application to the Modeling of Dynamic Asset Prices" href="lecture10_stochastic-calculus.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6083: Quantitative Methods</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lecture01_sequences-and-sums.html">Lecture 1: Sequences and Sums of Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture02_convergence-and-limits.html">Lecture 2: Convergence and Limit Theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture03_markov-chains.html">Lecture 3: Markov Chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture04_poisson-process.html">Lecture 4: The Poisson Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture05_binomial-asset-pricing.html">Lecture 5: Binomial Asset Pricing Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture06_stochastic-processes.html">Lecture 6: Stochastic Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture07_brownian-motion.html">Lecture 7: Random Walk Limit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture09_brownian-motion.html">Lecture 9: Brownian Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture10_stochastic-calculus.html">Lecture 10: Stochastic Calculus</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 11: Black-Scholes Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture12_black-scholes-pde-finite-difference.html">Lecture 12: Black-Scholes PDE and Finite Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture13_portfolio-optimization-discrete-time.html">Lecture 13: Portfolio Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture14_american-options-greeks.html">Lecture 14: American Options and Greeks</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/chapters/lecture11_black-scholes-model.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fchapters/lecture11_black-scholes-model.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/lecture11_black-scholes-model.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Black-Scholes Lognormal Model via Formal Integration</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometric-brownian-motion-asset-price-model">The Geometric Brownian Motion Asset Price Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stock-price-dynamics">The Stock Price Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-drift-term">The Drift Term</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-free-asset">Risk-Free Asset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-of-measure">Change of Measure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-risk-neutral-measure">The Risk-Neutral Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-form">Integral Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-absence-of-arbitrage">Existence and Absence of Arbitrage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-the-risk-neutral-measure">Constructing the Risk-Neutral Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stock-price-under-risk-neutral-measure">Stock Price Under Risk-Neutral Measure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-analytical-formula">The Black-Scholes Analytical Formula</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-neutral-pricing-formula">Risk-Neutral Pricing Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-discounted-stock-price-is-a-martingale">The Discounted Stock Price is a Martingale</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hedging-strategy">Hedging Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assets-available">Assets Available</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replication-condition">Replication Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-discounted-portfolio-is-a-martingale">The Discounted Portfolio is a Martingale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Risk-Neutral Pricing Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-markov-property">Using the Markov Property</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#european-call-option">European Call Option</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range-of-applicability">Range of Applicability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-martingale-approach">The Martingale Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-no-stochastic-calculus-approach">Alternative: No Stochastic Calculus Approach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-the-price-of-a-european-option">Derivation of the Price of a European Option</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pricing-function">The Pricing Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-this-possible">When is This Possible?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-call-option-price">Computing the Call Option Price</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Stock Price Under Risk-Neutral Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relating-s-t-to-s-t">Relating <span class="math notranslate nohighlight">\(S(T)\)</span> to <span class="math notranslate nohighlight">\(S(t)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-expectation">Setting Up the Expectation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-d-pm">Defining <span class="math notranslate nohighlight">\(d_{\pm}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-formula">The Black-Scholes Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-about-the-price-of-a-put">How About the Price of a Put?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put-call-parity">Put-Call Parity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#law-of-one-price">Law of One Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put-price-formula">Put Price Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-about-the-hedging-strategy-the-pde-approach">How About the Hedging Strategy? The PDE Approach</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-ito-s-lemma">Applying Ito’s Lemma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hedging-portfolio">The Hedging Portfolio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-financing-condition">Self-Financing Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-pde">Deriving the PDE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminating-risk-delta-hedging">Eliminating Risk: Delta Hedging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-pde">The Black-Scholes PDE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-no-arbitrage-opportunities">Why No Arbitrage Opportunities?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-greeks-delta">The Greeks: Delta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-simulations">Monte Carlo Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-form-formula-for-terminal-stock-price">Closed-Form Formula for Terminal Stock Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm">The Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-and-sample-size">Convergence and Sample Size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-guarantees">Theoretical Guarantees</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-black-scholes-lognormal-model-via-formal-integration">
+<h1>The Black-Scholes Lognormal Model via Formal Integration<a class="headerlink" href="#the-black-scholes-lognormal-model-via-formal-integration" title="Link to this heading">#</a></h1>
+<p>This lecture presents a summary of the Black-Scholes-Merton no-arbitrage theory in continuous time. We begin with the dynamic asset price model before explaining the pricing of derivative securities using both the martingale approach and the PDE approach.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><strong>Recommended References:</strong></p>
+<ul class="simple">
+<li><p>Paul Wilmott, Sam Howison, and Jeff Dewynne, “Mathematics of Financial Derivatives: A Student Introduction”, Cambridge University Press, 1995 (elementary)</p></li>
+<li><p>Steven E. Shreve, “Stochastic Calculus for Finance II: Continuous-time finance”, 2004, Springer (advanced)</p></li>
+<li><p>Steven E. Shreve, “Stochastic Calculus for Finance I: The Binomial Asset Pricing Model”, 2004, Springer</p></li>
+<li><p>Stanley R. Pliska, “Introduction to Mathematical Finance, Discrete Time Models”, 1997, Blackwell Publishing</p></li>
+</ul>
+</div>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>We present a summary of the Black-Scholes-Merton no-arbitrage theory in continuous time.</p>
+<p><strong>Structure:</strong></p>
+<ol class="arabic simple">
+<li><p>Dynamic asset price model (this section)</p></li>
+<li><p>Pricing of derivative securities (following sections)</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Reference Level:</strong></p>
+<p>Reference [4] (Wilmott et al.) is elementary, whereas Reference [2] (Shreve) is more advanced.</p>
+</div>
+</section>
+<section id="the-geometric-brownian-motion-asset-price-model">
+<h2>The Geometric Brownian Motion Asset Price Model<a class="headerlink" href="#the-geometric-brownian-motion-asset-price-model" title="Link to this heading">#</a></h2>
+<section id="the-stock-price-dynamics">
+<h3>The Stock Price Dynamics<a class="headerlink" href="#the-stock-price-dynamics" title="Link to this heading">#</a></h3>
+<p>We consider an asset price <span class="math notranslate nohighlight">\(S(t)\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> which follows the <strong>geometric Brownian motion</strong> model.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Stock Price SDE (Under Physical Measure <span class="math notranslate nohighlight">\(P\)</span>):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+dS(t) = \mu S(t)dt + \sigma S(t)dW(t), \quad S(0) = S_0
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(W(t)\)</span> is a <strong>standard Brownian motion</strong> under the probability measure <span class="math notranslate nohighlight">\(P\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu, \sigma\)</span> are constants with <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P\)</span> is the <strong>true probability measure</strong> (physical measure)</p></li>
+</ul>
+</div>
+<p><strong>Physical Meaning:</strong> The stock price evolves with a deterministic drift <span class="math notranslate nohighlight">\(\mu\)</span> (expected return) and random fluctuations governed by volatility <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+</section>
+<section id="the-drift-term">
+<h3>The Drift Term<a class="headerlink" href="#the-drift-term" title="Link to this heading">#</a></h3>
+<p>Because of the presence of the drift coefficient <span class="math notranslate nohighlight">\(\mu\)</span>, the stock price tends to go up or down and <strong>is not a martingale</strong> under <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</section>
+<section id="risk-free-asset">
+<h3>Risk-Free Asset<a class="headerlink" href="#risk-free-asset" title="Link to this heading">#</a></h3>
+<p>We also assume there exists a <strong>risk-free rate</strong> <span class="math notranslate nohighlight">\(r &gt; 0\)</span>, which could be taken to be the interest rate paid by a money market account.</p>
+</section>
+</section>
+<section id="change-of-measure">
+<h2>Change of Measure<a class="headerlink" href="#change-of-measure" title="Link to this heading">#</a></h2>
+<p>The key to option pricing is changing from the physical measure to a risk-neutral measure.</p>
+<section id="the-risk-neutral-measure">
+<h3>The Risk-Neutral Measure<a class="headerlink" href="#the-risk-neutral-measure" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Risk-Neutral Probability Measure <span class="math notranslate nohighlight">\(\tilde{P}\)</span>:</strong></p>
+<p>We can change the probability measure from <span class="math notranslate nohighlight">\(P\)</span> to an equivalent probability measure <span class="math notranslate nohighlight">\(\tilde{P}\)</span>, under which the <strong>discounted stock price</strong> <span class="math notranslate nohighlight">\(e^{-rt}S(t)\)</span> is a martingale:</p>
+<div class="math notranslate nohighlight">
+\[
+d(e^{-rt}S(t)) = \sigma(e^{-rt}S(t))d\tilde{W}(t)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tilde{W}(t)\)</span> is a Brownian motion under the <strong>risk-neutral probability measure</strong> <span class="math notranslate nohighlight">\(\tilde{P}\)</span>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> Under the risk-neutral measure, there is no <span class="math notranslate nohighlight">\(dt\)</span> term (no drift) in the equation for the discounted stock price. This makes it a martingale.</p>
+</section>
+<section id="integral-form">
+<h3>Integral Form<a class="headerlink" href="#integral-form" title="Link to this heading">#</a></h3>
+<p>Another way to see this is by rewriting in integral form:</p>
+<div class="math notranslate nohighlight">
+\[
+e^{-rt}S(t) - S(0) = \int_0^t e^{-ru}S(u)\sigma d\tilde{W}(u)
+\]</div>
+<p>The Ito integral on the right-hand side is a <strong>martingale</strong>.</p>
+</section>
+<section id="existence-and-absence-of-arbitrage">
+<h3>Existence and Absence of Arbitrage<a class="headerlink" href="#existence-and-absence-of-arbitrage" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Fundamental Theorem:</strong></p>
+<p>The existence of such a risk-neutral probability measure is due to the <strong>absence of arbitrage</strong> in the Black-Scholes-Merton model.</p>
+<p>The idea is exactly the same as for the binomial tree model seen earlier.</p>
+</div>
+</section>
+<section id="constructing-the-risk-neutral-measure">
+<h3>Constructing the Risk-Neutral Measure<a class="headerlink" href="#constructing-the-risk-neutral-measure" title="Link to this heading">#</a></h3>
+<p>We “hide” the drift coefficient into the Brownian term:</p>
+<div class="math notranslate nohighlight">
+\[
+dS(t) = rS(t)dt + \sigma S(t)\left[\frac{\mu - r}{\sigma}dt + dW(t)\right]
+\]</div>
+<p>The ratio <span class="math notranslate nohighlight">\(\frac{\mu - r}{\sigma}\)</span> represents the <strong>market price of risk</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Change of Measure Formula:</strong></p>
+<p>It is possible to define a risk-neutral probability measure <span class="math notranslate nohighlight">\(\tilde{P}\)</span> under which the process:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{W}(t) = \frac{\mu - r}{\sigma}t + W(t)
+\]</div>
+<p>is a standard Brownian motion.</p>
+<p><strong>Interpretation:</strong> The change of measure “removes the mean” from the Brownian motion.</p>
+</div>
+</section>
+<section id="stock-price-under-risk-neutral-measure">
+<h3>Stock Price Under Risk-Neutral Measure<a class="headerlink" href="#stock-price-under-risk-neutral-measure" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>SDE Under Risk-Neutral Measure:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+dS(t) = rS(t)dt + \sigma S(t)d\tilde{W}(t), \quad S(0) = S_0
+\]</div>
+<p><strong>Interpretation:</strong> Under the risk-neutral probability measure <span class="math notranslate nohighlight">\(\tilde{P}\)</span>, the stock’s instantaneous rate of return per unit time equals the risk-free rate <span class="math notranslate nohighlight">\(r\)</span>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> In the risk-neutral world, all assets earn the risk-free rate on average. This doesn’t mean stocks actually earn <span class="math notranslate nohighlight">\(r\)</span>, but it’s a mathematical convenience for pricing derivatives.</p>
+</section>
+</section>
+<section id="the-black-scholes-analytical-formula">
+<h2>The Black-Scholes Analytical Formula<a class="headerlink" href="#the-black-scholes-analytical-formula" title="Link to this heading">#</a></h2>
+<section id="goal">
+<h3>Goal<a class="headerlink" href="#goal" title="Link to this heading">#</a></h3>
+<p>In this section, we compute the price of a <strong>European call option</strong> using the Black-Scholes-Merton no-arbitrage theory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Approach:</strong></p>
+<p>We present an outline of the theory and refer to the references for further details.</p>
+</div>
+</section>
+<section id="risk-neutral-pricing-formula">
+<h3>Risk-Neutral Pricing Formula<a class="headerlink" href="#risk-neutral-pricing-formula" title="Link to this heading">#</a></h3>
+<p>Our first goal is to derive the <strong>risk-neutral pricing formula</strong>, which characterizes the fair price <span class="math notranslate nohighlight">\(V(t)\)</span> of a European derivative security at time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p><strong>Purpose:</strong> The risk-neutral pricing formula allows us to derive an analytical formula for the option price.</p>
+</section>
+<section id="the-discounted-stock-price-is-a-martingale">
+<h3>The Discounted Stock Price is a Martingale<a class="headerlink" href="#the-discounted-stock-price-is-a-martingale" title="Link to this heading">#</a></h3>
+<p>Recall that the discounted stock price is a martingale under <span class="math notranslate nohighlight">\(\tilde{P}\)</span>.</p>
+</section>
+</section>
+<section id="hedging-strategy">
+<h2>Hedging Strategy<a class="headerlink" href="#hedging-strategy" title="Link to this heading">#</a></h2>
+<p>Consider an agent who is <strong>short a call</strong> and needs to hedge this short position.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Notation:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X(t)\)</span> = value of the hedging portfolio at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(X(0) = V(0)\)</span> = initial capital</p></li>
+<li><p><span class="math notranslate nohighlight">\(X(T) = V(T)\)</span> = terminal value must match the option payoff</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta(t)\)</span> = number of shares of stock held at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+</ul>
+</div>
+<section id="assets-available">
+<h3>Assets Available<a class="headerlink" href="#assets-available" title="Link to this heading">#</a></h3>
+<p>The agent can invest in:</p>
+<ol class="arabic simple">
+<li><p>A <strong>money market account</strong> which pays constant interest rate <span class="math notranslate nohighlight">\(r &gt; 0\)</span> (the risk-free rate)</p></li>
+<li><p>The <strong>underlying asset</strong> (stock)</p></li>
+</ol>
+</section>
+<section id="replication-condition">
+<h3>Replication Condition<a class="headerlink" href="#replication-condition" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Perfect Replication:</strong></p>
+<p>For perfect hedging (no arbitrage), the portfolio must replicate the option at every intermediate time:</p>
+<div class="math notranslate nohighlight">
+\[
+X(t) = V(t), \quad \text{for all } t \in [0, T]
+\]</div>
+<p>Any deviation would introduce an <strong>arbitrage opportunity</strong>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> At every moment, the capital needed to hedge the short position equals the option value. Otherwise, there would be a riskless profit opportunity.</p>
+</section>
+<section id="the-discounted-portfolio-is-a-martingale">
+<h3>The Discounted Portfolio is a Martingale<a class="headerlink" href="#the-discounted-portfolio-is-a-martingale" title="Link to this heading">#</a></h3>
+<p>It turns out that the <strong>discounted portfolio</strong> is also a martingale under the risk-neutral probability measure (this can be shown using stochastic calculus).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Martingale Property:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+e^{-rt}X(t) &amp;= \tilde{E}[e^{-rT}X(T) \mid \{\tilde{W}(s); 0 \leq s \leq t\}] \\
+&amp;= \tilde{E}[e^{-rT}V(T) \mid \{\tilde{W}(s); 0 \leq s \leq t\}]
+\end{align}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tilde{E}\)</span> denotes expectation under <span class="math notranslate nohighlight">\(\tilde{P}\)</span>.</p>
+</div>
+</section>
+<section id="id1">
+<h3>Risk-Neutral Pricing Formula<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Since <span class="math notranslate nohighlight">\(V(t) = X(t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+e^{-rt}V(t) = \tilde{E}[e^{-rT}V(T) \mid \{\tilde{W}(s); 0 \leq s \leq t\}]
+\]</div>
+<p>Dividing both sides by <span class="math notranslate nohighlight">\(e^{-rt}\)</span>:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Risk-Neutral Pricing Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+V(t) = \tilde{E}[e^{-r(T-t)}V(T) \mid \{\tilde{W}(s); 0 \leq s \leq t\}], \quad t \in [0, T]
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> The option value at time <span class="math notranslate nohighlight">\(t\)</span> equals the expected discounted payoff under the risk-neutral measure, conditional on information up to time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</section>
+<section id="using-the-markov-property">
+<h3>Using the Markov Property<a class="headerlink" href="#using-the-markov-property" title="Link to this heading">#</a></h3>
+<p>Since the Brownian motion has <strong>independent increments</strong> and is the only source of uncertainty, and the drift and diffusion coefficients only depend on the current asset price, the asset price is a <strong>Markovian process</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Simplified Pricing Formula (Markov Property):</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+V(t) &amp;= \tilde{E}[e^{-r(T-t)}V(T) \mid \{S(s); 0 \leq s \leq t\}] \\
+&amp;= \tilde{E}[e^{-r(T-t)}V(T) \mid S(t)]
+\end{align}
+\end{split}\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> Essentially, as in the binomial tree model, <span class="math notranslate nohighlight">\(V(t)\)</span> equals the <strong>discounted expected payoff</strong> under the risk-neutral probability measure, given the asset price at time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</section>
+</section>
+<section id="european-call-option">
+<h2>European Call Option<a class="headerlink" href="#european-call-option" title="Link to this heading">#</a></h2>
+<p>For a European call option, the payoff is:</p>
+<div class="math notranslate nohighlight">
+\[
+V(T) = (S(T) - K)^+
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(K\)</span> is the strike price.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Call Option Pricing Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+V(t) = \tilde{E}[e^{-r(T-t)}(S(T) - K)^+ \mid S(t)]
+\]</div>
+</div>
+<p>It is fairly easy to derive a <strong>closed-form formula</strong> for the price of a European call from this risk-neutral pricing formula.</p>
+<section id="range-of-applicability">
+<h3>Range of Applicability<a class="headerlink" href="#range-of-applicability" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>When Does This Work?</strong></p>
+<p>The risk-neutral pricing formula works as long as the payoff can be written as a function of the maturity date <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p><strong>Examples:</strong></p>
+<ul class="simple">
+<li><p><strong>European options:</strong> Straightforward application</p></li>
+<li><p><strong>Exotic options:</strong> Some specific exotic options (e.g., barrier options, lookback options) can be priced using slightly more complex techniques</p></li>
+<li><p><strong>Path-dependent options:</strong> When the payoff depends on the entire path (e.g., Asian options), this approach may not yield closed-form solutions</p></li>
+</ul>
+</div>
+</section>
+<section id="the-martingale-approach">
+<h3>The Martingale Approach<a class="headerlink" href="#the-martingale-approach" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Advantages of the Martingale Approach:</strong></p>
+<ul class="simple">
+<li><p>Can be virtually generalized to <strong>any derivative security</strong></p></li>
+<li><p>Helps solve many other financial applications</p></li>
+<li><p>Provides deep theoretical insights</p></li>
+</ul>
+<p><strong>Limitation:</strong></p>
+<p>This approach does not help determine the <strong>hedging ratio</strong> <span class="math notranslate nohighlight">\(\Delta(t)\)</span>.</p>
+</div>
+</section>
+<section id="alternative-no-stochastic-calculus-approach">
+<h3>Alternative: No Stochastic Calculus Approach<a class="headerlink" href="#alternative-no-stochastic-calculus-approach" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Simple Case:</strong></p>
+<p>In the simple case of a European derivative, it is possible to reach the same conclusions <strong>without using stochastic calculus</strong>, by relying on:</p>
+<ul class="simple">
+<li><p>Absence of arbitrage</p></li>
+<li><p>Law of one price</p></li>
+<li><p>Linearity of portfolios</p></li>
+<li><p>Rationality of agents</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="derivation-of-the-price-of-a-european-option">
+<h2>Derivation of the Price of a European Option<a class="headerlink" href="#derivation-of-the-price-of-a-european-option" title="Link to this heading">#</a></h2>
+<section id="the-pricing-function">
+<h3>The Pricing Function<a class="headerlink" href="#the-pricing-function" title="Link to this heading">#</a></h3>
+<p>Since the price of the call <span class="math notranslate nohighlight">\(V(t)\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> depends only on:</p>
+<ul class="simple">
+<li><p>The time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p>The price of the stock at time <span class="math notranslate nohighlight">\(t\)</span> (not the stock price prior to <span class="math notranslate nohighlight">\(t\)</span>)</p></li>
+</ul>
+<p>by the <strong>Markov property</strong>, there exists a function <span class="math notranslate nohighlight">\(v(t, s)\)</span> such that:</p>
+<div class="math notranslate nohighlight">
+\[
+V(t) = v(t, S(t))
+\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Pricing Function:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+v(t, s) = \tilde{E}[e^{-r(T-t)}V(T) \mid S(t) = s]
+\]</div>
+</div>
+</section>
+<section id="id2">
+<h3>Goal<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>In this section, we use the risk-neutral pricing formula to derive an <strong>analytical formula</strong> for the price of a European call with payoff:</p>
+<div class="math notranslate nohighlight">
+\[
+V(T) = (S(T) - K)^+
+\]</div>
+</section>
+<section id="when-is-this-possible">
+<h3>When is This Possible?<a class="headerlink" href="#when-is-this-possible" title="Link to this heading">#</a></h3>
+<p>The same approach can be used to compute the price of some other options, such as <strong>binary options</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Limitation:</strong></p>
+<p>Even when the risk-neutral pricing formula holds, it is <strong>not always possible</strong> to derive the price in closed form.</p>
+<p><strong>Example:</strong> The risk-neutral pricing formula is applicable to Asian options, but there is <strong>no exact analytical formula</strong> available for the price of an Asian option.</p>
+</div>
+</section>
+</section>
+<section id="computing-the-call-option-price">
+<h2>Computing the Call Option Price<a class="headerlink" href="#computing-the-call-option-price" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Stock Price Under Risk-Neutral Measure<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Recall that under the risk-neutral measure:</p>
+<div class="math notranslate nohighlight">
+\[
+S(t) = S(0)\exp\left\{\tilde{W}(t) + \left(r - \frac{1}{2}\sigma^2\right)t\right\}
+\]</div>
+<p>Similarly:</p>
+<div class="math notranslate nohighlight">
+\[
+S(T) = S(0)\exp\left\{\tilde{W}(T) + \left(r - \frac{1}{2}\sigma^2\right)T\right\}
+\]</div>
+</section>
+<section id="relating-s-t-to-s-t">
+<h3>Relating <span class="math notranslate nohighlight">\(S(T)\)</span> to <span class="math notranslate nohighlight">\(S(t)\)</span><a class="headerlink" href="#relating-s-t-to-s-t" title="Link to this heading">#</a></h3>
+<p>Taking the ratio:</p>
+<div class="math notranslate nohighlight">
+\[
+S(T) = S(t)\exp\left\{(\tilde{W}(T) - \tilde{W}(t)) + \left(r - \frac{1}{2}\sigma^2\right)(T-t)\right\}
+\]</div>
+<p>Define the standard normal random variable:</p>
+<div class="math notranslate nohighlight">
+\[
+Y = \frac{\tilde{W}(T) - \tilde{W}(t)}{\sigma\sqrt{T-t}}
+\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[
+S(T) = S(t)\exp\left\{\sigma\sqrt{T-t} \, Y + \left(r - \frac{1}{2}\sigma^2\right)(T-t)\right\}
+\]</div>
+</section>
+<section id="setting-up-the-expectation">
+<h3>Setting Up the Expectation<a class="headerlink" href="#setting-up-the-expectation" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(s = S(t)\)</span> denote the current stock price.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Detailed Calculation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+v(t, s) &amp;= \tilde{E}\left[\exp(-r(T-t))\left(s\exp\left\{\sigma\sqrt{T-t}Y + \left(r - \frac{1}{2}\sigma^2\right)(T-t)\right\} - K\right)^+\right] \\
+&amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} \exp(-r(T-t))\left(s\exp\left\{\sigma\sqrt{T-t}y + \left(r - \frac{1}{2}\sigma^2\right)(T-t)\right\} - K\right)^+ \exp\left(-\frac{1}{2}y^2\right)dy
+\end{align}
+\end{split}\]</div>
+<p class="sd-card-text">The expression inside the expectation is positive if and only if:</p>
+<div class="math notranslate nohighlight">
+\[
+s\exp\left\{\sigma\sqrt{T-t}y + \left(r - \frac{1}{2}\sigma^2\right)(T-t)\right\} &gt; K
+\]</div>
+<p class="sd-card-text">which is equivalent to:</p>
+<div class="math notranslate nohighlight">
+\[
+y &lt; \frac{1}{\sigma\sqrt{T-t}}\left[\log\frac{s}{K} + \left(r + \frac{\sigma^2}{2}\right)(T-t)\right]
+\]</div>
+</div>
+</details></section>
+<section id="defining-d-pm">
+<h3>Defining <span class="math notranslate nohighlight">\(d_{\pm}\)</span><a class="headerlink" href="#defining-d-pm" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Auxiliary Functions:</strong></p>
+<p>Define:</p>
+<div class="math notranslate nohighlight">
+\[
+d_-(t, s) = \frac{1}{\sigma\sqrt{T-t}}\left[\log\frac{s}{K} + \left(r - \frac{\sigma^2}{2}\right)(T-t)\right]
+\]</div>
+<p>and:</p>
+<div class="math notranslate nohighlight">
+\[
+d_+(t, s) = d_-(t, s) + \sigma\sqrt{T-t} = \frac{1}{\sigma\sqrt{T-t}}\left[\log\frac{s}{K} + \left(r + \frac{\sigma^2}{2}\right)(T-t)\right]
+\]</div>
+<p>Equivalently, with <span class="math notranslate nohighlight">\(\tau = T - t\)</span> (time to maturity):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+d_-(\tau, s) &amp;= \frac{1}{\sigma\sqrt{\tau}}\left[\log\frac{s}{K} + \left(r - \frac{\sigma^2}{2}\right)\tau\right] \\
+d_+(\tau, s) &amp;= \frac{1}{\sigma\sqrt{\tau}}\left[\log\frac{s}{K} + \left(r + \frac{\sigma^2}{2}\right)\tau\right]
+\end{align}
+\end{split}\]</div>
+</div>
+</section>
+<section id="the-black-scholes-formula">
+<h3>The Black-Scholes Formula<a class="headerlink" href="#the-black-scholes-formula" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Detailed Derivation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+v(t, s) &amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{d_-(T-t, s)} \left[s\exp\left\{\sigma\sqrt{T-t}y + \frac{1}{2}\sigma^2(T-t) - \frac{1}{2}y^2\right\} - \exp(-r(T-t))K\exp\left(-\frac{1}{2}y^2\right)\right]dy \\
+&amp;= \frac{s}{\sqrt{2\pi}}\int_{-\infty}^{d_-(T-t, s)} \exp\left\{-\frac{1}{2}(y - \sigma\sqrt{T-t})^2\right\}dy - \exp(-r(T-t))K \cdot N(d_-(T-t, s)) \\
+&amp;= s \cdot N(d_+(T-t, s)) - \exp(-r(T-t))K \cdot N(d_-(T-t, s))
+\end{align}
+\end{split}\]</div>
+<p class="sd-card-text">where <span class="math notranslate nohighlight">\(N\)</span> denotes the standard normal cumulative distribution function.</p>
+</div>
+</details><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Black-Scholes Formula for European Call:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+v(t, s) = s \, N(d_+(T-t, s)) - e^{-r(T-t)}K \, N(d_-(T-t, s))
+\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+d_+(\tau, s) &amp;= \frac{\log(s/K) + (r + \sigma^2/2)\tau}{\sigma\sqrt{\tau}} \\
+d_-(\tau, s) &amp;= \frac{\log(s/K) + (r - \sigma^2/2)\tau}{\sigma\sqrt{\tau}} = d_+ - \sigma\sqrt{\tau}
+\end{align}
+\end{split}\]</div>
+<p>and <span class="math notranslate nohighlight">\(N(\cdot)\)</span> is the standard normal CDF.</p>
+</div>
+<p><strong>Physical Meaning:</strong></p>
+<ul class="simple">
+<li><p>The first term <span class="math notranslate nohighlight">\(s \, N(d_+)\)</span> represents the expected benefit from acquiring the stock</p></li>
+<li><p>The second term <span class="math notranslate nohighlight">\(e^{-r(T-t)}K \, N(d_-)\)</span> is the present value of paying the strike price</p></li>
+<li><p><span class="math notranslate nohighlight">\(N(d_-)\)</span> can be interpreted as the risk-neutral probability that the option will be exercised</p></li>
+</ul>
+</section>
+</section>
+<section id="how-about-the-price-of-a-put">
+<h2>How About the Price of a Put?<a class="headerlink" href="#how-about-the-price-of-a-put" title="Link to this heading">#</a></h2>
+<p>The payoff of a European put is:</p>
+<div class="math notranslate nohighlight">
+\[
+V(T) = (K - S(T))^+
+\]</div>
+<section id="put-call-parity">
+<h3>Put-Call Parity<a class="headerlink" href="#put-call-parity" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Put-Call Parity Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+F(t, s) = s - e^{-r(T-t)}K = v(t, s) - p(t, s)
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p(t, s)\)</span> = price of a put</p></li>
+<li><p><span class="math notranslate nohighlight">\(v(t, s)\)</span> = price of a call</p></li>
+<li><p><span class="math notranslate nohighlight">\(F(t, s)\)</span> = price of a forward contract</p></li>
+</ul>
+</div>
+<p><strong>Verification at Maturity:</strong> At <span class="math notranslate nohighlight">\(T = t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+F(T, s) = v(T, s) - p(T, s)
+\]</div>
+</section>
+<section id="law-of-one-price">
+<h3>Law of One Price<a class="headerlink" href="#law-of-one-price" title="Link to this heading">#</a></h3>
+<p>By the <strong>law of one price</strong>, this equality must still be true for every <span class="math notranslate nohighlight">\(0 \leq t &lt; T\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Arbitrage Argument</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">If this equation were wrong, one could either sell or buy the portfolio that is:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Long a call</p></li>
+<li><p class="sd-card-text">Short a put</p></li>
+<li><p class="sd-card-text">Short a forward</p></li>
+</ul>
+<p class="sd-card-text">to realize a profit instantly, which contradicts the assumption of no arbitrage in the Black-Scholes model.</p>
+</div>
+</details></section>
+<section id="put-price-formula">
+<h3>Put Price Formula<a class="headerlink" href="#put-price-formula" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Black-Scholes Formula for European Put:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+p(t, s) &amp;= v(t, s) - s + Ke^{-r(T-t)} \\
+&amp;= s \, N(d_+(T-t, s)) - e^{-r(T-t)}K \, N(d_-(T-t, s)) - s + Ke^{-r(T-t)} \\
+&amp;= Ke^{-r(T-t)}N(-d_-(T-t, s)) - s \, N(-d_+(T-t, s))
+\end{align}
+\end{split}\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> The put formula has a similar structure to the call formula, but with complementary probabilities <span class="math notranslate nohighlight">\(N(-d_+)\)</span> and <span class="math notranslate nohighlight">\(N(-d_-)\)</span> reflecting the payoff when the stock price falls below the strike.</p>
+</section>
+</section>
+<section id="how-about-the-hedging-strategy-the-pde-approach">
+<h2>How About the Hedging Strategy? The PDE Approach<a class="headerlink" href="#how-about-the-hedging-strategy-the-pde-approach" title="Link to this heading">#</a></h2>
+<p>One can derive the <strong>hedging strategy</strong> in closed form along with the Black-Scholes partial differential equation using the <strong>PDE approach</strong>.</p>
+<section id="applying-ito-s-lemma">
+<h3>Applying Ito’s Lemma<a class="headerlink" href="#applying-ito-s-lemma" title="Link to this heading">#</a></h3>
+<p>Apply Ito’s lemma to the price <span class="math notranslate nohighlight">\(v(t, S(t))\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> of the European call:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Ito’s Formula Application</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+dv(t, S(t)) &amp;= v_t(t, S(t))dt + v_s(t, S(t))dS(t) + \frac{1}{2}v_{ss}(t, S(t))dS(t)dS(t) \\
+&amp;= \left[v_t(t, S(t)) + \mu S(t)v_s(t, S(t)) + \frac{1}{2}\sigma^2 S(t)^2 v_{ss}(t, S(t))\right]dt \\
+&amp;\quad + \sigma S(t)v_s(t, S(t))dW(t)
+\end{align}
+\end{split}\]</div>
+</div>
+</details></section>
+<section id="the-hedging-portfolio">
+<h3>The Hedging Portfolio<a class="headerlink" href="#the-hedging-portfolio" title="Link to this heading">#</a></h3>
+<p>Consider an investor who is <strong>short a European call</strong> and needs to hedge the short position.</p>
+<p><strong>Notation:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X(t)\)</span> = value of the hedging portfolio at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta(t)\)</span> = number of shares of underlying asset held at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+</ul>
+</section>
+<section id="self-financing-condition">
+<h3>Self-Financing Condition<a class="headerlink" href="#self-financing-condition" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Self-Financing Portfolio:</strong></p>
+<p>The evolution of the investor’s self-financing portfolio is:</p>
+<div class="math notranslate nohighlight">
+\[
+dX(t) = \Delta(t)dS(t) + r(X(t) - \Delta(t)S(t))dt
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> The change in portfolio value comes from:</p>
+<ul class="simple">
+<li><p>Gains/losses on the stock position: <span class="math notranslate nohighlight">\(\Delta(t)dS(t)\)</span></p></li>
+<li><p>Interest earned on cash: <span class="math notranslate nohighlight">\(r(X(t) - \Delta(t)S(t))dt\)</span></p></li>
+</ul>
+<p>The <strong>self-financing condition</strong> means there is no cash flowing in or out of the portfolio on <span class="math notranslate nohighlight">\([0, T]\)</span> (same as in the binomial tree model).</p>
+</section>
+<section id="deriving-the-pde">
+<h3>Deriving the PDE<a class="headerlink" href="#deriving-the-pde" title="Link to this heading">#</a></h3>
+<p>Compute the differential of the investor’s position (long hedging portfolio, short call):</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Detailed Derivation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+d(X(t) - v(t, S(t))) &amp;= \Delta(t)dS(t) + r(X(t) - \Delta(t)S(t))dt - dv(t, S(t)) \\
+&amp;= \mu\Delta(t)S(t)dt + \sigma\Delta(t)S(t)dW(t) + r(X(t) - \Delta(t)S(t))dt \\
+&amp;\quad - [v_t(t, S(t)) + \mu S(t)v_s(t, S(t)) + \frac{1}{2}\sigma^2 S(t)^2 v_{ss}(t, S(t))]dt \\
+&amp;\quad - \sigma S(t)v_s(t, S(t))dW(t)
+\end{align}
+\end{split}\]</div>
+<p class="sd-card-text"><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(X(T) = v(T, S(T)) = (S(T) - K)^+\)</span> (terminal condition)</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(X(0) = v(0, S(0))\)</span> (initial capital)</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(X(t) = v(t, S(t))\)</span> for all <span class="math notranslate nohighlight">\(0 \leq t \leq T\)</span> (perfect replication)</p></li>
+</ul>
+</div>
+</details></section>
+<section id="eliminating-risk-delta-hedging">
+<h3>Eliminating Risk: Delta Hedging<a class="headerlink" href="#eliminating-risk-delta-hedging" title="Link to this heading">#</a></h3>
+<p>To replicate the option payout with certainty, we cancel the <strong>fluctuating Brownian terms</strong> by choosing:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Delta-Hedging Strategy:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta(t) = v_s(t, S(t))
+\]</div>
+<p>This is called the <strong>Delta</strong> of the option.</p>
+</div>
+<p><strong>Physical Meaning:</strong> At each instant, hold a number of shares equal to the derivative of the option price with respect to the stock price. This makes the portfolio locally risk-free.</p>
+</section>
+<section id="the-black-scholes-pde">
+<h3>The Black-Scholes PDE<a class="headerlink" href="#the-black-scholes-pde" title="Link to this heading">#</a></h3>
+<p>After substituting the delta-hedging strategy and simplifying:</p>
+<div class="math notranslate nohighlight">
+\[
+v_t(t, S(t)) + rS(t)v_s(t, S(t)) + \frac{1}{2}\sigma^2 S(t)^2 v_{ss}(t, S(t)) = rv(t, S(t))
+\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Black-Scholes-Merton Partial Differential Equation:</strong></p>
+<p>For all <span class="math notranslate nohighlight">\(t \in [0, T)\)</span> and <span class="math notranslate nohighlight">\(s \geq 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+v_t(t, s) + rsv_s(t, s) + \frac{1}{2}\sigma^2 s^2 v_{ss}(t, s) = rv(t, s)
+\]</div>
+<p><strong>Terminal Condition:</strong>
+$<span class="math notranslate nohighlight">\(
+v(T, s) = (s - K)^+
+\)</span>$</p>
+</div>
+<p><strong>Physical Meaning:</strong> The option price must satisfy this PDE. The PDE incorporates:</p>
+<ul class="simple">
+<li><p>Time decay: <span class="math notranslate nohighlight">\(v_t\)</span></p></li>
+<li><p>Sensitivity to stock price: <span class="math notranslate nohighlight">\(v_s\)</span></p></li>
+<li><p>Convexity (gamma): <span class="math notranslate nohighlight">\(v_{ss}\)</span></p></li>
+<li><p>Discounting: <span class="math notranslate nohighlight">\(rv\)</span></p></li>
+</ul>
+</section>
+<section id="why-no-arbitrage-opportunities">
+<h3>Why No Arbitrage Opportunities?<a class="headerlink" href="#why-no-arbitrage-opportunities" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Arbitrage Prevention</p>
+<p>If at any time <span class="math notranslate nohighlight">\(t\)</span> we had:</p>
+<div class="math notranslate nohighlight">
+\[
+X(t) &gt; v(t, S(t))
+\]</div>
+<p>one could borrow the difference <span class="math notranslate nohighlight">\(X(t) - v(t, S(t))\)</span> from the money market account at rate <span class="math notranslate nohighlight">\(r &gt; 0\)</span> to invest in the portfolio that is:</p>
+<ul class="simple">
+<li><p>Long the hedging portfolio <span class="math notranslate nohighlight">\(X(t)\)</span></p></li>
+<li><p>Short the European call <span class="math notranslate nohighlight">\(v(t, S(t))\)</span></p></li>
+</ul>
+<p>thus realizing a <strong>riskless profit</strong>.</p>
+<p>This would constitute an <strong>arbitrage opportunity</strong>, which violates our assumptions.</p>
+</div>
+</section>
+</section>
+<section id="the-greeks-delta">
+<h2>The Greeks: Delta<a class="headerlink" href="#the-greeks-delta" title="Link to this heading">#</a></h2>
+<p>One can use the analytical formula previously derived and differentiate it to obtain the <strong>Delta</strong> of the call analytically.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Delta of European Call:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\Delta(t, s) = v_s(t, s) = N(d_+(T-t, s))
+\]</div>
+<p><strong>Interpretation:</strong> The Delta represents the number of shares of stock in the hedging portfolio. It is also called one of the <strong>Greeks</strong>.</p>
+</div>
+<p><strong>Physical Meaning:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta\)</span> is always between 0 and 1 for a call</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(s \gg K\)</span> (deep in-the-money), <span class="math notranslate nohighlight">\(\Delta \approx 1\)</span></p></li>
+<li><p>When <span class="math notranslate nohighlight">\(s \ll K\)</span> (deep out-of-the-money), <span class="math notranslate nohighlight">\(\Delta \approx 0\)</span></p></li>
+<li><p>At-the-money options have <span class="math notranslate nohighlight">\(\Delta \approx 0.5\)</span></p></li>
+</ul>
+</section>
+<section id="monte-carlo-simulations">
+<h2>Monte Carlo Simulations<a class="headerlink" href="#monte-carlo-simulations" title="Link to this heading">#</a></h2>
+<p>Since we can compute the option price analytically, we <strong>do not need</strong> to resort to Monte Carlo simulations in this case.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>When is Monte Carlo Useful?</strong></p>
+<p>Monte Carlo simulations can be very useful for:</p>
+<ul class="simple">
+<li><p><strong>Path-dependent options</strong> (e.g., Asian options)</p></li>
+<li><p><strong>American options</strong></p></li>
+<li><p>Complex derivatives without closed-form solutions</p></li>
+</ul>
+</div>
+<section id="closed-form-formula-for-terminal-stock-price">
+<h3>Closed-Form Formula for Terminal Stock Price<a class="headerlink" href="#closed-form-formula-for-terminal-stock-price" title="Link to this heading">#</a></h3>
+<p>Recall:</p>
+<div class="math notranslate nohighlight">
+\[
+S(T) = S(0)\exp\left\{\left(r - \frac{1}{2}\sigma^2\right)T + \sigma\tilde{W}(T)\right\}
+\]</div>
+<p>Assume the initial stock price is given and equals <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<p>We can rewrite:</p>
+<div class="math notranslate nohighlight">
+\[
+S(T) = s\exp\left\{\left(r - \frac{1}{2}\sigma^2\right)T + \sigma\sqrt{T} \, Y\right\}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Y\)</span> is a standard normal random variable.</p>
+</section>
+<section id="the-algorithm">
+<h3>The Algorithm<a class="headerlink" href="#the-algorithm" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Monte Carlo Algorithm for European Call:</strong></p>
+<ol class="arabic">
+<li><p><strong>Start</strong> with <span class="math notranslate nohighlight">\(S(0) = s\)</span></p></li>
+<li><p><strong>For each</strong> <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>:</p>
+<p>2.1. <strong>Generate</strong> <span class="math notranslate nohighlight">\(S_i(T)\)</span> using:
+$<span class="math notranslate nohighlight">\(
+     S_i(T) = s\exp\left\{\left(r - \frac{1}{2}\sigma^2\right)T + \sigma\sqrt{T} \, Y_i\right\}
+     \)</span><span class="math notranslate nohighlight">\(
+     where \)</span>Y_i<span class="math notranslate nohighlight">\( is drawn from the standard normal distribution and \)</span>Y_1, Y_2, \ldots, Y_n$ are independent</p>
+<p>2.2. <strong>Set</strong> <span class="math notranslate nohighlight">\(C_i = e^{-rT}(S_i(T) - K)^+\)</span></p>
+</li>
+<li><p><strong>Compute the average:</strong>
+$<span class="math notranslate nohighlight">\(
+\hat{C}_n = \frac{1}{n}\sum_{i=1}^{n} C_i
+\)</span>$</p></li>
+</ol>
+</div>
+<p><strong>Physical Meaning:</strong> Simulate many possible future stock prices under the risk-neutral measure, compute the discounted payoff for each, and average them.</p>
+</section>
+<section id="convergence-and-sample-size">
+<h3>Convergence and Sample Size<a class="headerlink" href="#convergence-and-sample-size" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Sample Size:</strong></p>
+<p>Since the rate of convergence of Monte Carlo simulations is only <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{n}}\)</span>, one needs to choose a very large value for <span class="math notranslate nohighlight">\(n\)</span>:</p>
+<ul class="simple">
+<li><p>At least <span class="math notranslate nohighlight">\(n = 100,000\)</span></p></li>
+<li><p>Often <span class="math notranslate nohighlight">\(n = 1,000,000\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="theoretical-guarantees">
+<h3>Theoretical Guarantees<a class="headerlink" href="#theoretical-guarantees" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Statistical Properties:</strong></p>
+<ol class="arabic">
+<li><p><strong>Strong Law of Large Numbers:</strong> The estimator:
+$<span class="math notranslate nohighlight">\(
+\hat{C}_n = \frac{1}{n}\sum_{i=1}^{n} C_i
+\)</span><span class="math notranslate nohighlight">\(
+converges to the price of the European call as \)</span>n \to \infty$</p></li>
+<li><p><strong>Unbiased Estimator:</strong>
+$<span class="math notranslate nohighlight">\(
+E[\hat{C}_n] = \tilde{E}[e^{-rT}(S(T) - K)^+ \mid S(0) = s]
+\)</span>$</p></li>
+<li><p><strong>Central Limit Theorem:</strong> The distribution of the error is normal with:</p>
+<ul class="simple">
+<li><p>Mean: 0</p></li>
+<li><p>Standard deviation: <span class="math notranslate nohighlight">\(s_C/\sqrt{n}\)</span></p></li>
+</ul>
+<p>where <span class="math notranslate nohighlight">\(s_C\)</span> can be estimated by the unbiased estimator:
+$<span class="math notranslate nohighlight">\(
+s_C = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(C_i - \hat{C}_n)^2}
+\)</span>$</p>
+</li>
+</ol>
+</div>
+<p><strong>Physical Meaning:</strong> Monte Carlo provides a probabilistic approximation. The error decreases as <span class="math notranslate nohighlight">\(1/\sqrt{n}\)</span>, and we can quantify our uncertainty using the standard deviation estimate.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Steven E. Shreve, “Stochastic Calculus for Finance I: The Binomial Asset Pricing Model”, 2004, Springer</p></li>
+<li><p>Steven E. Shreve, “Stochastic Calculus for Finance II: Continuous-time finance”, 2004, Springer</p></li>
+<li><p>Stanley R. Pliska, “Introduction to Mathematical Finance, Discrete Time Models”, 1997, Blackwell Publishing</p></li>
+<li><p>Paul Wilmott, Sam Howison, and Jeff Dewynne, “Mathematics of Financial Derivatives: A Student Introduction”, Cambridge University Press, 1995</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lecture10_stochastic-calculus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A Basic Introduction to Stochastic Calculus and Its Application to the Modeling of Dynamic Asset Prices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lecture12_black-scholes-pde-finite-difference.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Black-Scholes Partial Differential Equation and the Finite Difference Method</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometric-brownian-motion-asset-price-model">The Geometric Brownian Motion Asset Price Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-stock-price-dynamics">The Stock Price Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-drift-term">The Drift Term</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-free-asset">Risk-Free Asset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#change-of-measure">Change of Measure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-risk-neutral-measure">The Risk-Neutral Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-form">Integral Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-absence-of-arbitrage">Existence and Absence of Arbitrage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-the-risk-neutral-measure">Constructing the Risk-Neutral Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stock-price-under-risk-neutral-measure">Stock Price Under Risk-Neutral Measure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-analytical-formula">The Black-Scholes Analytical Formula</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal">Goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-neutral-pricing-formula">Risk-Neutral Pricing Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-discounted-stock-price-is-a-martingale">The Discounted Stock Price is a Martingale</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hedging-strategy">Hedging Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assets-available">Assets Available</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replication-condition">Replication Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-discounted-portfolio-is-a-martingale">The Discounted Portfolio is a Martingale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Risk-Neutral Pricing Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-markov-property">Using the Markov Property</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#european-call-option">European Call Option</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range-of-applicability">Range of Applicability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-martingale-approach">The Martingale Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-no-stochastic-calculus-approach">Alternative: No Stochastic Calculus Approach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-the-price-of-a-european-option">Derivation of the Price of a European Option</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pricing-function">The Pricing Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Goal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-this-possible">When is This Possible?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-call-option-price">Computing the Call Option Price</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Stock Price Under Risk-Neutral Measure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relating-s-t-to-s-t">Relating <span class="math notranslate nohighlight">\(S(T)\)</span> to <span class="math notranslate nohighlight">\(S(t)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-expectation">Setting Up the Expectation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-d-pm">Defining <span class="math notranslate nohighlight">\(d_{\pm}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-formula">The Black-Scholes Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-about-the-price-of-a-put">How About the Price of a Put?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put-call-parity">Put-Call Parity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#law-of-one-price">Law of One Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put-price-formula">Put Price Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-about-the-hedging-strategy-the-pde-approach">How About the Hedging Strategy? The PDE Approach</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-ito-s-lemma">Applying Ito’s Lemma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hedging-portfolio">The Hedging Portfolio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-financing-condition">Self-Financing Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-the-pde">Deriving the PDE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminating-risk-delta-hedging">Eliminating Risk: Delta Hedging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-pde">The Black-Scholes PDE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-no-arbitrage-opportunities">Why No Arbitrage Opportunities?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-greeks-delta">The Greeks: Delta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-simulations">Monte Carlo Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-form-formula-for-terminal-stock-price">Closed-Form Formula for Terminal Stock Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm">The Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-and-sample-size">Convergence and Sample Size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-guarantees">Theoretical Guarantees</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Agnès Tourin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

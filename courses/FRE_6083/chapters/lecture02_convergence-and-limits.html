@@ -1,0 +1,1414 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Convergence Concepts, Law of Large Numbers, Central Limit Theorem, Markov Sequences, and the Martingale Property &#8212; FRE 6083: Quantitative Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/lecture02_convergence-and-limits';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Markov Chains" href="lecture03_markov-chains.html" />
+    <link rel="prev" title="Sequences and Sums of Random Variables" href="lecture01_sequences-and-sums.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6083: Quantitative Methods</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lecture01_sequences-and-sums.html">Lecture 1: Sequences and Sums of Random Variables</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 2: Convergence and Limit Theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture03_markov-chains.html">Lecture 3: Markov Chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture04_poisson-process.html">Lecture 4: The Poisson Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture05_binomial-asset-pricing.html">Lecture 5: Binomial Asset Pricing Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture06_stochastic-processes.html">Lecture 6: Stochastic Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture07_brownian-motion.html">Lecture 7: Random Walk Limit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture09_brownian-motion.html">Lecture 9: Brownian Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture10_stochastic-calculus.html">Lecture 10: Stochastic Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture11_black-scholes-model.html">Lecture 11: Black-Scholes Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture12_black-scholes-pde-finite-difference.html">Lecture 12: Black-Scholes PDE and Finite Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture13_portfolio-optimization-discrete-time.html">Lecture 13: Portfolio Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture14_american-options-greeks.html">Lecture 14: American Options and Greeks</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/chapters/lecture02_convergence-and-limits.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fchapters/lecture02_convergence-and-limits.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/lecture02_convergence-and-limits.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Convergence Concepts, Law of Large Numbers, Central Limit Theorem, Markov Sequences, and the Martingale Property</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-of-random-variables">Convergence of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointwise-convergence">Pointwise Convergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-infinite-coin-toss">Example: Infinite Coin Toss</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#almost-sure-convergence">Almost Sure Convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-notions-of-convergence">Other Notions of Convergence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-in-probability">Convergence in Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-in-mean-squares">Convergence in Mean Squares</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-in-distribution">Convergence in Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relations-between-different-notions-of-convergence">Relations Between Different Notions of Convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#law-of-large-numbers-and-central-limit-theorem">Law of Large Numbers and Central Limit Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-assumptions">Setup and Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-theorems">The Theorems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-theorems">Examples of the Theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-coin-toss-revisited">Example 1: Coin Toss Revisited</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-central-limit-theorem-for-bernoulli-trials">Example 2: Central Limit Theorem for Bernoulli Trials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-statistics-consistent-and-unbiased-estimators">Application to Statistics: Consistent and Unbiased Estimators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sample-mean-as-an-estimator">The Sample Mean as an Estimator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-game-theory-application">A Game Theory Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-non-parametric-historical-estimations">Application to Non-Parametric Historical Estimations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-distribution-function">Empirical Distribution Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glivenko-cantelli-theorem">Glivenko-Cantelli Theorem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-monte-carlo-simulations">Application to Monte Carlo Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-setup">Problem Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-method">Monte Carlo Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-distribution">Error Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-estimation">Variance Estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-monte-carlo">When to Use Monte Carlo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-sequences">Markov Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intuition-sequences-with-no-memory">Intuition: Sequences with “No Memory”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-elementary-arithmetic-random-walk">Example: Elementary Arithmetic Random Walk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition">Formal Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-random-walk-with-short-memory">Example: Random Walk with Short Memory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-application">Financial Application</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-discrete-time-martingale-property">The Discrete-Time Martingale Property</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-symmetric-random-walk">Example: Symmetric Random Walk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-martingale-with-respect-to-itself">Definition: Martingale with Respect to Itself</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-general-definition">More General Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-random-walk-as-martingale">Example: Random Walk as Martingale</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-asymmetric-random-walk">The Asymmetric Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-analysis">Expectation Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#martingale-classification">Martingale Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definitions">Formal Definitions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-interpretation">Financial Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="convergence-concepts-law-of-large-numbers-central-limit-theorem-markov-sequences-and-the-martingale-property">
+<h1>Convergence Concepts, Law of Large Numbers, Central Limit Theorem, Markov Sequences, and the Martingale Property<a class="headerlink" href="#convergence-concepts-law-of-large-numbers-central-limit-theorem-markov-sequences-and-the-martingale-property" title="Link to this heading">#</a></h1>
+<p>This lecture reviews several concepts of convergence that apply to sequences of random variables, the strong law of large numbers, and the Central Limit Theorem. We also present examples of applications in Finance, including Markov sequences and the martingale property.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><strong>Recommended References:</strong></p>
+<ul class="simple">
+<li><p>Sheldon Ross, “Introduction to Probability Models”, 11th edition, Academic Press, 2014</p></li>
+<li><p>Jean Jacod and Philip Protter, “Probability Essentials”, Universitext, Second Edition, 2004, Springer</p></li>
+<li><p>Timothy Falcon Crack, “Heard on the street: Quantitative Questions from Wall Street Job Interviews”, revised 20th Edition, 2019</p></li>
+<li><p>Hull, J., “Options, Futures and Other Derivatives”, 9th edition, 2009, Pearson/Prentice Hall</p></li>
+</ul>
+</div>
+<section id="convergence-of-random-variables">
+<h2>Convergence of Random Variables<a class="headerlink" href="#convergence-of-random-variables" title="Link to this heading">#</a></h2>
+<section id="pointwise-convergence">
+<h3>Pointwise Convergence<a class="headerlink" href="#pointwise-convergence" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Definition: Pointwise Convergence</strong></p>
+<p>The sequence <span class="math notranslate nohighlight">\(X_n\)</span> converges to the limit <span class="math notranslate nohighlight">\(X\)</span> as <span class="math notranslate nohighlight">\(n \to +\infty\)</span> if and only if:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{For all } \omega \in \Omega, \quad X_n(\omega) \to X(\omega) \text{ as } n \to +\infty
+\]</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Why Pointwise Convergence is Rarely Used:</strong></p>
+<p>Convergence for all <span class="math notranslate nohighlight">\(\omega\)</span> is <strong>almost never used in probability</strong> because, in most situations, this type of convergence simply does not work. It leads to a limit that does not provide much insight into the behavior of the sequence.</p>
+<p>Consequently, it needs to be replaced by <strong>weaker concepts of convergence</strong>, such as convergence for almost all <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
+</div>
+</section>
+<section id="example-infinite-coin-toss">
+<h3>Example: Infinite Coin Toss<a class="headerlink" href="#example-infinite-coin-toss" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Example: Limiting Frequency of Heads</p>
+<p><strong>Experiment:</strong> Infinite coin toss with probability <span class="math notranslate nohighlight">\(p\)</span> of falling on heads.</p>
+<p><strong>Random Variable:</strong>
+$<span class="math notranslate nohighlight">\(
+X_n = \begin{cases}
+1 &amp; \text{if a head is obtained at the } n\text{th toss} \\
+0 &amp; \text{if a tail is obtained at the } n\text{th toss}
+\end{cases}
+\)</span>$</p>
+<p><strong>Study the Limit:</strong>
+$<span class="math notranslate nohighlight">\(
+\lim_{n \to +\infty} \frac{X_1(\omega) + X_2(\omega) + \cdots + X_n(\omega)}{n}
+\)</span>$</p>
+</div>
+<p><strong>Observations:</strong></p>
+<ul class="simple">
+<li><p>When the outcome is <span class="math notranslate nohighlight">\(\omega = (T, T, \ldots, T)\)</span> (all tails), the limit equals 0.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(\omega = (H, H, \ldots, H)\)</span> (all heads), the limit equals 1.</p></li>
+<li><p>As we will see with the <strong>strong law of large numbers</strong>, it converges for <strong>almost all</strong> <span class="math notranslate nohighlight">\(\omega\)</span> to the intuitive limit <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ul>
+<p><strong>Physical Meaning:</strong> The fraction of heads in a long sequence of coin tosses approaches the probability <span class="math notranslate nohighlight">\(p\)</span> of getting heads on any single toss.</p>
+</section>
+</section>
+<section id="almost-sure-convergence">
+<h2>Almost Sure Convergence<a class="headerlink" href="#almost-sure-convergence" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Definition: Almost Sure Convergence</strong></p>
+<p><span class="math notranslate nohighlight">\(X_n \to X\)</span> as <span class="math notranslate nohighlight">\(n \to +\infty\)</span> <strong>almost surely</strong> if and only if:</p>
+<div class="math notranslate nohighlight">
+\[
+P\left\{\omega: \lim_{n \to +\infty} X_n(\omega) = X(\omega)\right\} = 1
+\]</div>
+<p><strong>Equivalent Formulation:</strong></p>
+<p><span class="math notranslate nohighlight">\(X_n \to X\)</span> as <span class="math notranslate nohighlight">\(n \to +\infty\)</span> almost surely if and only if the set:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{N} = \left\{\omega: \lim_{n \to +\infty} X_n(\omega) \neq X(\omega)\right\}
+\]</div>
+<p>has probability 0.</p>
+</div>
+<p><strong>Physical Meaning:</strong> The sequence converges to <span class="math notranslate nohighlight">\(X\)</span> for “almost all” outcomes, except possibly on a set of outcomes that has probability zero. This is the strongest useful notion of convergence in probability theory.</p>
+</section>
+<section id="other-notions-of-convergence">
+<h2>Other Notions of Convergence<a class="headerlink" href="#other-notions-of-convergence" title="Link to this heading">#</a></h2>
+<section id="convergence-in-probability">
+<h3>Convergence in Probability<a class="headerlink" href="#convergence-in-probability" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Definition: Convergence in Probability (i.p.)</strong></p>
+<p>A sequence of random variables <span class="math notranslate nohighlight">\(X_n\)</span> converges in probability to <span class="math notranslate nohighlight">\(X\)</span> as <span class="math notranslate nohighlight">\(n \to +\infty\)</span> if and only if:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{n \to +\infty} P\{\omega: |X_n(\omega) - X(\omega)| &gt; \epsilon\} = 0, \quad \text{for every } \epsilon &gt; 0
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> For any tolerance level <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span>, the probability that <span class="math notranslate nohighlight">\(X_n\)</span> differs from <span class="math notranslate nohighlight">\(X\)</span> by more than <span class="math notranslate nohighlight">\(\epsilon\)</span> goes to zero as <span class="math notranslate nohighlight">\(n\)</span> increases. The values of <span class="math notranslate nohighlight">\(X_n\)</span> cluster around <span class="math notranslate nohighlight">\(X\)</span> with high probability for large <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</section>
+<section id="convergence-in-mean-squares">
+<h3>Convergence in Mean Squares<a class="headerlink" href="#convergence-in-mean-squares" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Definition: Convergence in Mean Squares (m.s.)</strong></p>
+<p>A sequence of random variables <span class="math notranslate nohighlight">\(X_n\)</span> converges in mean squares to <span class="math notranslate nohighlight">\(X\)</span> as <span class="math notranslate nohighlight">\(n \to +\infty\)</span> if and only if:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(E[|X_n|^2] &lt; +\infty\)</span> for all <span class="math notranslate nohighlight">\(n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E[|X|^2] &lt; +\infty\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{n \to +\infty} E[|X_n - X|^2] = 0\)</span></p></li>
+</ol>
+</div>
+<p><strong>Physical Meaning:</strong> The expected squared distance between <span class="math notranslate nohighlight">\(X_n\)</span> and <span class="math notranslate nohighlight">\(X\)</span> goes to zero. This is a stronger condition than convergence in probability and requires second moments to exist.</p>
+</section>
+</section>
+<section id="convergence-in-distribution">
+<h2>Convergence in Distribution<a class="headerlink" href="#convergence-in-distribution" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Definition: Convergence in Distribution</strong></p>
+<p>This notion of convergence is the <strong>weakest</strong> of all.</p>
+<p>Roughly speaking, it is not the sequence of random variables <span class="math notranslate nohighlight">\(X_n\)</span> that converges here but rather the sequence of its cumulative distribution functions <span class="math notranslate nohighlight">\(F_n\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(F\)</span> denote the distribution function obtained at the limit. The sequence of random variables <span class="math notranslate nohighlight">\(X_n\)</span> converges in distribution to <span class="math notranslate nohighlight">\(X\)</span> as <span class="math notranslate nohighlight">\(n \to +\infty\)</span> if and only if:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{n \to +\infty} F_n(x) = F(x) \quad \text{at each point } x \text{ of continuity of } F
+\]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Subtle Concept:</strong></p>
+<p>In reality, this concept of convergence is more subtle than described here. For a precise definition, see Jean Jacod and Philip Protter, “Probability Essentials”.</p>
+</div>
+<p><strong>Physical Meaning:</strong> The distributions of <span class="math notranslate nohighlight">\(X_n\)</span> approach the distribution of <span class="math notranslate nohighlight">\(X\)</span>, even though the random variables themselves might not be getting close to each other on any particular outcome.</p>
+</section>
+<section id="relations-between-different-notions-of-convergence">
+<h2>Relations Between Different Notions of Convergence<a class="headerlink" href="#relations-between-different-notions-of-convergence" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Hierarchy of Convergence:</strong></p>
+<p>The following diagram summarizes how these notions of convergence relate to each other:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ccc}
+\text{Almost Sure (a.s.)} &amp; &amp; \text{Mean Squares (m.s.)} \\
+\downarrow &amp; &amp; \downarrow \\
+&amp; \text{In Probability (i.p.)} &amp; \\
+&amp; \downarrow &amp; \\
+&amp; \text{In Distribution (in dis.)} &amp;
+\end{array}
+\end{split}\]</div>
+<p><strong>Key Relationships:</strong></p>
+<ul class="simple">
+<li><p>Almost sure convergence <span class="math notranslate nohighlight">\(\Rightarrow\)</span> Convergence in probability</p></li>
+<li><p>Mean squares convergence <span class="math notranslate nohighlight">\(\Rightarrow\)</span> Convergence in probability</p></li>
+<li><p>Convergence in probability <span class="math notranslate nohighlight">\(\Rightarrow\)</span> Convergence in distribution</p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Important Note:</strong></p>
+<p>None of the arrows above can be reversed in general, without adding more assumptions. See Jean Jacod and Philip Protter, “Probability Essentials” for more details.</p>
+</div>
+</section>
+<section id="law-of-large-numbers-and-central-limit-theorem">
+<h2>Law of Large Numbers and Central Limit Theorem<a class="headerlink" href="#law-of-large-numbers-and-central-limit-theorem" title="Link to this heading">#</a></h2>
+<p>These are fundamental and very useful results with many applications in Quantitative Finance.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key Insight: Why the Normal Distribution is Everywhere</p>
+<p>The Central Limit Theorem explains the <strong>prevalence of the normal distribution</strong> in many practical applications. When you sum many independent random variables, the result tends toward a normal distribution, regardless of the original distributions!</p>
+</div>
+<section id="setup-and-assumptions">
+<h3>Setup and Assumptions<a class="headerlink" href="#setup-and-assumptions" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots\)</span> be an infinite sequence of independent and identically distributed random variables (i.i.d. r.v.s).</p>
+<p>Let <span class="math notranslate nohighlight">\(S_n = X_1 + X_2 + \cdots + X_n\)</span>.</p>
+<p><strong>Assumptions:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mu = E[X_i] &lt; +\infty\)</span> (finite mean)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma^2 = \text{var}[X_i] &lt; +\infty\)</span> (finite variance)</p></li>
+</ul>
+</section>
+<section id="the-theorems">
+<h3>The Theorems<a class="headerlink" href="#the-theorems" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Strong Law of Large Numbers (SLLN):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{n \to +\infty} \frac{S_n}{n} = \mu \quad \text{almost surely and in mean squares}
+\]</div>
+<p><strong>Physical Meaning:</strong> The sample average of many i.i.d. random variables converges to their expected value.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Central Limit Theorem (CLT):</strong></p>
+<p>If in addition <span class="math notranslate nohighlight">\(\sigma^2 &gt; 0\)</span>, then as <span class="math notranslate nohighlight">\(n \to +\infty\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{S_n - n\mu}{\sigma\sqrt{n}} \quad \text{converges in distribution to a standard normal distribution}
+\]</div>
+<p>Equivalently:
+$<span class="math notranslate nohighlight">\(
+\frac{S_n - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0, 1)
+\)</span>$</p>
+<p><strong>Physical Meaning:</strong> The normalized sum of many i.i.d. random variables becomes approximately normally distributed, regardless of the original distribution of the <span class="math notranslate nohighlight">\(X_i\)</span>.</p>
+</div>
+</section>
+</section>
+<section id="examples-of-the-theorems">
+<h2>Examples of the Theorems<a class="headerlink" href="#examples-of-the-theorems" title="Link to this heading">#</a></h2>
+<section id="example-1-coin-toss-revisited">
+<h3>Example 1: Coin Toss Revisited<a class="headerlink" href="#example-1-coin-toss-revisited" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Example: Law of Large Numbers for Coin Tosses</p>
+<p><strong>Setup:</strong> Going back to the earlier infinite coin toss example.</p>
+<p><strong>Result:</strong> By the strong law of large numbers:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{n \to +\infty} \frac{X_1(\omega) + X_2(\omega) + \cdots + X_n(\omega)}{n}
+\]</div>
+<p>converges to <span class="math notranslate nohighlight">\(p\)</span> <strong>almost surely</strong> (and in mean squares).</p>
+<p><strong>Interpretation:</strong> The long-run frequency of heads equals the probability of heads.</p>
+</div>
+</section>
+<section id="example-2-central-limit-theorem-for-bernoulli-trials">
+<h3>Example 2: Central Limit Theorem for Bernoulli Trials<a class="headerlink" href="#example-2-central-limit-theorem-for-bernoulli-trials" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Example: CLT Applied to Binomial Distribution</p>
+<p><strong>Context:</strong> Bernoulli trials with sequence of Bernoulli random variables <span class="math notranslate nohighlight">\(X_k\)</span> and number of successes after <span class="math notranslate nohighlight">\(n\)</span> trials: <span class="math notranslate nohighlight">\(Y_n = \sum_{k=1}^{n} X_k\)</span>.</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p>Common expectation: <span class="math notranslate nohighlight">\(\mu = p\)</span></p></li>
+<li><p>Common variance: <span class="math notranslate nohighlight">\(\text{var}[X_k] = E[X_k^2] - (E[X_k])^2 = p - p^2 = p(1-p)\)</span></p></li>
+</ul>
+<p><strong>Central Limit Theorem Result:</strong></p>
+<p>The distribution of the rescaled number of successes:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{Y_n - np}{\sqrt{np(1-p)}}
+\]</div>
+<p>converges to the standard normal distribution <span class="math notranslate nohighlight">\(\mathcal{N}(0, 1)\)</span> as <span class="math notranslate nohighlight">\(n \to +\infty\)</span>.</p>
+<p><strong>Recall:</strong> <span class="math notranslate nohighlight">\(Y_n\)</span> has a Binomial distribution with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> For large <span class="math notranslate nohighlight">\(n\)</span>, the binomial distribution can be approximated by a normal distribution. This is why we often use the normal distribution to approximate binomial probabilities.</p>
+</section>
+</section>
+<section id="application-to-statistics-consistent-and-unbiased-estimators">
+<h2>Application to Statistics: Consistent and Unbiased Estimators<a class="headerlink" href="#application-to-statistics-consistent-and-unbiased-estimators" title="Link to this heading">#</a></h2>
+<section id="the-sample-mean-as-an-estimator">
+<h3>The Sample Mean as an Estimator<a class="headerlink" href="#the-sample-mean-as-an-estimator" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> be <span class="math notranslate nohighlight">\(n\)</span> i.i.d. random variables. Consider the following estimator of their common mean <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mu}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Properties of the Sample Mean:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Consistency:</strong> By the strong law of large numbers, the estimator <span class="math notranslate nohighlight">\(\hat{\mu}_n\)</span> is <strong>consistent</strong>, i.e.,
+$<span class="math notranslate nohighlight">\(
+\hat{\mu}_n \to \mu \quad \text{almost surely as } n \to +\infty
+\)</span>$</p></li>
+<li><p><strong>Unbiasedness:</strong> The estimator is <strong>unbiased</strong>, that is,
+$<span class="math notranslate nohighlight">\(
+E[\hat{\mu}_n] = \mu
+\)</span>$</p></li>
+</ol>
+</div>
+<p><strong>Physical Meaning:</strong></p>
+<ul class="simple">
+<li><p><strong>Unbiased:</strong> On average, the estimator equals the true value.</p></li>
+<li><p><strong>Consistent:</strong> As the sample size grows, the estimator converges to the true value.</p></li>
+</ul>
+</section>
+</section>
+<section id="a-game-theory-application">
+<h2>A Game Theory Application<a class="headerlink" href="#a-game-theory-application" title="Link to this heading">#</a></h2>
+<p>Adapted from Timothy Falcon Crack, “Heard on the Street”.</p>
+<div class="tip admonition">
+<p class="admonition-title">Example Problem: Two Games</p>
+<p><strong>Problem Statement:</strong></p>
+<p>You are offered two games:</p>
+<p><strong>Game 1:</strong> Roll a die once and you are paid 1 million dollars times the number you obtain on the upturned face of the die.</p>
+<p><strong>Game 2:</strong> Roll a die one million times and for each roll, you are paid 1 dollar times the number of dots on the upturned face of the die.</p>
+<p>You are <strong>risk averse</strong>. Which game do you prefer?</p>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Step 1: Calculate Expected Gain for Game 1</strong></p>
+<p class="sd-card-text">Denote by <span class="math notranslate nohighlight">\(X\)</span> the gain in dollars for the first game:</p>
+<div class="math notranslate nohighlight">
+\[
+E[X] = 10^6 \cdot 1 \cdot \frac{1}{6} + 10^6 \cdot 2 \cdot \frac{1}{6} + \cdots + 10^6 \cdot 6 \cdot \frac{1}{6}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E[X] = 10^6 \cdot \frac{1 + 2 + 3 + 4 + 5 + 6}{6} = 10^6 \cdot \frac{21}{6} = 3.5 \text{ Million dollars}
+\]</div>
+<p class="sd-card-text"><strong>Step 2: Calculate Expected Gain for Game 2</strong></p>
+<p class="sd-card-text">Denote by <span class="math notranslate nohighlight">\(Y\)</span> the gain in dollars for the second game:</p>
+<div class="math notranslate nohighlight">
+\[
+E[Y] = 10^6 \left(1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + \cdots + 6 \cdot \frac{1}{6}\right) = 3.5 \text{ Million dollars}
+\]</div>
+<p class="sd-card-text"><strong>Step 3: Apply Law of Large Numbers</strong></p>
+<p class="sd-card-text">The expectation of the gain for each game is <strong>3.5 million dollars</strong>.</p>
+<p class="sd-card-text">However, the law of large numbers tells you that, with the <strong>second game</strong>, your actual payoff will be <strong>much closer to the expected payoff</strong> than in the first game.</p>
+<p class="sd-card-text"><strong>Step 4: Compare Variances</strong></p>
+<p class="sd-card-text">Another way of looking at it: Since you are <strong>risk averse</strong>, you prefer the game with the <strong>lowest variance</strong>.</p>
+<p class="sd-card-text">It turns out that the variance of the first game is <strong>1,000,000 times bigger</strong> than the variance of the second game.</p>
+<p class="sd-card-text"><strong>Final Answer:</strong> <strong>Choose Game 2</strong> if you are risk averse.</p>
+<p class="sd-card-text"><strong>Key Insight:</strong> Game 2 provides the same expected return with dramatically lower risk due to diversification across one million independent trials.</p>
+</div>
+</details><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Further Exploration:</strong></p>
+<p>See Exercises 1 to 4 and 6 at the end of the chapter for more examples.</p>
+</div>
+</section>
+<section id="application-to-non-parametric-historical-estimations">
+<h2>Application to Non-Parametric Historical Estimations<a class="headerlink" href="#application-to-non-parametric-historical-estimations" title="Link to this heading">#</a></h2>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h3>
+<p>Consider an infinite sequence <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_i, \ldots\)</span> of i.i.d. random variables with a finite and positive variance.</p>
+<p>Denote by <span class="math notranslate nohighlight">\(F\)</span> their common cumulative distribution function.</p>
+</section>
+<section id="empirical-distribution-function">
+<h3>Empirical Distribution Function<a class="headerlink" href="#empirical-distribution-function" title="Link to this heading">#</a></h3>
+<p>Define:</p>
+<div class="math notranslate nohighlight">
+\[
+Y_i(x) = \mathbb{I}_{\{X_i \leq x\}}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbb{I}_{\{X_i \leq x\}}\)</span> is the indicator function of the set <span class="math notranslate nohighlight">\(\{X_i \leq x\}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbb{I}_{\{X_i \leq x\}}(\omega) = \begin{cases}
+1 &amp; \text{if } X_i(\omega) \leq x \\
+0 &amp; \text{otherwise}
+\end{cases}
+\end{split}\]</div>
+</section>
+<section id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Properties of <span class="math notranslate nohighlight">\(Y_i(x)\)</span>:</strong></p>
+<ol class="arabic simple">
+<li><p>The variables <span class="math notranslate nohighlight">\(Y_i(x)\)</span> are <strong>i.i.d.</strong></p></li>
+<li><p>The common mean of <span class="math notranslate nohighlight">\(Y_i(x)\)</span> is <span class="math notranslate nohighlight">\(F(x)\)</span>:
+$<span class="math notranslate nohighlight">\(
+E[Y_i(x)] = P[X_i \leq x] = F(x)
+\)</span>$</p></li>
+<li><p>The <strong>empirical distribution function</strong>:
+$<span class="math notranslate nohighlight">\(
+F_n(x) = \frac{1}{n} \sum_{i=1}^{n} Y_i(x)
+\)</span><span class="math notranslate nohighlight">\(
+satisfies:
+\)</span><span class="math notranslate nohighlight">\(
+\lim_{n \to +\infty} F_n(x) = F(x) \quad \text{a.s., } \forall x
+\)</span>$</p></li>
+<li><p>The common variance of <span class="math notranslate nohighlight">\(Y_i(x)\)</span> is:
+$<span class="math notranslate nohighlight">\(
+\text{var}[Y_i(x)] = F(x)(1 - F(x))
+\)</span>$</p></li>
+<li><p>The distribution of the error for the approximation of <span class="math notranslate nohighlight">\(F\)</span> by <span class="math notranslate nohighlight">\(F_n\)</span> as <span class="math notranslate nohighlight">\(n \to +\infty\)</span> is <strong>normal and centered</strong>. The rate of convergence is:
+$<span class="math notranslate nohighlight">\(
+\frac{\sqrt{F(x)(1 - F(x))}}{\sqrt{n}}
+\)</span>$</p></li>
+</ol>
+</div>
+<p><strong>Physical Meaning:</strong> We can estimate an unknown distribution function <span class="math notranslate nohighlight">\(F\)</span> by counting the fraction of observations that fall below each value <span class="math notranslate nohighlight">\(x\)</span>. This empirical distribution converges to the true distribution.</p>
+</section>
+<section id="glivenko-cantelli-theorem">
+<h3>Glivenko-Cantelli Theorem<a class="headerlink" href="#glivenko-cantelli-theorem" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Glivenko-Cantelli Theorem:</strong></p>
+<p>The theorem gives an even stronger result. It tells us that the convergence is <strong>uniform</strong> in the variable <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\sup_x |F_n(x) - F(x)| \to 0 \quad \text{a.s. as } n \to +\infty
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> The empirical distribution function converges to the true distribution function uniformly over all values of <span class="math notranslate nohighlight">\(x\)</span>, not just pointwise. This is a remarkably strong result!</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See Exercise 5 for more details.</p>
+</div>
+</section>
+</section>
+<section id="application-to-monte-carlo-simulations">
+<h2>Application to Monte Carlo Simulations<a class="headerlink" href="#application-to-monte-carlo-simulations" title="Link to this heading">#</a></h2>
+<section id="problem-setup">
+<h3>Problem Setup<a class="headerlink" href="#problem-setup" title="Link to this heading">#</a></h3>
+<p>Consider the integral:</p>
+<div class="math notranslate nohighlight">
+\[
+a = \int_0^1 f(x) \, dx
+\]</div>
+<p>This can be interpreted as the following expectation:</p>
+<div class="math notranslate nohighlight">
+\[
+a = E[f(U)]
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(U\)</span> is a random variable that is uniformly distributed on the interval <span class="math notranslate nohighlight">\((0, 1)\)</span>.</p>
+</section>
+<section id="monte-carlo-method">
+<h3>Monte Carlo Method<a class="headerlink" href="#monte-carlo-method" title="Link to this heading">#</a></h3>
+<p>Consider a sequence <span class="math notranslate nohighlight">\(U_1, U_2, \ldots, U_n\)</span> of independent and uniformly distributed random variables in the interval <span class="math notranslate nohighlight">\((0, 1)\)</span>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Monte Carlo Approximation:</strong></p>
+<p>By the strong law of large numbers:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{n \to +\infty} \frac{1}{n} \sum_{i=1}^{n} f(U_i) = a, \quad \text{almost surely}
+\]</div>
+<p><strong>Interpretation:</strong> We can approximate the integral by averaging function values at random points.</p>
+</div>
+</section>
+<section id="error-distribution">
+<h3>Error Distribution<a class="headerlink" href="#error-distribution" title="Link to this heading">#</a></h3>
+<p>One can also determine the distribution of the error:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{n} \sum_{i=1}^{n} f(U_i) - a
+\]</div>
+<p>by applying the Central Limit Theorem.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Error Distribution (CLT):</strong></p>
+<p>By the Central Limit Theorem, the error is <strong>normally distributed</strong> with:</p>
+<ul class="simple">
+<li><p>Mean: 0</p></li>
+<li><p>Variance: <span class="math notranslate nohighlight">\(\frac{\sigma^2}{n}\)</span></p></li>
+</ul>
+<p>where:
+$<span class="math notranslate nohighlight">\(
+\sigma^2 = \int_0^1 (f(x) - a)^2 \, dx
+\)</span>$</p>
+</div>
+</section>
+<section id="variance-estimation">
+<h3>Variance Estimation<a class="headerlink" href="#variance-estimation" title="Link to this heading">#</a></h3>
+<p>The coefficient <span class="math notranslate nohighlight">\(\sigma^2\)</span> is not known in general but it can be estimated in practice using the samples <span class="math notranslate nohighlight">\(U_i\)</span> drawn from the uniform distribution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Unbiased Statistical Estimate for <span class="math notranslate nohighlight">\(\sigma^2\)</span>:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\sigma}^2 = \frac{1}{n-1} \sum_{i=1}^{n} |f(U_i) - \hat{a}_n|^2
+\]</div>
+<p>where:
+$<span class="math notranslate nohighlight">\(
+\hat{a}_n = \frac{1}{n} \sum_{i=1}^{n} f(U_i)
+\)</span>$</p>
+</div>
+</section>
+<section id="when-to-use-monte-carlo">
+<h3>When to Use Monte Carlo<a class="headerlink" href="#when-to-use-monte-carlo" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Comparison with Traditional Methods:</strong></p>
+<p>In principle, one can approximate a single integral using Monte Carlo simulations. However, approximating a single integral using the <strong>Trapezoidal rule</strong> would be more precise than the Monte Carlo simulations technique.</p>
+<p>The Monte Carlo simulations method becomes <strong>competitive as the number of dimensions increases</strong> and it is often used in practice for the approximation of <strong>multiple integrals in a high number of dimensions</strong>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> For 1D integrals, deterministic quadrature rules are better. But for high-dimensional integrals (common in finance for pricing complex derivatives), Monte Carlo becomes superior because its convergence rate doesn’t deteriorate with dimension.</p>
+</section>
+</section>
+<section id="markov-sequences">
+<h2>Markov Sequences<a class="headerlink" href="#markov-sequences" title="Link to this heading">#</a></h2>
+<section id="intuition-sequences-with-no-memory">
+<h3>Intuition: Sequences with “No Memory”<a class="headerlink" href="#intuition-sequences-with-no-memory" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Key Concept: Markov Property</p>
+<p>Some random sequences are said to have <strong>no memory</strong>.</p>
+<p>Roughly speaking, this means that the <strong>future distribution depends only on the current state</strong> and not on the whole history.</p>
+</div>
+</section>
+<section id="example-elementary-arithmetic-random-walk">
+<h3>Example: Elementary Arithmetic Random Walk<a class="headerlink" href="#example-elementary-arithmetic-random-walk" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Example: Random Walk is Markov</p>
+<p>The symmetric random walk seen in the previous lecture does not have a memory since at each coin toss, you restart from scratch (each coin toss is independent from the previous one).</p>
+<p><strong>Key Insight:</strong></p>
+<ul class="simple">
+<li><p>The <strong>future</strong> depends only on the <strong>present</strong>, not the <strong>past</strong>.</p></li>
+<li><p>The future value of the random walk is only determined by its present value and the outcomes of the next coin tosses.</p></li>
+<li><p>It does <strong>not</strong> depend on the whole path that the random walk took, starting at <span class="math notranslate nohighlight">\(X_0\)</span>.</p></li>
+</ul>
+</div>
+<p><strong>Physical Meaning:</strong> Knowing where you are now is sufficient to predict the future distribution. How you got to the current position doesn’t matter.</p>
+</section>
+<section id="formal-definition">
+<h3>Formal Definition<a class="headerlink" href="#formal-definition" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Definition: Markov Sequence</strong></p>
+<p>More generally, we suppose that part of the history of a random sequence is known (i.e., has been observed).</p>
+<p>We consider the future distribution conditionally to this past history.</p>
+<p>A random sequence <span class="math notranslate nohighlight">\((X_n)_{n \in \mathbb{N}}\)</span> is said to be <strong>Markovian</strong> if for all <span class="math notranslate nohighlight">\(m &lt; n\)</span>, for all <span class="math notranslate nohighlight">\(x\)</span> in the state space:</p>
+<div class="math notranslate nohighlight">
+\[
+P[X_n \leq x \mid \{X_k, k \leq m\}] = P[X_n \leq x \mid X_m]
+\]</div>
+<p><strong>Interpretation:</strong> The future distribution depends exclusively on the most recent observed value in the history.</p>
+</div>
+</section>
+<section id="example-random-walk-with-short-memory">
+<h3>Example: Random Walk with Short Memory<a class="headerlink" href="#example-random-walk-with-short-memory" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Example: Non-Markov Process</p>
+<p><strong>Setup:</strong> At each round, one tosses a coin and obtains either:</p>
+<ul class="simple">
+<li><p>Head with probability <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>Tail with probability <span class="math notranslate nohighlight">\(1-p\)</span></p></li>
+</ul>
+<p><strong>Rules:</strong></p>
+<ul class="simple">
+<li><p>If a <strong>head</strong> is obtained: the random walk keeps going in the <strong>same direction</strong> as at the previous step</p>
+<ul>
+<li><p>If it went up (+1) at the previous step, it goes up (+1) again</p></li>
+<li><p>If it went down (-1) at the previous step, it goes down (-1) again</p></li>
+</ul>
+</li>
+<li><p>If a <strong>tail</strong> is obtained: the random walk <strong>reverses its direction</strong></p>
+<ul>
+<li><p>If it went up, it now goes down</p></li>
+<li><p>If it went down, it now goes up</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Conclusion:</strong> The process <span class="math notranslate nohighlight">\((Y_n)_n\)</span> is <strong>not Markovian</strong> since it depends on two of its own lags (current position and position at the previous step).</p>
+<p>We say that <span class="math notranslate nohighlight">\((Y_n)_n\)</span> is a process with <strong>short memory</strong>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> To predict the next move, you need to know both where you are and which direction you were moving. The current position alone is insufficient.</p>
+</section>
+<section id="financial-application">
+<h3>Financial Application<a class="headerlink" href="#financial-application" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Application: Stock Prices</p>
+<p><strong>Context:</strong> Consider a sequence of end-of-trading day stock prices.</p>
+<p><strong>Markov Assumption:</strong> Assuming that this sequence is Markov means that the stock price at the end of the <span class="math notranslate nohighlight">\(n\)</span>th trading day depends on the previous end-of-day prices <strong>only through the price at the end of day <span class="math notranslate nohighlight">\(m\)</span></strong>.</p>
+<p><strong>Implication:</strong> All relevant information about past prices is summarized in the current price. This is related to the Efficient Market Hypothesis.</p>
+</div>
+</section>
+</section>
+<section id="the-discrete-time-martingale-property">
+<h2>The Discrete-Time Martingale Property<a class="headerlink" href="#the-discrete-time-martingale-property" title="Link to this heading">#</a></h2>
+<section id="example-symmetric-random-walk">
+<h3>Example: Symmetric Random Walk<a class="headerlink" href="#example-symmetric-random-walk" title="Link to this heading">#</a></h3>
+<p>The symmetric random walk we defined last week satisfies:</p>
+<div class="math notranslate nohighlight">
+\[
+E[X_n \mid X_0 = 0] = 0
+\]</div>
+<p>This leads to the general definition of a martingale.</p>
+</section>
+<section id="definition-martingale-with-respect-to-itself">
+<h3>Definition: Martingale with Respect to Itself<a class="headerlink" href="#definition-martingale-with-respect-to-itself" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Definition: Discrete-Time Martingale</strong></p>
+<p>A sequence of random variables is a <strong>discrete-time martingale with respect to itself</strong> if for all integers <span class="math notranslate nohighlight">\(k, n \geq 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+E[X_{k+n} \mid \{X_m, m = 0, \ldots, k\}] = X_k
+\]</div>
+<p><strong>Interpretation:</strong> A martingale is expected to perform consistently on average. It does not have a tendency to rise, nor to fall.</p>
+</div>
+<p><strong>Physical Meaning:</strong> The best prediction of future value, given all past information, is the current value. There’s no systematic drift upward or downward. This is the mathematical formalization of a “fair game.”</p>
+</section>
+<section id="more-general-definition">
+<h3>More General Definition<a class="headerlink" href="#more-general-definition" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Martingale with Respect to Another Process:</strong></p>
+<p>If:
+$<span class="math notranslate nohighlight">\(
+E[X_{k+n} \mid \{Y_m, m = 0, \ldots, k\}] = X_k
+\)</span>$</p>
+<p>then <span class="math notranslate nohighlight">\((X_n)_n\)</span> is said to be a <strong>discrete-time martingale with respect to the process</strong> <span class="math notranslate nohighlight">\((Y_n)_n\)</span>.</p>
+</div>
+</section>
+<section id="example-random-walk-as-martingale">
+<h3>Example: Random Walk as Martingale<a class="headerlink" href="#example-random-walk-as-martingale" title="Link to this heading">#</a></h3>
+<p>The symmetric random walk defined in Lecture 1 is also a martingale with respect to the sequence of step functions <span class="math notranslate nohighlight">\((Y_n)\)</span> which were defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Y_n = \begin{cases}
++1 &amp; \text{if a Head is obtained at toss number } n \\
+-1 &amp; \text{if a Tail is obtained at toss number } n
+\end{cases}
+\end{split}\]</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>We refer to Exercise 7 for another example of a martingale with respect to another process.</p>
+</div>
+</section>
+</section>
+<section id="the-asymmetric-random-walk">
+<h2>The Asymmetric Random Walk<a class="headerlink" href="#the-asymmetric-random-walk" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Setup<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Consider an elementary random walk which is <strong>not necessarily symmetric</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p>Probability of getting a Head: <span class="math notranslate nohighlight">\(p \in (0, 1)\)</span></p></li>
+<li><p>Probability of getting a Tail: <span class="math notranslate nohighlight">\(q = 1 - p\)</span></p></li>
+</ul>
+<p>This corresponds to flipping a <strong>biased coin</strong>.</p>
+</div>
+</section>
+<section id="expectation-analysis">
+<h3>Expectation Analysis<a class="headerlink" href="#expectation-analysis" title="Link to this heading">#</a></h3>
+<p><strong>Expected One-Step Increment:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E[Y_i] = p \cdot 1 + (1-p) \cdot (-1) = 2p - 1
+\]</div>
+<p><strong>Expected Position (starting at <span class="math notranslate nohighlight">\(X_0 = 0\)</span>):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E[X_n \mid X_0 = 0] = \sum_{i=1}^{n} E[Y_i] = n(2p - 1)
+\]</div>
+</section>
+<section id="martingale-classification">
+<h3>Martingale Classification<a class="headerlink" href="#martingale-classification" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>When is the Random Walk a Martingale?</strong></p>
+<p><span class="math notranslate nohighlight">\(p = 0.5\)</span> is the <strong>only value</strong> of <span class="math notranslate nohighlight">\(p\)</span> for which the random walk is a martingale.</p>
+<p><strong>Three Cases:</strong></p>
+<ol class="arabic simple">
+<li><p><strong><span class="math notranslate nohighlight">\(p = 0.5\)</span>:</strong> The random walk is a <strong>martingale</strong> (fair game)
+$<span class="math notranslate nohighlight">\(
+E[X_n \mid X_0 = 0] = 0
+\)</span>$</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(p &lt; 0.5\)</span>:</strong> The random walk tends to <strong>fall</strong> and is called a <strong>discrete-time supermartingale</strong>
+$<span class="math notranslate nohighlight">\(
+E[X_n \mid X_0 = 0] = n(2p - 1) &lt; 0
+\)</span>$</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(p &gt; 0.5\)</span>:</strong> The random walk tends to <strong>rise</strong> and is called a <strong>discrete-time submartingale</strong>
+$<span class="math notranslate nohighlight">\(
+E[X_n \mid X_0 = 0] = n(2p - 1) &gt; 0
+\)</span>$</p></li>
+</ol>
+</div>
+</section>
+<section id="formal-definitions">
+<h3>Formal Definitions<a class="headerlink" href="#formal-definitions" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Submartingale:</strong></p>
+<p>A sequence of random variables is a <strong>discrete-time submartingale</strong> with respect to itself if for all integers <span class="math notranslate nohighlight">\(k, n \geq 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+E[X_{k+n} \mid \{X_m, m = 0, \ldots, k\}] \geq X_k
+\]</div>
+<p><strong>Physical Meaning:</strong> The process has a tendency to <strong>increase</strong> over time.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Supermartingale:</strong></p>
+<p>A sequence of random variables is a <strong>discrete-time supermartingale</strong> with respect to itself if for all integers <span class="math notranslate nohighlight">\(k, n \geq 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+E[X_{k+n} \mid \{X_m, m = 0, \ldots, k\}] \leq X_k
+\]</div>
+<p><strong>Physical Meaning:</strong> The process has a tendency to <strong>decrease</strong> over time.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Generalization:</strong></p>
+<p>It is straightforward to generalize these definitions to the cases of a submartingale or supermartingale <span class="math notranslate nohighlight">\((X_n)\)</span> with respect to another process <span class="math notranslate nohighlight">\((Y_n)\)</span>.</p>
+</div>
+</section>
+</section>
+<section id="financial-interpretation">
+<h2>Financial Interpretation<a class="headerlink" href="#financial-interpretation" title="Link to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Application to Finance</p>
+<p><strong>Martingales in Finance:</strong></p>
+<ul class="simple">
+<li><p><strong>Fair Game:</strong> A martingale represents a “fair game” where expected future value equals current value.</p></li>
+<li><p><strong>Efficient Markets:</strong> Under the risk-neutral measure, discounted stock prices are martingales (fundamental to option pricing).</p></li>
+<li><p><strong>No Arbitrage:</strong> The martingale property is closely related to the absence of arbitrage opportunities.</p></li>
+</ul>
+<p><strong>Submartingales and Supermartingales:</strong></p>
+<ul class="simple">
+<li><p><strong>Submartingale:</strong> Stock prices under the physical measure (with positive expected return/drift).</p></li>
+<li><p><strong>Supermartingale:</strong> Discounted wealth in an unfavorable game or investment.</p></li>
+</ul>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this lecture, we covered:</p>
+<ol class="arabic simple">
+<li><p><strong>Convergence Concepts:</strong></p>
+<ul class="simple">
+<li><p>Almost sure convergence</p></li>
+<li><p>Convergence in probability</p></li>
+<li><p>Convergence in mean squares</p></li>
+<li><p>Convergence in distribution</p></li>
+</ul>
+</li>
+<li><p><strong>Fundamental Limit Theorems:</strong></p>
+<ul class="simple">
+<li><p>Strong Law of Large Numbers</p></li>
+<li><p>Central Limit Theorem</p></li>
+</ul>
+</li>
+<li><p><strong>Applications:</strong></p>
+<ul class="simple">
+<li><p>Statistical estimation</p></li>
+<li><p>Monte Carlo simulations</p></li>
+<li><p>Risk analysis in games</p></li>
+</ul>
+</li>
+<li><p><strong>Markov Property:</strong></p>
+<ul class="simple">
+<li><p>Sequences with no memory</p></li>
+<li><p>Applications to finance</p></li>
+</ul>
+</li>
+<li><p><strong>Martingale Property:</strong></p>
+<ul class="simple">
+<li><p>Fair games</p></li>
+<li><p>Submartingales and supermartingales</p></li>
+<li><p>Financial applications</p></li>
+</ul>
+</li>
+</ol>
+<p>These concepts form the foundation for understanding stochastic processes in finance and are essential for derivative pricing, risk management, and statistical modeling.</p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Sheldon Ross, “Introduction to Probability Models”, 11th edition, Academic Press, 2014</p></li>
+<li><p>Jean Jacod and Philip Protter, “Probability Essentials”, Universitext, Second Edition, 2004, Springer</p></li>
+<li><p>Timothy Falcon Crack, “Heard on the street: Quantitative Questions from Wall Street Job Interviews”, revised 20th Edition, 2019</p></li>
+<li><p>Hull, J., “Options, Futures and Other Derivatives”, 9th edition, 2009, Pearson/Prentice Hall</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lecture01_sequences-and-sums.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sequences and Sums of Random Variables</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lecture03_markov-chains.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Markov Chains</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-of-random-variables">Convergence of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointwise-convergence">Pointwise Convergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-infinite-coin-toss">Example: Infinite Coin Toss</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#almost-sure-convergence">Almost Sure Convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-notions-of-convergence">Other Notions of Convergence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-in-probability">Convergence in Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-in-mean-squares">Convergence in Mean Squares</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-in-distribution">Convergence in Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relations-between-different-notions-of-convergence">Relations Between Different Notions of Convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#law-of-large-numbers-and-central-limit-theorem">Law of Large Numbers and Central Limit Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-assumptions">Setup and Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-theorems">The Theorems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-theorems">Examples of the Theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-coin-toss-revisited">Example 1: Coin Toss Revisited</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-central-limit-theorem-for-bernoulli-trials">Example 2: Central Limit Theorem for Bernoulli Trials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-statistics-consistent-and-unbiased-estimators">Application to Statistics: Consistent and Unbiased Estimators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sample-mean-as-an-estimator">The Sample Mean as an Estimator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-game-theory-application">A Game Theory Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-non-parametric-historical-estimations">Application to Non-Parametric Historical Estimations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-distribution-function">Empirical Distribution Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glivenko-cantelli-theorem">Glivenko-Cantelli Theorem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-monte-carlo-simulations">Application to Monte Carlo Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-setup">Problem Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monte-carlo-method">Monte Carlo Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-distribution">Error Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-estimation">Variance Estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-monte-carlo">When to Use Monte Carlo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-sequences">Markov Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intuition-sequences-with-no-memory">Intuition: Sequences with “No Memory”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-elementary-arithmetic-random-walk">Example: Elementary Arithmetic Random Walk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definition">Formal Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-random-walk-with-short-memory">Example: Random Walk with Short Memory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-application">Financial Application</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-discrete-time-martingale-property">The Discrete-Time Martingale Property</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-symmetric-random-walk">Example: Symmetric Random Walk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-martingale-with-respect-to-itself">Definition: Martingale with Respect to Itself</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-general-definition">More General Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-random-walk-as-martingale">Example: Random Walk as Martingale</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-asymmetric-random-walk">The Asymmetric Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-analysis">Expectation Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#martingale-classification">Martingale Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-definitions">Formal Definitions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-interpretation">Financial Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Agnès Tourin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

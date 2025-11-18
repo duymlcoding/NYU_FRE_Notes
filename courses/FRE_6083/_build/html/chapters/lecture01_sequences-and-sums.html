@@ -1,0 +1,1943 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sequences and Sums of Random Variables &#8212; FRE 6083: Quantitative Methods</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/lecture01_sequences-and-sums';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Convergence Concepts, Law of Large Numbers, Central Limit Theorem, Markov Sequences, and the Martingale Property" href="lecture02_convergence-and-limits.html" />
+    <link rel="prev" title="Introduction" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6083: Quantitative Methods</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 1: Sequences and Sums of Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture02_convergence-and-limits.html">Lecture 2: Convergence and Limit Theorems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture03_markov-chains.html">Lecture 3: Markov Chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture04_poisson-process.html">Lecture 4: The Poisson Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture05_binomial-asset-pricing.html">Lecture 5: Binomial Asset Pricing Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture06_stochastic-processes.html">Lecture 6: Stochastic Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture07_brownian-motion.html">Lecture 7: Random Walk Limit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture09_brownian-motion.html">Lecture 9: Brownian Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture10_stochastic-calculus.html">Lecture 10: Stochastic Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture11_black-scholes-model.html">Lecture 11: Black-Scholes Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture12_black-scholes-pde-finite-difference.html">Lecture 12: Black-Scholes PDE and Finite Difference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture13_portfolio-optimization-discrete-time.html">Lecture 13: Portfolio Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lecture14_american-options-greeks.html">Lecture 14: American Options and Greeks</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/chapters/lecture01_sequences-and-sums.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fchapters/lecture01_sequences-and-sums.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/lecture01_sequences-and-sums.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sequences and Sums of Random Variables</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-of-random-variables">Sequence of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-space-foundation">Probability Space Foundation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequences-of-random-variables">Sequences of Random Variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-the-bernoulli-distribution">First Example: The Bernoulli Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-trials">Bernoulli Trials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-random-variable">Bernoulli Random Variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-of-a-bernoulli-variable">Expectation of a Bernoulli Variable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sums-of-random-variables">Sums of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binomial-distribution">The Binomial Distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-of-a-sum-of-random-variables">Expectation of a Sum of Random Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-of-random-variables">Covariance of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-properties">Definition and Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-of-a-sum-of-random-variables">Variance of a Sum of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formula">General Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-independent-variables">Special Case: Independent Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-binomial-variable">Application to Binomial Variable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-variance-and-covariance">Properties of Variance and Covariance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-properties">Fundamental Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-and-special-cases">Consequences and Special Cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#counterexample-zero-covariance-does-not-imply-independence">Counterexample: Zero Covariance Does Not Imply Independence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-coefficient">Correlation Coefficient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-correlation">Properties of Correlation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-application-portfolio-returns-and-variance">Financial Application: Portfolio Returns and Variance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-setup">Portfolio Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asset-returns">Asset Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-wealth">Portfolio Wealth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-return-calculation">Portfolio Return Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-portfolio-return">Expected Portfolio Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-variance">Portfolio Variance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-a-sum-of-random-variables">Distribution of a Sum of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-independent-variables">Two Independent Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-formula">Convolution Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-to-n-variables">Generalization to <span class="math notranslate nohighlight">\(n\)</span> Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem">Example Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sample-mean">The Sample Mean</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-of-sample-mean">Expectation of Sample Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-of-sample-mean">Variance of Sample Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-between-sample-mean-and-deviation">Covariance Between Sample Mean and Deviation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sample-variance">The Sample Variance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-of-sample-variance">Expectation of Sample Variance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-sample-mean-and-variance-in-the-normal-case">Distribution of Sample Mean and Variance in the Normal Case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-results">Important Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-poisson-paradigm">The Poisson Paradigm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-bernoulli-trials">Modified Bernoulli Trials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moment-generating-function-approach">Moment Generating Function Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-approximation">Poisson Approximation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-elementary-arithmetic-random-walk">The Elementary Arithmetic Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walk-definition">Random Walk Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-random-walk">Properties of the Random Walk</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-of-random-walks">Generalization of Random Walks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-autoregressive-model">General Autoregressive Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-bernoulli-increments">Example 1: Bernoulli Increments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-normal-increments">Example 2: Normal Increments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issue-thin-tails-of-normal-distribution">Issue: Thin Tails of Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-heavy-tailed-random-walk-pareto">Example 3: Heavy-Tailed Random Walk (Pareto)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-cauchy-random-walk">Example 4: Cauchy Random Walk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-student-s-t-distribution">Example 5: Student’s t-Distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-equities">Application to Equities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stock-log-returns">Stock Log Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks-on-distribution-choice">Remarks on Distribution Choice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-function-of-sums">Characteristic Function of Sums</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-of-independent-variables">Sum of Independent Variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insurance-application-aggregate-loss-model">Insurance Application: Aggregate Loss Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-setup">Model Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-loss">Total Loss</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-loss">Expected Loss</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-of-loss">Variance of Loss</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-value-at-risk-with-different-distributions">Problem 1: Value at Risk with Different Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-correlated-loan-portfolio">Problem 2: Correlated Loan Portfolio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sequences-and-sums-of-random-variables">
+<h1>Sequences and Sums of Random Variables<a class="headerlink" href="#sequences-and-sums-of-random-variables" title="Link to this heading">#</a></h1>
+<p>This lecture reviews fundamental concepts of sequences of random variables and sums of random variables in probability theory. Understanding this material is essential for comprehending financial and insurance models presented later in this course.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><strong>Recommended References:</strong></p>
+<ul class="simple">
+<li><p>Sheldon Ross, “Introduction to Probability Models”, 11th edition, Academic Press, 2014</p></li>
+<li><p>Jean Jacod and Philip Protter, “Probability Essentials”, Universitext, Second Edition, 2004, Springer</p></li>
+<li><p>Dan Stefanica, “A Primer for the Mathematics of Financial Engineering”, second Edition, 2011, FE Press New York</p></li>
+</ul>
+</div>
+<section id="sequence-of-random-variables">
+<h2>Sequence of Random Variables<a class="headerlink" href="#sequence-of-random-variables" title="Link to this heading">#</a></h2>
+<section id="probability-space-foundation">
+<h3>Probability Space Foundation<a class="headerlink" href="#probability-space-foundation" title="Link to this heading">#</a></h3>
+<p>We begin with a probability space <span class="math notranslate nohighlight">\((\Omega, \mathcal{A}, P)\)</span>, where:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Key Components of Probability Space:</strong></p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\Omega\)</span></strong> = state space (set of all possible outcomes)</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mathcal{A}\)</span></strong> = space of events (a σ-algebra)</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(P\)</span></strong> = probability measure</p></li>
+</ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Key Concept: Random Variable</p>
+<p>A random variable is a deterministic function of an outcome <span class="math notranslate nohighlight">\(\omega \in \Omega\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+X: \omega \in \Omega \to X(\omega) \in \mathbb{R}
+\]</div>
+<p>The randomness comes from the underlying outcome <span class="math notranslate nohighlight">\(\omega\)</span>, not from the function <span class="math notranslate nohighlight">\(X\)</span> itself.</p>
+</div>
+</section>
+<section id="sequences-of-random-variables">
+<h3>Sequences of Random Variables<a class="headerlink" href="#sequences-of-random-variables" title="Link to this heading">#</a></h3>
+<p>We consider a sequence <span class="math notranslate nohighlight">\((X_n)_{n \in \mathbb{N}}\)</span> of random variables, where the random variable depends on the index <span class="math notranslate nohighlight">\(n\)</span>. Typically, <span class="math notranslate nohighlight">\(n\)</span> represents time.</p>
+<p><strong>Physical Meaning:</strong> As time progresses (increasing <span class="math notranslate nohighlight">\(n\)</span>), we observe different random outcomes. This framework allows us to model dynamic processes like stock prices, insurance claims, or weather patterns over time.</p>
+</section>
+</section>
+<section id="first-example-the-bernoulli-distribution">
+<h2>First Example: The Bernoulli Distribution<a class="headerlink" href="#first-example-the-bernoulli-distribution" title="Link to this heading">#</a></h2>
+<section id="bernoulli-trials">
+<h3>Bernoulli Trials<a class="headerlink" href="#bernoulli-trials" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Example: Rolling a Die</p>
+<p><strong>Experiment:</strong> Roll a die infinitely many times on the probability space <span class="math notranslate nohighlight">\((\Omega, \mathcal{P})\)</span>.</p>
+<p><strong>Success Definition:</strong> Rolling a six</p>
+<p><strong>Key Property:</strong> The outcomes of these trials are mutually independent.</p>
+</div>
+</section>
+<section id="bernoulli-random-variable">
+<h3>Bernoulli Random Variable<a class="headerlink" href="#bernoulli-random-variable" title="Link to this heading">#</a></h3>
+<p>To each Bernoulli trial, we associate a Bernoulli random variable <span class="math notranslate nohighlight">\(X_k\)</span> defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X_k = \begin{cases}
+1 &amp; \text{if } k\text{th trial is a success} \\
+0 &amp; \text{otherwise}
+\end{cases}
+\end{split}\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Probability Mass Function (Bernoulli Distribution):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+p(x) = p^x(1-p)^{1-x}, \quad \text{for } x \in \{0,1\}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p\)</span> = probability of success</p></li>
+<li><p>For rolling a six: <span class="math notranslate nohighlight">\(p = 1/6\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1-p\)</span> = probability of failure</p></li>
+</ul>
+</div>
+</section>
+<section id="expectation-of-a-bernoulli-variable">
+<h3>Expectation of a Bernoulli Variable<a class="headerlink" href="#expectation-of-a-bernoulli-variable" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Definition: Expectation of a Random Variable <span class="math notranslate nohighlight">\(X\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[
+E[X] = \int_\Omega X(\omega) \, dP(\omega)
+\]</div>
+<p>In a discrete probability model, this simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+E[X] = \sum_{\omega \in \Omega} X(\omega) P(\omega)
+\]</div>
+</div>
+<p>For the Bernoulli variable defined above:</p>
+<div class="math notranslate nohighlight">
+\[
+E[X_k] = 0 \cdot (1-p) + 1 \cdot p = p
+\]</div>
+<p><strong>Physical Meaning:</strong> The expected value of a Bernoulli trial equals the probability of success. If you roll a die many times, on average, you’ll get a six with frequency <span class="math notranslate nohighlight">\(p = 1/6\)</span>.</p>
+</section>
+</section>
+<section id="sums-of-random-variables">
+<h2>Sums of Random Variables<a class="headerlink" href="#sums-of-random-variables" title="Link to this heading">#</a></h2>
+<section id="the-binomial-distribution">
+<h3>The Binomial Distribution<a class="headerlink" href="#the-binomial-distribution" title="Link to this heading">#</a></h3>
+<p>We can define the sum:</p>
+<div class="math notranslate nohighlight">
+\[
+Y_n = \sum_{k=1}^{n} X_k
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(X_k\)</span> is the Bernoulli random variable defined earlier.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key Concept: Partial Sums</p>
+<p>The partial sum <span class="math notranslate nohighlight">\((Y_n)_{n \in \mathbb{N}}\)</span> is itself a sequence of random variables. It describes the <strong>number of successes after <span class="math notranslate nohighlight">\(n\)</span> trials</strong>.</p>
+</div>
+<p>The distribution of <span class="math notranslate nohighlight">\(Y_n\)</span> is Binomial with parameters <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(p\)</span>:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Binomial Probability Mass Function:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+p(x) = \binom{n}{x} p^x (1-p)^{n-x}, \quad \text{for } x \in \{0, 1, 2, 3, \ldots, n\}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> = number of trials</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> = number of successes</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> = probability of success on each trial</p></li>
+<li><p><span class="math notranslate nohighlight">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span> = binomial coefficient</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="expectation-of-a-sum-of-random-variables">
+<h2>Expectation of a Sum of Random Variables<a class="headerlink" href="#expectation-of-a-sum-of-random-variables" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Linearity of Expectation:</strong></p>
+<p>For a sum <span class="math notranslate nohighlight">\(Y_n = \sum_{k=1}^{n} X_k\)</span> of random variables:</p>
+<div class="math notranslate nohighlight">
+\[
+E[Y_n] = \sum_{k=1}^{n} E[X_k]
+\]</div>
+<p>This holds <strong>regardless of whether the variables are independent or not</strong>.</p>
+</div>
+<p>For the Bernoulli trials:</p>
+<div class="math notranslate nohighlight">
+\[
+E[Y_n] = \sum_{k=1}^{n} E[X_k] = \sum_{k=1}^{n} p = np
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>General Linearity Property:</strong></p>
+<p>For all real numbers <span class="math notranslate nohighlight">\(a, b\)</span> and all random variables <span class="math notranslate nohighlight">\(X, Y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+E[aX + bY] = aE[X] + bE[Y]
+\]</div>
+</div>
+<p><strong>Physical Meaning:</strong> If you roll a die <span class="math notranslate nohighlight">\(n\)</span> times with success probability <span class="math notranslate nohighlight">\(p = 1/6\)</span>, you expect to see <span class="math notranslate nohighlight">\(np = n/6\)</span> sixes on average.</p>
+</section>
+<section id="covariance-of-random-variables">
+<h2>Covariance of Random Variables<a class="headerlink" href="#covariance-of-random-variables" title="Link to this heading">#</a></h2>
+<section id="definition-and-properties">
+<h3>Definition and Properties<a class="headerlink" href="#definition-and-properties" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Covariance Definition:</strong></p>
+<p>For two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{cov}(X, Y) = E[(X - EX)(Y - EY)]
+\]</div>
+<p>This can also be rewritten as:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{cov}(X, Y) = E[XY] - E[X]E[Y]
+\]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Covariance Properties:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Linearity:</strong> For three random variables <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, <span class="math notranslate nohighlight">\(Z\)</span>:
+$<span class="math notranslate nohighlight">\(
+\text{cov}(X, Y+Z) = \text{cov}(X, Y) + \text{cov}(X, Z)
+\)</span>$</p></li>
+<li><p><strong>General Sum Formula:</strong> For sums of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> random variables:
+$<span class="math notranslate nohighlight">\(
+\text{cov}\left(\sum_{i=1}^{n} X_i, \sum_{j=1}^{m} Y_j\right) = \sum_{i=1}^{n} \sum_{j=1}^{m} \text{cov}(X_i, Y_j)
+\)</span>$</p></li>
+</ol>
+</div>
+<p><strong>Physical Meaning:</strong> Covariance measures how two random variables move together. Positive covariance means they tend to increase together; negative covariance means when one increases, the other tends to decrease.</p>
+</section>
+</section>
+<section id="variance-of-a-sum-of-random-variables">
+<h2>Variance of a Sum of Random Variables<a class="headerlink" href="#variance-of-a-sum-of-random-variables" title="Link to this heading">#</a></h2>
+<section id="general-formula">
+<h3>General Formula<a class="headerlink" href="#general-formula" title="Link to this heading">#</a></h3>
+<p>The variance of a random variable <span class="math notranslate nohighlight">\(X\)</span> can be defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{var}[X] = \text{cov}(X, X) = E[(X - EX)^2]
+\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Variance of a Sum (General Case):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{var}\left(\sum_{i=1}^{n} X_i\right) = \sum_{i=1}^{n} \text{var}(X_i) + 2\sum_{i=1}^{n} \sum_{j&lt;i} \text{cov}(X_i, X_j)
+\]</div>
+</div>
+</section>
+<section id="special-case-independent-variables">
+<h3>Special Case: Independent Variables<a class="headerlink" href="#special-case-independent-variables" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Variance of a Sum (Independent Variables):</strong></p>
+<p>If <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> are pairwise independent random variables, then:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{var}\left(\sum_{i=1}^{n} X_i\right) = \sum_{i=1}^{n} \text{var}(X_i)
+\]</div>
+<p>The cross terms vanish because <span class="math notranslate nohighlight">\(\text{cov}(X_i, X_j) = 0\)</span> for independent variables.</p>
+</div>
+</section>
+<section id="application-to-binomial-variable">
+<h3>Application to Binomial Variable<a class="headerlink" href="#application-to-binomial-variable" title="Link to this heading">#</a></h3>
+<p>For the Binomial variable <span class="math notranslate nohighlight">\(Y_n = \sum_{k=1}^{n} X_k\)</span> where <span class="math notranslate nohighlight">\(X_k\)</span> are Bernoulli variables:</p>
+<p>First, compute the variance of a single Bernoulli variable:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{var}(X_k) = E[X_k^2] - (E[X_k])^2 = p - p^2 = p(1-p)
+\]</div>
+<p>Since the Bernoulli variables are independent:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{var}(Y_n) = \sum_{k=1}^{n} \text{var}(X_k) = np(1-p)
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Important Note:</strong></p>
+<p>Independence does not always hold in financial models. Sometimes we must use the more general formula that includes covariance terms. For example, in portfolio theory, asset returns are often correlated.</p>
+</div>
+</section>
+</section>
+<section id="properties-of-variance-and-covariance">
+<h2>Properties of Variance and Covariance<a class="headerlink" href="#properties-of-variance-and-covariance" title="Link to this heading">#</a></h2>
+<section id="fundamental-properties">
+<h3>Fundamental Properties<a class="headerlink" href="#fundamental-properties" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Key Properties:</strong></p>
+<ol class="arabic">
+<li><p><strong>Deterministic Variables:</strong> <span class="math notranslate nohighlight">\(\text{var}[X] = 0\)</span> if and only if <span class="math notranslate nohighlight">\(X\)</span> is deterministic (constant).</p></li>
+<li><p><strong>Linear Combination:</strong> For all <span class="math notranslate nohighlight">\((a, b) \in \mathbb{R}^2\)</span> and random variables <span class="math notranslate nohighlight">\((X, Y)\)</span>:
+$<span class="math notranslate nohighlight">\(
+\text{var}[aX + bY] = a^2\text{var}[X] + b^2\text{var}[Y] + 2ab\,\text{cov}(X, Y)
+\)</span>$</p></li>
+<li><p><strong>Cauchy-Schwarz Inequality:</strong> For all random variables <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>:
+$<span class="math notranslate nohighlight">\(
+|\text{cov}(X, Y)|^2 \leq \text{var}[X]\,\text{var}[Y]
+\)</span>$</p>
+<p>Equivalently:
+$<span class="math notranslate nohighlight">\(
+|E[XY]|^2 \leq E[X^2]E[Y^2]
+\)</span>$</p>
+</li>
+</ol>
+</div>
+</section>
+<section id="consequences-and-special-cases">
+<h3>Consequences and Special Cases<a class="headerlink" href="#consequences-and-special-cases" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Important Consequences:</strong></p>
+<ol class="arabic simple">
+<li><p>If either <span class="math notranslate nohighlight">\(X\)</span> or <span class="math notranslate nohighlight">\(Y\)</span> is deterministic (constant), then <span class="math notranslate nohighlight">\(\text{cov}(X, Y) = 0\)</span>.</p></li>
+<li><p>The Cauchy-Schwarz inequality is an equality if and only if <span class="math notranslate nohighlight">\(X\)</span> is a multiple of <span class="math notranslate nohighlight">\(Y\)</span> or <span class="math notranslate nohighlight">\(Y\)</span> is a multiple of <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, then <span class="math notranslate nohighlight">\(\text{cov}(X, Y) = 0\)</span>.</p></li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Common Misconception:</strong></p>
+<p>The converse of property 3 is <strong>not true</strong>. <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can be dependent in a nonlinear way but still have zero covariance.</p>
+</div>
+</section>
+<section id="counterexample-zero-covariance-does-not-imply-independence">
+<h3>Counterexample: Zero Covariance Does Not Imply Independence<a class="headerlink" href="#counterexample-zero-covariance-does-not-imply-independence" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Example: Dependent Variables with Zero Covariance</p>
+<p><strong>Setup:</strong> Consider a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> taking values in <span class="math notranslate nohighlight">\(\{-1, 0, 1\}\)</span> with probabilities:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X = -1) = 0.25, \quad P(X = 0) = 0.5, \quad P(X = 1) = 0.25
+\]</div>
+<p>Define <span class="math notranslate nohighlight">\(Y = X^2\)</span>.</p>
+<p><strong>Observation:</strong> <span class="math notranslate nohighlight">\(Y\)</span> is clearly dependent on <span class="math notranslate nohighlight">\(X\)</span> (it’s a function of <span class="math notranslate nohighlight">\(X\)</span>), but one can verify that <span class="math notranslate nohighlight">\(\text{cov}(X, Y) = 0\)</span> because the relationship is nonlinear.</p>
+</div>
+</section>
+</section>
+<section id="correlation-coefficient">
+<h2>Correlation Coefficient<a class="headerlink" href="#correlation-coefficient" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Correlation Coefficient Definition:</strong></p>
+<p>The correlation coefficient measures the <strong>linear dependence</strong> of two random variables:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho_{X,Y} = \frac{\text{cov}(X, Y)}{\sqrt{\text{var}[X]\,\text{var}[Y]}}
+\]</div>
+</div>
+<section id="properties-of-correlation">
+<h3>Properties of Correlation<a class="headerlink" href="#properties-of-correlation" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Correlation Properties:</strong></p>
+<ol class="arabic">
+<li><p><strong>Bounded:</strong> By Cauchy-Schwarz, <span class="math notranslate nohighlight">\(-1 \leq \rho_{X,Y} \leq 1\)</span>.</p></li>
+<li><p><strong>Zero Correlation:</strong> <span class="math notranslate nohighlight">\(\rho_{X,Y} = 0\)</span> if and only if <span class="math notranslate nohighlight">\(\text{cov}(X, Y) = 0\)</span>. We say that <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are <strong>uncorrelated</strong>.</p>
+<p><strong>Note:</strong> Again, this does not imply independence!</p>
+</li>
+<li><p><strong>Perfect Correlation:</strong> <span class="math notranslate nohighlight">\(\rho_{X,Y} = \pm 1\)</span> if and only if <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are multiples of one another (perfectly linearly related).</p></li>
+</ol>
+</div>
+<p><strong>Physical Meaning:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho = 1\)</span>: Perfect positive linear relationship</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho = -1\)</span>: Perfect negative linear relationship</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho = 0\)</span>: No linear relationship (but could have nonlinear relationship)</p></li>
+<li><p><span class="math notranslate nohighlight">\(0 &lt; |\rho| &lt; 1\)</span>: Partial linear relationship</p></li>
+</ul>
+</section>
+</section>
+<section id="financial-application-portfolio-returns-and-variance">
+<h2>Financial Application: Portfolio Returns and Variance<a class="headerlink" href="#financial-application-portfolio-returns-and-variance" title="Link to this heading">#</a></h2>
+<p>This section demonstrates how expectation and variance apply to financial portfolios.</p>
+<section id="portfolio-setup">
+<h3>Portfolio Setup<a class="headerlink" href="#portfolio-setup" title="Link to this heading">#</a></h3>
+<p>Consider a portfolio of <span class="math notranslate nohighlight">\(N\)</span> assets over a time period <span class="math notranslate nohighlight">\([0, 1]\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Notation:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S_i(0)\)</span> = price per share of the <span class="math notranslate nohighlight">\(i\)</span>th asset at time 0</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_i(1)\)</span> = price per share of the <span class="math notranslate nohighlight">\(i\)</span>th asset at time 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(n_i\)</span> = number of shares of <span class="math notranslate nohighlight">\(i\)</span>th asset held in the portfolio</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_i\)</span> = fraction of wealth invested in the <span class="math notranslate nohighlight">\(i\)</span>th asset</p></li>
+</ul>
+</div>
+</section>
+<section id="asset-returns">
+<h3>Asset Returns<a class="headerlink" href="#asset-returns" title="Link to this heading">#</a></h3>
+<p>The relative returns over the time period are denoted by <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_N\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+X_i = \frac{S_i(1) - S_i(0)}{S_i(0)}
+\]</div>
+<p><strong>Physical Meaning:</strong> <span class="math notranslate nohighlight">\(X_i\)</span> represents the percentage gain (or loss) on asset <span class="math notranslate nohighlight">\(i\)</span> over the period.</p>
+</section>
+<section id="portfolio-wealth">
+<h3>Portfolio Wealth<a class="headerlink" href="#portfolio-wealth" title="Link to this heading">#</a></h3>
+<p>The total wealth at time 0:</p>
+<div class="math notranslate nohighlight">
+\[
+W_0 = \sum_{i=1}^{N} n_i S_i(0)
+\]</div>
+<p>The total wealth at time 1:</p>
+<div class="math notranslate nohighlight">
+\[
+W_1 = \sum_{i=1}^{N} n_i S_i(1)
+\]</div>
+<p>The fraction of wealth invested in the <span class="math notranslate nohighlight">\(i\)</span>th asset:</p>
+<div class="math notranslate nohighlight">
+\[
+\omega_i = \frac{n_i S_i(0)}{\sum_{i=1}^{N} n_i S_i(0)} = \frac{n_i S_i(0)}{W_0}
+\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\sum_{i=1}^{N} \omega_i = 1\)</span> (portfolio weights sum to 1).</p>
+</section>
+<section id="portfolio-return-calculation">
+<h3>Portfolio Return Calculation<a class="headerlink" href="#portfolio-return-calculation" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Derivation of Portfolio Return</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The total relative return of the portfolio is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+R &amp;= \frac{\sum_{i=1}^{N} n_i S_i(1) - \sum_{i=1}^{N} n_i S_i(0)}{\sum_{i=1}^{N} n_i S_i(0)} \\
+&amp;= \frac{\sum_{i=1}^{N} n_i (S_i(1) - S_i(0))}{\sum_{i=1}^{N} n_i S_i(0)} \\
+&amp;= \frac{\sum_{i=1}^{N} n_i X_i S_i(0)}{\sum_{i=1}^{N} n_i S_i(0)} \\
+&amp;= \sum_{i=1}^{N} X_i \frac{n_i S_i(0)}{\sum_{i=1}^{N} n_i S_i(0)} \\
+&amp;= \sum_{i=1}^{N} \omega_i X_i \\
+&amp;= \omega_1 X_1 + \omega_2 X_2 + \cdots + \omega_N X_N
+\end{align}
+\end{split}\]</div>
+</div>
+</details><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Portfolio Return Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+R = \sum_{i=1}^{N} \omega_i X_i
+\]</div>
+<p><strong>Key Insight:</strong> The total return of the portfolio is a linear combination of the individual asset returns, weighted by the portfolio weights.</p>
+</div>
+</section>
+<section id="expected-portfolio-return">
+<h3>Expected Portfolio Return<a class="headerlink" href="#expected-portfolio-return" title="Link to this heading">#</a></h3>
+<p>Using the linearity of expectation:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Expected Portfolio Return:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E[R] = \sum_{i=1}^{N} \omega_i E[X_i]
+\]</div>
+<p>The expected return is the weighted average of expected asset returns.</p>
+</div>
+</section>
+<section id="portfolio-variance">
+<h3>Portfolio Variance<a class="headerlink" href="#portfolio-variance" title="Link to this heading">#</a></h3>
+<p>Using the variance formula for linear combinations:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Portfolio Variance:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\text{var}[R] &amp;= \text{var}\left[\sum_{i=1}^{N} \omega_i X_i\right] \\
+&amp;= \sum_{i=1}^{N} \omega_i^2 \text{var}[X_i] + \sum_{i=1}^{N} \sum_{j \neq i} \omega_i \omega_j \text{cov}(X_i, X_j) \\
+&amp;= \sum_{i=1}^{N} \omega_i^2 \text{var}[X_i] + \sum_{i=1}^{N} \sum_{j \neq i} \omega_i \omega_j \rho_{X_i,X_j} \sqrt{\text{var}[X_i]\text{var}[X_j]}
+\end{align}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho_{X_i,X_j}\)</span> is the correlation coefficient between assets <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> Portfolio variance depends on:</p>
+<ol class="arabic simple">
+<li><p>Individual asset variances (weighted by squared portfolio weights)</p></li>
+<li><p>Pairwise correlations between assets (weighted by products of portfolio weights)</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Key Takeaway: Diversification</p>
+<p>The presence of covariance/correlation terms shows why diversification works. If assets are not perfectly correlated, the portfolio variance can be less than the weighted sum of individual variances. Negative correlations provide even better risk reduction.</p>
+</div>
+</section>
+</section>
+<section id="distribution-of-a-sum-of-random-variables">
+<h2>Distribution of a Sum of Random Variables<a class="headerlink" href="#distribution-of-a-sum-of-random-variables" title="Link to this heading">#</a></h2>
+<p>It is not always easy to determine the distribution of a sum of independent random variables in closed form, even when the distribution of each variable is known explicitly.</p>
+<section id="two-independent-variables">
+<h3>Two Independent Variables<a class="headerlink" href="#two-independent-variables" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be two independent random variables.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Notation:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_{X+Y}\)</span> = cumulative distribution function of <span class="math notranslate nohighlight">\(X+Y\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_X\)</span>, <span class="math notranslate nohighlight">\(F_Y\)</span> = cumulative distribution functions of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f_Y\)</span> = density of <span class="math notranslate nohighlight">\(Y\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="convolution-formula">
+<h3>Convolution Formula<a class="headerlink" href="#convolution-formula" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Derivation of Convolution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">By definition:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+F_{X+Y}(z) &amp;= P[X + Y \leq z] \\
+&amp;= P[X \leq z - Y] \\
+&amp;= \int_{-\infty}^{+\infty} \int_{-\infty}^{z-y} f_X(x) \, dx \, f_Y(y) \, dy \\
+&amp;= \int_{-\infty}^{+\infty} F_X(z-y) f_Y(y) \, dy
+\end{align}
+\end{split}\]</div>
+</div>
+</details><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Distribution of Sum (Convolution):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+F_{X+Y}(z) = \int_{-\infty}^{+\infty} F_X(z-y) f_Y(y) \, dy
+\]</div>
+<p>The distribution of <span class="math notranslate nohighlight">\(X+Y\)</span> is the <strong>convolution</strong> of the distributions <span class="math notranslate nohighlight">\(F_X\)</span> and <span class="math notranslate nohighlight">\(F_Y\)</span>.</p>
+</div>
+</section>
+<section id="generalization-to-n-variables">
+<h3>Generalization to <span class="math notranslate nohighlight">\(n\)</span> Variables<a class="headerlink" href="#generalization-to-n-variables" title="Link to this heading">#</a></h3>
+<p>This result can be generalized by induction to compute the distribution of the sum of <span class="math notranslate nohighlight">\(n\)</span> independent and identically distributed random variables.</p>
+<p>If we denote by <span class="math notranslate nohighlight">\(F\)</span> the common cumulative distribution function of each variable, the cumulative distribution function of the sum is the <strong><span class="math notranslate nohighlight">\(n\)</span>-fold convolution</strong> of <span class="math notranslate nohighlight">\(F\)</span> with itself.</p>
+<p>Let <span class="math notranslate nohighlight">\(F_{n-1}\)</span>, <span class="math notranslate nohighlight">\(f_{n-1}\)</span> be the cumulative distribution function and density function of <span class="math notranslate nohighlight">\(X_1 + \cdots + X_{n-1}\)</span>. Then:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong><span class="math notranslate nohighlight">\(n\)</span>-fold Convolution Formulas:</strong></p>
+<p><strong>CDF:</strong>
+$<span class="math notranslate nohighlight">\(
+F_n(x) = \int_{-\infty}^{+\infty} F(x-y) f_{n-1}(y) \, dy
+\)</span>$</p>
+<p><strong>PDF (by differentiation):</strong>
+$<span class="math notranslate nohighlight">\(
+f_n(x) = \int_{-\infty}^{+\infty} f(x-y) f_{n-1}(y) \, dy
+\)</span>$</p>
+</div>
+</section>
+<section id="example-problem">
+<h3>Example Problem<a class="headerlink" href="#example-problem" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Example: Sum of Uniform Variables</p>
+<p><strong>Problem:</strong> Let <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> be i.i.d. random variables uniformly distributed on the interval <span class="math notranslate nohighlight">\([0, 1]\)</span>. Compute <span class="math notranslate nohighlight">\(F_n(1) = P\left[\sum_{i=1}^{n} X_i \leq 1\right]\)</span>.</p>
+<p><strong>Hint:</strong> Find a recursive relationship on <span class="math notranslate nohighlight">\(F_n(x)\)</span> for <span class="math notranslate nohighlight">\(x \in [0, 1]\)</span>, and show that <span class="math notranslate nohighlight">\(F_n(x) = \frac{x^n}{n!}\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Key Observation:</strong></p>
+<p>As seen in the above example, one can sometimes characterize the distribution of a sum of independent random variables with a known common distribution. However, this is not always possible in closed form.</p>
+</div>
+</section>
+</section>
+<section id="the-sample-mean">
+<h2>The Sample Mean<a class="headerlink" href="#the-sample-mean" title="Link to this heading">#</a></h2>
+<section id="definition">
+<h3>Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Sample Mean:</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span> be independent and identically distributed random variables. Then:</p>
+<div class="math notranslate nohighlight">
+\[
+\overline{Y}_n = \frac{1}{n} \sum_{i=1}^{n} X_i
+\]</div>
+<p>is called the <strong>sample mean</strong>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> The sample mean is the average of <span class="math notranslate nohighlight">\(n\)</span> observations. It’s an estimator of the true population mean <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+</section>
+<section id="expectation-of-sample-mean">
+<h3>Expectation of Sample Mean<a class="headerlink" href="#expectation-of-sample-mean" title="Link to this heading">#</a></h3>
+<p>Denoting the common mean by <span class="math notranslate nohighlight">\(\mu\)</span> and the common variance by <span class="math notranslate nohighlight">\(\sigma^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+E[\overline{Y}_n] = \frac{1}{n} \sum_{i=1}^{n} E[X_i] = \frac{1}{n} \cdot n\mu = \mu
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Key Concept: Unbiased Estimator</p>
+<p>The sample mean is an <strong>unbiased estimator</strong> of the population mean, because <span class="math notranslate nohighlight">\(E[\overline{Y}_n] = \mu\)</span>.</p>
+</div>
+</section>
+<section id="variance-of-sample-mean">
+<h3>Variance of Sample Mean<a class="headerlink" href="#variance-of-sample-mean" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\text{var}[\overline{Y}_n] &amp;= \frac{1}{n^2} \text{var}\left(\sum_{i=1}^{n} X_i\right) \\
+&amp;= \frac{1}{n^2} \sum_{i=1}^{n} \text{var}[X_i] \\
+&amp;= \frac{1}{n^2} \cdot n\sigma^2 \\
+&amp;= \frac{\sigma^2}{n}
+\end{align}
+\end{split}\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Variance of Sample Mean:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{var}[\overline{Y}_n] = \frac{\sigma^2}{n}
+\]</div>
+<p><strong>Key Insight:</strong> The variance of the sample mean decreases as <span class="math notranslate nohighlight">\(n\)</span> increases. This is why larger samples give more precise estimates.</p>
+</div>
+</section>
+<section id="covariance-between-sample-mean-and-deviation">
+<h3>Covariance Between Sample Mean and Deviation<a class="headerlink" href="#covariance-between-sample-mean-and-deviation" title="Link to this heading">#</a></h3>
+<p>For <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Derivation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\text{cov}(\overline{Y}_n, X_i - \overline{Y}_n) &amp;= \text{cov}(\overline{Y}_n, X_i) - \text{cov}(\overline{Y}_n, \overline{Y}_n) \\
+&amp;= \frac{1}{n}\text{cov}\left(X_i + \sum_{j \neq i} X_j, X_i\right) - \text{var}(\overline{Y}_n) \\
+&amp;= \frac{1}{n}\text{cov}(X_i, X_i) + \frac{1}{n}\sum_{j \neq i}\text{cov}(X_j, X_i) - \frac{\sigma^2}{n} \\
+&amp;= \frac{\sigma^2}{n} + 0 - \frac{\sigma^2}{n} \\
+&amp;= 0
+\end{align}
+\end{split}\]</div>
+</div>
+</details><p><strong>Physical Meaning:</strong> The sample mean is uncorrelated with the deviation of any individual observation from the sample mean.</p>
+</section>
+</section>
+<section id="the-sample-variance">
+<h2>The Sample Variance<a class="headerlink" href="#the-sample-variance" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Definition<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Sample Variance:</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> be <span class="math notranslate nohighlight">\(n\)</span> independent and identically distributed random variables with common mean <span class="math notranslate nohighlight">\(\mu\)</span> and common variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>. The <strong>sample variance</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[
+S_n^2 = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{Y}_n)^2
+\]</div>
+</div>
+</section>
+<section id="expectation-of-sample-variance">
+<h3>Expectation of Sample Variance<a class="headerlink" href="#expectation-of-sample-variance" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Expected Value of Sample Variance:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E[S_n^2] = \frac{n-1}{n}\sigma^2
+\]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Bias Correction:</strong></p>
+<p>Since <span class="math notranslate nohighlight">\(E[S_n^2] = \frac{n-1}{n}\sigma^2 \neq \sigma^2\)</span>, the sample variance <span class="math notranslate nohighlight">\(S_n^2\)</span> is a <strong>biased estimator</strong> of <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>The <strong>unbiased sample variance</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{S}_n^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{Y}_n)^2 = \frac{n}{n-1} S_n^2
+\]</div>
+<p>which satisfies <span class="math notranslate nohighlight">\(E[\tilde{S}_n^2] = \sigma^2\)</span>.</p>
+</div>
+</section>
+</section>
+<section id="distribution-of-sample-mean-and-variance-in-the-normal-case">
+<h2>Distribution of Sample Mean and Variance in the Normal Case<a class="headerlink" href="#distribution-of-sample-mean-and-variance-in-the-normal-case" title="Link to this heading">#</a></h2>
+<section id="assumptions">
+<h3>Assumptions<a class="headerlink" href="#assumptions" title="Link to this heading">#</a></h3>
+<p>We now assume that <span class="math notranslate nohighlight">\(X_1, \ldots, X_n\)</span> are independent and have a normal distribution with common mean <span class="math notranslate nohighlight">\(\mu\)</span> and common variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+X_i \sim \mathcal{N}(\mu, \sigma^2), \quad i = 1, \ldots, n
+\]</div>
+</section>
+<section id="important-results">
+<h3>Important Results<a class="headerlink" href="#important-results" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Properties Under Normality:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Sample Mean Distribution:</strong> <span class="math notranslate nohighlight">\(\overline{Y}_n\)</span> is also distributed normally, with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\frac{\sigma^2}{n}\)</span>:
+$<span class="math notranslate nohighlight">\(
+\overline{Y}_n \sim \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right)
+\)</span>$</p></li>
+<li><p><strong>Independence:</strong> <span class="math notranslate nohighlight">\(\overline{Y}_n\)</span> is independent of <span class="math notranslate nohighlight">\(S_n^2\)</span>.</p></li>
+<li><p><strong>Sample Variance Distribution:</strong> <span class="math notranslate nohighlight">\(S_n^2\)</span> has a chi-square distribution with <span class="math notranslate nohighlight">\(n-1\)</span> degrees of freedom (after appropriate scaling):
+$<span class="math notranslate nohighlight">\(
+\frac{(n-1)S_n^2}{\sigma^2} \sim \chi^2_{n-1}
+\)</span>$</p></li>
+</ol>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For proofs of these results, see Sheldon Ross, “Introduction to Probability Models”, Chapter 5.</p>
+</div>
+</section>
+</section>
+<section id="the-poisson-paradigm">
+<h2>The Poisson Paradigm<a class="headerlink" href="#the-poisson-paradigm" title="Link to this heading">#</a></h2>
+<section id="modified-bernoulli-trials">
+<h3>Modified Bernoulli Trials<a class="headerlink" href="#modified-bernoulli-trials" title="Link to this heading">#</a></h3>
+<p>We revisit Bernoulli trials, but this time with a variable success probability.</p>
+<div class="tip admonition">
+<p class="admonition-title">Setup: Poisson Paradigm</p>
+<p><strong>Modified Assumptions:</strong></p>
+<ul class="simple">
+<li><p>The probability of success at the <span class="math notranslate nohighlight">\(k\)</span>th trial is <span class="math notranslate nohighlight">\(p_k\)</span> (depends on trial number)</p></li>
+<li><p>We assume <span class="math notranslate nohighlight">\(p_k\)</span> is <strong>small</strong> for all <span class="math notranslate nohighlight">\(k\)</span></p></li>
+<li><p>Consider the number of successes <span class="math notranslate nohighlight">\(Y_n = \sum_{k=1}^{n} X_k\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="moment-generating-function-approach">
+<h3>Moment Generating Function Approach<a class="headerlink" href="#moment-generating-function-approach" title="Link to this heading">#</a></h3>
+<p>The moment generating function of <span class="math notranslate nohighlight">\(X_k\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(t) = E[e^{tX_k}] = p_k e^t + (1-p_k) = 1 + p_k(e^t - 1)
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(p_k\)</span> is small, <span class="math notranslate nohighlight">\(p_k(e^t - 1)\)</span> is also small, and we can use the linear approximation <span class="math notranslate nohighlight">\(e^x \approx 1 + x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\psi(t) \approx \exp(p_k(e^t - 1))
+\]</div>
+</section>
+<section id="poisson-approximation">
+<h3>Poisson Approximation<a class="headerlink" href="#poisson-approximation" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Derivation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The moment generating function of <span class="math notranslate nohighlight">\(Y_n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+E[e^{tY_n}] &amp;= E\left[e^{t\sum_{k=1}^{n} X_k}\right] \\
+&amp;= E\left[\prod_{k=1}^{n} e^{tX_k}\right] \\
+&amp;= \prod_{k=1}^{n} E[e^{tX_k}] \\
+&amp;\approx \prod_{k=1}^{n} \exp(p_k(e^t - 1)) \\
+&amp;= \exp\left(\sum_{k=1}^{n} p_k(e^t - 1)\right)
+\end{align}
+\end{split}\]</div>
+</div>
+</details><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Poisson Approximation:</strong></p>
+<p>When <span class="math notranslate nohighlight">\(p_k\)</span> is small, <span class="math notranslate nohighlight">\(Y_n\)</span> is approximately Poisson distributed with parameter:</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda = \sum_{k=1}^{n} p_k
+\]</div>
+<p><strong>Recall:</strong> The moment generating function of a Poisson distribution is:
+$<span class="math notranslate nohighlight">\(
+E[e^{tX}] = e^{\lambda(e^t - 1)}
+\)</span>$</p>
+</div>
+<p><strong>Physical Meaning:</strong> When dealing with many trials, each with a small probability of success, the total number of successes follows approximately a Poisson distribution. This is why the Poisson distribution models rare events (insurance claims, equipment failures, etc.).</p>
+</section>
+</section>
+<section id="the-elementary-arithmetic-random-walk">
+<h2>The Elementary Arithmetic Random Walk<a class="headerlink" href="#the-elementary-arithmetic-random-walk" title="Link to this heading">#</a></h2>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Experiment: Coin Toss</p>
+<p><strong>Experiment:</strong> Toss a coin infinitely many times.</p>
+<p><strong>Outcomes:</strong></p>
+<ul class="simple">
+<li><p>Head with probability <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p>Tail with probability <span class="math notranslate nohighlight">\(1-p\)</span></p></li>
+</ul>
+<p><strong>Fair Coin:</strong> <span class="math notranslate nohighlight">\(p = 1-p = 0.5\)</span></p>
+<p><strong>Key Property:</strong> The tosses are independent.</p>
+</div>
+</section>
+<section id="random-walk-definition">
+<h3>Random Walk Definition<a class="headerlink" href="#random-walk-definition" title="Link to this heading">#</a></h3>
+<p>Define the sequence of independent random variables:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X_k = \begin{cases}
++1 &amp; \text{if a head is obtained at the } k\text{th trial} \\
+-1 &amp; \text{if a tail is obtained at the } k\text{th trial}
+\end{cases}
+\end{split}\]</div>
+<p>The random walk <span class="math notranslate nohighlight">\(Y_n\)</span> is defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+Y_0 = 0, \quad Y_n = \sum_{k=1}^{n} X_k
+\]</div>
+<p><strong>Physical Meaning:</strong> <span class="math notranslate nohighlight">\(Y_n\)</span> represents the net position after <span class="math notranslate nohighlight">\(n\)</span> steps. Each step moves up (+1) or down (-1). This models random movement and is fundamental in finance (stock prices), physics (Brownian motion), and many other fields.</p>
+</section>
+<section id="properties-of-the-random-walk">
+<h3>Properties of the Random Walk<a class="headerlink" href="#properties-of-the-random-walk" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Random Walk Properties:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Expected Step:</strong>
+$<span class="math notranslate nohighlight">\(
+E[X_k] = p - (1-p) = 2p - 1
+\)</span><span class="math notranslate nohighlight">\(
+For a fair coin (\)</span>p = 0.5<span class="math notranslate nohighlight">\(): \)</span>E[X_k] = 0$</p></li>
+<li><p><strong>Expected Position:</strong>
+$<span class="math notranslate nohighlight">\(
+E[Y_n | Y_0 = 0] = \sum_{k=1}^{n} E[X_k] = n(2p-1)
+\)</span><span class="math notranslate nohighlight">\(
+For a fair coin: \)</span>E[Y_n] = 0$ (no drift)</p></li>
+<li><p><strong>Variance of Step:</strong>
+$<span class="math notranslate nohighlight">\(
+\text{var}[X_k] = E[X_k^2] - (E[X_k])^2 = 1 - (2p-1)^2 = 4p(1-p)
+\)</span>$</p></li>
+<li><p><strong>Variance of Position:</strong>
+$<span class="math notranslate nohighlight">\(
+\text{var}[Y_n] = \sum_{k=1}^{n} \text{var}[X_k] = 4pn(1-p)
+\)</span><span class="math notranslate nohighlight">\(
+For a fair coin: \)</span>\text{var}[Y_n] = n$ (variance grows linearly with time)</p></li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Significance for Finance:</strong></p>
+<p>This is one of the most important examples for financial applications. We will return to random walks many times throughout this course, as they form the basis for modeling stock prices and other financial quantities.</p>
+</div>
+</section>
+</section>
+<section id="generalization-of-random-walks">
+<h2>Generalization of Random Walks<a class="headerlink" href="#generalization-of-random-walks" title="Link to this heading">#</a></h2>
+<section id="general-autoregressive-model">
+<h3>General Autoregressive Model<a class="headerlink" href="#general-autoregressive-model" title="Link to this heading">#</a></h3>
+<p>One can generalize the previous example by allowing different distributions for the increments:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Generalized Random Walk (AR(1) Model):</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Y_{n+1} = Y_n + \epsilon_{n+1}
+\]</div>
+<p>where the random variables <span class="math notranslate nohighlight">\(\epsilon_1, \epsilon_2, \ldots, \epsilon_{n+1}, \ldots\)</span> are independent and identically distributed.</p>
+<p><strong>Note:</strong> The noise term is evaluated at time <span class="math notranslate nohighlight">\(n+1\)</span>.</p>
+</div>
+<p>By successive iterations:</p>
+<div class="math notranslate nohighlight">
+\[
+Y_{n+1} = Y_0 + \sum_{i=1}^{n+1} \epsilon_i
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Y_0\)</span> denotes the initial condition at time <span class="math notranslate nohighlight">\(n=0\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Connection to Econometrics:</strong></p>
+<p>This model constitutes a particular case of the well-known <strong>Autoregressive model</strong> (abbreviated AR) in Econometrics.</p>
+</div>
+</section>
+<section id="example-1-bernoulli-increments">
+<h3>Example 1: Bernoulli Increments<a class="headerlink" href="#example-1-bernoulli-increments" title="Link to this heading">#</a></h3>
+<p>The elementary example of the previous section corresponds to:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\epsilon_{n+1} = \begin{cases}
+-1 &amp; \text{with probability } 1-p \\
++1 &amp; \text{with probability } p
+\end{cases}
+\end{split}\]</div>
+<p>Given initial condition <span class="math notranslate nohighlight">\(Y_0\)</span>, the variable <span class="math notranslate nohighlight">\(Y_{n+1}\)</span> has a binomial distribution with parameters <span class="math notranslate nohighlight">\(n+1\)</span> and <span class="math notranslate nohighlight">\(p\)</span> (shifted by <span class="math notranslate nohighlight">\(Y_0\)</span>).</p>
+</section>
+<section id="example-2-normal-increments">
+<h3>Example 2: Normal Increments<a class="headerlink" href="#example-2-normal-increments" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Normal Random Walk:</strong></p>
+<p>Assume the residual is normally distributed:</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon_{n+1} \sim \mathcal{N}(0, \sigma^2)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is a positive constant.</p>
+<p>Given <span class="math notranslate nohighlight">\(Y_0\)</span>, the distribution of <span class="math notranslate nohighlight">\(Y_{n+1}\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+Y_{n+1} \sim \mathcal{N}(Y_0, (n+1)\sigma^2)
+\]</div>
+<p><strong>Note:</strong> The variance depends on time <span class="math notranslate nohighlight">\(n\)</span> and increases linearly with <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> In a normal random walk, the position spreads out over time. The standard deviation grows as <span class="math notranslate nohighlight">\(\sqrt{n}\)</span>, meaning uncertainty increases with time. This is used in finance to model stock price movements.</p>
+</section>
+<section id="issue-thin-tails-of-normal-distribution">
+<h3>Issue: Thin Tails of Normal Distribution<a class="headerlink" href="#issue-thin-tails-of-normal-distribution" title="Link to this heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Drawback of Normal Distribution in Finance:</strong></p>
+<p>A disadvantage of using the normal distribution in financial applications is the <strong>thinness of its tails</strong>, which makes extreme events appear very unlikely.</p>
+<p>In risk management, we care about extreme events and want them to be adequately represented in models. For this purpose, distributions with <strong>fatter tails</strong> may be preferred.</p>
+</div>
+</section>
+<section id="example-3-heavy-tailed-random-walk-pareto">
+<h3>Example 3: Heavy-Tailed Random Walk (Pareto)<a class="headerlink" href="#example-3-heavy-tailed-random-walk-pareto" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Heavy-Tailed Random Walk (Pareto Distribution):</strong></p>
+<p>Consider residuals following the Pareto distribution with density function:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(x) = \begin{cases}
+\frac{\alpha}{2} \frac{1}{|x|^{\alpha+1}} &amp; \text{for } |x| \geq 1 \\
+0 &amp; \text{otherwise}
+\end{cases}
+\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(0 &lt; \alpha &lt; 2\)</span>.</p>
+<p><strong>Key Property:</strong> The normal distribution has exponentially fast decreasing tails, whereas the Pareto distribution has tails that decrease with a <strong>power law</strong>.</p>
+</div>
+<p><strong>Physical Meaning:</strong> Power-law tails mean extreme events are much more likely than in the normal distribution. This better captures the reality of financial markets, where “Black Swan” events occur more frequently than normal distributions would predict.</p>
+</section>
+<section id="example-4-cauchy-random-walk">
+<h3>Example 4: Cauchy Random Walk<a class="headerlink" href="#example-4-cauchy-random-walk" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Cauchy Distribution:</strong></p>
+<p>Another density that decreases at the same rate as Pareto when <span class="math notranslate nohighlight">\(\alpha = 1\)</span> is the <strong>Cauchy density function</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = \frac{1}{\pi} \frac{1}{1 + x^2}, \quad \text{for } x \in \mathbb{R}
+\]</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Drawback of Heavy Tails:</strong></p>
+<p>The downside of distributions with thick tails is the <strong>lack of well-defined moments</strong>.</p>
+<p>In particular, the <strong>Cauchy distribution does not have a well-defined mean and variance</strong>.</p>
+</div>
+</section>
+<section id="example-5-student-s-t-distribution">
+<h3>Example 5: Student’s t-Distribution<a class="headerlink" href="#example-5-student-s-t-distribution" title="Link to this heading">#</a></h3>
+<p>The Cauchy distribution can be generalized to the <strong>Student’s t-distribution</strong>:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Student’s t-Distribution:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = \frac{\Gamma\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi} \, \Gamma\left(\frac{\nu}{2}\right)} \left(1 + \frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}, \quad \text{for } x \in \mathbb{R}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\nu &gt; 0\)</span> represents the <strong>degrees of freedom</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Gamma(\cdot)\)</span> is the gamma function</p></li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul class="simple">
+<li><p>Median and mode are 0</p></li>
+<li><p>Mean is defined (and equal to 0) only when <span class="math notranslate nohighlight">\(\nu &gt; 1\)</span></p></li>
+<li><p>Variance is defined only when <span class="math notranslate nohighlight">\(\nu &gt; 2\)</span></p></li>
+<li><p>The case <span class="math notranslate nohighlight">\(\nu = 1\)</span> corresponds to the Cauchy distribution</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="application-to-equities">
+<h2>Application to Equities<a class="headerlink" href="#application-to-equities" title="Link to this heading">#</a></h2>
+<section id="stock-log-returns">
+<h3>Stock Log Returns<a class="headerlink" href="#stock-log-returns" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Notation:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X_t\)</span> = stock price per share at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_t = \log X_{t+1} - \log X_t\)</span> = log return</p></li>
+</ul>
+</div>
+</section>
+<section id="model">
+<h3>Model<a class="headerlink" href="#model" title="Link to this heading">#</a></h3>
+<p>We model the evolution of the stock log return over time as:</p>
+<div class="math notranslate nohighlight">
+\[
+Y_{t+1} = Y_t + \epsilon_{t+1}
+\]</div>
+<p>where the random variables <span class="math notranslate nohighlight">\(\epsilon_{t+1}\)</span> are i.i.d.</p>
+<p><strong>Interpretation:</strong> Suppose one observes the stock price as time passes, and at time <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(Y_t\)</span> is known. The above equation attempts to predict the log return at time <span class="math notranslate nohighlight">\(t+1\)</span>. The noise term is not known yet and remains uncertain until time <span class="math notranslate nohighlight">\(t+1\)</span>.</p>
+</section>
+<section id="remarks-on-distribution-choice">
+<h3>Remarks on Distribution Choice<a class="headerlink" href="#remarks-on-distribution-choice" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Choosing the Right Distribution:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Normal Distribution:</strong></p>
+<ul class="simple">
+<li><p>If we assume the noise term is normally distributed, the likelihood of extreme price swings will be <strong>underestimated</strong>.</p></li>
+<li><p>A distribution with fatter tails can capture these unlikely events better.</p></li>
+</ul>
+</li>
+<li><p><strong>Frequency Matters:</strong></p>
+<ul class="simple">
+<li><p>At <strong>low frequency</strong> (daily, weekly, monthly data), the normal distribution may be appropriate as stock data looks more normal as frequency decreases.</p></li>
+<li><p>At <strong>high frequency</strong> (intraday data), data typically has fatter tails.</p></li>
+</ul>
+</li>
+<li><p><strong>Empirical Evidence:</strong></p>
+<ul class="simple">
+<li><p>The tails of the distribution of S&amp;P 500 index futures log returns, sampled at 5-minute frequency, do not decrease exponentially.</p></li>
+<li><p>They behave more like a power law.</p></li>
+<li><p><strong>Important:</strong> Tails are notoriously hard to estimate accurately.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="characteristic-function-of-sums">
+<h2>Characteristic Function of Sums<a class="headerlink" href="#characteristic-function-of-sums" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h3>Definition<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Characteristic Function:</strong></p>
+<p>For a real-valued random variable <span class="math notranslate nohighlight">\(X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi_X(u) = E[e^{iuX}], \quad \text{for all } u \in \mathbb{R}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(i = \sqrt{-1}\)</span> is the imaginary unit.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Advantages of Characteristic Function:</strong></p>
+<ul class="simple">
+<li><p>The characteristic function <strong>always exists</strong>, in contrast to the moment generating function.</p></li>
+<li><p>Can be rewritten as:
+$<span class="math notranslate nohighlight">\(
+\varphi_X(u) = \int e^{iux} \, dF_X(x)
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>F_X<span class="math notranslate nohighlight">\( denotes the cumulative distribution function of \)</span>X$.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(X\)</span> has a density function <span class="math notranslate nohighlight">\(f_X\)</span>:
+$<span class="math notranslate nohighlight">\(
+\varphi_X(u) = \int e^{iux} f_X(x) \, dx
+\)</span>$</p></li>
+</ul>
+</div>
+</section>
+<section id="sum-of-independent-variables">
+<h3>Sum of Independent Variables<a class="headerlink" href="#sum-of-independent-variables" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Characteristic Function of Sum:</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(X, Y\)</span> be independent real-valued random variables. Then:</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi_{X+Y}(u) = \varphi_X(u) \varphi_Y(u)
+\]</div>
+<p><strong>Key Insight:</strong> The characteristic function of a sum of independent variables is the <strong>product</strong> of individual characteristic functions. This is much simpler than the convolution formula for densities!</p>
+</div>
+</section>
+</section>
+<section id="insurance-application-aggregate-loss-model">
+<h2>Insurance Application: Aggregate Loss Model<a class="headerlink" href="#insurance-application-aggregate-loss-model" title="Link to this heading">#</a></h2>
+<section id="model-setup">
+<h3>Model Setup<a class="headerlink" href="#model-setup" title="Link to this heading">#</a></h3>
+<p>We present a simplified aggregate loss model in insurance.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Assumptions:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span> = total number of insurance claims (assumed constant)</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_n\)</span> = insurer’s loss amount for the <span class="math notranslate nohighlight">\(n\)</span>th claim (random)</p></li>
+<li><p>The variables <span class="math notranslate nohighlight">\(X_n\)</span> are independent and identically distributed</p></li>
+<li><p>Common mean: <span class="math notranslate nohighlight">\(\mu\)</span></p></li>
+<li><p>Common standard deviation: <span class="math notranslate nohighlight">\(\sigma\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="total-loss">
+<h3>Total Loss<a class="headerlink" href="#total-loss" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Aggregate Loss:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+S_N = \sum_{n=1}^{N} X_n
+\]</div>
+</div>
+</section>
+<section id="expected-loss">
+<h3>Expected Loss<a class="headerlink" href="#expected-loss" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+E[S_N] = E\left[\sum_{n=1}^{N} X_n\right] = \sum_{n=1}^{N} E[X_n] = N\mu
+\]</div>
+<p><strong>Physical Meaning:</strong> If we expect <span class="math notranslate nohighlight">\(N\)</span> claims with average loss <span class="math notranslate nohighlight">\(\mu\)</span> each, the total expected loss is <span class="math notranslate nohighlight">\(N\mu\)</span>.</p>
+</section>
+<section id="variance-of-loss">
+<h3>Variance of Loss<a class="headerlink" href="#variance-of-loss" title="Link to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Derivation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\text{var}[S_N] &amp;= E\left[\left(\sum_{n=1}^{N} X_n\right)^2\right] - (E[S_N])^2 \\
+&amp;= E\left[\sum_{n=1}^{N} X_n^2 + \sum_{i} \sum_{j \neq i} X_i X_j\right] - N^2\mu^2 \\
+&amp;= \sum_{n=1}^{N} E[X_n^2] + N(N-1)\mu^2 - N^2\mu^2 \\
+&amp;= N(\mu^2 + \sigma^2) + N(N-1)\mu^2 - N^2\mu^2 \\
+&amp;= N\mu^2 + N\sigma^2 + N^2\mu^2 - N\mu^2 - N^2\mu^2 \\
+&amp;= N\sigma^2
+\end{align}
+\end{split}\]</div>
+</div>
+</details><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Variance of Aggregate Loss:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{var}[S_N] = N\sigma^2
+\]</div>
+<p><strong>Interpretation:</strong> The variance of total loss scales linearly with the number of claims.</p>
+</div>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="problem-1-value-at-risk-with-different-distributions">
+<h3>Problem 1: Value at Risk with Different Distributions<a class="headerlink" href="#problem-1-value-at-risk-with-different-distributions" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Problem 1: Reflecting on Normal Distribution in Risk Management</p>
+<p><strong>Context:</strong> We consider a continuous random variable <span class="math notranslate nohighlight">\(X\)</span> representing the profit and loss of a portfolio.</p>
+<p><strong>Definition - Value at Risk (VaR):</strong>
+$<span class="math notranslate nohighlight">\(
+\text{VaR}_q(X) = x_q
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>x_q<span class="math notranslate nohighlight">\( denotes the \)</span>q<span class="math notranslate nohighlight">\(-quantile of the distribution of \)</span>X$.</p>
+<p><strong>Quantile Definition:</strong> Denoting by <span class="math notranslate nohighlight">\(F\)</span> the cumulative distribution function of the loss:
+$<span class="math notranslate nohighlight">\(
+x_q = F^{-1}(q)
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>F^{-1}<span class="math notranslate nohighlight">\( denotes the inverse function of \)</span>F$.</p>
+<p><strong>Interpretation:</strong> There is only a <span class="math notranslate nohighlight">\(q\%\)</span> probability of incurring a loss of at least <span class="math notranslate nohighlight">\(\text{VaR}_q\)</span> during the time period.</p>
+<p><strong>Questions:</strong></p>
+<ol class="arabic">
+<li><p>Assume the distribution of <span class="math notranslate nohighlight">\(X\)</span> is standard normal and take <span class="math notranslate nohighlight">\(q = 5\%\)</span>. Compute <span class="math notranslate nohighlight">\(\text{VaR}_q\)</span> under these assumptions.</p></li>
+<li><p>Assume that <span class="math notranslate nohighlight">\(X\)</span> is Cauchy distributed and take <span class="math notranslate nohighlight">\(q = 5\%\)</span>. Compute <span class="math notranslate nohighlight">\(\text{VaR}_q\)</span> under these assumptions.</p>
+<p><strong>Hint:</strong> Compute and invert the Cauchy cumulative distribution function before computing VaR.</p>
+</li>
+<li><p>Compare the above results and conclude.</p></li>
+</ol>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Answers</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text"><strong>Standard Normal:</strong> <span class="math notranslate nohighlight">\(\text{VaR}_{0.05} = -1.6449\)</span> (approximately)</p></li>
+<li><p class="sd-card-text"><strong>Cauchy:</strong> <span class="math notranslate nohighlight">\(\text{VaR}_{0.05} = -6.314\)</span> (approximately)</p></li>
+<li><p class="sd-card-text"><strong>Conclusion:</strong> The Cauchy distribution (with heavier tails) gives a much larger VaR, indicating higher risk. This demonstrates why the choice of distribution matters significantly in risk management. The normal distribution may underestimate extreme losses.</p></li>
+</ol>
+</div>
+</details></section>
+<section id="problem-2-correlated-loan-portfolio">
+<h3>Problem 2: Correlated Loan Portfolio<a class="headerlink" href="#problem-2-correlated-loan-portfolio" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Problem 2: Portfolio of Correlated Loans</p>
+<p><strong>Setup:</strong> A portfolio of <span class="math notranslate nohighlight">\(n\)</span> loans is modeled using correlated Bernoulli variables.</p>
+<p>For <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>, define:</p>
+<div class="math notranslate nohighlight">
+\[
+X_i = \sqrt{\rho} Y + \sqrt{1-\rho} \epsilon_i
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y \sim \mathcal{N}(0,1)\)</span> is a common factor to all loans</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho \in (0,1)\)</span> is the correlation coefficient between two loans</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon_i \sim \mathcal{N}(0,1)\)</span> are independent random variables</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon_i\)</span> is independent of <span class="math notranslate nohighlight">\(Y\)</span> for all <span class="math notranslate nohighlight">\(i\)</span></p></li>
+</ul>
+<p><strong>Interpretation:</strong> <span class="math notranslate nohighlight">\(X_i\)</span> represents the value of the <span class="math notranslate nohighlight">\(i\)</span>th borrower’s assets.</p>
+<p>Define the Bernoulli variable:</p>
+<div class="math notranslate nohighlight">
+\[
+Y_i = \mathbb{I}_{\{X_i &lt; x\}}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbb{I}\)</span> is the indicator function and <span class="math notranslate nohighlight">\(x\)</span> is the level below which loan <span class="math notranslate nohighlight">\(i\)</span> defaults. In other words, <span class="math notranslate nohighlight">\(Y_i = 1\)</span> if loan <span class="math notranslate nohighlight">\(i\)</span> defaults and <span class="math notranslate nohighlight">\(Y_i = 0\)</span> otherwise.</p>
+<p><strong>Questions:</strong></p>
+<ol class="arabic simple">
+<li><p>Is the distribution of <span class="math notranslate nohighlight">\(X_i\)</span> normal? Justify your answer.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(E[X_i]\)</span>.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\text{var}[X_i]\)</span>.</p></li>
+<li><p>Verify that <span class="math notranslate nohighlight">\(\text{cov}(X_i, X_j) = \rho\)</span> for all <span class="math notranslate nohighlight">\(i \neq j\)</span>.</p></li>
+<li><p>Write the probability <span class="math notranslate nohighlight">\(p_i\)</span> of default of the <span class="math notranslate nohighlight">\(i\)</span>th loan in terms of the standard normal cumulative distribution function <span class="math notranslate nohighlight">\(\Phi\)</span> and give <span class="math notranslate nohighlight">\(E[Y_i]\)</span>. Does <span class="math notranslate nohighlight">\(p_i\)</span> depend on <span class="math notranslate nohighlight">\(i\)</span>?</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(\text{var}[Y_i]\)</span>.</p></li>
+<li><p>The random variable <span class="math notranslate nohighlight">\(L\)</span> represents the number of defaults in the portfolio. Write it in terms of the Bernoulli variables <span class="math notranslate nohighlight">\(Y_i\)</span>, for <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.</p></li>
+<li><p>Compute the expected loss.</p></li>
+<li><p>Discuss the flaws of this model.</p></li>
+</ol>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Hints for Solutions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text"><strong>Normality:</strong> <span class="math notranslate nohighlight">\(X_i\)</span> is a linear combination of independent normal variables, so it’s normal.</p></li>
+<li><p class="sd-card-text"><strong>Mean:</strong> Use linearity of expectation: <span class="math notranslate nohighlight">\(E[X_i] = \sqrt{\rho} E[Y] + \sqrt{1-\rho} E[\epsilon_i] = 0\)</span>.</p></li>
+<li><p class="sd-card-text"><strong>Variance:</strong> Use independence: <span class="math notranslate nohighlight">\(\text{var}[X_i] = \rho \text{var}[Y] + (1-\rho) \text{var}[\epsilon_i] = 1\)</span>.</p></li>
+<li><p class="sd-card-text"><strong>Covariance:</strong> <span class="math notranslate nohighlight">\(\text{cov}(X_i, X_j) = \text{cov}(\sqrt{\rho}Y, \sqrt{\rho}Y) = \rho\)</span>.</p></li>
+<li><p class="sd-card-text"><strong>Default Probability:</strong> <span class="math notranslate nohighlight">\(p_i = P[X_i &lt; x] = \Phi(x)\)</span> (doesn’t depend on <span class="math notranslate nohighlight">\(i\)</span>).</p></li>
+<li><p class="sd-card-text"><strong>Variance of Bernoulli:</strong> <span class="math notranslate nohighlight">\(\text{var}[Y_i] = p_i(1-p_i)\)</span>.</p></li>
+<li><p class="sd-card-text"><strong>Total Defaults:</strong> <span class="math notranslate nohighlight">\(L = \sum_{i=1}^{n} Y_i\)</span>.</p></li>
+<li><p class="sd-card-text"><strong>Expected Defaults:</strong> <span class="math notranslate nohighlight">\(E[L] = \sum_{i=1}^{n} E[Y_i] = np\)</span>.</p></li>
+<li><p class="sd-card-text"><strong>Model Flaws:</strong> This model assumes symmetric correlation structure, constant default threshold, Gaussian dependence (may miss tail dependence), etc.</p></li>
+</ol>
+</div>
+</details></section>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Sheldon Ross, “Introduction to Probability Models”, 11th edition, Academic Press, 2014</p></li>
+<li><p>Jean Jacod and Philip Protter, “Probability Essentials”, Universitext, Second Edition, 2004, Springer</p></li>
+<li><p>Dan Stefanica, “A Primer for the Mathematics of Financial Engineering”, second Edition, 2011, FE Press New York</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lecture02_convergence-and-limits.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Convergence Concepts, Law of Large Numbers, Central Limit Theorem, Markov Sequences, and the Martingale Property</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-of-random-variables">Sequence of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-space-foundation">Probability Space Foundation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequences-of-random-variables">Sequences of Random Variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-the-bernoulli-distribution">First Example: The Bernoulli Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-trials">Bernoulli Trials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-random-variable">Bernoulli Random Variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-of-a-bernoulli-variable">Expectation of a Bernoulli Variable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sums-of-random-variables">Sums of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binomial-distribution">The Binomial Distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-of-a-sum-of-random-variables">Expectation of a Sum of Random Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-of-random-variables">Covariance of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-properties">Definition and Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-of-a-sum-of-random-variables">Variance of a Sum of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formula">General Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-independent-variables">Special Case: Independent Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-binomial-variable">Application to Binomial Variable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-variance-and-covariance">Properties of Variance and Covariance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-properties">Fundamental Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consequences-and-special-cases">Consequences and Special Cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#counterexample-zero-covariance-does-not-imply-independence">Counterexample: Zero Covariance Does Not Imply Independence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-coefficient">Correlation Coefficient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-correlation">Properties of Correlation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-application-portfolio-returns-and-variance">Financial Application: Portfolio Returns and Variance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-setup">Portfolio Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asset-returns">Asset Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-wealth">Portfolio Wealth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-return-calculation">Portfolio Return Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-portfolio-return">Expected Portfolio Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-variance">Portfolio Variance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-a-sum-of-random-variables">Distribution of a Sum of Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-independent-variables">Two Independent Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-formula">Convolution Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-to-n-variables">Generalization to <span class="math notranslate nohighlight">\(n\)</span> Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem">Example Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sample-mean">The Sample Mean</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-of-sample-mean">Expectation of Sample Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-of-sample-mean">Variance of Sample Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-between-sample-mean-and-deviation">Covariance Between Sample Mean and Deviation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sample-variance">The Sample Variance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-of-sample-variance">Expectation of Sample Variance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-sample-mean-and-variance-in-the-normal-case">Distribution of Sample Mean and Variance in the Normal Case</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-results">Important Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-poisson-paradigm">The Poisson Paradigm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-bernoulli-trials">Modified Bernoulli Trials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moment-generating-function-approach">Moment Generating Function Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-approximation">Poisson Approximation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-elementary-arithmetic-random-walk">The Elementary Arithmetic Random Walk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-walk-definition">Random Walk Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-random-walk">Properties of the Random Walk</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-of-random-walks">Generalization of Random Walks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-autoregressive-model">General Autoregressive Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-bernoulli-increments">Example 1: Bernoulli Increments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-normal-increments">Example 2: Normal Increments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issue-thin-tails-of-normal-distribution">Issue: Thin Tails of Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-heavy-tailed-random-walk-pareto">Example 3: Heavy-Tailed Random Walk (Pareto)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-cauchy-random-walk">Example 4: Cauchy Random Walk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-student-s-t-distribution">Example 5: Student’s t-Distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-equities">Application to Equities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stock-log-returns">Stock Log Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks-on-distribution-choice">Remarks on Distribution Choice</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-function-of-sums">Characteristic Function of Sums</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-of-independent-variables">Sum of Independent Variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#insurance-application-aggregate-loss-model">Insurance Application: Aggregate Loss Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-setup">Model Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-loss">Total Loss</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-loss">Expected Loss</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance-of-loss">Variance of Loss</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-value-at-risk-with-different-distributions">Problem 1: Value at Risk with Different Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-correlated-loan-portfolio">Problem 2: Correlated Loan Portfolio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Agnès Tourin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
