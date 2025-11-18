@@ -579,7 +579,8 @@ document.write(`
 <p><strong>Proof:</strong></p>
 <div class="math notranslate nohighlight">
 \[pS_0u + (1-p)S_0d = \frac{e^{rT} - d}{u - d} \cdot S_0u + \frac{u - e^{rT}}{u - d} \cdot S_0d\]</div>
-<p>$<span class="math notranslate nohighlight">\(= \frac{S_0(ue^{rT} - ud + ud - de^{rT})}{u - d} = \frac{S_0e^{rT}(u - d)}{u - d} = S_0e^{rT}\)</span>$ ✓</p>
+<div class="math notranslate nohighlight">
+\[= \frac{S_0(ue^{rT} - ud + ud - de^{rT})}{u - d} = \frac{S_0e^{rT}(u - d)}{u - d} = S_0e^{rT}\]</div>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -663,7 +664,8 @@ A stock currently trades at $20. In 3 months, it will either:</p>
 <div class="math notranslate nohighlight">
 \[0.25 \times 18 - 0 = 4.50 - 0 = \$4.50\]</div>
 <p class="sd-card-text"><strong>Present value of $4.50:</strong></p>
-<p class="sd-card-text">$<span class="math notranslate nohighlight">\(4.50 \times e^{-0.01} = 4.50 \times 0.9900 = \$4.455\)</span>$ ✓</p>
+<div class="math notranslate nohighlight">
+\[4.50 \times e^{-0.01} = 4.50 \times 0.9900 = \$4.455\]</div>
 <p class="sd-card-text"><strong>Final Answers:</strong></p>
 <ol class="arabic simple">
 <li><p class="sd-card-text">Option price: $0.545</p></li>
@@ -685,7 +687,8 @@ A stock currently trades at $20. In 3 months, it will either:</p>
 <p><strong>Solve for option price:</strong></p>
 <div class="math notranslate nohighlight">
 \[5.00 - f = 4.455\]</div>
-<p>$<span class="math notranslate nohighlight">\(f = \$0.545\)</span>$ ✓</p>
+<div class="math notranslate nohighlight">
+\[f = \$0.545\]</div>
 <p><strong>Same answer!</strong></p>
 </div>
 </section>
@@ -998,10 +1001,10 @@ t=0    t=Δt   t=2Δt
 <p class="sd-card-text">Actually, let’s verify: Portfolio is long <span class="math notranslate nohighlight">\(\Delta\)</span> shares, short 1 put.
 With <span class="math notranslate nohighlight">\(\Delta = -0.40\)</span>, we’re short 0.40 shares, short 1 put.</p>
 <p class="sd-card-text">Up state: <span class="math notranslate nohighlight">\(-0.40 \times 60 - 0 = -24\)</span>
-Down state: <span class="math notranslate nohighlight">\(-0.40 \times 40 - 8 = -16 - 8 = -24\)</span> ✓</p>
+Down state: <span class="math notranslate nohighlight">\(-0.40 \times 40 - 8 = -16 - 8 = -24\)</span></p>
 <p class="sd-card-text">PV: <span class="math notranslate nohighlight">\(-24 \times e^{-0.025} = -24 \times 0.9753 = -\$23.41\)</span>
 Today: <span class="math notranslate nohighlight">\(-0.40 \times 50 - p = -20 - p = -23.41\)</span>
-Therefore: <span class="math notranslate nohighlight">\(p = \$3.41\)</span> ✓</p>
+Therefore: <span class="math notranslate nohighlight">\(p = \$3.41\)</span></p>
 <p class="sd-card-text"><strong>Part 6: Verify Risk-Neutral Valuation</strong></p>
 <p class="sd-card-text">Expected stock price in risk-neutral world:</p>
 <div class="math notranslate nohighlight">
@@ -1011,13 +1014,14 @@ Therefore: <span class="math notranslate nohighlight">\(p = \$3.41\)</span> ✓<
 <div class="math notranslate nohighlight">
 \[= 33.80 + 17.47 = \$51.27\]</div>
 <p class="sd-card-text">Under risk-free growth:</p>
-<p class="sd-card-text">$<span class="math notranslate nohighlight">\(S_0 e^{rT} = 50 \times e^{0.025} = 50 \times 1.0253 = \$51.27\)</span>$ ✓</p>
+<div class="math notranslate nohighlight">
+\[S_0 e^{rT} = 50 \times e^{0.025} = 50 \times 1.0253 = \$51.27\]</div>
 <p class="sd-card-text"><strong>Final Answers:</strong></p>
 <ol class="arabic simple">
 <li><p class="sd-card-text">Delta: <strong>-0.40</strong> (negative for put)</p></li>
 <li><p class="sd-card-text">Put price: $3.41</p></li>
 <li><p class="sd-card-text">Replicating portfolio: <strong>Short 0.40 shares and short 1 put</strong> (or equivalently, long 0.40 shares and long 1 put creates opposite position)</p></li>
-<li><p class="sd-card-text">Risk-neutral probability (0.5633) makes expected stock price equal <span class="math notranslate nohighlight">\(S_0e^{rT}\)</span> ✓</p></li>
+<li><p class="sd-card-text">Risk-neutral probability (0.5633) makes expected stock price equal <span class="math notranslate nohighlight">\(S_0e^{rT}\)</span></p></li>
 </ol>
 </div>
 </details><hr class="docutils" />

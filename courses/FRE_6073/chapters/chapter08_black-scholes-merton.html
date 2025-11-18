@@ -732,7 +732,8 @@ Calculate the price of a European call option with the following parameters:</p>
 </ul>
 <div class="math notranslate nohighlight">
 \[p = 48 \times 0.9753 \times 0.4191 - 50 \times 0.3385\]</div>
-<p class="sd-card-text">$<span class="math notranslate nohighlight">\(= 19.621 - 16.925 = \$2.70\)</span>$ ✓</p>
+<div class="math notranslate nohighlight">
+\[= 19.621 - 16.925 = \$2.70\]</div>
 <p class="sd-card-text"><strong>Final Answers:</strong></p>
 <ol class="arabic simple">
 <li><p class="sd-card-text"><span class="math notranslate nohighlight">\(d_1 = 0.4164\)</span>, <span class="math notranslate nohighlight">\(d_2 = 0.2043\)</span></p></li>
@@ -956,7 +957,7 @@ Calculate the price of a European call option with the following parameters:</p>
 <h2>Practice Problems<a class="headerlink" href="#practice-problems" title="Link to this heading">#</a></h2>
 <div class="tip admonition">
 <p class="admonition-title">Practice Problem 1: Computing Option Prices</p>
-<p>A stock trades at <span class="math notranslate nohighlight">\(75. A 3-month European call option has a strike of \)</span>72. The risk-free rate is 4% per annum and volatility is 35% per annum.</p>
+<p>A stock trades at $75. A 3-month European call option has a strike of $72. The risk-free rate is 4% per annum and volatility is 35% per annum.</p>
 <p><strong>Questions:</strong></p>
 <ol class="arabic simple">
 <li><p>Calculate the call option price</p></li>
@@ -1017,17 +1018,20 @@ Calculate the price of a European call option with the following parameters:</p>
 \[p = 72 \times 0.9900 \times (1-0.5804) - 75 \times (1-0.6473)\]</div>
 <div class="math notranslate nohighlight">
 \[= 71.28 \times 0.4196 - 75 \times 0.3527\]</div>
+<div class="math notranslate nohighlight" id="equation-small-rounding-difference">
+<span class="eqno">(3)<a class="headerlink" href="#equation-small-rounding-difference" title="Link to this equation">#</a></span>\[= 29.901 - 26.453 = \$3.45\]</div>
+<p class="sd-card-text"><strong>Part 3: Probability of Exercise</strong></p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}= 29.901 - 26.453 = \$3.45$$ ✓ (small rounding difference)\\**Part 3: Probability of Exercise**\\$$P(\text{Exercise}) = N(d_2) = 0.5804 = 58.04\%\end{aligned}\end{align} \]</div>
+\[P(\text{Exercise}) = N(d_2) = 0.5804 = 58.04\%\]</div>
 <p class="sd-card-text"><strong>Part 4: Implied Volatility (if market price is $6.50)</strong></p>
-<p class="sd-card-text">If market price is <span class="math notranslate nohighlight">\(6.50 instead of theoretical \)</span>7.18, we need to find <span class="math notranslate nohighlight">\(\sigma_{implied}\)</span> such that BSM formula gives $6.50.</p>
-<p class="sd-card-text">Since market price (<span class="math notranslate nohighlight">\(6.50) &lt; theoretical price at 35% vol (\)</span>7.18), implied volatility must be lower than 35%.</p>
+<p class="sd-card-text">If market price is $6.50 instead of theoretical $7.18, we need to find <span class="math notranslate nohighlight">\(\sigma_{implied}\)</span> such that BSM formula gives $6.50.</p>
+<p class="sd-card-text">Since market price ($6.50) &lt; theoretical price at 35% vol ($7.18), implied volatility must be lower than 35%.</p>
 <p class="sd-card-text"><strong>Trial and error (or numerical solver):</strong></p>
 <p class="sd-card-text">Try <span class="math notranslate nohighlight">\(\sigma = 0.30\)</span> (30%):</p>
 <ul class="simple">
 <li><p class="sd-card-text"><span class="math notranslate nohighlight">\(d_1 = 0.4593\)</span>, <span class="math notranslate nohighlight">\(d_2 = 0.3093\)</span></p></li>
 <li><p class="sd-card-text"><span class="math notranslate nohighlight">\(N(d_1) = 0.6770\)</span>, <span class="math notranslate nohighlight">\(N(d_2) = 0.6215\)</span></p></li>
-<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(c = 75 \times 0.6770 - 71.28 \times 0.6215 = 50.775 - 44.291 = \$6.48\)</span> ✓</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(c = 75 \times 0.6770 - 71.28 \times 0.6215 = 50.775 - 44.291 = \$6.48\)</span></p></li>
 </ul>
 <p class="sd-card-text"><strong>Final Answers:</strong></p>
 <ol class="arabic simple">
@@ -1036,7 +1040,7 @@ Calculate the price of a European call option with the following parameters:</p>
 <li><p class="sd-card-text">Probability of exercise: <strong>58.04%</strong></p></li>
 <li><p class="sd-card-text">Implied volatility: <strong>≈30%</strong> (if market price is $6.50)</p></li>
 </ol>
-<p class="sd-card-text"><strong>Interpretation</strong>: The call is in-the-money (<span class="math notranslate nohighlight">\(75 &gt; \)</span>72) and has significant value. There’s a 58% chance (in risk-neutral world) it ends in-the-money. If the market prices it at $6.50, the implied volatility is about 30%, suggesting the market expects lower volatility than the 35% assumption.</p>
+<p class="sd-card-text"><strong>Interpretation</strong>: The call is in-the-money ($75 &gt; $72) and has significant value. There’s a 58% chance (in risk-neutral world) it ends in-the-money. If the market prices it at $6.50, the implied volatility is about 30%, suggesting the market expects lower volatility than the 35% assumption.</p>
 </div>
 </details><hr class="docutils" />
 </section>

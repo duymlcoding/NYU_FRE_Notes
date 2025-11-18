@@ -532,29 +532,9 @@ document.write(`
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Delta Behavior:</strong></p>
-<p><strong>Call Delta vs. Stock Price:</strong></p>
-</div>
-<p>Delta
-1.0 |           ___________
-|         /
-0.5 |       /
-|     /
-0.0 |<em><strong>/</strong></em>_____________
-Deep OTM  ATM  Deep ITM</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="o">**</span><span class="n">Put</span> <span class="n">Delta</span> <span class="n">vs</span><span class="o">.</span> <span class="n">Stock</span> <span class="n">Price</span><span class="p">:</span><span class="o">**</span>
-</pre></div>
-</div>
-<p>Delta
-0.0 |_________________
-|                 <br />
--0.5|                  <br />
-|                   <br />
--1.0|                    ______
-Deep ITM  ATM  Deep OTM</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="o">**</span><span class="n">At</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">Money</span><span class="p">:</span><span class="o">**</span> <span class="n">Steepest</span> <span class="n">slope</span> <span class="o">-</span> <span class="n">delta</span> <span class="n">changes</span> <span class="n">rapidly</span> <span class="k">with</span> <span class="n">stock</span> <span class="n">price</span><span class="o">.</span>
-</pre></div>
+<p><strong>Call Delta:</strong> Ranges from 0 (deep OTM) to 1 (deep ITM), with delta ≈ 0.5 at-the-money.</p>
+<p><strong>Put Delta:</strong> Ranges from 0 (deep OTM) to -1 (deep ITM), with delta ≈ -0.5 at-the-money.</p>
+<p><strong>At-the-Money:</strong> Steepest slope - delta changes rapidly with stock price.</p>
 </div>
 </section>
 </section>
@@ -1021,7 +1001,16 @@ Long T    Short T</p>
 <p class="sd-card-text"><strong>Step 2: Solve System of Equations</strong></p>
 <p class="sd-card-text">From gamma equation:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}0.5w_1 + 0.8w_2 = 5,000$$ ... (1)\\From vega equation:\\$$2.0w_1 + 1.2w_2 = 8,000$$ ... (2)\\Multiply equation (1) by 4:\\$$2.0w_1 + 3.2w_2 = 20,000$$ ... (3)\\Subtract equation (2) from equation (3):\\$$2.0w_2 = 12,000\end{aligned}\end{align} \]</div>
+\[0.5w_1 + 0.8w_2 = 5,000\]</div>
+<p class="sd-card-text">From vega equation:</p>
+<div class="math notranslate nohighlight">
+\[2.0w_1 + 1.2w_2 = 8,000\]</div>
+<p class="sd-card-text">Multiply equation (1) by 4:</p>
+<div class="math notranslate nohighlight">
+\[2.0w_1 + 3.2w_2 = 20,000\]</div>
+<p class="sd-card-text">Subtract equation (2) from equation (3):</p>
+<div class="math notranslate nohighlight">
+\[2.0w_2 = 12,000\]</div>
 <div class="math notranslate nohighlight">
 \[w_2 = 6,000\]</div>
 <p class="sd-card-text">Substitute back into equation (1):</p>
@@ -1051,9 +1040,9 @@ Long T    Short T</p>
 </ol>
 <p class="sd-card-text"><strong>Verification:</strong></p>
 <ul class="simple">
-<li><p class="sd-card-text">Gamma: <span class="math notranslate nohighlight">\(-5,000 + 0.5(400) + 0.8(6,000) = -5,000 + 200 + 4,800 = 0\)</span> ✓</p></li>
-<li><p class="sd-card-text">Vega: <span class="math notranslate nohighlight">\(-8,000 + 2.0(400) + 1.2(6,000) = -8,000 + 800 + 7,200 = 0\)</span> ✓</p></li>
-<li><p class="sd-card-text">Delta: <span class="math notranslate nohighlight">\(0 + 0.6(400) + 0.5(6,000) - 1.0(3,240) = 3,240 - 3,240 = 0\)</span> ✓</p></li>
+<li><p class="sd-card-text">Gamma: <span class="math notranslate nohighlight">\(-5,000 + 0.5(400) + 0.8(6,000) = -5,000 + 200 + 4,800 = 0\)</span></p></li>
+<li><p class="sd-card-text">Vega: <span class="math notranslate nohighlight">\(-8,000 + 2.0(400) + 1.2(6,000) = -8,000 + 800 + 7,200 = 0\)</span></p></li>
+<li><p class="sd-card-text">Delta: <span class="math notranslate nohighlight">\(0 + 0.6(400) + 0.5(6,000) - 1.0(3,240) = 3,240 - 3,240 = 0\)</span></p></li>
 </ul>
 <p class="sd-card-text"><strong>Physical Meaning</strong>: We’ve created a portfolio that is insensitive to stock price (delta), stock price curvature (gamma), and volatility (vega). It should have minimal P&amp;L fluctuations from these sources.</p>
 </div>
