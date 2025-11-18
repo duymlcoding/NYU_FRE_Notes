@@ -14,13 +14,13 @@
 | Course Code | Course Title | Status | View Notes |
 |------------|--------------|---------|------------|
 | **FRE 6083** | Quantitative Methods | ✓ Live | [View Course →](https://duymlcoding.github.io/NYU_FRE_Notes/courses/FRE_6083/) |
+| **FRE 6073** | Introduction to Derivatives | ✓ Live | [View Course →](https://duymlcoding.github.io/NYU_FRE_Notes/courses/FRE_6073/) |
 
 ### ⏳ Coming Soon
 
 | Course Code | Status |
 |------------|---------|
 | **FRE 6083 Recitation** | Materials pending |
-| **FRE 6073** | Materials pending |
 | **FRE 6103** | Materials pending |
 | **FRE 6141** | Materials pending |
 | **FRE 6731** | Materials pending |
@@ -59,8 +59,15 @@ NYU_FRE_Notes/
 │   ├── FRE_6083_Recitation/          # FRE 6083 TA materials
 │   │   └── raw_materials/            # Upload .txt files here
 │   │
-│   ├── FRE_6073/                     # Course materials
-│   │   └── raw_materials/            # Upload .txt files here
+│   ├── FRE_6073/                     # FRE 6073 - Introduction to Derivatives
+│   │   ├── _config.yml                # Jupyter Book configuration
+│   │   ├── _toc.yml                   # Table of contents
+│   │   ├── index.md                   # Course homepage
+│   │   ├── intro.md                   # Course introduction
+│   │   ├── chapters/                  # Lecture notes (10 chapters)
+│   │   ├── raw_materials/             # Original .txt files
+│   │   ├── references.bib             # Bibliography
+│   │   └── requirements.txt           # Python dependencies
 │   │
 │   ├── FRE_6103/                     # Course materials
 │   │   └── raw_materials/            # Upload .txt files here
@@ -170,6 +177,35 @@ Comprehensive coverage of probability theory and stochastic processes for quanti
 
 ---
 
+## 🎓 FRE 6073: Introduction to Derivatives
+
+### Course Overview
+
+Comprehensive introduction to derivative securities, covering fundamental principles from basic concepts to advanced pricing models and risk management techniques. Based on John C. Hull's "Options, Futures, and Other Derivatives" (11th Edition).
+
+### Topics Covered
+
+1. **Introduction to Derivatives** - Market structure, trading venues, uses
+2. **Forward and Futures Contracts** - Mechanics, exchanges, margins, delivery
+3. **Pricing and Valuation** - Forward pricing formulas, cost of carry
+4. **Interest Rates and Repo Markets** - Treasury markets, LIBOR/SOFR, repo mechanics
+5. **Bonds and Zero Rates** - Bootstrap method, duration, convexity
+6. **Binomial Asset Pricing Model** - Risk-neutral valuation, multi-period trees
+7. **Stochastic Processes** - Brownian motion, Itô processes, Itô's lemma
+8. **Black-Scholes-Merton Model** - Derivation, European option pricing
+9. **Option Greeks** - Delta, gamma, theta, vega, rho, portfolio hedging
+10. **Volatility and Strategies** - Volatility smiles, surfaces, trading strategies
+
+### Features
+
+- 📈 Comprehensive derivatives coverage
+- 📐 Full mathematical derivations
+- 💼 Real market examples
+- 📊 Payoff diagrams and visual aids
+- 🎯 Practical trading strategies
+
+---
+
 ## 🛠️ Technical Details
 
 ### Built With
@@ -261,6 +297,7 @@ For questions or suggestions:
 ## 🙏 Acknowledgments
 
 - **Professor Agnès Tourin** - FRE 6083 course content
+- **John C. Hull** - FRE 6073 course materials based on "Options, Futures, and Other Derivatives"
 - **NYU Tandon School of Engineering** - Financial Risk Engineering program
 - **All course TAs and instructors** - Original lecture materials
 - **Student contributors** - Converting and maintaining these notes
