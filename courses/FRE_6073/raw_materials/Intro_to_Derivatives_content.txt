@@ -1,0 +1,1762 @@
+WHAT IS A DERIVATIVE?
+A derivative is an instrument whose value depends on, or is derived 
+from, the value of another asset.
+Examples: futures, forwards, swaps, options
+1
+
+WHY DERIVATIVES ARE IMPORTANT
+Derivatives play a key role in transferring risks in the economy
+The underlying assets include stocks, currencies, interest rates, 
+commodities, debt instruments, electricity prices, insurance 
+payouts, the weather
+Many financial transactions have embedded derivatives
+2
+
+HOW DERIVATIVES ARE TRADED
+On exchanges such as the Chicago Mercantile Exchange (CME)
+In the over -the-counter (OTC) market where traders working for banks, 
+fund managers and corporate treasurers contact each other directly
+3
+
+THE OTC MARKET
+Largely unregulated prior to 2008
+Banks acted as market makers quoting bids and asks
+Master agreements usually defined how transactions between 
+two parties would be handled
+Some transactions were cleared through central counterparties 
+(CCPs). A CCP stands between the two sides to a transaction in 
+the same way that an exchange does
+4
+
+SINCE 2008
+OTC market has become regulated. Objectives:
+Reduce systemic risk
+Increase transparency
+In the U.S and some other countries, standardized OTC products 
+must be traded on swap execution facilities (SEFs) which are 
+electronic platforms similar to exchanges
+CCPs must be used to clear standardized transactions between 
+financial institutions in most countries
+All trades must be reported to a central repository
+5
+
+HOW DERIVATIVES ARE USED
+To hedge risks
+To speculate (take a view on the future direction of the market)
+To lock in an arbitrage profit
+To change the nature of a liability
+To change the nature of an investment without incurring the 
+costs of selling one portfolio and buying another
+6
+
+FORWARD PRICE
+The forward price for a contract is the delivery price that would 
+be applicable to the contract if were negotiated today (i.e., it is 
+the delivery price that would make the contract worth exactly 
+zero)
+The forward price may be different  for contracts of different 
+maturities
+7
+
+TERMINOLOGY
+The party that has agreed to buy has what is termed a 
+long position
+The party that has agreed to sell has what is termed a 
+short position
+8
+
+EXAMPLE
+On May 21, 2020, the treasurer of a corporation enters into a long 
+forward contract to buy £1 million in six months at an exchange rate 
+of 1.2230
+This obligates the corporation to pay $1,223,000 for £1 million on 
+November 21, 2020
+What are the possible outcomes?
+9
+
+LONG FORWARD POSITION
+10Profit
+Price of Underlying at 
+Maturity, ST K
+
+SHORT FORWARD POSITION
+11Profit
+Price of Underlying
+      at Maturity, ST K
+
+FUTURES CONTRACTS
+Agreement to buy or sell an asset for a certain price at a certain time
+Similar to forward contract
+Whereas a forward contract is traded OTC, a futures contract is traded 
+on an exchange
+12
+
+EXCHANGES TRADING FUTURES
+CME Group (formed when Chicago Mercantile Exchange and 
+Chicago Board of Trade merged)
+InterContinental Exchange
+B3 (Brazil)
+Tokyo Financial Exchange (Tokyo )
+13
+
+EXAMPLES OF FUTURES CONTRACTS
+Agreement to:
+Buy 100 oz. of gold @ US$1800/oz. in December 
+Sell £62,500 @ 1.2500 US$/£ in March
+Sell 1,000 bbl. of oil @ US$40/bbl. in April
+14
+
+FORWARD PRICE OF A NON -DIVIDEND 
+PAYING STOCK
+If the spot price is S and the forward  price for a contract 
+deliverable in T  years is F, then
+ F = S (1+r )T 
+ where r is the 1 -year (domestic currency) risk -free rate of 
+interest .
+15
+
+OPTIONS
+A call option is an option to buy a certain asset by a certain date for 
+a certain price (the strike price)
+A put option is an option to sell a certain asset by a certain date for a 
+certain price (the strike price)
+16
+
+AMERICAN VS EUROPEAN OPTIONS
+An American option can be exercised at any time during its life
+A European option can be exercised only at maturity 
+17
+
+OPTIONS VS FUTURES/FORWARDS
+A futures/forward contract gives the holder the obligation to buy or 
+sell at a certain price
+An option gives the holder the right to buy or sell at a certain price
+18
+
+TYPES OF TRADERS
+Hedgers
+Speculators
+Arbitrageurs
+19
+
+HEDGING EXAMPLES 
+A US company will pay £10 million for imports from Britain in 3 months 
+and decides to hedge using a long position in a forward contract
+An investor owns 1,000 shares currently worth $28 per share. A two -
+month put with a strike price of $27.50 costs $1. The investor decides to 
+hedge by buying 10 contracts 
+20
+
+VALUE OF SHARES WITH AND WITHOUT 
+HEDGING
+2120,00025,00030,00035,00040,000
+20 25 30 35 40Value of Holding 
+($)
+Stock Price ($)No Hedging
+Hedging
+
+DANGERS
+Traders can switch from being hedgers to speculators
+It is important to set up controls to ensure that trades are using 
+derivatives in for their intended purpose
+22
+
+HEDGE FUNDS
+Hedge funds are not subject to the same rules as mutual 
+funds and cannot offer their securities publicly. 
+Mutual funds must 
+disclose investment policies, 
+make shares redeemable at any time,
+limit use of leverage
+Hedge funds are not subject to these constraints.
+Hedge funds use complex trading strategies and are big 
+users of derivatives for hedging, speculation and arbitrage
+23
+
+EXAMPLES OF HEDGE FUND STRATEGIES
+Long/Short Equities
+Convertible Arbitrage
+Distressed Securities
+Emerging Markets
+Global Macro
+Merger Arbitrage
+24
+
+QUESTION 1
+Describe the profit from the following portfolio: a long forward 
+contract on an asset and a long European put option on the asset 
+with the same maturity as the forward contract and a strike price 
+that is equal to the forward price of the asset at the time the 
+portfolio is set up.
+OPTIONS, FUTURES, AND OTHER DERIVATIVES, 11TH EDITION, COPYRIGHT  © JOHN C. HULL 2021 25
+
+QUESTION 2
+A bond issued by an Oil company worked as follows. At the bond’s maturity 
+the company promised to pay $1,000 plus an additional amount based on 
+the price of oil at that time. The additional amount was equal to the excess 
+(if any) of the price of a barrel of oil at maturity over $25.
+The maximum additional amount paid was $100 (which corresponds to a 
+barrel price of $125)
+Show that the bond is a combination of a regular bond, a long position in 
+call options on oil with a strike price of $25, and a short position in call 
+options on oil with a strike price of $125.
+OPTIONS, FUTURES, AND OTHER DERIVATIVES, 11TH EDITION, COPYRIGHT  © JOHN C. HULL 2021 26
+
+FUTURES CONTRACTS
+Available on a wide range of assets
+Exchange traded
+Specifications need to be defined:
+What can be delivered,
+Where it can be delivered, & 
+When it can be delivered
+Settled daily
+1
+
+MARGINS
+A margin is cash or marketable securities deposited by an 
+investor with his or her broker
+The balance in the margin account is adjusted to reflect daily 
+settlement
+Margins minimize the possibility of a loss through a default on 
+a contract
+2
+
+MARGIN CASH FLOWS
+A retail trader has to bring the balance in the margin 
+account up to the initial margin when it falls below 
+the maintenance margin level
+A member of the exchange clearing house only has 
+an initial margin and is required to maintain the 
+balance in its account at that level every day.
+These daily margin cash flows are referred to as 
+variation margin
+A member of the exchange is also required to 
+contribute to a default fund
+3
+
+EXAMPLE OF A FUTURES TRADE
+A retail trader takes a long position in 2 December gold 
+futures contracts on June 5
+contract size is 100 oz.
+futures price is US$1,750
+initial margin requirement is US$6,000/contract (US$12,000 in total)
+maintenance margin is US$4,500/contract (US$9,000 in total)
+4
+
+A POSSIBLE OUTCOME
+5Day Trade  
+Price ($)Settle  
+Price ($)Daily 
+Gain ($)Cumul . 
+Gain ($)Margin 
+Balance  ($)Margin 
+Call ($)
+1 1,750.00 12,000
+1 1,741.00 −1,800 − 1,800 10,200
+2 1,738.30 −540 −2,340 9,660
+….. ….. ….. ….. ……
+6 1,736.20 −780 −2,760 9,240
+7 1,729.90 −1,260 −4,020 7,980 4,020
+8 1,730.80 180 −3,840 12,180
+….. ….. ….. ….. ……
+16 1,726.90 780 −4,620 15,180
+
+SOME TERMINOLOGY
+Open interest:  the total number of contracts outstanding 
+equal to number of long positions or number of short positions
+Settlement price:  the price just before the final bell each day 
+used for the daily settlement process
+Volume of trading:  the number of trades in one day
+6
+
+KEY POINTS ABOUT FUTURES
+They are settled daily
+Closing out a futures position involves entering into an 
+offsetting trade
+Most contracts are closed out before maturity
+7
+
+DELIVERY
+If a futures contract is not closed out before maturity, it is usually 
+settled by delivering the assets underlying the contract. When there 
+are alternatives about what is delivered, where it is delivered, and 
+when it is delivered, the party with the short position chooses.
+  A few contracts (for example, those on stock indices and Eurodollars) 
+are settled in cash 
+8
+
+FORWARD CONTRACTS VS FUTURES CONTRACTS
+9Contract usually closed outPrivate contract between 2 parties Exchange traded
+Non-standard contract Standard contract
+Usually 1 specified delivery date Range of delivery dates
+Settled at end of contract Settled daily
+Delivery or final cash
+settlement usually occurs prior to maturityFORWARDS FUTURES
+Some credit riskVirtually no credit risk
+
+OTC DERIVATIVES TRANSACTIONS: BILATERAL 
+CLEARING VS CENTRAL CLEARING
+10
+CC
+CC
+CPCCP
+
+BILATERALLY CLEARED DERIVATIVES 
+TRANSACTIONS
+Usually governed by an ISDA Master agreement with a credit 
+support annex (CSA)
+The agreement explains the rights of one party if the other 
+party defaults
+The CSA defines the collateral which must be posted
+If one party defaults, the other party is entitled to keep any 
+collateral that has been posted up to what is necessary to 
+settle its claims
+Traditionally CSAs have required variation margin but not 
+initial margin (e.g., LTCM in Business Snapshot 2.2)
+11
+
+POST -CRISIS REGULATIONS 1
+Standard transactions between financial institutions must be cleared 
+through CCPs
+Non-standard transactions can be cleared bilaterally
+A transaction with a non -financial corporation can be cleared 
+bilaterally
+12
+
+POST -CRISIS REGULATIONS 2
+New regulations for non -standard trades between financial 
+institutions that are not cleared centrally require the financial 
+institutions to have CSAs where both initial margin and 
+variation margin are posted
+The initial margin is posted with a third party
+13
+
+THE FORWARD PRICE
+If the spot price of an investment asset that provides no income 
+is S0and the futures price for a contract deliverable in Tyears is 
+F0, then
+F0= S0erT
+where ris the T-year risk -free rate of interest.
+1
+
+WHEN AN INVESTMENT ASSET PROVIDES A 
+KNOWN YIELD
+F0 = S0 e(r–q )T      
+   where q is the average yield during the life of the contract 
+(expressed with continuous compounding)
+2
+
+VALUING A FORWARD CONTRACT
+A forward contract is worth zero (except for bid -offer spread effects) 
+when it is first negotiated
+Later it may have a positive or negative value
+Suppose that K is the delivery price and F0 is the forward price for a 
+contract  that would be negotiated today
+3
+
+VALUING A FORWARD CONTRACT
+By considering the difference between a contract with delivery 
+price K and a contract with delivery price F0 we can deduce that:
+the value of a long forward contract is                                    
+ (F0 – K )e–rT         
+the value of a short forward contract is 
+   (K – F0 )e–rT
+4
+
+FORWARD VS FUTURES PRICES
+Future Price : Expected price of the underlying as of the delivery date
+A strong positive correlation between interest rates and the asset 
+price implies the futures price is slightly higher than the forward price
+A strong negative correlation implies the reverse 
+5
+
+STOCK INDEX
+Can be viewed as an investment asset paying a dividend yield
+The futures price and spot price relationship is therefore 
+ 
+                F0 = S0 e(r–q )T     
+   where q is the average dividend yield on the portfolio 
+represented by the index during life of contract
+6
+
+STOCK INDEX (CONTINUED)
+For the formula to be true it is important that the index represent an 
+investment asset
+In other words, changes in the index must correspond to changes in 
+the value of a tradable portfolio
+7
+
+INDEX ARBITRAGE
+When F0 > S0e(r-q)T an arbitrageur buys the stocks underlying 
+the index and sells futures
+When F0 < S0e(r-q)T an arbitrageur buys futures and shorts or 
+sells the stocks underlying the index
+8
+
+INDEX ARBITRAGE
+(CONTINUED)
+Index arbitrage involves simultaneous trades in 
+futures and many different stocks 
+Very often a computer is used to generate the 
+trades 
+Occasionally simultaneous trades are not 
+possible and the theoretical no -arbitrage 
+relationship between F0 and S0 does not hold
+9
+
+FUTURES AND FORWARDS ON 
+CURRENCIES
+A foreign currency is analogous to a security providing a yield
+The yield is the foreign risk -free interest rate
+It follows that if rf  is the foreign risk -free interest rate 
+      
+10
+F SerrTf
+0 0=−( )
+
+CONSUMPTION ASSETS: STORAGE IS 
+NEGATIVE INCOME
+F0  S0 e(r+u )T
+ where u is the storage cost per unit time as a percent of the 
+asset value.
+  
+11
+
+CONSUMPTION VS INVESTMENT ASSETS
+Investment assets are assets held by significant numbers of 
+people purely for investment purposes (Examples: gold, silver)
+Consumption assets are assets held primarily for consumption 
+(Examples: copper, oil)
+12
+
+THE COST OF CARRY
+The cost of carry, c, is the storage cost plus the interest costs less 
+the income earned
+For an investment asset  F0 = S0ecT   
+For a consumption asset  F0  S0ecT
+The convenience yield on the consumption asset, y, is defined so 
+that                      F0 = S0 e(c–y )T 
+13
+
+US TREASURY MARKET
+▪Deepest and most liquid government securities market in the world.
+▪Serves as a means of financing the U.S. Federal Government.
+▪Is a significant investment instrument and a hedging vehicle for global 
+investors.
+▪Is a benchmark for other financial instruments.
+▪Important market for the Federal reserve’s implementation of monetary 
+policy.
+1
+
+THE RISK -FREE RATE
+The Treasury rate is considered to be artificially low because
+Banks are not required to keep capital for Treasury instruments
+Treasury instruments are given favorable tax treatment in the US
+New reference rates such as SOFR are considered to be proxies for the risk -
+free rate.
+2
+
+OVERNIGHT RATES
+Unsecured borrowing and lending between banks as they 
+adjust the reserve requirements they are required to 
+keep with the central bank
+Referred to as the Fed Funds Rate in the U.S. 
+The effective fed funds rate is the volume weighted 
+median of the rates on brokered transactions
+Central bank may intervene with its own transactions to 
+raise or lower the overnight rate
+3
+
+REPO
+A sale of a security and an agreement to repurchase the security on a 
+specified future date at a pre -arranged price. 
+The seller of the security is the borrower of the cash and essentially 
+obtains a collateralized loan.
+The rate of interest is calculated from the difference between the sale 
+price and the repurchase price and is the repo interest.
+In the event the securities seller is unable to repurchase the securities, 
+i.e. repay the loan, the cash provider is entitled to liquidate the 
+securities to obtain repayment.
+4
+
+LIBOR
+LIBOR is the rate of interest at which a AA -rated bank estimates it 
+can  borrow money on an unsecured basis from another bank at 
+11am. 
+Several currencies and maturities
+There have been some suggestions that banks manipulated LIBOR 
+during certain periods. Why would they do this?
+ 
+5
+
+LIBOR PHASE OUT
+Regulators phased out LIBOR by the end of 2021 and replaced it with 
+rates based on transactions observed in the overnight market.
+The new reference rates (e.g. for a 3 -month period) are calculated at 
+the end of the period as the compounded overnight rates for that 
+period.
+6
+
+THE NEW REFERENCE RATES
+US dollar: SOFR (secured overnight financing rate)
+GBP: SONIA (sterling overnight index average)
+EU: ESTR (euro short -term rate)
+Switzerland: SARON (Swiss average overnight rate)
+Japan: TONAR (Tokyo average overnight rate) 
+7
+
+SOFR
+SOFR is based on transaction data drawn from three segments of the repo 
+market:
+1) Tri-party Treasury general collateral (GC) repo transactions cleared 
+and settled by the Bank of New York Mellon, excluding transactions made 
+through the FICC GCF (General Collateral Financing) repo market and 
+excluding transactions in which the Fed is a counterparty
+2) Tri-party Treasury general collateral (GC) repo transactions made 
+through the FICC GCF repo market, for which the FICC acts as central 
+counterparty
+3) Bilateral Treasury repo transactions cleared through the FICC DVP ( 
+Delivery vs. Payment service)
+8
+
+GENERAL COLLATERAL
+All tri -party repos, and some bilateral repos, are made against a pool of 
+general collateral rather than specific securities. In a general collateral (GC) 
+repo, the cash provider stipulates a population of acceptable collateral 
+(Treasury securities), but does not stipulate the specific securities that the 
+securities provider must pledge. 
+9
+
+TRI-PARTY REPO
+▪ Uses a “tri -party” agent ( a custodian bank or clearing organization) to 
+serve as an intermediary between the buyer and the seller. 
+▪ The collateral agent minimizes the operational burden in the transaction, 
+prices the securities, holds the collateral separately from the dealer’s 
+assets, layering in protection to the buyer in the event the dealer goes 
+bankrupt.
+10
+
+
+FICC GCF REPO MARKET
+▪ GCF Repo permits FICC’s netting members to trade cash and securities 
+among themselves based on negotiated rates and terms. 
+▪ Trades are completed on an anonymous basis through interdealer brokers.
+▪ FICC acts as the central counterparty in a GCF Repo, serving as the legal 
+counterparty to each side of the repo transaction.
+11
+
+BILATERAL REPO
+▪ Counterparties exchange cash and securities without the use of a third 
+party to manage collateral and facilitate centralized settlement. The 
+parties may identify specific securities for their custodians to transfer. As a 
+result, the bilateral repo market may contain transaction data for securities 
+that trade “special” – i.e. cash providers may be willing to accept a lower 
+return in order to secure a particular security.
+▪ FRB NY ranks all FICC DVP bilateral repo trades by their transaction 
+rates, from lowest to highest, and then removes 25% of the trading volume 
+corresponding to the lowest transaction rates. The goal of this data filtering  
+is to remove repo transactions in which treasury collateral is likely to be 
+trading “special”, so as to achieve a residual set of bilateral repo data 
+that largely reflects GC transactions. 
+12
+
+BILATERAL REPO 
+▪ Bilateral repo transactions may be cleared or non -cleared
+▪ Cleared : Specific form of tri -party repo in which an approved member 
+of the Fixed Income Clearing Corporation (FICC) sponsors a non -dealer 
+counterparty to transact on the FICC’s cleared repo platform. This platform 
+settles through the Delivery Versus Payment settlement process, a method 
+which permits the transfer of securities only after payment is made. 
+▪ Non-cleared bilateral repo transactions do not settle on the clearing 
+banks tri -party repo platforms and this segment is not used in SOFR 
+calculations.
+13
+
+VOLUME WEIGHTED  MEDIAN
+▪ FRB NY pools the three sources of data and then ranks the aggregate of 
+repo trading volumes by their transaction rates, then computes the volume 
+weighted median repo rate.  
+▪ More robust statistic than a volume weighted average.
+▪ The value it produces is an interest rate level that has actually been 
+observed and at which business has been conducted.
+▪ Aligns with the calculation method for the EFFR.
+14
+
+IMPACT OF COMPOUNDING
+When we compound m times per year at rate R an amount  A 
+grows to A(1+R/m)m  in one year
+15Compounding frequency Value of $100 in one year at 10%
+Annual (m=1) 110.00
+Semiannual  (m=2) 110.25
+Quarterly (m=4) 110.38
+Monthly (m=12) 110.47
+Weekly  (m=52) 110.51
+Daily (m=365) 110.52
+
+MEASURING INTEREST RATES
+The compounding frequency used for an interest rate is 
+the unit of measurement
+The difference between quarterly and annual 
+compounding is analogous to the difference between miles 
+and kilometers
+16
+
+CONTINUOUS COMPOUNDING
+In the limit as we compound more and more 
+frequently we obtain continuously compounded 
+interest rates
+$100 grows to $100 eRT when invested at a 
+continuously compounded rate  R for time T
+$100 received at time T discounts to $100 e-RT at 
+time zero when the continuously compounded 
+discount rate is R
+17
+
+CONVERSION FORMULAS
+Define
+Rc : continuously compounded rate
+Rm: same rate with compounding m times per year
+18
+()R mR
+m
+R mecm
+mRmc=+
+
+
+=−ln
+/1
+1
+
+EXAMPLES
+10% with semiannual  compounding is equivalent to 2ln(1.05)=9.758% with 
+continuous compounding
+8% with continuous compounding is equivalent to 4( e0.08/4 -1)=8.08% with 
+quarterly compounding
+19
+
+ZERO RATES
+A zero rate (or spot rate), for maturity T is the rate of interest 
+earned on an investment that provides a payoff only at time T
+20
+
+DATA TO DETERMINE ZERO CURVE
+21Bond Principal Time to 
+Maturity (yrs)Coupon  per 
+year ($)*Bond price ($)
+100 0.25 0 99.6
+100 0.50 0 99.0
+100 1.00 0 97.8
+100 1.50 4 102.5
+100 2.00 5 105.0
+
+THE BOOTSTRAP METHOD
+An amount 0.4 can be earned on 99.6 during 3 months.
+Because 100=99.4 e0.01603×0.25 the 3 -month rate is 1.603% with 
+continuous compounding
+Similarly the 6 month and 1 year rates are 2.010% and 
+2.225% with continuous compounding                                         
+22
+
+THE BOOTSTRAP METHOD CONTINUED
+To calculate the 1.5 year rate we solve
+    
+   to get R = 0.02284 or 2.284%
+Similarly the two -year rate is 2.416%
+23
+5.102 102 2 25.1 0.1 02225.0 5.0 02010.0= + +− − − Re e e
+
+ZERO CURVE CALCULATED FROM THE DATA 
+(FIGURE 4.1)
+24
+0.00%0.50%1.00%1.50%2.00%2.50%3.00%
+0 0.5 1 1.5 2 2.5 3Maturity (years)Zero Rate 
+(%  per annum)
+
+BOND PRICING
+To calculate the cash price of a bond we discount each cash 
+flow at the appropriate zero rate
+In our example, the theoretical price of a two -year bond 
+providing a 6% coupon semiannually is
+25
+3 3 3
+103 983900505 0058 10 0064 15
+0068 20e e e
+e− − −
+−+ +
++ =. . . . . .
+. ..
+
+BOND YIELD
+The bond yield is the discount rate that makes the present value of 
+the cash flows on the bond equal to the market price of the bond
+Suppose that the market price of the bond in our example equals 
+its theoretical price of 98.39
+The bond yield (continuously compounded) is given by solving
+    to get y=0.0676 or 6.76%.
+26
+3 3 3 103 983905 10 15 20e e e ey y y y − − − −+++ =. . . ..
+
+PAR YIELD
+The par yield for a certain maturity is the coupon rate that causes 
+the bond price to equal its face value.
+In our example we solve
+27
+ 876 get  to10021002 2 2
+0.2 068.05.1 064.0 0.1 058.0 5.005.0
+.c=ecececec
+=
+
++++ +
+−− − −
+
+FORMULA FOR FORWARD RATES
+Suppose that the zero rates for time periods T1 and 
+T2 are R1 and R2 with both rates continuously 
+compounded.
+The forward rate for the period between times T1 
+and T2 is
+28
+RT RT
+T T22 11
+2 1−
+−
+
+INSTANTANEOUS FORWARD RATE
+The instantaneous forward rate for a maturity T is the forward 
+rate that applies for a very short time period starting at T. It is
+ 
+   where R is the T-year rate
+29
+RTR
+T+
+
+
+DURATION
+Duration of a bond that provides cash flow ci at 
+time ti is      
+       
+ 
+ 
+ where B is its price and y is its yield 
+(continuously compounded)
+        
+     
+30
+
+=−
+=Bect Diyt
+in
+ii
+1
+
+KEY DURATION RELATIONSHIP
+Duration is important because it leads to the following key 
+relationship between the change in the yield on the bond and the 
+change in its price
+31
+yDBB−=
+
+KEY DURATION RELATIONSHIP  CONTINUED
+When the yield y is expressed with compounding 
+m times per year
+The expression 
+    
+   is referred to as the “modified duration”
+32
+myy BDB+−=1
+D
+ym 1+
+
+BOND PORTFOLIOS
+The key duration relationship for a bond portfolio 
+describes the effect of small parallel shifts in the yield 
+curve
+What exposures remain if duration of a portfolio of 
+assets equals the duration of a portfolio of liabilities?
+33
+
+CONVEXITY
+The convexity, C,  of a bond is defined as
+ This leads to a more accurate relationship
+ When used for bond portfolios it allows larger shifts in 
+the yield curve to be considered, but the shifts still have 
+to be parallel 
+34
+Betc
+yB
+BCn
+iyt
+iii
+=−
+=
+=12
+221
+()2
+21yC yDBB+−=
+
+DERIVATIVES VALUATION
+▪The Binomial Asset Pricing model provides a powerful tool to 
+understand arbitrage pricing theory and its relation to risk -neutral 
+pricing.
+▪The underlying assumption is that the asset follows a random walk. 
+In each time step, the asset has a certain probability of moving up by 
+a certain percentage amount and a certain probability of moving 
+down by a certain percentage amount. 
+▪In the limit, as the time step becomes smaller, this model leads to 
+the lognormal assumption for stock prices that underlies the Black -
+Scholes model.
+1
+
+A SIMPLE BINOMIAL MODEL
+A derivative lasts for time T and is dependent on a stock
+2S0u
+ ƒu
+S0d
+ ƒdS0
+ƒ
+
+GENERALIZATION
+Value of a portfolio that is long D shares and short 1 
+derivative:       
+       
+       
+   
+The portfolio is riskless when S0uD – ƒu = S0dD – ƒd  or
+3
+dSuSfd u
+0 0−−=DƒS0uD – ƒu
+S0dD – ƒd
+
+GENERALIZATION  (CONTINUED)
+Value of the portfolio at time T is S0uD – ƒu
+Value of the portfolio today is (S0uD – ƒu)e–rT
+Another expression for the portfolio value today is S0D – f
+Hence 
+   ƒ = S0D – (S0uD – ƒu )e–rT 
+Substituting for D we obtain
+                ƒ = [ pƒu + (1 – p)ƒd ]e–rT 
+    where   
+4
+pe d
+udrT
+=−
+−
+
+‘P’ AS A PROBABILITY
+It is natural to interpret p and 1 -p as probabilities of up 
+and down movements  
+The value of a derivative is then its expected payoff in a 
+risk-neutral world discounted at the risk -free rate
+5S0u
+ ƒu
+S0d
+ ƒdS0
+ƒ
+
+RISK -NEUTRAL VALUATION
+When the probability of an up and down movements 
+are p and 1 -p the expected stock price at time T is 
+S0erT
+This shows that the stock price earns the risk -free 
+rate
+Binomial trees illustrate the general result that to 
+value a derivative we can assume that the expected 
+return on the underlying asset is the risk -free rate 
+and discount at the risk -free rate
+This is known as using risk -neutral valuation
+6
+
+AN EXAMPLE
+A stock price is currently $20
+In 3 months it will be either $22 or $18
+7Stock Price = $18Stock Price = $22
+Stock price = $20
+
+A CALL OPTION
+A 3-month call option on the stock has a strike 
+price of 21. 
+ 
+8Stock Price = $18
+Option Payoff = $0Stock Price = $22
+Option Payoff = $1
+Stock price = $20
+Option Price=?
+
+SETTING UP A RISKLESS PORTFOLIO
+For a  portfolio that is long D shares and a short 1 
+call option values are      
+       
+       
+       
+       
+       
+Portfolio is riskless when  22 D – 1 = 18 D  or  D = 0.25
+922D – 1
+18D
+
+VALUING THE PORTFOLIO
+(RISK -FREE RATE IS 4%)
+The riskless portfolio is: 
+  long 0.25 shares     
+  short 1 call option
+The value of the portfolio in 3 months is 
+  22 ×0.25 – 1 = 4.50
+The value of the portfolio today is 
+  4.5 e–0.04×0.25 = 4.455
+10
+
+VALUING THE OPTION
+The portfolio that is 
+  long  0.25 shares     
+  short  1 option    
+     is worth 4.455
+The value of the shares is    
+ 5.000 (= 0.25 × 20 )
+The value of the option is therefore   
+  5.000 – 4.455 = 0.545
+11
+
+ORIGINAL EXAMPLE REVISITED
+        
+        
+    
+ p is the probability that gives a return on the stock equal to the risk -
+free rate: 
+ 20e 0.04 ×0.25 = 22p + 18(1 – p ) so that   p = 0.5503
+ Alternatively: 
+12
+0.04 0.250.90.55031.1 0.9rTe d epud−−= = =−−S0u = 22
+ ƒu = 1
+S0d = 18
+ ƒd = 0S0=20
+   ƒ
+
+VALUING THE OPTION USING RISK -NEUTRAL 
+VALUATION
+       
+       
+       
+ 
+ 
+The value of the option is  
+e–0.04×0.25 (0.5503 ×1 + 0.4497 ×0) 
+    = 0.545
+13S0u = 22
+ ƒu = 1
+S0d = 18
+ ƒd = 0S0=20
+ƒ
+
+IRRELEVANCE OF STOCK’S EXPECTED 
+RETURN
+When we are valuing an option in terms of the price 
+of the underlying asset, the probability of up and 
+down movements in the real world are irrelevant
+This is an example of a more general result stating 
+that the expected return on the underlying asset in 
+the real world is irrelevant 
+Therefore, we could move from a world with one set of risk 
+preferences to another (risk -neutral) world with another set of 
+risk preferences. This process is called ‘changing the 
+measure’. 
+14
+
+DELTA
+Delta ( D) is the ratio of the change in the price of a stock 
+option to the change in the price of the underlying stock
+The value of D varies from node to node
+i.e the Portfolio needs to be rebalanced at each time step in 
+order to stay risk neutral.
+15
+
+CHOOSING U AND D
+One way of matching the volatility is to set
+ 
+ where s is the volatility and  Dt is the length of the time step. 
+This is the approach used by Cox, Ross, and Rubinstein
+16
+tt
+eu deu
+Ds−Ds
+= ==
+1
+
+GIRSANOV’S THEOREM
+Volatility is the same in the real world and the risk -neutral world
+We can therefore measure volatility in the real world and use it 
+to build a tree for the an asset in the risk -neutral world
+17
+
+MARKOV PROCESSES
+Markov process : A type of stochastic process where only the 
+present value of a variable is relevant for predicting the future. 
+Stock prices are assumed to follow a Markov process.
+1
+
+MARKOV PROCESSES
+Consider a variable, x
+Change in the value of x in 1 year follows a normal distribution 
+with mean 0 and variance 1
+What is the probability distribution of the change in x at the end 
+of 2 years?
+½ years?      
+Dt years?
+2
+
+VARIANCES & STANDARD DEVIATIONS
+In Markov processes changes in successive periods of time 
+are independent
+This means that variances are additive
+Standard deviations are not additive
+3
+
+A WIENER PROCESS
+A type of Markov process with a mean rate of change of 
+zero and a variance rate of change of 1 per year. 
+In physics, describes the motion of a particle that is 
+subject to a large number of small molecular shocks and 
+is referred to as Brownian Motion. 
+A variable z follows a Wiener process if
+ The change in z in a small interval of time Dt  is Dz   
+  
+ The values of Dz  for any 2 different (non -overlapping) periods of time 
+are independent.
+ 
+4
+(0,1) is   where  D=D t z
+
+PROPERTIES OF A WIENER PROCESS
+Mean of  [ z (T ) – z (0)]  is 0
+Variance of  [ z (T ) – z (0)]  is T
+Standard deviation of [ z (T ) – z (0)]  is
+5
+T
+
+GENERALIZED WIENER PROCESSES
+A Wiener process has a drift rate (i.e. average change per unit 
+time) of 0 and a variance rate of 1
+In a generalized Wiener process the drift rate and the variance 
+rate can be set equal to any chosen constants
+Mean change in x per unit time is a
+Variance of change in x per unit time is b2
+6
+t btax D+D=D   
+
+ITÔ PROCESS
+In an Itô process the drift rate and the variance rate are 
+functions of time
+  dx=a (x,t) dt+b (x,t) dz 
+The discrete time equivalent
+    is true in the limit as Dt tends to zero
+7
+t txbttxax D +D =D ),( ),(
+
+AN ITO PROCESS FOR STOCK PRICES
+   where m is the expected return s is the volatility.
+   The discrete time equivalent is
+ The process is known as geometric Brownian motion
+8
+      dzS dtS dS s+ m=
+         t StS S Ds+Dm=D
+
+ITÔ’S LEMMA
+If we know the stochastic process followed by 
+x, Itô’s lemma tells us the stochastic process 
+followed by some function G (x, t ). When 
+dx=a (x,t) dt+b (x,t) dz  then
+9
+2
+2
+2½ 
+                          G G G GdG a b dt b dzx t x x   
+   = + + +
+
+WHY ITÔ’S  LEMMA IS TRUE
+A Taylor’s series expansion of G(x, t) gives
+10
++D+DD+D+D+D=D
+2
+22 22
+22
+ttGtxtxGxxGttGxxGG
+½         ½
+
+IGNORING TERMS OF HIGHER ORDER THAN 
+DT
+11
+txxxGttGxxGGttGxxGG
+DDD+D+D=DD+D=D
+ order of is  which component a has   because½          becomes this calculus stochastic In          have  we calculus ordinary  In
+2
+22
+
+SUBSTITUTING FOR DX
+12
+t bxGttGxxGGtt btaxdztxbdttxa dx
+D+D+D=DDD D D+ =
+22
+22
+½        than order higher of terms ignoring Then       + =       that so),( ),(       Suppose
+
+
+THE E2DT TERM
+13
+tb
+xGttGxxGGt tt t EEE EE
+D
++D+D=DD DD=D== −= 
+2
+222222 2
+21Hence ignored. be can and to al proportion is  of variance The that follows It110 10   Since
+) ()()]([)()(,),(
+
+TAKING LIMITS
+14
+Lemma sIto' is This                           ½           : obtain We         :ng Substituti½      : limits Taking
+dzbxGdtbxG
+tGaxGdGdzbdta dxdtbxGdttGdxxGdG
++
+
+
+
+++=+ =++=
+2
+222
+22
+
+APPLICATION OF ITÔ’S LEMMA
+TO A STOCK PRICE PROCESS
+15
+dzSSGdtSSG
+tGSSGdGt S GzdS dtS Sd
+ ½           and    of   function a For            is  process price stock The
+s+
+
+
+s++m=s+ m=
+22
+22
+
+THE LOGNORMAL PROPERTY
+It follows from this assumption that 
+Since the logarithm of ST is normal, ST  is lognormally 
+distributed
+16
+       2    or   2
+22
+022
+0
+
+
+
+
+s
+
+
+ s−m+ 
+
+
+
+s
+
+
+ s−m −
+T T S ST T S S
+TT
+, ln ln, ln ln
+
+THE LOGNORMAL DISTRIBUTION
+17
+ES Se
+S Se eTT
+TT T()
+() ( )=
+= −0
+02221                                        
+var                  m
+m s
+
+
+THE CONCEPTS  UNDERLYING BLACK -
+SCHOLES -MERTON
+The option price and the stock price depend on the 
+same underlying source of uncertainty
+We can form a portfolio consisting of the stock and the 
+option which eliminates this source of uncertainty
+The portfolio is instantaneously riskless and must 
+instantaneously earn the risk -free rate
+This leads to the Black -Scholes -Merton differential 
+equation
+18
+
+THE DERIVATION  OF THE BLACK -SCHOLES -MERTON 
+DIFFERENTIAL EQUATION
+19
+. on dependence the of rid gets Thisshares  : +                    derivative  :1                     of consisting portfolio a up set We ½   
+22
+22
+zSƒzSSƒt S
+Sƒ
+tƒSSƒƒzS tS S
+D−Ds+D
+
+
+s
+++m=DDs+Dm=D
+
+THE DERIVATION  OF THE BLACK -SCHOLES -MERTON 
+DIFFERENTIAL EQUATION
+20
+            by given is   time in value its in change The            by given is  portfolio, the of value The
+SSƒƒtSSƒƒ
+D+D−=DD+−=,
+
+THE DERIVATION OF THE BLACK -SCHOLES -MERTON 
+DIFFERENTIAL EQUATION CONTINUED (EQUATION 15.15 AND 5.16)
+21
+        : equation al differenti Scholes- Black the get toequation this in   and  for substitute We-       Hence  rate. free-risk the be must portfolio the on return The
+22
+22rƒ   
+SƒS ½ σSƒrStƒS ƒtSSff rSSfft r
+=
+++D DD
+
+
++−=D+DD=D
+
+THE BLACK -SCHOLES -MERTON FORMULAS
+22
+T d
+TT r KSdTT r KSddNS dNeKpdNeK dNSc
+rTrT
+s−=
+ss−+=ss++=− − − =− =
+−−
+10
+20
+11 0 22 1 0
+)2/2()/ ln()2/2()/ ln()( ) ()( )(
+             where                          
+
+UNDERSTANDING BLACK -SCHOLES
+23
+()() ( )
+exercised is option  if paid price Strike :exercised is option  if   world neutral-risk ain  price stock  Expected: )()/(exercise ofy Probabilit :)(factor lue Present va:)(
+2 1 022 1 0 2
+KdNdNeSdNeK dNdNeSdNec
+rTrTrT rT
+−−− =
+
+RISK -NEUTRAL VALUATION
+The variable m does not  appear in the Black -Scholes -Merton 
+differential equation
+The equation is independent of all variables affected by risk 
+preference
+The solution to the differential equation is therefore the same in a 
+risk-free world as it is in the real world
+This leads to the principle of risk -neutral valuation
+24
+
+APPLYING RISK -NEUTRAL VALUATION
+1. Assume that the expected return from the stock 
+price is the risk -free rate
+2. Calculate the expected payoff from the option
+3. Discount at the risk -free rate
+25
+
+PROVING BLACK -SCHOLES -MERTON USING 
+RISK -NEUTRAL VALUATION
+−− =
+KT T TrTdSSg KS ec )()0, max(
+26where g(ST) is the probability density function for the lognormal 
+distribution of ST  in a risk -neutral world. ln ST  is j(m, s2) where 
+We substitute 
+so that
+where h is the probability density function for a standard normal. 
+Evaluating the integral leads to the BSM result.
+( ) T s T r S m s s = −+ = 2 ln2
+0
+sm SQT−=ln
+
+−+ −− =
+smKmQs rTdQQh K e ec
+/) (ln)(), max( 0
+
+
+GREEK LETTERS
+Greek letters are the partial derivatives with respect 
+to the model parameters that are liable to change
+Usually traders use the Black -Scholes -Merton model 
+when calculating partial derivatives
+The volatility parameter in BSM is set equal to the 
+implied volatility when Greek letters are calculated. 
+This is referred to as using the “practitioner Black -
+Scholes” model 
+1
+
+THE BLACK -SCHOLES -MERTON FORMULAS
+2
+T d
+TT r KSdTT r KSddNS dNeKpdNeK dNSc
+rTrT
+−=
+−+=++=− − − =− =
+−−
+10
+20
+11 0 22 1 0
+)2/2()/ ln()2/2()/ ln()( ) ()( )(
+             where                          
+
+UNDERSTANDING BLACK -SCHOLES
+3
+()() ( )
+exercised is option  if paid price Strike :exercised is option  if   world neutral-risk ain  price stock  Expected: )()/(exercise ofy Probabilit :)(factor lue Present va:)(
+2 1 022 1 0 2
+KdNdNeSdNeK dNdNeSdNec
+rTrTrT rT
+−−− =
+
+DELTA
+Delta ( D) is the rate of change of the option price with 
+respect to the underlying asset price
+The delta of a European call on a non -dividend paying 
+stock is  N (d 1)
+The delta of a European put on the stock is N (d 1) – 1
+4ABSlope = D
+Stock priceCall option 
+price
+
+DELTA
+5
+
+
+DELTA OF A STOCK OPTION
+6
+Call Put
+
+VARIATION OF DELTA WITH TIME TO 
+MATURITY
+7
+
+
+EXAMPLE
+A bank has sold for $300,000 a European call 
+option on 100,000 shares of a non -dividend paying 
+stock
+  S0  = 49,  K = 50,  r  = 5%,  = 20%,  
+ T = 20 weeks
+ The Black -Scholes -Merton value of the option is 
+$240,000
+How does the bank hedge its risk to lock in a 
+$60,000 profit?
+8
+
+GAMMA
+Gamma ( G) is the rate of change of delta ( D) with respect to 
+the price of the underlying asset
+Gamma is greatest for options that are close to the money
+9
+
+GAMMA ADDRESSES DELTA REBALANCING CAUSED 
+BY CURVATURE
+10SC
+Stock price
+S'Call
+price
+C''
+C'
+
+GAMMA FOR CALL OR PUT OPTION: 
+(K=50)
+11
+
+
+VARIATION OF GAMMA WITH TIME TO MATURITY 
+(S0=50)
+12
+
+
+THETA
+Theta ( Q) of a derivative  (or portfolio of derivatives) is the 
+rate of change of the value with respect to the passage of 
+time
+N(-d2) = 1 -N(d2), so the theta of the put exceeds the theta of 
+the corresponding call
+13
+
+
+THETA FOR CALL OPTION (K=50,  S = 25%,     R 
+= 0, T = 2, FIGURE 19.5)
+OPTIONS, FUTURES, AND OTHER DERIVATIVES,  
+11TH EDITION, COPYRIGHT © JOHN  C. HULL 
+202114-2.5-2-1.5-1-0.500 50 100 150
+Stock Price
+
+VARIATION OF THETA WITH TIME TO 
+MATURITY (S0=50)
+15
+
+
+THE DERIVATION  OF THE BLACK -SCHOLES -MERTON 
+DIFFERENTIAL EQUATION
+16
+. on dependence the of rid gets Thisshares  : +                    derivative  :1                     of consisting portfolio a up set We ½   
+22
+22
+zSƒzSSƒt S
+Sƒ
+tƒSSƒƒzS tS S
+D−D+D
+
+
+
+++=DD+D=D
+
+INTERPRETATION  OF GAMMA
+For a delta neutral portfolio, DP  Q Dt + ½GDS 2   
+17DP
+DS 
+Negative GammaDP
+DS 
+Positive Gamma
+
+VEGA
+Vega (n) is the rate of change of the value of a derivative with 
+respect to volatility
+18
+
+
+VEGA FOR CALL OR PUT OPTION (K=50)
+19
+
+
+TAYLOR SERIES EXPANSION
+The value of a portfolio of derivatives dependent on an asset is a 
+function of of the asset price S, its volatility , and time t
+20
+()
+()
++ D +D +D +D =+ DP+DP+DP+DP=DP
+22
+22
+2121
+S t SSSttSS
+Gamma Theta Vega Delta 
+
+MANAGING  DELTA, GAMMA, & VEGA
+Delta can be changed by taking a position in the underlying 
+asset
+To adjust gamma and vega  it is necessary to take a position in 
+an option or other derivative
+21
+
+EXAMPLE
+22Delta Gamma Vega
+Portfolio 0 −5000 −8000
+Option 1 0.6 0.5 2.0
+Option 2 0.5 0.8 1.2
+We solve
+ −5000+0.5 w1 +0.8 w2 =0
+ −8000+2.0 w1 +1.2 w2 =0
+to get w1 = 400 and w2 = 6000 to make the portfolio gamma and vega 
+neutral. We require long positions of 400 and 6000 in option 1 and option 
+2. A short position of 3240 in the asset is then required to make the 
+portfolio delta neutral
+
+RHO
+Rho is the rate of change of the value of a derivative with 
+respect to the interest rate  
+For a non -dividend paying stock, 
+       
+23
+
+
+GREEK LETTERS FOR EUROPEAN OPTIONS ON AN 
+ASSET THAT PROVIDES A YIELD AT RATE Q 
+24Greek  Letter Call Option Put Option
+Delta
+Gamma
+Theta
+Vega
+Rho
+)(1dNeqT−
+T SedNqT
+01)(−
+T SedNqT
+01)(−
+ 1)(1−−dN eqT
+()
+)( )(2 )(
+2 1 01 0
+dN rKe edNqST edNS
+rT qTqT
+− −−
+− + − 
+()
+) ( )(2 )(
+2 1 01 0
+dN rKe edNqST edNS
+rT qTqT
+− + − + −
+− −−
+qTedNTS−)(1 0
+qTedNTS−)(1 0
+)(2dN KTerT−
+)(2dN KTerT− −−
+
+WHAT IS A VOLATILITY SMILE?
+It is the relationship between implied volatility and strike price 
+for options with a certain maturity
+1
+
+THE VOLATILITY SMILE FOR FOREIGN CURRENCY 
+OPTIONS
+2Implied
+Volatility
+K/S0
+
+IMPLIED DISTRIBUTION FOR FOREIGN 
+CURRENCY OPTIONS
+3
+Lognormal
+Implied
+
+PROPERTIES OF IMPLIED DISTRIBUTION FOR 
+FOREIGN CURRENCY OPTIONS
+Both tails are heavier than the lognormal distribution
+It is also “more peaked” than the lognormal distribution 
+4
+
+POSSIBLE CAUSES OF VOLATILITY SMILE 
+FOR FOREIGN CURRENCIES
+Exchange rate exhibits jumps rather than continuous changes
+Volatility of exchange rate is stochastic
+  
+5
+
+HISTORICAL ANALYSIS OF EXCHANGE 
+RATE CHANGES
+6Real World (%) Normal Model (%)
+>1 SD 23.32 31.73
+>2SD 4.67 4.55
+>3SD 1.30 0.27
+>4SD 0.49 0.01
+>5SD 0.24 0.00
+>6SD 0.13 0.00
+
+THE VOLATILITY SMILE FOR EQUITY OPTIONS
+7Implied
+Volatility
+K/S0
+
+IMPLIED DISTRIBUTION FOR EQUITY 
+OPTIONS
+8
+Lognormal
+Implied
+
+PROPERTIES OF IMPLIED DISTRIBUTION 
+FOR EQUITY OPTIONS
+The left tail is heavier than the lognormal distribution
+The right tail is less heavy than the lognormal distribution
+9
+
+REASONS FOR SMILE IN EQUITY OPTIONS
+There is a negative correlation between equity prices and volatility. 
+Possible reasons:
+Leverage
+Volatility feedback
+Flight to quality
+When the price decreases (increases), volatility tends to increase 
+(decrease) making further decreases (increases) more (less) likely
+10
+
+OTHER VOLATILITY SMILES?
+What is the volatility smile if
+True distribution has a less heavy left tail and heavier right tail
+True distribution has both a less heavy left tail and a less heavy right tail
+11
+
+WAYS OF CHARACTERIZING THE 
+VOLATILITY SMILES
+Plot implied volatility against 
+Plot implied volatility against  
+Note: traders frequently define an option as at -the-money when K 
+equals the forward price, F0, not when it equals the spot price S0
+Plot implied volatility against delta of the option 
+Note: traders sometimes define at -the money as a call with a delta of 
+0.5 or a put with a delta of −0.5. These are referred to as “50 -delta 
+options”
+12
+0SK
+0FK
+
+VOLATILITY TERM STRUCTURE
+In addition to calculating a volatility smile, traders also 
+calculate a volatility term structure
+This shows the variation of implied volatility with the time to 
+maturity of the option
+The volatility term structure tends to be downward sloping 
+when volatility is high and upward sloping when it is low
+13
+
+VOLATILITY SURFACE
+The implied volatility as a function of the strike price and time 
+to maturity is known as a volatility surface
+14
+
+EXAMPLE OF A VOLATILITY SURFACE
+15
+       K/S0   
+ 0.90 0.95 1.00 1.05 1.10 
+1 mnth  14.2 13.0 12.0 13.1 14.5 
+3 mnth  14.0 13.0 12.0 13.1 14.2 
+6 mnth  14.1 13.3 12.5 13.4 14.3 
+1 year  14.7 14.0 13.5 14.0 14.8 
+2 year  15.0 14.4 14.0 14.5 15.1 
+5 year  14.8 14.6 14.4 14.7 15.0 
+ 
+ 
+
+DELTA
+The minimum variance delta is
+Delta+Vega𝜕𝐸(σimp)
+𝜕𝑆
+    where delta and vega  are calculated from the       Black -
+Scholes -Merton model setting the volatility equal to the 
+implied volatility, simp
+If the volatility smile stayed the same, an increase in S would 
+cause the option to move up the volatility smile and the 
+minimum variance delta would be greater than the Black -
+Scholes -Merton delta.
+ 
+16
+
+DETERMINING THE IMPLIED 
+DISTRIBUTION FOR S
+22 3 13 2122
+2then and strikes for prices call are and If
+−+=+ −=
+− =
+−
+=−
+c cce KgK K Kc ccKge
+KcdSSgK S ec
+rTrTT TKSTrT
+T
+)(,,,,)()() (
+17
+
+TYPICAL OPTIONS STRATEGIES
+-Bond plus option to create principal protected note
+-Stock plus option
+-Two or more options of the same type (a spread) 
+-Two or more options of different types (a combination)
+1
+
+PRINCIPAL PROTECTED NOTE
+Allows investor to take a risky position without risking any 
+principal
+Example: 
+Suppose that the 3 -year interest rate is 6% with continuous compounding. 
+This means that $835 .27 will grow to $1,000 in 3 years. The difference 
+between $1,000 and $835.27 is $164.73. Suppose that a stock portfolio is 
+worth $1,000 and provides a dividend yield of 1.5% per annum. Suppose 
+further that a 3 -year at -the-money European call option on the stock 
+portfolio can be purchased for less than $164.73.
+Structure a $1000 instrument consisting of
+3-year zero -coupon bond with principal of $1000
+3-year at -the-money call option on a stock portfolio currently worth $1000
+2
+
+PRINCIPAL PROTECTED NOTES
+Viability depends on
+Level of interest rates
+Volatility of the portfolio
+Variations on standard product
+Out of the money strike price
+Caps on investor return
+Knock outs, averaging features, etc
+3
+
+OTHER STRATEGIES
+4
+
+
+POSITIONS IN AN OPTION & THE UNDERLYING
+5Profit
+ST KProfit
+STK
+Profit
+STKProfit
+STK(a)(b)
+(c) (d)
+
+OTHER STRATEGIES
+6
+
+
+BULL SPREAD USING CALLS
+7K1 K2Profit
+ST
+
+BULL SPREAD USING PUTS
+8K1 K2Profit
+ST
+
+BEAR SPREAD USING PUTS
+9K1 K2Profit
+ST
+
+BEAR SPREAD USING CALLS
+10K1 K2Profit
+ST
+
+BOX SPREAD
+A combination of a bull call spread and a bear put spread
+If all options are European a box spread is worth the present 
+value of the difference between the strike prices
+If they are American this is not necessarily so.
+11
+
+BUTTERFLY SPREAD USING CALLS
+12K1 K3Profit
+ST K2
+
+BUTTERFLY SPREAD USING PUTS
+13K1 K3Profit
+ST K2
+
+CALENDAR SPREAD USING CALLS
+14Profit
+ST
+K
+
+CALENDAR SPREAD USING PUTS
+15Profit
+ST
+K
+
+A STRADDLE COMBINATION
+16Profit
+ST K
+
+STRIP & STRAP
+17Profit
+K STProfit
+K ST
+Strip Strap
+
+A STRANGLE COMBINATION
+18K1 K2Profit
+ST
+
+OTHER PAYOFF PATTERNS
+When the strike prices are close together a butterfly spread 
+provides a payoff consisting of a small “spike”
+If options with all strike prices were available any payoff pattern 
+could (at least approximately) be created by combining the 
+spikes obtained from different butterfly spreads
+19
+
