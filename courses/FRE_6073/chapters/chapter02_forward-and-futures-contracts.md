@@ -643,4 +643,3 @@ Maintenance margin = 3 × $3,500 = $10,500
 **Note**: Short positions lose when prices rise. The trader faced two consecutive days of rising prices before a favorable day.
 ```
 
----

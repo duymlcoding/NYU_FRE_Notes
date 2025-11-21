@@ -662,4 +662,3 @@ $$S_0 e^{rT} = 50 \times e^{0.025} = 50 \times 1.0253 = \$51.27$$
 4. Risk-neutral probability (0.5633) makes expected stock price equal $S_0e^{rT}$
 ```
 
----

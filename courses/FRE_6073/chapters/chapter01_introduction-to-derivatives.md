@@ -481,4 +481,3 @@ With hedge:
 **Final Answer:** The hedge costs $1,000 and guarantees a minimum value of $26,500, protecting against downside while still allowing upside (minus the premium paid).
 ```
 
----

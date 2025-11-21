@@ -732,4 +732,3 @@ $$\Delta t = 1/12, \quad \sqrt{\Delta t} = 0.2887$$
 **Note**: Each simulation would produce different results. The distribution of final prices centers around $51.26 with 15% volatility.
 ```
 
----
