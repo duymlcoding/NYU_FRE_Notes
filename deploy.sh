@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e  # Exit on error
-
 echo "=============================================="
 echo "   NYU FRE Notes - Multi-Course Deployment"
 echo "=============================================="
@@ -14,10 +12,15 @@ build_course() {
 
     if [ -d "$course_path" ] && [ -f "$course_path/_config.yml" ]; then
         echo "📚 Building $course_name..."
-        jupyter-book build "$course_path"
-        echo "✓ $course_name build complete"
-        echo ""
-        return 0
+        if jupyter-book build "$course_path"; then
+            echo "✓ $course_name build complete"
+            echo ""
+            return 0
+        else
+            echo "⚠️  $course_name build failed (continuing anyway)"
+            echo ""
+            return 1
+        fi
     else
         echo "⊘ Skipping $course_name (not ready)"
         echo ""
@@ -87,12 +90,18 @@ echo "----------------------------------------------"
 
 # Deploy using ghp-import
 echo "🚀 Pushing to gh-pages branch..."
-ghp-import -n -p -f _deploy
-
-echo ""
-echo "=============================================="
-echo "   ✅ Deployment Complete!"
-echo "=============================================="
+if ghp-import -n -p -f _deploy; then
+    echo ""
+    echo "=============================================="
+    echo "   ✅ Deployment Complete!"
+    echo "=============================================="
+else
+    echo ""
+    echo "=============================================="
+    echo "   ❌ Deployment Failed!"
+    echo "=============================================="
+    exit 1
+fi
 echo ""
 echo "🌐 Your site will be live at:"
 echo "   Landing: https://duymlcoding.github.io/NYU_FRE_Notes/"
