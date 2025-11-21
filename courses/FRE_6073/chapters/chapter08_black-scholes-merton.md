@@ -659,4 +659,3 @@ Try $\sigma = 0.30$ (30%):
 **Interpretation**: The call is in-the-money (\$75 > \$72) and has significant value. There's a 58% chance (in risk-neutral world) it ends in-the-money. If the market prices it at \$6.50, the implied volatility is about 30%, suggesting the market expects lower volatility than the 35% assumption.
 ```
 
----

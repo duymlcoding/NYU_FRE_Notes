@@ -786,4 +786,3 @@ $$= \$1.51$$
 **Interpretation**: The stock price increase and volatility increase overwhelm time decay, resulting in significant gain for the option holder.
 ```
 
----
