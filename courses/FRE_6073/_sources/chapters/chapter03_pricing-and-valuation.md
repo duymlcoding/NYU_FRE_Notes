@@ -708,4 +708,3 @@ To close the long position, Company X would:
 **Interpretation**: Company X benefits from the gold price increase. The contract to buy at \$1,750 is valuable because current market would agree to buy at \$1,864.23.
 ```
 
----

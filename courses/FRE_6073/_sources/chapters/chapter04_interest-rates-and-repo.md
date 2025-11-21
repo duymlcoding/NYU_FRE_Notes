@@ -755,4 +755,3 @@ SOFR is typically lower than LIBOR was because:
 **Practical Note**: Actual spread adjustments use historical median differences over specified lookback periods (e.g., 5 years) and are published by regulators.
 ```
 
----

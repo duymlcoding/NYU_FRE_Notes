@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -525,21 +525,23 @@ OTM  K/S₀  OTM</p>
 <li><p>Fewer moderate moves (relative to lognormal)</p></li>
 </ul>
 </div>
-<p>Probability
+<p><strong>Visual Comparison:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Probability
 Density
-|     /<br />
-|    /  \      - - Implied
-|   /    \     ___ Lognormal
-|  / /‾‾\ <br />
-| /<em>/    ____
-|</em>____________
-Exchange Rate</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="o">**</span><span class="n">Implied</span> <span class="n">distribution</span><span class="o">**</span> <span class="p">(</span><span class="n">solid</span><span class="p">):</span>
-<span class="o">-</span> <span class="n">Higher</span> <span class="n">peak</span>
-<span class="o">-</span> <span class="n">Thicker</span> <span class="n">tails</span> <span class="n">on</span> <span class="n">both</span> <span class="n">sides</span>
+    |     /\
+    |    /  \      - - Implied
+    |   /    \     ___ Lognormal
+    |  / /‾‾\ \
+    | /_/    \_\___
+    |_____________
+       Exchange Rate
 </pre></div>
 </div>
+<p><strong>Implied distribution</strong> (solid):</p>
+<ul class="simple">
+<li><p>Higher peak</p></li>
+<li><p>Thicker tails on both sides</p></li>
+</ul>
 </section>
 <section id="why-does-the-fx-smile-exist">
 <h3>Why Does the FX Smile Exist?<a class="headerlink" href="#why-does-the-fx-smile-exist" title="Link to this heading">#</a></h3>
@@ -1049,28 +1051,31 @@ A security that guarantees principal while providing upside participation.</p>
 <hr class="docutils" />
 <section id="basic-option-positions">
 <h2>Basic Option Positions<a class="headerlink" href="#basic-option-positions" title="Link to this heading">#</a></h2>
-<p>(a) Long Stock        (b) Short Stock
+<p><strong>Four Fundamental Positions:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(a) Long Stock        (b) Short Stock
 Profit|                Profit|
-|      /                |╲
-|     /                 | ╲
-|    /                  |  ╲
-<em><strong>|</strong></em>/_____          __<em><strong>|<strong>╲</strong></strong></em>
-|  /    ST               |   ╲   ST
-| /                      |    ╲</p>
-<p>(c) Long Call         (d) Long Put
+      |      /                |╲
+      |     /                 | ╲
+      |    /                  |  ╲
+   ___|___/_____          _____|__╲_____
+      |  /    ST               |   ╲   ST
+      | /                      |    ╲
+
+(c) Long Call         (d) Long Put
 Profit|                Profit|╲
-|      /                | ╲
-|     /                 |  ╲_____
-<em><strong>|</strong></em>_/_____         <strong><strong>|</strong></strong>____
-|K   /    ST             |K       ST
-|   /                    |</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-**Key Points:**
-- Stock: Linear payoff, unlimited risk (for short)
-- Call: Limited downside, unlimited upside
-- Put: Limited downside (to $K$), limited upside (to $K$)
+      |      /                | ╲
+      |     /                 |  ╲_____
+   ___|____/_____         ____|________
+      |K   /    ST             |K       ST
+      |   /                    |
 </pre></div>
 </div>
+<p><strong>Key Points:</strong></p>
+<ul class="simple">
+<li><p>Stock: Linear payoff, unlimited risk (for short)</p></li>
+<li><p>Call: Limited downside, unlimited upside</p></li>
+<li><p>Put: Limited downside (to <span class="math notranslate nohighlight">\(K\)</span>), limited upside (to <span class="math notranslate nohighlight">\(K\)</span>)</p></li>
+</ul>
 </section>
 <hr class="docutils" />
 <section id="spread-strategies">

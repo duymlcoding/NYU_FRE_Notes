@@ -78,8 +78,7 @@ Compared to lognormal distribution:
 - Fewer moderate moves (relative to lognormal)
 ```
 
-```{admonition} Visual Comparison
-:class: note
+**Visual Comparison:**
 
 ```
 Probability
@@ -96,7 +95,6 @@ Density
 **Implied distribution** (solid):
 - Higher peak
 - Thicker tails on both sides
-```
 
 ### Why Does the FX Smile Exist?
 
@@ -544,8 +542,7 @@ $$\text{Number of options} = \frac{164.73}{164} = 1.0045$$
 
 ## Basic Option Positions
 
-```{admonition} Four Fundamental Positions
-:class: note
+**Four Fundamental Positions:**
 
 ```
 (a) Long Stock        (b) Short Stock
@@ -570,7 +567,6 @@ Profit|                Profit|╲
 - Stock: Linear payoff, unlimited risk (for short)
 - Call: Limited downside, unlimited upside
 - Put: Limited downside (to $K$), limited upside (to $K$)
-```
 
 ---
 

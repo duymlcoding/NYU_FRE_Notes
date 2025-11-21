@@ -934,4 +934,3 @@ $$= \frac{0.05975 - 0.03046}{0.5} = \frac{0.02929}{0.5} = 0.05858 = 5.858\%$$
 **Interpretation**: The upward-sloping zero curve implies increasing forward rates - the market expects higher rates in the future.
 ```
 
----
