@@ -584,11 +584,19 @@ CDF: <span class="math notranslate nohighlight">\(F(i) = 1 - (1-\pi)^i\)</span>.
 <h3>2. Measuring Error<a class="headerlink" href="#measuring-error" title="Link to this heading">#</a></h3>
 <p>Because simulation relies on random sampling, the answer is never exact. We must quantify the uncertainty.</p>
 <ul class="simple">
-<li><p><strong>Sample Variance (<span class="math notranslate nohighlight">\(s^2\)</span>):</strong>
-$<span class="math notranslate nohighlight">\(s^2 = \frac{1}{N-1} \sum (x_i - \bar{x})^2\)</span>$</p></li>
-<li><p><strong>Standard Error (SE):</strong> The standard deviation of the <em>mean itself</em>.
-$<span class="math notranslate nohighlight">\(SE = \frac{s}{\sqrt{N}}\)</span>$</p></li>
+<li><p><strong>Sample Variance (<span class="math notranslate nohighlight">\(s^2\)</span>):</strong></p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[
+s^2 = \frac{1}{N-1} \sum (x_i - \bar{x})^2
+\]</div>
+<ul class="simple">
+<li><p><strong>Standard Error (SE):</strong> The standard deviation of the <em>mean itself</em>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+SE = \frac{s}{\sqrt{N}}
+\]</div>
 <p><strong>Confidence Intervals:</strong>
 According to the Central Limit Theorem, the sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span> is normally distributed for large <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -718,16 +726,21 @@ Since <span class="math notranslate nohighlight">\(X_1, X_2\)</span> are indepen
 <h3>The Gaussian Copula Method<a class="headerlink" href="#the-gaussian-copula-method" title="Link to this heading">#</a></h3>
 <p><strong>Concept:</strong> Use the Normal distribution as a “bridge” to induce correlation, then map back to the target distribution.</p>
 <p><strong>Algorithm:</strong></p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p><strong>Correlation:</strong> Generate correlated standard normals <span class="math notranslate nohighlight">\(z_1, z_2\)</span> using Cholesky (correlation <span class="math notranslate nohighlight">\(\rho\)</span>).</p></li>
-<li><p><strong>Uniform Mapping:</strong> Convert <span class="math notranslate nohighlight">\(z\)</span> values to uniform <span class="math notranslate nohighlight">\(u\)</span> values using the Normal CDF.
-$<span class="math notranslate nohighlight">\(u_1 = N(z_1), \quad u_2 = N(z_2)\)</span>$</p>
-<p>Now <span class="math notranslate nohighlight">\(u_1, u_2\)</span> are correlated uniform variables.</p>
-</li>
-<li><p><strong>Target Mapping:</strong> Convert <span class="math notranslate nohighlight">\(u\)</span> values to the target distribution using the Inverse Transform.
-For Geometric (bond default):
-$<span class="math notranslate nohighlight">\(x_1 = \text{Geometric}^{-1}(u_1), \quad x_2 = \text{Geometric}^{-1}(u_2)\)</span>$</p></li>
+<li><p><strong>Uniform Mapping:</strong> Convert <span class="math notranslate nohighlight">\(z\)</span> values to uniform <span class="math notranslate nohighlight">\(u\)</span> values using the Normal CDF.</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+u_1 = N(z_1), \quad u_2 = N(z_2)
+\]</div>
+<p>Now <span class="math notranslate nohighlight">\(u_1, u_2\)</span> are correlated uniform variables.
+3.  <strong>Target Mapping:</strong> Convert <span class="math notranslate nohighlight">\(u\)</span> values to the target distribution using the Inverse Transform.
+For Geometric (bond default):</p>
+<div class="math notranslate nohighlight">
+\[
+x_1 = \text{Geometric}^{-1}(u_1), \quad x_2 = \text{Geometric}^{-1}(u_2)
+\]</div>
 <p><strong>Physical Interpretation:</strong>
 We are correlating the “percentile rankings” of the variables. If Bond A is in the “bad” tail of the normal distribution (low <span class="math notranslate nohighlight">\(z\)</span>, low <span class="math notranslate nohighlight">\(u\)</span>), Bond B is likely also in the bad tail (due to correlation), leading to simultaneous early defaults.</p>
 </section>

@@ -509,16 +509,29 @@ document.write(`
 <p>We need metrics to quantify uncertainty.</p>
 <p><strong>Symmetric Measures:</strong></p>
 <ul class="simple">
-<li><p><strong>Variance / Standard Deviation (<span class="math notranslate nohighlight">\(\sigma\)</span>):</strong> The most common measure. Treats upside and downside deviations equally.
-$<span class="math notranslate nohighlight">\( \sigma = \sqrt{E[(X - \mu)^2]} \)</span>$</p></li>
-<li><p><strong>Mean Absolute Deviation (MAD):</strong>
-$<span class="math notranslate nohighlight">\( MAD = E[|X - \mu|] \)</span>$</p></li>
+<li><p><strong>Variance / Standard Deviation (<span class="math notranslate nohighlight">\(\sigma\)</span>):</strong> The most common measure. Treats upside and downside deviations equally.</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \sqrt{E[(X - \mu)^2]}
+\]</div>
+<ul class="simple">
+<li><p><strong>Mean Absolute Deviation (MAD):</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+MAD = E[|X - \mu|]
+\]</div>
 <p><strong>Downside Measures:</strong>
 Investors typically fear loss, not volatility per se.</p>
 <ul class="simple">
-<li><p><strong>Downside Deviation (Semi-deviation):</strong>
-$<span class="math notranslate nohighlight">\( \sigma_{down} = \sqrt{E[\min(0, X-\mu)^2]} \)</span>$</p></li>
+<li><p><strong>Downside Deviation (Semi-deviation):</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\sigma_{down} = \sqrt{E[\min(0, X-\mu)^2]}
+\]</div>
+<ul class="simple">
 <li><p><strong>Value at Risk (VaR):</strong> The maximum loss with a certain confidence level (e.g., 95%).</p></li>
 <li><p><strong>Conditional Tail Expectation (CTE):</strong> The expected loss <em>given</em> that the loss exceeds the VaR threshold (also called Expected Shortfall).</p></li>
 </ul>

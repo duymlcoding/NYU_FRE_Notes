@@ -502,33 +502,43 @@ document.write(`
 </ul>
 <p><strong>Vector Notation:</strong>
 To handle <span class="math notranslate nohighlight">\(N\)</span> assets simultaneously, we use linear algebra.</p>
-<ul>
-<li><p><strong>Cash Flow Vector (<span class="math notranslate nohighlight">\(\mathbf{CF}\)</span>):</strong> An <span class="math notranslate nohighlight">\(N \times 1\)</span> random vector.
-$$</p>
-<p>\mathbf{CF} = \begin{pmatrix} CF_1 \ CF_2 \ \vdots \ CF_N \end{pmatrix}
-$$</p>
-</li>
-<li><p><strong>Expected Cash Flow Vector (<span class="math notranslate nohighlight">\(\mathbf{\mu}\)</span>):</strong>
-$$</p>
-<p>\mathbf{\mu} = E[\mathbf{CF}] = \begin{pmatrix} E[CF_1] \ E[CF_2] \ \vdots \ E[CF_N] \end{pmatrix}
-$$</p>
-</li>
-<li><p><strong>Covariance Matrix (<span class="math notranslate nohighlight">\(\mathbf{\Sigma}\)</span>):</strong> An <span class="math notranslate nohighlight">\(N \times N\)</span> symmetric matrix.
-$$</p>
-<p>\mathbf{\Sigma} = E[(\mathbf{CF} - \mathbf{\mu})(\mathbf{CF} - \mathbf{\mu})^T]
-$$</p>
+<ul class="simple">
+<li><p><strong>Cash Flow Vector (<span class="math notranslate nohighlight">\(\mathbf{CF}\)</span>):</strong> An <span class="math notranslate nohighlight">\(N \times 1\)</span> random vector.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{CF} = \begin{pmatrix} CF_1 \\ CF_2 \\ \vdots \\ CF_N \end{pmatrix}
+\end{split}\]</div>
+<ul class="simple">
+<li><p><strong>Expected Cash Flow Vector (<span class="math notranslate nohighlight">\(\mathbf{\mu}\)</span>):</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{\mu} = E[\mathbf{CF}] = \begin{pmatrix} E[CF_1] \\ E[CF_2] \\ \vdots \\ E[CF_N] \end{pmatrix}
+\end{split}\]</div>
+<ul class="simple">
+<li><p><strong>Covariance Matrix (<span class="math notranslate nohighlight">\(\mathbf{\Sigma}\)</span>):</strong> An <span class="math notranslate nohighlight">\(N \times N\)</span> symmetric matrix.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{\Sigma} = E[(\mathbf{CF} - \mathbf{\mu})(\mathbf{CF} - \mathbf{\mu})^T]
+\]</div>
 <p>Where the element <span class="math notranslate nohighlight">\(\sigma_{ij} = \text{Cov}(CF_i, CF_j)\)</span>.</p>
-</li>
-<li><p><strong>Unit Vector (<span class="math notranslate nohighlight">\(\mathbf{J}\)</span>):</strong> An <span class="math notranslate nohighlight">\(N \times 1\)</span> vector of ones. (Note: The text sometimes uses <span class="math notranslate nohighlight">\(\mathbf{1}\)</span>, but we will use <span class="math notranslate nohighlight">\(\mathbf{J}\)</span> to avoid confusion with the scalar number 1) .
-$$</p>
-<p>\mathbf{J} = \begin{pmatrix} 1 \ 1 \ \vdots \ 1 \end{pmatrix}
-$$</p>
-</li>
-<li><p><strong>Price Vector (<span class="math notranslate nohighlight">\(\mathbf{V}\)</span>):</strong> The unknown variables we wish to solve for.
-$$</p>
-<p>\mathbf{V} = \begin{pmatrix} V_1 \ V_2 \ \vdots \ V_N \end{pmatrix}
-$$</p>
-</li>
+<ul class="simple">
+<li><p><strong>Unit Vector (<span class="math notranslate nohighlight">\(\mathbf{J}\)</span>):</strong> An <span class="math notranslate nohighlight">\(N \times 1\)</span> vector of ones. (Note: The text sometimes uses <span class="math notranslate nohighlight">\(\mathbf{1}\)</span>, but we will use <span class="math notranslate nohighlight">\(\mathbf{J}\)</span> to avoid confusion with the scalar number 1) .</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{J} = \begin{pmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{pmatrix}
+\end{split}\]</div>
+<ul class="simple">
+<li><p><strong>Price Vector (<span class="math notranslate nohighlight">\(\mathbf{V}\)</span>):</strong> The unknown variables we wish to solve for.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{V} = \begin{pmatrix} V_1 \\ V_2 \\ \vdots \\ V_N \end{pmatrix}
+\end{split}\]</div>
+<ul class="simple">
 <li><p><strong>Holdings Vector (<span class="math notranslate nohighlight">\(\mathbf{\nu}\)</span>):</strong> The number of units of each asset held by an investor. <span class="math notranslate nohighlight">\(\nu\)</span> is the Greek letter “nu”.</p></li>
 </ul>
 </section>

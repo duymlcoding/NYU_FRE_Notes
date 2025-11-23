@@ -501,15 +501,16 @@ document.write(`
 <section id="simple-annual-rate-sar-vs-effective-annual-rate-ear">
 <h3>1. Simple Annual Rate (SAR) vs. Effective Annual Rate (EAR)<a class="headerlink" href="#simple-annual-rate-sar-vs-effective-annual-rate-ear" title="Link to this heading">#</a></h3>
 <p><strong>Definitions:</strong></p>
-<ul>
+<ul class="simple">
 <li><p><strong>Simple Annual Rate (SAR):</strong> The quoted annual rate. It ignores compounding within the year. Also called the Annual Percentage Rate (APR).</p></li>
-<li><p><strong>Periodic Rate:</strong> The rate actually applied to the balance each period.</p>
+<li><p><strong>Periodic Rate:</strong> The rate actually applied to the balance each period.</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[
-    \text{Periodic Rate} = \frac{\text{SAR}}{m}
-    \]</div>
+\text{Periodic Rate} = \frac{\text{SAR}}{m}
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(m\)</span> is the number of compounding periods per year.</p>
-</li>
+<ul class="simple">
 <li><p><strong>Effective Annual Rate (EAR):</strong> The rate you actually earn if you hold the asset for one year, accounting for interest-on-interest.</p></li>
 </ul>
 <p><strong>Fundamental Relationship:</strong>
@@ -678,20 +679,21 @@ Investing for 2 years must yield the same result as investing for 1 year and rol
 <h3>2. Bootstrapping the Yield Curve<a class="headerlink" href="#bootstrapping-the-yield-curve" title="Link to this heading">#</a></h3>
 <p>We often cannot observe spot rates directly for all maturities (only coupons). We must “strip” them.</p>
 <p><strong>The Algorithm:</strong></p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p><strong>Year 1:</strong> Observe a 1-year ZCB (or coupon bond nearing maturity). Its yield is the 1-year spot rate <span class="math notranslate nohighlight">\(r_{s1}\)</span>.</p></li>
 <li><p><strong>Year 2:</strong> Observe a 2-year Coupon Bond with price <span class="math notranslate nohighlight">\(P\)</span>.</p>
-<ul>
+<ul class="simple">
 <li><p>It pays Coupon <span class="math notranslate nohighlight">\(C\)</span> at Year 1. Discount this using known <span class="math notranslate nohighlight">\(r_{s1}\)</span>.</p></li>
 <li><p>It pays <span class="math notranslate nohighlight">\(C+F\)</span> at Year 2.</p></li>
-<li><p>Solve for <span class="math notranslate nohighlight">\(r_{s2}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-        P = \frac{C}{(1+r_{s1})} + \frac{C+F}{(1+r_{s2})^2}
-        \]</div>
-</li>
+<li><p>Solve for <span class="math notranslate nohighlight">\(r_{s2}\)</span>:</p></li>
 </ul>
 </li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P = \frac{C}{(1+r_{s1})} + \frac{C+F}{(1+r_{s2})^2}
+\]</div>
+<ol class="arabic simple" start="3">
 <li><p><strong>Recursion:</strong> Use <span class="math notranslate nohighlight">\(r_{s1}, r_{s2}\)</span> to find <span class="math notranslate nohighlight">\(r_{s3}\)</span> from a 3-year bond, and so on.</p></li>
 </ol>
 </section>
@@ -739,20 +741,20 @@ V_0 (1+r_0) = F(1+r_0) \implies V_0 = F
 <p>IRP relates Spot Rates, Forward Rates, and Interest Rates. It prevents risk-free arbitrage between currencies.</p>
 <p><strong>The Logic:</strong>
 Two strategies must have the same return:</p>
-<ol class="arabic">
-<li><p><strong>Domestic:</strong> Invest $1 at domestic rate <span class="math notranslate nohighlight">\(r_{dom}\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[
-    \text{Value} = (1 + r_{dom})
-    \]</div>
-</li>
-<li><p><strong>Foreign:</strong> Convert $1 to Foreign (<span class="math notranslate nohighlight">\(1/X\)</span>), invest at <span class="math notranslate nohighlight">\(r_{for}\)</span>, then convert back at locked Forward rate <span class="math notranslate nohighlight">\(F\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[
-    \text{Value} = \frac{1}{X} (1 + r_{for}) F
-    \]</div>
-</li>
+<ol class="arabic simple">
+<li><p><strong>Domestic:</strong> Invest $1 at domestic rate <span class="math notranslate nohighlight">\(r_{dom}\)</span>.</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+\text{Value} = (1 + r_{dom})
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Foreign:</strong> Convert $1 to Foreign (<span class="math notranslate nohighlight">\(1/X\)</span>), invest at <span class="math notranslate nohighlight">\(r_{for}\)</span>, then convert back at locked Forward rate <span class="math notranslate nohighlight">\(F\)</span>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\text{Value} = \frac{1}{X} (1 + r_{for}) F
+\]</div>
 <p><strong>The Equation:</strong></p>
 <div class="math notranslate nohighlight">
 \[(1 + r_{dom}) = \frac{F}{X} (1 + r_{for})\]</div>

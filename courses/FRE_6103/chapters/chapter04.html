@@ -597,7 +597,7 @@ The text suggests a polynomial function for the spot rate <span class="math notr
 <div class="math notranslate nohighlight">
 \[y(t) = a_1 + a_2 t + a_3 t^2 + a_4 e^{-t} + \dots\]</div>
 <p><strong>Procedure:</strong></p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p><strong>Collect Data:</strong> Gather a set of liquid “on-the-run” Treasury coupon bonds.</p>
 <ul class="simple">
 <li><p>Prices <span class="math notranslate nohighlight">\(P_i^{market}\)</span>.</p></li>
@@ -605,18 +605,20 @@ The text suggests a polynomial function for the spot rate <span class="math notr
 </ul>
 </li>
 <li><p><strong>Define Model Price:</strong>
-The model price of Bond <span class="math notranslate nohighlight">\(i\)</span> is the sum of its cash flows discounted by the spot rate function <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[    P_i^{model} = \sum_{t} CF_{i, t} e^{-y(t) \cdot t}
-    \]</div>
-</li>
-<li><p><strong>Optimization (Least Squares):</strong>
-Find the parameters <span class="math notranslate nohighlight">\(\{a_1, a_2, \dots\}\)</span> that minimize the sum of squared errors between model and market prices.</p>
-<div class="math notranslate nohighlight">
-\[    \min_{\{a_k\}} \sum_{i} \left( P_i^{market} - P_i^{model} \right)^2
-    \]</div>
-</li>
+The model price of Bond <span class="math notranslate nohighlight">\(i\)</span> is the sum of its cash flows discounted by the spot rate function <span class="math notranslate nohighlight">\(y(t)\)</span>.</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+P_i^{model} = \sum_{t} CF_{i, t} e^{-y(t) \cdot t}
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Optimization (Least Squares):</strong>
+Find the parameters <span class="math notranslate nohighlight">\(\{a_1, a_2, \dots\}\)</span> that minimize the sum of squared errors between model and market prices.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\min_{\{a_k\}} \sum_{i} \left( P_i^{market} - P_i^{model} \right)^2
+\]</div>
 <p><strong>Result:</strong> A continuous ZCB yield curve that can value <em>any</em> risk-free cash flow, even those without a matching STRIP.</p>
 </section>
 </section>
@@ -628,11 +630,19 @@ Find the parameters <span class="math notranslate nohighlight">\(\{a_1, a_2, \do
 <h3>1. Mechanics of TIPS<a class="headerlink" href="#mechanics-of-tips" title="Link to this heading">#</a></h3>
 <p>TIPS are distinct from nominal bonds in two ways:</p>
 <ol class="arabic simple">
-<li><p><strong>Principal Adjustment:</strong> The principal <span class="math notranslate nohighlight">\(F_t\)</span> grows with the Consumer Price Index (CPI).
-$<span class="math notranslate nohighlight">\( F_t = F_0 \times \frac{CPI_t}{CPI_0} \)</span>$</p></li>
-<li><p><strong>Coupon Indexation:</strong> The coupon rate <span class="math notranslate nohighlight">\(c\)</span> is fixed, but it is applied to the <em>adjusted</em> principal.
-$<span class="math notranslate nohighlight">\( C_t = \frac{c}{2} \times F_t \)</span>$</p></li>
+<li><p><strong>Principal Adjustment:</strong> The principal <span class="math notranslate nohighlight">\(F_t\)</span> grows with the Consumer Price Index (CPI).</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+F_t = F_0 \times \frac{CPI_t}{CPI_0}
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Coupon Indexation:</strong> The coupon rate <span class="math notranslate nohighlight">\(c\)</span> is fixed, but it is applied to the <em>adjusted</em> principal.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+C_t = \frac{c}{2} \times F_t
+\]</div>
 <p><strong>Deflation Floor:</strong> At maturity, the investor receives <span class="math notranslate nohighlight">\(\max(F_0, F_T)\)</span>. This is an embedded option (a put on inflation) protecting the investor from deflation.</p>
 </section>
 <section id="tax-complications">
@@ -748,22 +758,38 @@ Any expected cash flow <span class="math notranslate nohighlight">\(E[CF_i]\)</s
 </ul>
 <p><strong>Valuation Formula:</strong></p>
 <div class="math notranslate nohighlight">
-\[V_0 = (1-\lambda) \cdot A + \lambda \cdot B\]</div>
+\[
+V_0 = (1-\lambda) \cdot A + \lambda \cdot B
+\]</div>
 <p>Where:</p>
-<ol class="arabic">
-<li><p><strong><span class="math notranslate nohighlight">\(A\)</span></strong>: The value of the promised cash flows discounted at the <strong>risk-adjusted rate</strong> corresponding to the risk premium <span class="math notranslate nohighlight">\(\theta\)</span> but <em>no</em> default loss.
-$<span class="math notranslate nohighlight">\( A = \text{Annuity}(C, n, y_A) + PV(F, n, y_A) \)</span>$</p>
-<div class="math notranslate nohighlight">
-\[ y_A \approx r + \theta \]</div>
-</li>
-<li><p><strong><span class="math notranslate nohighlight">\(B\)</span></strong>: The value of the promised cash flows discounted at a <strong>higher rate</strong> <span class="math notranslate nohighlight">\(r^*\)</span> that accounts for the probability of survival.
-$<span class="math notranslate nohighlight">\( B = \text{Annuity}(C, n, r^*) + PV(F, n, r^*) \)</span>$</p>
-<p>The discount factor for <span class="math notranslate nohighlight">\(B\)</span> includes the survival probability <span class="math notranslate nohighlight">\((1-\pi)\)</span>.
-$<span class="math notranslate nohighlight">\( \frac{1}{1+r^*} = \frac{1-\pi}{1+r+\theta} \)</span>$</p>
-<p>Solving for <span class="math notranslate nohighlight">\(r^*\)</span>:
-$<span class="math notranslate nohighlight">\( r^* \approx r + \theta + \pi \)</span>$</p>
-</li>
+<ol class="arabic simple">
+<li><p><strong><span class="math notranslate nohighlight">\(A\)</span></strong>: The value of the promised cash flows discounted at the <strong>risk-adjusted rate</strong> corresponding to the risk premium <span class="math notranslate nohighlight">\(\theta\)</span> but <em>no</em> default loss.</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+A = \text{Annuity}(C, n, y_A) + PV(F, n, y_A)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y_A \approx r + \theta
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong><span class="math notranslate nohighlight">\(B\)</span></strong>: The value of the promised cash flows discounted at a <strong>higher rate</strong> <span class="math notranslate nohighlight">\(r^*\)</span> that accounts for the probability of survival.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+B = \text{Annuity}(C, n, r^*) + PV(F, n, r^*)
+\]</div>
+<p>The discount factor for <span class="math notranslate nohighlight">\(B\)</span> includes the survival probability <span class="math notranslate nohighlight">\((1-\pi)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{1+r^*} = \frac{1-\pi}{1+r+\theta}
+\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(r^*\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+r^* \approx r + \theta + \pi
+\]</div>
 <p><strong>Physical Interpretation:</strong></p>
 <ul class="simple">
 <li><p>Part A is valued like a Treasury bond (plus a small liquidity premium <span class="math notranslate nohighlight">\(\theta\)</span>).</p></li>
