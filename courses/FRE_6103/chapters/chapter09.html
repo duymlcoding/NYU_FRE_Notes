@@ -399,32 +399,32 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-derivatives-in-the-cfpm-framework">Part 1: Derivatives in the CFPM Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-in-the-cfpm-framework">Derivatives in the CFPM Framework</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-definition">1. Abstract Definition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-payoff-functions">2. Examples of Payoff Functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-lognormal-model-for-asset-prices">Part 2: The Lognormal Model for Asset Prices</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lognormal-model-for-asset-prices">The Lognormal Model for Asset Prices</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-grw-dynamics">1. Review of GRW Dynamics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value-of-the-stock">2. Expected Value of the Stock</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-analytic-derivation-of-the-call-option-value">Part 3: Analytic Derivation of the Call Option Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytic-derivation-of-the-call-option-value">Analytic Derivation of the Call Option Value</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-integral">1. Setting up the Integral</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-term-2-the-cash-part">2. Evaluating Term 2 (The Cash Part)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-term-1-the-asset-part">3. Evaluating Term 1 (The Asset Part)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-physical-measure-formula">4. The Physical Measure Formula</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-the-risk-neutral-substitution">Part 4: The Risk-Neutral Substitution</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-risk-neutral-substitution">The Risk-Neutral Substitution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-principle">1. The Principle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-risk-neutral-parameters">2. Calculating Risk-Neutral Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-formula">3. The Black-Scholes Formula</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-worked-examples">Part 5: Worked Examples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-practice-problems">Part 6: Practice Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-chapter-summary">Part 7: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-examples">Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary">Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>
@@ -473,8 +473,8 @@ document.write(`
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-1-derivatives-in-the-cfpm-framework">
-<h2>Part 1: Derivatives in the CFPM Framework<a class="headerlink" href="#part-1-derivatives-in-the-cfpm-framework" title="Link to this heading">#</a></h2>
+<section id="derivatives-in-the-cfpm-framework">
+<h2>Derivatives in the CFPM Framework<a class="headerlink" href="#derivatives-in-the-cfpm-framework" title="Link to this heading">#</a></h2>
 <section id="abstract-definition">
 <h3>1. Abstract Definition<a class="headerlink" href="#abstract-definition" title="Link to this heading">#</a></h3>
 <p>In this chapter, a <strong>Financial Derivative</strong> <span class="math notranslate nohighlight">\(D\)</span> is defined abstractly as a contract whose payoff is a function of the end-of-period value of a <strong>Reference Portfolio</strong> <span class="math notranslate nohighlight">\(R\)</span>.</p>
@@ -520,8 +520,8 @@ Find the present value <span class="math notranslate nohighlight">\(V_D\)</span>
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-2-the-lognormal-model-for-asset-prices">
-<h2>Part 2: The Lognormal Model for Asset Prices<a class="headerlink" href="#part-2-the-lognormal-model-for-asset-prices" title="Link to this heading">#</a></h2>
+<section id="the-lognormal-model-for-asset-prices">
+<h2>The Lognormal Model for Asset Prices<a class="headerlink" href="#the-lognormal-model-for-asset-prices" title="Link to this heading">#</a></h2>
 <p>To value the option, we must model the probability distribution of the reference asset <span class="math notranslate nohighlight">\(S_T\)</span>. We assume the stock follows a <strong>Geometric Random Walk (GRW)</strong>.</p>
 <section id="review-of-grw-dynamics">
 <h3>1. Review of GRW Dynamics<a class="headerlink" href="#review-of-grw-dynamics" title="Link to this heading">#</a></h3>
@@ -561,8 +561,8 @@ The logarithm of the price is normally distributed:</p>
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-3-analytic-derivation-of-the-call-option-value">
-<h2>Part 3: Analytic Derivation of the Call Option Value<a class="headerlink" href="#part-3-analytic-derivation-of-the-call-option-value" title="Link to this heading">#</a></h2>
+<section id="analytic-derivation-of-the-call-option-value">
+<h2>Analytic Derivation of the Call Option Value<a class="headerlink" href="#analytic-derivation-of-the-call-option-value" title="Link to this heading">#</a></h2>
 <p>We seek to calculate the expected payoff of a call option <span class="math notranslate nohighlight">\(E[C_T]\)</span> under the physical measure, then convert it to the risk-neutral measure.</p>
 <p><strong>Objective:</strong> Calculate <span class="math notranslate nohighlight">\(E[\max(S_T - X, 0)]\)</span>.</p>
 <section id="setting-up-the-integral">
@@ -641,8 +641,8 @@ Let <span class="math notranslate nohighlight">\(u = z - \sigma'\)</span>. The l
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-4-the-risk-neutral-substitution">
-<h2>Part 4: The Risk-Neutral Substitution<a class="headerlink" href="#part-4-the-risk-neutral-substitution" title="Link to this heading">#</a></h2>
+<section id="the-risk-neutral-substitution">
+<h2>The Risk-Neutral Substitution<a class="headerlink" href="#the-risk-neutral-substitution" title="Link to this heading">#</a></h2>
 <p>We have the expected future value. To get the present value <span class="math notranslate nohighlight">\(V_0\)</span>, the CFPM tells us we can use <strong>Risk-Neutral Valuation</strong>.</p>
 <section id="the-principle">
 <h3>1. The Principle<a class="headerlink" href="#the-principle" title="Link to this heading">#</a></h3>
@@ -688,8 +688,8 @@ Let <span class="math notranslate nohighlight">\(u = z - \sigma'\)</span>. The l
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-5-worked-examples">
-<h2>Part 5: Worked Examples<a class="headerlink" href="#part-5-worked-examples" title="Link to this heading">#</a></h2>
+<section id="worked-examples">
+<h2>Worked Examples<a class="headerlink" href="#worked-examples" title="Link to this heading">#</a></h2>
 <div class="tip admonition">
 <p class="admonition-title">Example 1: Calculating <span class="math notranslate nohighlight">\(d_1\)</span> and <span class="math notranslate nohighlight">\(d_2\)</span></p>
 <p><strong>Problem:</strong> Calculate the Black-Scholes parameters.</p>
@@ -751,8 +751,8 @@ The market prices the option as if the probability of exercise is 56% (<span cla
 </div>
 </section>
 <hr class="docutils" />
-<section id="part-6-practice-problems">
-<h2>Part 6: Practice Problems<a class="headerlink" href="#part-6-practice-problems" title="Link to this heading">#</a></h2>
+<section id="practice-problems">
+<h2>Practice Problems<a class="headerlink" href="#practice-problems" title="Link to this heading">#</a></h2>
 <div class="tip admonition">
 <p class="admonition-title">Practice Problem 1: Put-Call Parity</p>
 <p><strong>Problem:</strong> Using the call price from Example 2 ($10.45), calculate the price of a European Put with the same parameters.</p>
@@ -803,8 +803,8 @@ So <span class="math notranslate nohighlight">\(N(d_2) \to 0\)</span>.</p></li>
 </div>
 </section>
 <hr class="docutils" />
-<section id="part-7-chapter-summary">
-<h2>Part 7: Chapter Summary<a class="headerlink" href="#part-7-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="chapter-summary">
+<h2>Chapter Summary<a class="headerlink" href="#chapter-summary" title="Link to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p><strong>Key Concepts Recap</strong></p>
@@ -915,32 +915,32 @@ We do not need to know the stock’s beta or the market risk premium to price an
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-derivatives-in-the-cfpm-framework">Part 1: Derivatives in the CFPM Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-in-the-cfpm-framework">Derivatives in the CFPM Framework</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-definition">1. Abstract Definition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-payoff-functions">2. Examples of Payoff Functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-lognormal-model-for-asset-prices">Part 2: The Lognormal Model for Asset Prices</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lognormal-model-for-asset-prices">The Lognormal Model for Asset Prices</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-grw-dynamics">1. Review of GRW Dynamics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value-of-the-stock">2. Expected Value of the Stock</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-analytic-derivation-of-the-call-option-value">Part 3: Analytic Derivation of the Call Option Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytic-derivation-of-the-call-option-value">Analytic Derivation of the Call Option Value</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-integral">1. Setting up the Integral</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-term-2-the-cash-part">2. Evaluating Term 2 (The Cash Part)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-term-1-the-asset-part">3. Evaluating Term 1 (The Asset Part)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-physical-measure-formula">4. The Physical Measure Formula</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-the-risk-neutral-substitution">Part 4: The Risk-Neutral Substitution</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-risk-neutral-substitution">The Risk-Neutral Substitution</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-principle">1. The Principle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-risk-neutral-parameters">2. Calculating Risk-Neutral Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-formula">3. The Black-Scholes Formula</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-worked-examples">Part 5: Worked Examples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-practice-problems">Part 6: Practice Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-chapter-summary">Part 7: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-examples">Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary">Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>

@@ -401,7 +401,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications">Real-World Applications</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-fundamental-concepts">Part 1: Fundamental Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-concepts">Fundamental Concepts</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-financial-engineering">What is Financial Engineering?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-benchmarking-approach">The Benchmarking Approach</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taxonomy-of-assets">Taxonomy of Assets</a><ul class="nav section-nav flex-column">
@@ -416,7 +416,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-terminology-price-vs-value">Market Terminology: Price vs. Value</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mathematical-framework">Part 2: Mathematical Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-framework">Mathematical Framework</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-return-metrics">Section 1: Return Metrics</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-definitions">Standard Definitions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-percentage-returns">The Problem with Percentage Returns</a></li>
@@ -427,21 +427,17 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation">Derivation</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-insurance-valuation-reserves">Section 3: Insurance Valuation (Reserves)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrospective-reserve-looking-backward">1. Retrospective Reserve (Looking Backward)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prospective-reserve-looking-forward">2. Prospective Reserve (Looking Forward)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-insurance-valuation-reserves">Section 3: Insurance Valuation (Reserves)</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-worked-examples">Part 3: Worked Examples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-practice-problems">Part 4: Practice Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-advanced-topics-and-extensions">Part 5: Advanced Topics and Extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-examples">Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-topics-and-extensions">Advanced Topics and Extensions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-1-the-gve-and-capm">Extension 1: The GVE and CAPM</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-2-valuation-models">Extension 2: Valuation Models</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary">Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 </ul>
 </li>
@@ -502,8 +498,8 @@ document.write(`
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-1-fundamental-concepts">
-<h2>Part 1: Fundamental Concepts<a class="headerlink" href="#part-1-fundamental-concepts" title="Link to this heading">#</a></h2>
+<section id="fundamental-concepts">
+<h2>Fundamental Concepts<a class="headerlink" href="#fundamental-concepts" title="Link to this heading">#</a></h2>
 <section id="what-is-financial-engineering">
 <h3>What is Financial Engineering?<a class="headerlink" href="#what-is-financial-engineering" title="Link to this heading">#</a></h3>
 <p>Financial engineering is often misunderstood as merely “creating new financial products.” While that is part of it, the discipline is much broader.</p>
@@ -585,12 +581,16 @@ To value a complex asset (like an oil refinery):</p>
 <section id="the-impact-of-corporate-structure-on-value">
 <h3>The Impact of Corporate Structure on Value<a class="headerlink" href="#the-impact-of-corporate-structure-on-value" title="Link to this heading">#</a></h3>
 <p>The legal structure of a corporation fundamentally alters valuation through three mechanisms:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Three Key Mechanisms of Corporate Structure:</strong></p>
 <ol class="arabic simple">
 <li><p><strong>Limited Liability:</strong> Shareholders cannot lose more than their initial investment. This acts like an “insurance policy” or a “put option” for shareholders.</p></li>
 <li><p><strong>Bankruptcy:</strong> The right to default on debt. Instead of paying cash, the firm surrenders its assets to debtholders.</p></li>
 <li><p><strong>Tax Incentives:</strong> Interest on debt is often tax-deductible, increasing net cash flows to the firm.</p></li>
 </ol>
-<p><strong>Summary:</strong> Limited liability, bankruptcy protection, and tax incentives generally <strong>increase</strong> the value of the company.</p>
+</div>
+<p><strong>Physical Meaning</strong>: Limited liability, bankruptcy protection, and tax incentives generally increase the value of the company by providing downside protection and cash flow advantages.</p>
 </section>
 <section id="contracts-as-contingent-assets">
 <h3>Contracts as Contingent Assets<a class="headerlink" href="#contracts-as-contingent-assets" title="Link to this heading">#</a></h3>
@@ -608,26 +608,33 @@ To value a complex asset (like an oil refinery):</p>
 <section id="market-terminology-price-vs-value">
 <h3>Market Terminology: Price vs. Value<a class="headerlink" href="#market-terminology-price-vs-value" title="Link to this heading">#</a></h3>
 <p>It is vital to distinguish between <em>price</em> and <em>value</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Key Market Terminology:</strong></p>
 <ul class="simple">
-<li><p><strong>Bid Price:</strong> The price a buyer offers (The price you sell at).</p></li>
-<li><p><strong>Ask Price:</strong> The price a seller offers (The price you buy at).</p></li>
-<li><p><strong>Value:</strong> The theoretical worth of the asset derived from a model.</p></li>
+<li><p><strong>Bid Price:</strong> The price a buyer offers (the price you sell at)</p></li>
+<li><p><strong>Ask Price:</strong> The price a seller offers (the price you buy at)</p></li>
+<li><p><strong>Value:</strong> The theoretical worth of the asset derived from a model</p></li>
 </ul>
+</div>
 <p><strong>Public vs. Private Value:</strong></p>
 <ul class="simple">
-<li><p><strong>Public Value:</strong> The consensus market value.</p></li>
-<li><p><strong>Private Value:</strong> The value to a specific individual based on their unique constraints, tax situation, or beliefs.</p></li>
+<li><p><strong>Public Value:</strong> The consensus market value</p></li>
+<li><p><strong>Private Value:</strong> The value to a specific individual based on their unique constraints, tax situation, or beliefs</p></li>
 </ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p><strong>The Trading Rule:</strong></p>
 <ul class="simple">
-<li><p><strong>BUY</strong> if Private Valuation &gt; Public Valuation.</p></li>
-<li><p><strong>SELL</strong> if Private Valuation &lt; Public Valuation.</p></li>
+<li><p><strong>BUY</strong> if Private Valuation &gt; Public Valuation</p></li>
+<li><p><strong>SELL</strong> if Private Valuation &lt; Public Valuation</p></li>
 </ul>
+</div>
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-2-mathematical-framework">
-<h2>Part 2: Mathematical Framework<a class="headerlink" href="#part-2-mathematical-framework" title="Link to this heading">#</a></h2>
+<section id="mathematical-framework">
+<h2>Mathematical Framework<a class="headerlink" href="#mathematical-framework" title="Link to this heading">#</a></h2>
 <section id="section-1-return-metrics">
 <h3>Section 1: Return Metrics<a class="headerlink" href="#section-1-return-metrics" title="Link to this heading">#</a></h3>
 <p>To compare assets, we measure returns. However, the standard definitions of “return” can break down in financial engineering contexts.</p>
@@ -699,8 +706,13 @@ In a functioning market, for a transaction to occur, the buyer and seller must a
 </ul>
 <p><strong>Step 4: The General Valuation Equation</strong></p>
 <p>Equating Step 1 and Step 2:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>The General Valuation Equation (GVE):</strong></p>
 <div class="math notranslate nohighlight">
-\[r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\]</div>
+\[
+r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]
+\]</div>
 <p>where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(r\)</span> = risk-free interest rate</p></li>
@@ -711,33 +723,40 @@ In a functioning market, for a transaction to occur, the buyer and seller must a
 <li><p><span class="math notranslate nohighlight">\(V_1\)</span> = Value at time 1</p></li>
 <li><p><span class="math notranslate nohighlight">\(C_1\)</span> = Cash flow at time 1</p></li>
 </ul>
-<p><strong>Physical Interpretation:</strong>
-This equation states that the <em>cost</em> of holding the asset (lost interest + risk borne) must equal the <em>benefit</em> of holding the asset (price appreciation + cash income).</p>
+</div>
+<p><strong>Physical Meaning</strong>: This equation states that the <em>cost</em> of holding the asset (lost interest + risk borne) must equal the <em>benefit</em> of holding the asset (price appreciation + cash income).</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="section-3-insurance-valuation-reserves">
 <h3>Section 3: Insurance Valuation (Reserves)<a class="headerlink" href="#section-3-insurance-valuation-reserves" title="Link to this heading">#</a></h3>
 <p>Valuation applies to liabilities just as much as assets. Insurance companies use “Reserves” to represent the value of future liabilities.</p>
-<p><strong>Definition:</strong> A Reserve is value kept back to pay future claims.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key Concept: Insurance Reserve</p>
+<p>A <strong>Reserve</strong> is value kept back to pay future claims.</p>
 <p>There are two ways to calculate reserves, and under consistent assumptions, they yield the same result.</p>
-<section id="retrospective-reserve-looking-backward">
-<h4>1. Retrospective Reserve (Looking Backward)<a class="headerlink" href="#retrospective-reserve-looking-backward" title="Link to this heading">#</a></h4>
-<p>Calculated based on what has already happened.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Two Methods for Calculating Reserves:</strong></p>
+<p><strong>1. Retrospective Reserve (Looking Backward)</strong></p>
+<p>Calculated based on what has already happened:</p>
 <div class="math notranslate nohighlight">
-\[\text{Reserve} = \text{FV(Premiums Received)} - \text{FV(Benefits &amp; Expenses Paid)}\]</div>
-</section>
-<section id="prospective-reserve-looking-forward">
-<h4>2. Prospective Reserve (Looking Forward)<a class="headerlink" href="#prospective-reserve-looking-forward" title="Link to this heading">#</a></h4>
-<p>Calculated based on what is expected to happen. This is essentially a Net Present Value calculation.</p>
+\[
+\text{Reserve} = \text{FV(Premiums Received)} - \text{FV(Benefits &amp; Expenses Paid)}
+\]</div>
+<p><strong>2. Prospective Reserve (Looking Forward)</strong></p>
+<p>Calculated based on what is expected to happen (Net Present Value):</p>
 <div class="math notranslate nohighlight">
-\[\text{Reserve} = \text{PV(Future Benefits &amp; Expenses)} - \text{PV(Future Premiums)}\]</div>
-</section>
+\[
+\text{Reserve} = \text{PV(Future Benefits &amp; Expenses)} - \text{PV(Future Premiums)}
+\]</div>
+</div>
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-3-worked-examples">
-<h2>Part 3: Worked Examples<a class="headerlink" href="#part-3-worked-examples" title="Link to this heading">#</a></h2>
+<section id="worked-examples">
+<h2>Worked Examples<a class="headerlink" href="#worked-examples" title="Link to this heading">#</a></h2>
 <div class="tip admonition">
 <p class="admonition-title">Example 1: Applying the GVE to a Risk-Free Asset</p>
 <p><strong>Context:</strong> We will use the General Valuation Equation to derive the standard Present Value formula for a risk-free bond.</p>
@@ -831,7 +850,7 @@ You short sell a stock at $50 (<span class="math notranslate nohighlight">\(V_0\
 <p><strong>Analysis 2: The “Alternative” Dollarized Approach</strong>
 Let’s define the investment by the cash flows relative to the investor’s pocket.</p>
 <ul class="simple">
-<li><p><strong>Initial Investment:</strong> <span class="math notranslate nohighlight">\(-\$50\)</span>. (Wait, why negative? In this specific accounting view, we treat the liability created as a negative starting position to make the math work for percentages). <em>Note: The text suggests treating the $50 received as a “negative investment” to force the math.</em></p></li>
+<li><p><strong>Initial Investment:</strong> <span class="math notranslate nohighlight">\(-\$50\)</span> (the liability is treated as a negative starting position to make the math work for percentages).</p></li>
 </ul>
 <p>Let’s look at the text’s logic carefully:</p>
 <ol class="arabic simple">
@@ -883,8 +902,8 @@ Both methods yield a Reserve of <strong>50</strong>. This requires the company t
 </div>
 </section>
 <hr class="docutils" />
-<section id="part-4-practice-problems">
-<h2>Part 4: Practice Problems<a class="headerlink" href="#part-4-practice-problems" title="Link to this heading">#</a></h2>
+<section id="practice-problems">
+<h2>Practice Problems<a class="headerlink" href="#practice-problems" title="Link to this heading">#</a></h2>
 <p>Test your understanding with these problems. Try them before looking at solutions!</p>
 <div class="tip admonition">
 <p class="admonition-title">Practice Problem 1: Applying the GVE</p>
@@ -955,8 +974,8 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 </div>
 </section>
 <hr class="docutils" />
-<section id="part-5-advanced-topics-and-extensions">
-<h2>Part 5: Advanced Topics and Extensions<a class="headerlink" href="#part-5-advanced-topics-and-extensions" title="Link to this heading">#</a></h2>
+<section id="advanced-topics-and-extensions">
+<h2>Advanced Topics and Extensions<a class="headerlink" href="#advanced-topics-and-extensions" title="Link to this heading">#</a></h2>
 <section id="extension-1-the-gve-and-capm">
 <h3>Extension 1: The GVE and CAPM<a class="headerlink" href="#extension-1-the-gve-and-capm" title="Link to this heading">#</a></h3>
 <p>You may notice similarities between the General Valuation Equation and the Capital Asset Pricing Model (CAPM).</p>
@@ -979,8 +998,8 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-6-chapter-summary">
-<h2>Part 6: Chapter Summary<a class="headerlink" href="#part-6-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="chapter-summary">
+<h2>Chapter Summary<a class="headerlink" href="#chapter-summary" title="Link to this heading">#</a></h2>
 <section id="key-concepts-recap">
 <h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
 <p>:class: important</p>
@@ -1085,7 +1104,7 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications">Real-World Applications</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-fundamental-concepts">Part 1: Fundamental Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-concepts">Fundamental Concepts</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-financial-engineering">What is Financial Engineering?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-benchmarking-approach">The Benchmarking Approach</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taxonomy-of-assets">Taxonomy of Assets</a><ul class="nav section-nav flex-column">
@@ -1100,7 +1119,7 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-terminology-price-vs-value">Market Terminology: Price vs. Value</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mathematical-framework">Part 2: Mathematical Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-framework">Mathematical Framework</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-return-metrics">Section 1: Return Metrics</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-definitions">Standard Definitions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-percentage-returns">The Problem with Percentage Returns</a></li>
@@ -1111,21 +1130,17 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation">Derivation</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-insurance-valuation-reserves">Section 3: Insurance Valuation (Reserves)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrospective-reserve-looking-backward">1. Retrospective Reserve (Looking Backward)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prospective-reserve-looking-forward">2. Prospective Reserve (Looking Forward)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-insurance-valuation-reserves">Section 3: Insurance Valuation (Reserves)</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-worked-examples">Part 3: Worked Examples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-practice-problems">Part 4: Practice Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-advanced-topics-and-extensions">Part 5: Advanced Topics and Extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-examples">Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-topics-and-extensions">Advanced Topics and Extensions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-1-the-gve-and-capm">Extension 1: The GVE and CAPM</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-2-valuation-models">Extension 2: Valuation Models</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary">Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 </ul>
 </li>

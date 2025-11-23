@@ -400,30 +400,30 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-arithmetic-random-walk-arw">Part 1: The Arithmetic Random Walk (ARW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-arithmetic-random-walk-arw">The Arithmetic Random Walk (ARW)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-dynamics">1. Definition and Dynamics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-over-time">2. Properties over Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-structure">3. Autocorrelation Structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-arw">4. Critique of ARW</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mean-reversion-ornstein-uhlenbeck">Part 2: Mean Reversion (Ornstein-Uhlenbeck)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-reversion-ornstein-uhlenbeck">Mean Reversion (Ornstein-Uhlenbeck)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Definition and Dynamics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. Properties over Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3. Autocorrelation Structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-ou">4. Critique of OU</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-the-geometric-random-walk-grw">Part 3: The Geometric Random Walk (GRW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometric-random-walk-grw">The Geometric Random Walk (GRW)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-log-normal-transformation">1. The Log-Normal Transformation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-convexity-adjustment-drift">2. The Convexity Adjustment (Drift)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3. Properties over Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-grw">4. Critique of GRW</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-examples">Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary">Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>
@@ -477,8 +477,8 @@ document.write(`
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-1-the-arithmetic-random-walk-arw">
-<h2>Part 1: The Arithmetic Random Walk (ARW)<a class="headerlink" href="#part-1-the-arithmetic-random-walk-arw" title="Link to this heading">#</a></h2>
+<section id="the-arithmetic-random-walk-arw">
+<h2>The Arithmetic Random Walk (ARW)<a class="headerlink" href="#the-arithmetic-random-walk-arw" title="Link to this heading">#</a></h2>
 <p>The Random Walk hypothesis, popularized by Louis Bachelier in 1900, posits that asset price changes are random and unpredictable. Even if we don’t believe markets are truly random, the <strong>Efficient Market Hypothesis</strong> suggests we cannot systematically outperform them, so modeling prices as random is a rational baseline.</p>
 <section id="definition-and-dynamics">
 <h3>1. Definition and Dynamics<a class="headerlink" href="#definition-and-dynamics" title="Link to this heading">#</a></h3>
@@ -534,16 +534,16 @@ The first <span class="math notranslate nohighlight">\(j\)</span> terms of <span
 \[\text{Cov}(S_{t+j}, S_{t+m}) = \sigma^2 \min(j, m)\]</div>
 <p>This covariance structure allows us to construct the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> for a vector of prices <span class="math notranslate nohighlight">\((S_{t+1}, S_{t+2}, \dots, S_{t+k})\)</span> and simulate the entire path using the Cholesky decomposition method from Chapter 5.</p>
 <p><strong>Simulation Algorithm:</strong></p>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p>Construct the Covariance Matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> where <span class="math notranslate nohighlight">\(A_{ij} = \sigma^2 \min(i, j)\)</span>.</p></li>
 <li><p>Compute Cholesky <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> such that <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{R}\mathbf{R}^T\)</span>.</p></li>
 <li><p>Generate independent <span class="math notranslate nohighlight">\(Z \sim N(0,1)\)</span>.</p></li>
-<li><p>Path <span class="math notranslate nohighlight">\(\mathbf{S} = \mathbf{S}_{mean} + \mathbf{Z}\mathbf{R}^T\)</span>.
-Actually, simpler: <span class="math notranslate nohighlight">\(\mathbf{S} = \mathbf{S}_{mean} + \mathbf{R}\mathbf{Z}\)</span>? No, in Chapter 5 it was <span class="math notranslate nohighlight">\(\mathbf{Z}\mathbf{R}^T\)</span> if <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span> is a row vector.
-Note: For ARW, the Cholesky matrix <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> is simply a lower triangular matrix of <span class="math notranslate nohighlight">\(\sigma\)</span>’s.
+<li><p>Path <span class="math notranslate nohighlight">\(\mathbf{S} = \mathbf{S}_{mean} + \mathbf{Z}\mathbf{R}^T\)</span> (where <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span> is a row vector).</p>
+<p><strong>Note:</strong> For ARW, the Cholesky matrix <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> is simply a lower triangular matrix of <span class="math notranslate nohighlight">\(\sigma\)</span>’s.
 <span class="math notranslate nohighlight">\(S_{t+1} = S_t + \mu + \sigma Z_1\)</span>
 <span class="math notranslate nohighlight">\(S_{t+2} = S_{t+1} + \mu + \sigma Z_2 = S_t + 2\mu + \sigma(Z_1 + Z_2)\)</span>
-This confirms the “cumulative sum” structure.</p></li>
+This confirms the “cumulative sum” structure.</p>
+</li>
 </ol>
 </section>
 <section id="critique-of-arw">
@@ -562,8 +562,8 @@ This confirms the “cumulative sum” structure.</p></li>
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-2-mean-reversion-ornstein-uhlenbeck">
-<h2>Part 2: Mean Reversion (Ornstein-Uhlenbeck)<a class="headerlink" href="#part-2-mean-reversion-ornstein-uhlenbeck" title="Link to this heading">#</a></h2>
+<section id="mean-reversion-ornstein-uhlenbeck">
+<h2>Mean Reversion (Ornstein-Uhlenbeck)<a class="headerlink" href="#mean-reversion-ornstein-uhlenbeck" title="Link to this heading">#</a></h2>
 <p>Commodities (oil, copper, wheat) and interest rates do not wander infinitely like stocks.</p>
 <ul class="simple">
 <li><p><strong>High Prices:</strong> Stimulate supply, reduce demand <span class="math notranslate nohighlight">\(\to\)</span> Price falls.</p></li>
@@ -642,8 +642,8 @@ The variance is the sum of the variances of the independent shock terms.</p>
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-3-the-geometric-random-walk-grw">
-<h2>Part 3: The Geometric Random Walk (GRW)<a class="headerlink" href="#part-3-the-geometric-random-walk-grw" title="Link to this heading">#</a></h2>
+<section id="the-geometric-random-walk-grw">
+<h2>The Geometric Random Walk (GRW)<a class="headerlink" href="#the-geometric-random-walk-grw" title="Link to this heading">#</a></h2>
 <p>To model stock prices while respecting limited liability (<span class="math notranslate nohighlight">\(S \ge 0\)</span>) and exponential growth, we use the Geometric Random Walk. This is the engine behind the Black-Scholes model.</p>
 <section id="the-log-normal-transformation">
 <h3>1. The Log-Normal Transformation<a class="headerlink" href="#the-log-normal-transformation" title="Link to this heading">#</a></h3>
@@ -710,8 +710,8 @@ To simulate a stock with expected return <span class="math notranslate nohighlig
 </section>
 </section>
 <hr class="docutils" />
-<section id="part-4-worked-examples">
-<h2>Part 4: Worked Examples<a class="headerlink" href="#part-4-worked-examples" title="Link to this heading">#</a></h2>
+<section id="worked-examples">
+<h2>Worked Examples<a class="headerlink" href="#worked-examples" title="Link to this heading">#</a></h2>
 <div class="tip admonition">
 <p class="admonition-title">Example 1: Simulating an ARW</p>
 <p><strong>Problem:</strong> Simulate 3 periods of a stock price using ARW.
@@ -757,8 +757,8 @@ Even though the arithmetic expected return is 10%, the most likely path (geometr
 </div>
 </section>
 <hr class="docutils" />
-<section id="part-5-practice-problems">
-<h2>Part 5: Practice Problems<a class="headerlink" href="#part-5-practice-problems" title="Link to this heading">#</a></h2>
+<section id="practice-problems">
+<h2>Practice Problems<a class="headerlink" href="#practice-problems" title="Link to this heading">#</a></h2>
 <div class="tip admonition">
 <p class="admonition-title">Practice Problem 1: ARW Variance</p>
 <p><strong>Problem:</strong> An ARW process has <span class="math notranslate nohighlight">\(\sigma = 2\)</span>. What is the standard deviation of the price at <span class="math notranslate nohighlight">\(t=16\)</span>?</p>
@@ -804,8 +804,8 @@ Denominator <span class="math notranslate nohighlight">\(= 1 - (0.5)^2 = 1 - 0.2
 </div>
 </section>
 <hr class="docutils" />
-<section id="part-6-chapter-summary">
-<h2>Part 6: Chapter Summary<a class="headerlink" href="#part-6-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="chapter-summary">
+<h2>Chapter Summary<a class="headerlink" href="#chapter-summary" title="Link to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p><strong>Key Concepts Recap</strong></p>
@@ -925,30 +925,30 @@ When moving from Normal shocks to Lognormal prices, we must subtract <span class
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-arithmetic-random-walk-arw">Part 1: The Arithmetic Random Walk (ARW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-arithmetic-random-walk-arw">The Arithmetic Random Walk (ARW)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-dynamics">1. Definition and Dynamics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-over-time">2. Properties over Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-structure">3. Autocorrelation Structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-arw">4. Critique of ARW</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mean-reversion-ornstein-uhlenbeck">Part 2: Mean Reversion (Ornstein-Uhlenbeck)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-reversion-ornstein-uhlenbeck">Mean Reversion (Ornstein-Uhlenbeck)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Definition and Dynamics</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. Properties over Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3. Autocorrelation Structure</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-ou">4. Critique of OU</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-the-geometric-random-walk-grw">Part 3: The Geometric Random Walk (GRW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometric-random-walk-grw">The Geometric Random Walk (GRW)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-log-normal-transformation">1. The Log-Normal Transformation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-convexity-adjustment-drift">2. The Convexity Adjustment (Drift)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3. Properties over Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-grw">4. Critique of GRW</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worked-examples">Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problems">Practice Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary">Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>
