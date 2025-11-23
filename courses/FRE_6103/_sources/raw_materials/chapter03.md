@@ -50,7 +50,7 @@ Before studying this chapter, you should be familiar with:
 
 ## Part 1: Frequency and Compounding
 
-Real-world debt instruments rarely pay annually. Consumer loans pay monthly; corporate bonds often pay quarterly; [cite_start]US Government bonds pay semi-annually[cite: 125]. We must reconcile these frequencies with standard annual rate quotes.
+Real-world debt instruments rarely pay annually. Consumer loans pay monthly; corporate bonds often pay quarterly; US Government bonds pay semi-annually. We must reconcile these frequencies with standard annual rate quotes.
 
 ### 1. Simple Annual Rate (SAR) vs. Effective Annual Rate (EAR)
 
@@ -58,30 +58,37 @@ Real-world debt instruments rarely pay annually. Consumer loans pay monthly; cor
 * **Simple Annual Rate (SAR):** The quoted annual rate. It ignores compounding within the year. Also called the Annual Percentage Rate (APR).
 * **Periodic Rate:** The rate actually applied to the balance each period.
     $$ \text{Periodic Rate} = \frac{\text{SAR}}{m} $$
+
     where $m$ is the number of compounding periods per year.
-* [cite_start]**Effective Annual Rate (EAR):** The rate you actually earn if you hold the asset for one year, accounting for interest-on-interest[cite: 127].
+* **Effective Annual Rate (EAR):** The rate you actually earn if you hold the asset for one year, accounting for interest-on-interest.
 
 **Fundamental Relationship:**
 The accumulation of \$1 over one year with $m$ periods must equal the accumulation at the EAR.
 
 $$
+
 1 + \text{EAR} = \left( 1 + \frac{\text{SAR}}{m} \right)^m
+
 $$
 
 **Formulas:**
 To find EAR given SAR:
 
 $$
+
 \text{EAR} = \left( 1 + \frac{\text{SAR}}{m} \right)^m - 1
+
 $$
 
 To find SAR given EAR:
 
 $$
+
 \text{SAR} = m \left[ (1 + \text{EAR})^{1/m} - 1 \right]
+
 $$
 
-[cite_start][cite: 130]
+
 
 ### 2. Continuous Compounding (The Limit as $m \to \infty$)
 
@@ -93,13 +100,17 @@ Let $L = \lim_{m \to \infty} \left( 1 + \frac{r}{m} \right)^m$.
 Take the natural log:
 
 $$
+
 \ln(L) = \lim_{m \to \infty} m \ln\left( 1 + \frac{r}{m} \right) = \lim_{m \to \infty} \frac{\ln(1 + r/m)}{1/m}
+
 $$
 
 This is a $0/0$ indeterminate form. Apply L'Hopital's Rule (differentiate with respect to $m$):
 
 $$
+
 \ln(L) = \lim_{m \to \infty} \frac{\frac{1}{1+r/m} \cdot (-r/m^2)}{-1/m^2} = \lim_{m \to \infty} \frac{r}{1+r/m} = r
+
 $$
 
 So $\ln(L) = r \implies L = e^r$.
@@ -107,19 +118,23 @@ So $\ln(L) = r \implies L = e^r$.
 **Result:**
 
 $$
+
 1 + \text{EAR} = e^{\text{SAR}_{continuous}}
+
 $$
 
 **Terminology:**
-[cite_start]The continuously compounded rate is often symbolized by $\delta$ (delta) and called the **Force of Interest**[cite: 132].
+The continuously compounded rate is often symbolized by $\delta$ (delta) and called the **Force of Interest**.
 
 $$
+
 \delta = \ln(1 + \text{EAR})
+
 $$
 
 **Discount Factors:**
 * **Discrete ($t$ years):** $v_t = \frac{1}{(1+r)^t}$
-* [cite_start]**Continuous ($t$ years):** $v_t = e^{-\delta t}$ [cite: 135]
+* **Continuous ($t$ years):** $v_t = e^{-\delta t}$ 
 
 ### 3. Frequency Mismatch Strategy
 
@@ -132,7 +147,7 @@ $$
     * $r_{monthly} = (1 + \text{EAR})^{1/12} - 1$.
 3.  Discount the cash flows using this periodic rate.
 
-[cite_start][cite: 148]
+
 
 ---
 
@@ -144,15 +159,17 @@ Inflation erodes the value of money. We must distinguish between the number of d
 
 * **Nominal Dollars:** The face value of currency.
 * **Real Dollars:** Purchasing power relative to a base year.
-* [cite_start]**CPI (Consumer Price Index):** A standardized basket of goods used to measure price levels[cite: 158].
+* **CPI (Consumer Price Index):** A standardized basket of goods used to measure price levels.
     $$ \text{Inflation Rate (i)} = \frac{\text{CPI}_{new}}{\text{CPI}_{old}} - 1 $$
 
 ### 2. The Fisher Equation
 
-[cite_start]The relationship between Nominal Rate ($r$), Real Rate ($\rho$), and Inflation Rate ($i$) is given by the **Fisher Equation**[cite: 161]:
+The relationship between Nominal Rate ($r$), Real Rate ($\rho$), and Inflation Rate ($i$) is given by the **Fisher Equation**:
 
 $$
+
 (1 + r) = (1 + \rho)(1 + i)
+
 $$
 
 **Implication:**
@@ -161,17 +178,21 @@ You earn the nominal rate $r$. Part of that pays for the higher cost of goods ($
 **Approximation:**
 
 $$
+
 r \approx \rho + i
+
 $$
 
 **Exact (Continuous):**
 For continuous rates, the approximation becomes an exact equality:
 
 $$
+
 e^r = e^{\rho} e^i \implies r = \rho + i
+
 $$
 
-[cite_start][cite: 162]
+
 
 ### 3. Valuation Rule of Thumb
 
@@ -184,7 +205,7 @@ A contract pays \$100,000 adjusted for inflation ($C_1 = C_0(1+i)$).
 * **Method A (Nominal):** Project the inflated cash flows ($100k(1.02), 100k(1.02)^2...$) and discount at the nominal rate $r$. This is a Growing Annuity.
 * **Method B (Real):** Recognize that the *Real* cash flow is constant (\$100k). Discount this flat annuity at the Real Rate $\rho$.
 
-[cite_start]Both methods yield the exact same Present Value[cite: 170].
+Both methods yield the exact same Present Value.
 
 ---
 
@@ -200,25 +221,29 @@ Taxes complicate valuation because different components of return (Ordinary Inco
 ### 2. After-Tax Valuation
 
 If $\tau_{OI} = \tau_{CG} = \tau$, valuation is simple:
+
 $$ r_{after-tax} = r_{pre-tax} (1 - \tau) $$
-Simply discount after-tax cash flows at the after-tax rate. [cite_start]The GVE remains unchanged because both sides are multiplied by $(1-\tau)$[cite: 178].
+
+Simply discount after-tax cash flows at the after-tax rate. The GVE remains unchanged because both sides are multiplied by $(1-\tau)$.
 
 **The Problem: Differential Taxes**
 If $\tau_{OI} \neq \tau_{CG}$, we cannot simply adjust the discount rate.
 **The GVE Adjustment:**
 
 $$
+
 r_{AT} V_0 = (1 - \tau_{CG}) E[V_1 - V_0] + (1 - \tau_{OI}) E[C_1]
+
 $$
 
-[cite_start]This implies an **Effective Tax Rate ($\tau_e$)** for the entire instrument, which depends on the mix of income vs. gains[cite: 179].
+This implies an **Effective Tax Rate ($\tau_e$)** for the entire instrument, which depends on the mix of income vs. gains.
 
 **Procedure for Valuation:**
 1.  Compute the Pre-tax Value $V_0$ using pre-tax cash flows and rates.
 2.  Calculate the After-tax Cash Flows explicitly in a table.
     * Tax on CF = $CF \times \tau_{OI}$
     * Tax on CG = $(V_{end} - V_{start}) \times \tau_{CG}$
-3.  Find the Internal Rate of Return (IRR) of these after-tax flows. [cite_start]This is the true after-tax yield[cite: 186].
+3.  Find the Internal Rate of Return (IRR) of these after-tax flows. This is the true after-tax yield.
 
 ---
 
@@ -235,18 +260,22 @@ Interest rates are not constant over time. The yield curve (Term Structure) tell
 Investing for 2 years must yield the same result as investing for 1 year and rolling over at the forward rate.
 
 $$
+
 (1 + r_{s2})^2 = (1 + r_{s1})(1 + f_{1,2})
+
 $$
 
-[cite_start][cite: 210]
+
 
 **General Formula:**
 
 $$
+
 (1 + r_{sn})^n = (1 + r_{s1})(1 + f_{1,2})(1 + f_{2,3})\dots(1 + f_{n-1,n})
+
 $$
 
-[cite_start]This implies that the Spot Rate is the **geometric average** of the Forward Rates[cite: 217].
+This implies that the Spot Rate is the **geometric average** of the Forward Rates.
 
 ### 2. Bootstrapping the Yield Curve
 
@@ -259,7 +288,8 @@ We often cannot observe spot rates directly for all maturities (only coupons). W
     * It pays $C+F$ at Year 2.
     * Solve for $r_{s2}$:
         $$ P = \frac{C}{(1+r_{s1})} + \frac{C+F}{(1+r_{s2})^2} $$
-3.  [cite_start]**Recursion:** Use $r_{s1}, r_{s2}$ to find $r_{s3}$ from a 3-year bond, and so on[cite: 201].
+
+3.  **Recursion:** Use $r_{s1}, r_{s2}$ to find $r_{s3}$ from a 3-year bond, and so on.
 
 ### 3. Valuing Floating Rate Notes (FRN)
 
@@ -269,12 +299,16 @@ An FRN is unique: at every reset date, its value resets to Par ($F$).
 
 **Proof via GVE:**
 At time 0, the bond promises to pay $r_0 F$ (known) at time 1, plus the value of the bond at time 1 ($V_1$).
+
 $$ r_0 V_0 = E[V_1 - V_0] + r_0 F $$
+
 If the bond resets to Par at time 1 ($V_1 = F$), then:
+
 $$ r_0 V_0 = (F - V_0) + r_0 F $$
+
 $$ V_0 (1+r_0) = F(1+r_0) \implies V_0 = F $$
 
-[cite_start]**Implication:** The value of a pure FRN is always Par immediately after a coupon payment[cite: 235].
+**Implication:** The value of a pure FRN is always Par immediately after a coupon payment.
 
 ---
 
@@ -297,25 +331,32 @@ IRP relates Spot Rates, Forward Rates, and Interest Rates. It prevents risk-free
 Two strategies must have the same return:
 1.  **Domestic:** Invest \$1 at domestic rate $r_{dom}$.
     $$ \text{Value} = (1 + r_{dom}) $$
+
 2.  **Foreign:** Convert \$1 to Foreign ($1/X$), invest at $r_{for}$, then convert back at locked Forward rate $F$.
     $$ \text{Value} = \frac{1}{X} (1 + r_{for}) F $$
 
 **The Equation:**
 
 $$
+
 (1 + r_{dom}) = \frac{F}{X} (1 + r_{for})
+
 $$
 
 Rearranging for the Forward Rate:
 
 $$
+
 F = X \frac{(1 + r_{dom})}{(1 + r_{for})}
+
 $$
 
-[cite_start][cite: 255]
+
 
 **Approximation:**
+
 $$ \frac{F - X}{X} \approx r_{dom} - r_{for} $$
+
 The percentage premium of the forward rate equals the interest rate differential.
 
 ---
@@ -327,6 +368,7 @@ Finally, we leave the world of "guaranteed" cash flows. We incorporate probabili
 ### 1. The Probabilistic GVE
 
 The GVE is robust enough to handle randomness.
+
 $$ \text{Required Return} = E[\text{Capital Gain}] + E[\text{Cash Flow}] $$
 
 **Example: Life Insurance**
@@ -349,11 +391,14 @@ $$ \text{Required Return} = E[\text{Capital Gain}] + E[\text{Cash Flow}] $$
     $E[CG] = \pi(0 - V_0) + (1-\pi)(V_0 - V_0) = -\pi V_0$.
 
 **GVE Solution:**
+
 $$ r V_0 = -\pi V_0 + \pi C $$
+
 $$ V_0 (r + \pi) = \pi C $$
+
 $$ V_0 = \frac{\pi C}{r + \pi} $$
 
-[cite_start]This looks like a perpetuity $\frac{C}{r}$, but the discount rate is increased by the hazard rate $\pi$[cite: 264].
+This looks like a perpetuity $\frac{C}{r}$, but the discount rate is increased by the hazard rate $\pi$.
 
 ### 2. Default Risk on Bonds
 
@@ -362,19 +407,27 @@ $$ V_0 = \frac{\pi C}{r + \pi} $$
 * **$F$**: Face Value.
 
 **Expected Payoff at Maturity:**
+
 $$ E[\text{Payoff}] = (1-\pi)F + \pi(1-\lambda)F $$
+
 $$ E[\text{Payoff}] = F [1 - \pi\lambda] $$
 
 **Valuation:**
+
 $$ V_0 = \frac{F (1 - \pi\lambda)}{1 + r} $$
 
 **Credit Spread Approximation:**
 We can model this as a risk-free bond with a higher yield $y$.
+
 $$ V_0 = \frac{F}{1 + y} \approx \frac{F (1 - \pi\lambda)}{1 + r} $$
+
 Implies:
+
 $$ 1 + y \approx \frac{1+r}{1-\pi\lambda} \approx (1+r)(1+\pi\lambda) $$
+
 $$ y \approx r + \pi\lambda $$
-[cite_start]**Credit Spread $\approx$ Expected Loss Rate ($\pi\lambda$)**[cite: 293].
+
+**Credit Spread $\approx$ Expected Loss Rate ($\pi\lambda$)**.
 
 ---
 
@@ -393,11 +446,15 @@ $$ y \approx r + \pi\lambda $$
 * $m_2 = 12$ (Monthly)
 
 **Step 1: Find the EAR**
+
 $$ \text{EAR} = \left( 1 + \frac{0.08}{4} \right)^4 - 1 = (1.02)^4 - 1 = 1.082432 - 1 = 8.2432\% $$
 
 **Step 2: Convert EAR to Monthly SAR**
+
 $$ \text{SAR}_{monthly} = 12 \left[ (1.082432)^{1/12} - 1 \right] $$
+
 $$ (1.082432)^{1/12} \approx 1.006622 $$
+
 $$ \text{SAR}_{monthly} = 12 \times 0.006622 = 0.07947 = 7.947\% $$
 
 **Result:** The monthly compounded rate is slightly lower (7.95%) because it compounds more frequently to achieve the same yield.
@@ -414,13 +471,18 @@ $$ \text{SAR}_{monthly} = 12 \times 0.006622 = 0.07947 = 7.947\% $$
 This corresponds to an EAR of $(1.03)^2 - 1 = 6.09\%$.
 
 **Calculation:**
+
 $$ \delta = \ln(1 + \text{EAR}) = \ln(1.0609) $$
+
 Alternatively, directly from the semi-annual accumulation:
+
 $$ e^{\delta \times 0.5} = 1.03 $$
+
 $$ 0.5 \delta = \ln(1.03) $$
+
 $$ \delta = 2 \ln(1.03) \approx 2(0.02956) = 5.91\% $$
 
-[cite_start][cite: 146]
+
 
 ---
 
@@ -437,15 +499,18 @@ $$ \delta = 2 \ln(1.03) \approx 2(0.02956) = 5.91\% $$
 The currency with the *higher* interest rate (USD) must trade at a forward *discount* to offset the yield advantage. The EUR (lower rate) must trade at a premium.
 
 **Calculation:**
+
 $$ F = 1.30 \times \frac{1.10}{1.08} $$
+
 $$ F = 1.30 \times 1.0185 $$
+
 $$ F = 1.324 \text{ USD/EUR} $$
 
 **Check:**
 Invest \$1.30 USD $\to$ \$1.43.
 Invest €1.00 (converted) $\to$ €1.08.
 Convert €1.08 back at 1.324 $\to$ \$1.43.
-[cite_start]Arbitrage free. [cite: 257]
+Arbitrage free. 
 
 ---
 
@@ -461,18 +526,24 @@ Convert €1.08 back at 1.324 $\to$ \$1.43.
 * Find the Implied Default Probability ($\pi$).
 
 **Formula:**
+
 $$ V_0 = \frac{F [1 - \pi\lambda]}{1+r} $$
 
 **Setup:**
+
 $$ 95 = \frac{100 [1 - \pi(0.60)]}{1.03} $$
 
 **Algebra:**
+
 $$ 95(1.03) = 100 - 60\pi $$
+
 $$ 97.85 = 100 - 60\pi $$
+
 $$ 60\pi = 100 - 97.85 = 2.15 $$
+
 $$ \pi = \frac{2.15}{60} = 0.0358 $$
 
-[cite_start]**Result:** The market is pricing in a **3.58% probability of default**. [cite: 291]
+**Result:** The market is pricing in a **3.58% probability of default**. 
 
 ---
 
@@ -490,7 +561,9 @@ $$ \pi = \frac{2.15}{60} = 0.0358 $$
 
 Since the bond is at Par ($P=F$), there is **no Capital Gain** or Loss upon maturity. The Capital Gains tax rate is irrelevant.
 We only tax the coupons.
+
 $$ r_{AT} = r_{pre-tax} (1 - \tau_{OI}) $$
+
 $$ r_{AT} = 5\% (1 - 0.40) = 3\% $$
 
 </details>
@@ -509,11 +582,17 @@ $$ r_{AT} = 5\% (1 - 0.40) = 3\% $$
 <summary><strong>Click for Solution</strong></summary>
 
 Price = \$100. Coupon = \$3.
+
 $$ 100 = \frac{3}{1.02} + \frac{103}{(1+r_{s2})^2} $$
+
 $$ 100 = 2.941 + \frac{103}{(1+r_{s2})^2} $$
+
 $$ 97.059 = \frac{103}{(1+r_{s2})^2} $$
+
 $$ (1+r_{s2})^2 = \frac{103}{97.059} = 1.0612 $$
+
 $$ 1+r_{s2} = \sqrt{1.0612} = 1.03015 $$
+
 $$ r_{s2} = 3.015\% $$
 
 </details>
@@ -529,9 +608,13 @@ $$ r_{s2} = 3.015\% $$
 <summary><strong>Click for Solution</strong></summary>
 
 For continuous rates, the Fisher equation is additive:
+
 $$ r = \rho + i $$
+
 $$ 8\% = \rho + 3\% $$
+
 $$ \rho = 5\% $$
+
 (Note: This is exact, unlike the discrete approximation).
 
 </details>
@@ -567,4 +650,3 @@ $$ \rho = 5\% $$
 | **Interest Rate Parity** | $F = X \frac{1+r_{dom}}{1+r_{for}}$ |
 | **Defaultable Value** | $V = \frac{F(1-\pi\lambda)}{1+r}$ |
 
----

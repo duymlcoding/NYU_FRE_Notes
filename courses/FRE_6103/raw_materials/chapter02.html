@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -508,120 +508,83 @@ document.write(`
 <section id="standard-notation">
 <h3>Standard Notation<a class="headerlink" href="#standard-notation" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(i\)</span></strong>: A floating point in time (often the current evaluation date)[cite: 1].</p></li>
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(s\)</span></strong>: A fixed starting point in time for payments[cite: 1].</p></li>
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(n\)</span></strong>: The date of the final payment (or number of payments)[cite: 1].</p></li>
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(r\)</span></strong>: The risk-free rate of interest (simple annual or discount rate)[cite: 1].</p></li>
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(C\)</span></strong>: Amount of a single flat cash flow[cite: 1].</p></li>
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(g\)</span></strong>: Percentage growth rate in cash flow (Geometric growth), where <span class="math notranslate nohighlight">\(C_{i+1} = C_i(1+g)\)</span>[cite: 2, 3].</p></li>
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(b\)</span></strong>: Fixed dollar increase in cash flow (Linear growth), where <span class="math notranslate nohighlight">\(C_{i+1} = C_i + b\)</span>[cite: 3, 4].</p></li>
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(\mu\)</span></strong>: Long-run mean (asymptotic) cash payment for mean-reverting processes[cite: 4].</p></li>
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(\kappa\)</span></strong>: Speed of mean reversion; the expected percentage movement toward the long-run mean in one period[cite: 4].</p></li>
-<li><p>[cite_start]<strong><span class="math notranslate nohighlight">\(v\)</span></strong>: The discount factor, defined as <span class="math notranslate nohighlight">\(v = 1/(1+r)\)</span>[cite: 10].</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(i\)</span></strong>: A floating point in time (often the current evaluation date).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(s\)</span></strong>: A fixed starting point in time for payments.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(n\)</span></strong>: The date of the final payment (or number of payments).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(r\)</span></strong>: The risk-free rate of interest (simple annual or discount rate).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(C\)</span></strong>: Amount of a single flat cash flow.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(g\)</span></strong>: Percentage growth rate in cash flow (Geometric growth), where <span class="math notranslate nohighlight">\(C_{i+1} = C_i(1+g)\)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(b\)</span></strong>: Fixed dollar increase in cash flow (Linear growth), where <span class="math notranslate nohighlight">\(C_{i+1} = C_i + b\)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mu\)</span></strong>: Long-run mean (asymptotic) cash payment for mean-reverting processes.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\kappa\)</span></strong>: Speed of mean reversion; the expected percentage movement toward the long-run mean in one period.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(v\)</span></strong>: The discount factor, defined as <span class="math notranslate nohighlight">\(v = 1/(1+r)\)</span>.</p></li>
 </ul>
 </section>
 <section id="the-back-sweep-method-for-single-cash-flows">
 <h3>The “Back Sweep” Method for Single Cash Flows<a class="headerlink" href="#the-back-sweep-method-for-single-cash-flows" title="Link to this heading">#</a></h3>
-<p>[cite_start]Before attacking infinite streams, let us verify our valuation logic on a single future cash flow using the <strong>Back Sweep</strong> method and the <strong>GVE</strong>[cite: 3].</p>
+<p>Before attacking infinite streams, let us verify our valuation logic on a single future cash flow using the <strong>Back Sweep</strong> method and the <strong>GVE</strong>.</p>
 <p><strong>Strategy:</strong> Start at the maturity date and work backwards recursively.</p>
 <p>Suppose a payment <span class="math notranslate nohighlight">\(C_2\)</span> is due at time <span class="math notranslate nohighlight">\(i=2\)</span>.</p>
 <p><strong>Step 1: Value at Time 2</strong>
 The value of cash immediately upon receipt is the cash itself.</p>
 <div class="math notranslate nohighlight">
-\[
-V_2 = C_2
-\]</div>
-<p>[cite_start][cite: 4]</p>
+\[V_2 = C_2\]</div>
 <p><strong>Step 2: Value at Time 1 (Back Sweep)</strong>
 Using the GVE: <span class="math notranslate nohighlight">\(r V_1 = (V_2 - V_1) + \text{Cash Flow at 1}\)</span>.
 Since there is no cash flow at time 1 (<span class="math notranslate nohighlight">\(CF_1 = 0\)</span>) and <span class="math notranslate nohighlight">\(V_2 = C_2\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-r V_1 = (C_2 - V_1)
-\]</div>
+\[r V_1 = (C_2 - V_1)\]</div>
 <p>Rearranging:</p>
 <div class="math notranslate nohighlight">
-\[
-V_1(1+r) = C_2 \implies V_1 = \frac{C_2}{(1+r)}
-\]</div>
-<p>[cite_start][cite: 11]</p>
+\[V_1(1+r) = C_2 \implies V_1 = \frac{C_2}{(1+r)}\]</div>
 <p><strong>Step 3: Value at Time 0</strong>
 Repeat the process:</p>
 <div class="math notranslate nohighlight">
-\[
-r V_0 = (V_1 - V_0)
-\]</div>
+\[r V_0 = (V_1 - V_0)\]</div>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{V_1}{(1+r)} = \frac{C_2}{(1+r)^2}
-\]</div>
-<p>[cite_start][cite: 11]</p>
+\[V_0 = \frac{V_1}{(1+r)} = \frac{C_2}{(1+r)^2}\]</div>
 <p><strong>Generalization:</strong>
 By induction, the present value of a single cash flow <span class="math notranslate nohighlight">\(C\)</span> at time <span class="math notranslate nohighlight">\(i\)</span> is:</p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{C}{(1+r)^i}
-\]</div>
-<p>[cite_start][cite: 6]</p>
+\[V_0 = \frac{C}{(1+r)^i}\]</div>
 </section>
 </section>
 <hr class="docutils" />
 <section id="part-2-perpetuities">
 <h2>Part 2: Perpetuities<a class="headerlink" href="#part-2-perpetuities" title="Link to this heading">#</a></h2>
-<p>[cite_start]A <strong>Perpetuity</strong> is an annuity that continues forever[cite: 1]. While “forever” rarely exists in practice, many financial instruments (like preferred stock or consols) are modeled this way.</p>
+<p>A <strong>Perpetuity</strong> is an annuity that continues forever. While “forever” rarely exists in practice, many financial instruments (like preferred stock or consols) are modeled this way.</p>
 <section id="the-standard-perpetuity">
 <h3>1. The Standard Perpetuity<a class="headerlink" href="#the-standard-perpetuity" title="Link to this heading">#</a></h3>
 <p>We wish to value a stream of constant payments <span class="math notranslate nohighlight">\(C\)</span> starting one period from now (<span class="math notranslate nohighlight">\(i=1\)</span>) and continuing to infinity.</p>
 <section id="derivation-1-the-infinite-series-sum">
 <h4>Derivation 1: The Infinite Series Sum<a class="headerlink" href="#derivation-1-the-infinite-series-sum" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \sum_{i=1}^{\infty} \frac{C}{(1+r)^i}
-\]</div>
-<p>[cite_start][cite: 6]</p>
+\[V_0 = \sum_{i=1}^{\infty} \frac{C}{(1+r)^i}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(v = 1/(1+r)\)</span>. The sum can be written as:</p>
 <div class="math notranslate nohighlight">
-\[
-S = C(v + v^2 + v^3 + \dots)
-\]</div>
-<p>[cite_start][cite: 10]</p>
+\[S = C(v + v^2 + v^3 + \dots)\]</div>
 <p>Multiply the entire series by <span class="math notranslate nohighlight">\(v\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-vS = C(v^2 + v^3 + v^4 + \dots)
-\]</div>
+\[vS = C(v^2 + v^3 + v^4 + \dots)\]</div>
 <p>Subtract the second equation from the first:</p>
 <div class="math notranslate nohighlight">
-\[
-S - vS = C(v - 0)
-\]</div>
+\[S - vS = C(v - 0)\]</div>
 <div class="math notranslate nohighlight">
-\[
-S(1-v) = Cv
-\]</div>
+\[S(1-v) = Cv\]</div>
 <p>Substitute <span class="math notranslate nohighlight">\(v = 1/(1+r)\)</span> back in:</p>
 <div class="math notranslate nohighlight">
-\[
-S \left( 1 - \frac{1}{1+r} \right) = \frac{C}{1+r}
-\]</div>
+\[S \left( 1 - \frac{1}{1+r} \right) = \frac{C}{1+r}\]</div>
 <div class="math notranslate nohighlight">
-\[
-S \left( \frac{1+r-1}{1+r} \right) = \frac{C}{1+r}
-\]</div>
+\[S \left( \frac{1+r-1}{1+r} \right) = \frac{C}{1+r}\]</div>
 <div class="math notranslate nohighlight">
-\[
-S \cdot \frac{r}{1+r} = \frac{C}{1+r}
-\]</div>
+\[S \cdot \frac{r}{1+r} = \frac{C}{1+r}\]</div>
 <div class="math notranslate nohighlight">
-\[
-V_0 = S = \frac{C}{r}
-\]</div>
-<p>[cite_start][cite: 14]</p>
+\[V_0 = S = \frac{C}{r}\]</div>
 </section>
 <section id="derivation-2-the-general-valuation-equation-gve-approach">
 <h4>Derivation 2: The General Valuation Equation (GVE) Approach<a class="headerlink" href="#derivation-2-the-general-valuation-equation-gve-approach" title="Link to this heading">#</a></h4>
 <p>This method is often faster and more intuitive for financial engineers.
-[cite_start]<strong>GVE:</strong> <span class="math notranslate nohighlight">\(Required Return = Expected Capital Gain + Expected Cash Flow\)</span>[cite: 16].</p>
+<strong>GVE:</strong> <span class="math notranslate nohighlight">\(Required Return = Expected Capital Gain + Expected Cash Flow\)</span>.</p>
 <p>For a perpetuity paying <span class="math notranslate nohighlight">\(C\)</span>:</p>
 <ol class="arabic simple">
 <li><p><strong>Cash Flow:</strong> Expected <span class="math notranslate nohighlight">\(CF = C\)</span>.</p></li>
@@ -629,42 +592,29 @@ V_0 = S = \frac{C}{r}
 </ol>
 <p>Substitute into GVE:</p>
 <div class="math notranslate nohighlight">
-\[
-r V_0 = (0) + C
-\]</div>
+\[r V_0 = (0) + C\]</div>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{C}{r}
-\]</div>
-<p>[cite_start][cite: 24]</p>
+\[V_0 = \frac{C}{r}\]</div>
 </section>
 </section>
 <section id="the-growing-perpetuity-pvgp">
 <h3>2. The Growing Perpetuity (<span class="math notranslate nohighlight">\(PVGP\)</span>)<a class="headerlink" href="#the-growing-perpetuity-pvgp" title="Link to this heading">#</a></h3>
 <p>Now consider a stream where each payment grows by a factor <span class="math notranslate nohighlight">\(g\)</span>.
 <span class="math notranslate nohighlight">\(C_1 = C\)</span>, <span class="math notranslate nohighlight">\(C_2 = C(1+g)\)</span>, <span class="math notranslate nohighlight">\(C_3 = C(1+g)^2\)</span>, etc.</p>
-<p>[cite_start]<strong>Condition for Convergence:</strong> The discount rate <span class="math notranslate nohighlight">\(r\)</span> must be greater than the growth rate <span class="math notranslate nohighlight">\(g\)</span> (<span class="math notranslate nohighlight">\(r &gt; g\)</span>)[cite: 36].</p>
+<p><strong>Condition for Convergence:</strong> The discount rate <span class="math notranslate nohighlight">\(r\)</span> must be greater than the growth rate <span class="math notranslate nohighlight">\(g\)</span> (<span class="math notranslate nohighlight">\(r &gt; g\)</span>).</p>
 <section id="derivation-via-phantom-payment-and-adjusted-rate">
 <h4>Derivation via “Phantom Payment” and Adjusted Rate<a class="headerlink" href="#derivation-via-phantom-payment-and-adjusted-rate" title="Link to this heading">#</a></h4>
 <p>We can transform a growing perpetuity into a flat perpetuity by adjusting the discount rate.
 Let the “Phantom Payment” be the initial cash flow <span class="math notranslate nohighlight">\(C_1\)</span> adjusted for growth? No, let’s look at the discount factor adjustment.</p>
 <p>The summation is:</p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \sum_{i=1}^{\infty} \frac{C_1 (1+g)^{i-1}}{(1+r)^i} = \frac{C_1}{1+g} \sum_{i=1}^{\infty} \left( \frac{1+g}{1+r} \right)^i
-\]</div>
-<p>[cite_start][cite: 35]</p>
+\[V_0 = \sum_{i=1}^{\infty} \frac{C_1 (1+g)^{i-1}}{(1+r)^i} = \frac{C_1}{1+g} \sum_{i=1}^{\infty} \left( \frac{1+g}{1+r} \right)^i\]</div>
 <p>We define a new “growth-adjusted” discount factor <span class="math notranslate nohighlight">\(v^*\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-v^* = \frac{1+g}{1+r}
-\]</div>
+\[v^* = \frac{1+g}{1+r}\]</div>
 <p>This implies a new effective discount rate <span class="math notranslate nohighlight">\(r^*\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-\frac{1}{1+r^*} = \frac{1+g}{1+r} \implies r^* = \frac{1+r}{1+g} - 1 = \frac{r-g}{1+g}
-\]</div>
-<p>[cite_start][cite: 36, 75]</p>
+\[\frac{1}{1+r^*} = \frac{1+g}{1+r} \implies r^* = \frac{1+r}{1+g} - 1 = \frac{r-g}{1+g}\]</div>
 <p>Using the standard perpetuity formula <span class="math notranslate nohighlight">\(V_0 = \frac{\text{First Payment}}{r^*}\)</span>:
 However, we must be careful with the “First Payment”. In the transformed summation, the term outside is <span class="math notranslate nohighlight">\(C_1/(1+g)\)</span>.
 Actually, the text provides a simpler derivation using the GVE.</p>
@@ -672,46 +622,29 @@ Actually, the text provides a simpler derivation using the GVE.</p>
 <section id="derivation-via-gve">
 <h4>Derivation via GVE<a class="headerlink" href="#derivation-via-gve" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
-\[
-r V_0 = E[V_1 - V_0] + C_1
-\]</div>
-<p>[cite_start][cite: 76]</p>
+\[r V_0 = E[V_1 - V_0] + C_1\]</div>
 <p>Key Insight: For a growing perpetuity, the value at time 1 (<span class="math notranslate nohighlight">\(V_1\)</span>) is exactly <span class="math notranslate nohighlight">\((1+g)\)</span> times the value at time 0 (<span class="math notranslate nohighlight">\(V_0\)</span>). Why? Because the cash flow stream at time 1 is identical to time 0, just scaled up by <span class="math notranslate nohighlight">\((1+g)\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-V_1 = V_0(1+g)
-\]</div>
-<p>[cite_start][cite: 77]</p>
+\[V_1 = V_0(1+g)\]</div>
 <p>Substitute into GVE:</p>
 <div class="math notranslate nohighlight">
-\[
-r V_0 = (V_0(1+g) - V_0) + C_1
-\]</div>
+\[r V_0 = (V_0(1+g) - V_0) + C_1\]</div>
 <div class="math notranslate nohighlight">
-\[
-r V_0 = V_0(1 + g - 1) + C_1
-\]</div>
+\[r V_0 = V_0(1 + g - 1) + C_1\]</div>
 <div class="math notranslate nohighlight">
-\[
-r V_0 = g V_0 + C_1
-\]</div>
+\[r V_0 = g V_0 + C_1\]</div>
 <div class="math notranslate nohighlight">
-\[
-(r - g) V_0 = C_1
-\]</div>
+\[(r - g) V_0 = C_1\]</div>
 <p><strong>Final Formula:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{C_1}{r - g}
-\]</div>
-<p>[cite_start][cite: 77]</p>
+\[V_0 = \frac{C_1}{r - g}\]</div>
 </section>
 </section>
 </section>
 <hr class="docutils" />
 <section id="part-3-annuities">
 <h2>Part 3: Annuities<a class="headerlink" href="#part-3-annuities" title="Link to this heading">#</a></h2>
-<p>[cite_start]An <strong>Annuity</strong> is a sequence of equally spaced payments that ends at time <span class="math notranslate nohighlight">\(n\)</span>[cite: 1].</p>
+<p>An <strong>Annuity</strong> is a sequence of equally spaced payments that ends at time <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <section id="the-standard-annuity-pva">
 <h3>1. The Standard Annuity (<span class="math notranslate nohighlight">\(PVA\)</span>)<a class="headerlink" href="#the-standard-annuity-pva" title="Link to this heading">#</a></h3>
 <p>We can define the value of an annuity as the difference between two perpetuities:</p>
@@ -720,20 +653,13 @@ V_0 = \frac{C_1}{r - g}
 <li><p>A perpetuity starting at time <span class="math notranslate nohighlight">\(n+1\)</span> (which we subtract).</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[
-PVA = \text{Perp}(0) - \text{Perp}(n)
-\]</div>
+\[PVA = \text{Perp}(0) - \text{Perp}(n)\]</div>
 <p>The perpetuity starting at time <span class="math notranslate nohighlight">\(n+1\)</span> has a present value at time <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\(C/r\)</span>.
 Its present value at time 0 is <span class="math notranslate nohighlight">\((C/r) \cdot v^n\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-PVA = \frac{C}{r} - \frac{C}{r} \cdot \frac{1}{(1+r)^n}
-\]</div>
+\[PVA = \frac{C}{r} - \frac{C}{r} \cdot \frac{1}{(1+r)^n}\]</div>
 <div class="math notranslate nohighlight">
-\[
-PVA = \frac{C}{r} \left[ 1 - \frac{1}{(1+r)^n} \right]
-\]</div>
-<p>[cite_start][cite: 19, 28]</p>
+\[PVA = \frac{C}{r} \left[ 1 - \frac{1}{(1+r)^n} \right]\]</div>
 </section>
 <section id="the-growing-annuity-pvga">
 <h3>2. The Growing Annuity (<span class="math notranslate nohighlight">\(PVGA\)</span>)<a class="headerlink" href="#the-growing-annuity-pvga" title="Link to this heading">#</a></h3>
@@ -747,10 +673,7 @@ PVA = \frac{C}{r} \left[ 1 - \frac{1}{(1+r)^n} \right]
 <p>Using the relationship <span class="math notranslate nohighlight">\(V_1 = V_0(1+g) - C_1(1+g)^n / (1+r)^n\)</span>? No, let’s use the summation formula derived in the text.</p>
 <p>The formula derived is:</p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{C_1}{r-g} \left[ 1 - \left( \frac{1+g}{1+r} \right)^n \right]
-\]</div>
-<p>[cite_start][cite: 43, 85]</p>
+\[V_0 = \frac{C_1}{r-g} \left[ 1 - \left( \frac{1+g}{1+r} \right)^n \right]\]</div>
 <p><strong>Important Note:</strong> This formula works even if <span class="math notranslate nohighlight">\(g &gt; r\)</span>.
 However, there is a singularity if <span class="math notranslate nohighlight">\(g = r\)</span>.</p>
 </section>
@@ -760,25 +683,19 @@ However, there is a singularity if <span class="math notranslate nohighlight">\(
 The standard formula divides by zero (<span class="math notranslate nohighlight">\(r-g=0\)</span>).</p>
 <p>We must return to the summation. If <span class="math notranslate nohighlight">\(g=r\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \sum_{i=1}^{n} \frac{C_1 (1+r)^{i-1}}{(1+r)^i} = \sum_{i=1}^{n} \frac{C_1}{1+r}
-\]</div>
+\[V_0 = \sum_{i=1}^{n} \frac{C_1 (1+r)^{i-1}}{(1+r)^i} = \sum_{i=1}^{n} \frac{C_1}{1+r}\]</div>
 <p>Every term in the sum is identical!
-There are <span class="math notranslate nohighlight">\(n\)</span> terms, each equal to <span class="math notranslate nohighlight">\(C_1 / (1+r)\)</span>. [cite_start]No, looking at the text derivation[cite: 88]:</p>
+There are <span class="math notranslate nohighlight">\(n\)</span> terms, each equal to <span class="math notranslate nohighlight">\(C_1 / (1+r)\)</span>. No, looking at the text derivation:</p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{n C_1}{1+r}
-\]</div>
+\[V_0 = \frac{n C_1}{1+r}\]</div>
 <p>Wait, the text says <span class="math notranslate nohighlight">\(V_0 = n C_0\)</span> where <span class="math notranslate nohighlight">\(C_0 = C_1/(1+g)\)</span>.
 Let’s check the text carefully.
-[cite_start]”If <span class="math notranslate nohighlight">\(g=r\)</span>, the discount factors are all identically equal to 1… hence <span class="math notranslate nohighlight">\(V_0 = n C_0\)</span>”[cite: 88].
+“If <span class="math notranslate nohighlight">\(g=r\)</span>, the discount factors are all identically equal to 1… hence <span class="math notranslate nohighlight">\(V_0 = n C_0\)</span>”.
 Where <span class="math notranslate nohighlight">\(C_0\)</span> is the value at time 0. <span class="math notranslate nohighlight">\(C_1 = C_0(1+g)\)</span>.
 So <span class="math notranslate nohighlight">\(V_0 = n \frac{C_1}{1+g} = n \frac{C_1}{1+r}\)</span>.</p>
 <p>Correct Formula when <span class="math notranslate nohighlight">\(g=r\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{n C_1}{1+r}
-\]</div>
+\[V_0 = \frac{n C_1}{1+r}\]</div>
 </section>
 </section>
 </section>
@@ -788,14 +705,11 @@ V_0 = \frac{n C_1}{1+r}
 <p>A simplified bond consists of:</p>
 <ol class="arabic simple">
 <li><p>An annuity of coupon payments (<span class="math notranslate nohighlight">\(C\)</span>).</p></li>
-<li><p>[cite_start]A final lump sum payment of Face Value (<span class="math notranslate nohighlight">\(F\)</span>) at time <span class="math notranslate nohighlight">\(n\)</span>[cite: 46].</p></li>
+<li><p>A final lump sum payment of Face Value (<span class="math notranslate nohighlight">\(F\)</span>) at time <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
 </ol>
 <p><strong>Valuation Formula:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-V_{bond} = C \cdot \left[ \frac{1 - (1+r)^{-n}}{r} \right] + \frac{F}{(1+r)^n}
-\]</div>
-<p>[cite_start][cite: 47]</p>
+\[V_{bond} = C \cdot \left[ \frac{1 - (1+r)^{-n}}{r} \right] + \frac{F}{(1+r)^n}\]</div>
 <section id="coupon-rate-vs-discount-rate-relationships">
 <h3>Coupon Rate vs. Discount Rate Relationships<a class="headerlink" href="#coupon-rate-vs-discount-rate-relationships" title="Link to this heading">#</a></h3>
 <p>The <strong>Coupon Rate</strong> determines the cash flow <span class="math notranslate nohighlight">\(C = \text{Coupon Rate} \times F\)</span>.
@@ -805,7 +719,6 @@ The <strong>Discount Rate</strong> (<span class="math notranslate nohighlight">\
 <li><p><strong>Premium:</strong> Coupon Rate &gt; <span class="math notranslate nohighlight">\(r \implies\)</span> Value &gt; <span class="math notranslate nohighlight">\(F\)</span>.</p></li>
 <li><p><strong>Discount:</strong> Coupon Rate &lt; <span class="math notranslate nohighlight">\(r \implies\)</span> Value &lt; <span class="math notranslate nohighlight">\(F\)</span>.</p></li>
 </ul>
-<p>[cite_start][cite: 50-55]</p>
 </section>
 <section id="bond-convexity">
 <h3>Bond Convexity<a class="headerlink" href="#bond-convexity" title="Link to this heading">#</a></h3>
@@ -816,26 +729,17 @@ Let <span class="math notranslate nohighlight">\(V = C \sum v^i + F v^n\)</span>
 Let’s simplify to the general form <span class="math notranslate nohighlight">\(V = \sum CF_i (1+r)^{-i}\)</span>.</p>
 <p><strong>First Derivative (Duration relationship):</strong></p>
 <div class="math notranslate nohighlight">
-\[
-\frac{dV}{dr} = \sum -i \cdot CF_i \cdot (1+r)^{-i-1} &lt; 0
-\]</div>
-<p>[cite_start]Bond prices fall when rates rise[cite: 66].</p>
+\[\frac{dV}{dr} = \sum -i \cdot CF_i \cdot (1+r)^{-i-1} &lt; 0\]</div>
+<p>Bond prices fall when rates rise.</p>
 <p><strong>Second Derivative (Convexity):</strong></p>
 <div class="math notranslate nohighlight">
-\[
-\frac{d^2V}{dr^2} = \sum (-i)(-i-1) \cdot CF_i \cdot (1+r)^{-i-2}
-\]</div>
+\[\frac{d^2V}{dr^2} = \sum (-i)(-i-1) \cdot CF_i \cdot (1+r)^{-i-2}\]</div>
 <div class="math notranslate nohighlight">
-\[
-\frac{d^2V}{dr^2} = \sum (i^2+i) \cdot CF_i \cdot (1+r)^{-(i+2)}
-\]</div>
+\[\frac{d^2V}{dr^2} = \sum (i^2+i) \cdot CF_i \cdot (1+r)^{-(i+2)}\]</div>
 <p>Since time <span class="math notranslate nohighlight">\(i &gt; 0\)</span>, cash flows <span class="math notranslate nohighlight">\(CF &gt; 0\)</span>, and <span class="math notranslate nohighlight">\((1+r) &gt; 0\)</span>:
 Every term in this sum is <strong>positive</strong>.</p>
 <div class="math notranslate nohighlight">
-\[
-\frac{d^2V}{dr^2} &gt; 0
-\]</div>
-<p>[cite_start][cite: 67]</p>
+\[\frac{d^2V}{dr^2} &gt; 0\]</div>
 <p><strong>Physical Interpretation:</strong>
 As interest rates rise, bond prices fall, but they fall at a <em>decreasing</em> rate. This is beneficial for investors (prices don’t crash as hard as a linear model would predict). As rates fall, prices rise at an <em>increasing</em> rate.</p>
 </section>
@@ -853,7 +757,7 @@ This is an <strong>Arithmetic Progression</strong>.</p>
 </ul>
 <section id="decomposition-of-a-linearly-growing-perpetuity">
 <h3>Decomposition of a Linearly Growing Perpetuity<a class="headerlink" href="#decomposition-of-a-linearly-growing-perpetuity" title="Link to this heading">#</a></h3>
-<p>[cite_start]We can view the stream <span class="math notranslate nohighlight">\(1, 2, 3, 4 \dots\)</span> as a “perpetuity of perpetuities”[cite: 96].</p>
+<p>We can view the stream <span class="math notranslate nohighlight">\(1, 2, 3, 4 \dots\)</span> as a “perpetuity of perpetuities”.</p>
 <ul class="simple">
 <li><p>Row 1: <span class="math notranslate nohighlight">\(1, 1, 1, 1 \dots\)</span> (Starts t=1) <span class="math notranslate nohighlight">\(\to PV = 1/r\)</span></p></li>
 <li><p>Row 2: <span class="math notranslate nohighlight">\(0, 1, 1, 1 \dots\)</span> (Starts t=2) <span class="math notranslate nohighlight">\(\to PV = (1/r) \cdot v\)</span></p></li>
@@ -861,41 +765,32 @@ This is an <strong>Arithmetic Progression</strong>.</p>
 </ul>
 <p>Sum of PVs:</p>
 <div class="math notranslate nohighlight">
-\[
-PV = \frac{1}{r} (1 + v + v^2 + \dots) = \frac{1}{r} \cdot \frac{1}{1-v}
-\]</div>
+\[PV = \frac{1}{r} (1 + v + v^2 + \dots) = \frac{1}{r} \cdot \frac{1}{1-v}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(1/(1-v) = (1+r)/r \approx 1/r\)</span> (for continuous) or <span class="math notranslate nohighlight">\(1/d\)</span>.
 Using the text’s discrete derivation:
 The sum of the increasing perpetuity <span class="math notranslate nohighlight">\((Ia)_\infty\)</span> is:</p>
 <div class="math notranslate nohighlight">
-\[
-(Ia)_{\infty} = \frac{1}{r} + \frac{1}{r^2}
-\]</div>
-<p>[cite_start]Wait, the text derivation [cite: 96] leads to:</p>
+\[(Ia)_{\infty} = \frac{1}{r} + \frac{1}{r^2}\]</div>
+<p>Wait, the text derivation  leads to:</p>
 <div class="math notranslate nohighlight">
-\[
-PV = \frac{1}{r} \left( \frac{1+r}{r} \right) = \frac{1}{r^2} + \frac{1}{r}
-\]</div>
+\[PV = \frac{1}{r} \left( \frac{1+r}{r} \right) = \frac{1}{r^2} + \frac{1}{r}\]</div>
 <p><strong>General Formula for Linear Perpetuity (<span class="math notranslate nohighlight">\(a + bt\)</span>):</strong>
 Starting at time <span class="math notranslate nohighlight">\(s\)</span>, with cash flows <span class="math notranslate nohighlight">\(a+bs, a+b(s+1) \dots\)</span></p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{a+bs}{r} \cdot v^{s-1} + \frac{b(1+r)}{r^2} \cdot v^{s-1}
-\]</div>
+\[V_0 = \frac{a+bs}{r} \cdot v^{s-1} + \frac{b(1+r)}{r^2} \cdot v^{s-1}\]</div>
 <p>Let’s check the text’s specific derivation for <span class="math notranslate nohighlight">\(PVLGP\)</span>.
-Text says:
-$<span class="math notranslate nohighlight">\(V_0 = \frac{a+bs}{r} (1+r) v^s + \frac{b(1+r)}{r^2} v^s\)</span><span class="math notranslate nohighlight">\(
-[cite_start]Actually, looking at[cite: 52]:
-\)</span><span class="math notranslate nohighlight">\(PV = \left[ \frac{a+bs}{r} + \frac{b(1+r)}{r^2} \right] v^{s-1}\)</span>$</p>
+Text says:</p>
+<div class="math notranslate nohighlight">
+\[V_0 = \frac{a+bs}{r} (1+r) v^s + \frac{b(1+r)}{r^2} v^s\]</div>
+<p>Actually, looking at:</p>
+<div class="math notranslate nohighlight">
+\[PV = \left[ \frac{a+bs}{r} + \frac{b(1+r)}{r^2} \right] v^{s-1}\]</div>
 </section>
 <section id="linearly-growing-annuity-pvlga">
 <h3>Linearly Growing Annuity (<span class="math notranslate nohighlight">\(PVLGA\)</span>)<a class="headerlink" href="#linearly-growing-annuity-pvlga" title="Link to this heading">#</a></h3>
 <p>To value a linear annuity ending at <span class="math notranslate nohighlight">\(n\)</span>, we simply subtract the tail.</p>
 <div class="math notranslate nohighlight">
-\[
-PVLGA(a, b, n, r, s) = PVLGP(a, b, r, s) - PVLGP(a, b, r, n+s)
-\]</div>
-<p>[cite_start][cite: 107]</p>
+\[PVLGA(a, b, n, r, s) = PVLGP(a, b, r, s) - PVLGP(a, b, r, n+s)\]</div>
 <p>This “Difference of Perpetuities” method is significantly faster than summing individual terms.</p>
 </section>
 </section>
@@ -906,16 +801,10 @@ PVLGA(a, b, n, r, s) = PVLGP(a, b, r, s) - PVLGP(a, b, r, n+s)
 <p><strong>Model:</strong>
 Spot price <span class="math notranslate nohighlight">\(S_t\)</span> reverts to long-run mean <span class="math notranslate nohighlight">\(\mu\)</span> with speed <span class="math notranslate nohighlight">\(\kappa\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-(S_t - \mu) = (1-\kappa)^t (S_0 - \mu)
-\]</div>
-<p>[cite_start][cite: 116]</p>
+\[(S_t - \mu) = (1-\kappa)^t (S_0 - \mu)\]</div>
 <p>Rearranging to solve for Price <span class="math notranslate nohighlight">\(S_t\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-S_t = \mu + (1-\kappa)^t (S_0 - \mu)
-\]</div>
-<p>[cite_start][cite: 117]</p>
+\[S_t = \mu + (1-\kappa)^t (S_0 - \mu)\]</div>
 <section id="the-valuation-strategy-decomposition">
 <h3>The Valuation Strategy: Decomposition<a class="headerlink" href="#the-valuation-strategy-decomposition" title="Link to this heading">#</a></h3>
 <p>We can decompose the expected price <span class="math notranslate nohighlight">\(S_t\)</span> into two distinct annuity streams:</p>
@@ -925,10 +814,8 @@ S_t = \mu + (1-\kappa)^t (S_0 - \mu)
 </ol>
 <p><strong>Formula:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-PVMRA = PVA(\mu, n, r, 0, s) + PVGA(C_{decay}, n, r, -\kappa, 0, s)
-\]</div>
-<p>[cite_start]Where <span class="math notranslate nohighlight">\(C_{decay} = (1-\kappa)(S_0 - \mu)\)</span>[cite: 117].</p>
+\[PVMRA = PVA(\mu, n, r, 0, s) + PVGA(C_{decay}, n, r, -\kappa, 0, s)\]</div>
+<p>Where <span class="math notranslate nohighlight">\(C_{decay} = (1-\kappa)(S_0 - \mu)\)</span>.</p>
 <p>This powerful insight allows us to value complex commodity derivatives using standard annuity functions.</p>
 </section>
 </section>
@@ -952,49 +839,28 @@ The insurance company offers to <strong>double</strong> the annual payment to $1
 <p><strong>Find:</strong> <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p><strong>Step 1: Set up the Annuity Equation</strong></p>
 <div class="math notranslate nohighlight">
-\[
-PV = \frac{C}{r} \left[ 1 - \frac{1}{(1+r)^n} \right]
-\]</div>
+\[PV = \frac{C}{r} \left[ 1 - \frac{1}{(1+r)^n} \right]\]</div>
 <p><strong>Step 2: Isolate the term with <span class="math notranslate nohighlight">\(n\)</span></strong></p>
 <div class="math notranslate nohighlight">
-\[
-PV \cdot r = C \left[ 1 - (1+r)^{-n} \right]
-\]</div>
+\[PV \cdot r = C \left[ 1 - (1+r)^{-n} \right]\]</div>
 <div class="math notranslate nohighlight">
-\[
-\frac{PV \cdot r}{C} = 1 - (1+r)^{-n}
-\]</div>
+\[\frac{PV \cdot r}{C} = 1 - (1+r)^{-n}\]</div>
 <div class="math notranslate nohighlight">
-\[
-(1+r)^{-n} = 1 - \frac{PV \cdot r}{C}
-\]</div>
+\[(1+r)^{-n} = 1 - \frac{PV \cdot r}{C}\]</div>
 <p><strong>Step 3: Solve for <span class="math notranslate nohighlight">\(n\)</span> using Logarithms</strong></p>
 <div class="math notranslate nohighlight">
-\[
--n \ln(1+r) = \ln \left( 1 - \frac{PV \cdot r}{C} \right)
-\]</div>
+\[-n \ln(1+r) = \ln \left( 1 - \frac{PV \cdot r}{C} \right)\]</div>
 <div class="math notranslate nohighlight">
-\[
-n = - \frac{\ln \left( 1 - \frac{PV \cdot r}{C} \right)}{\ln(1+r)}
-\]</div>
+\[n = - \frac{\ln \left( 1 - \frac{PV \cdot r}{C} \right)}{\ln(1+r)}\]</div>
 <p><strong>Step 4: Substitute and Calculate</strong></p>
 <div class="math notranslate nohighlight">
-\[
-n = - \frac{\ln \left( 1 - \frac{533,738.81 \cdot 0.08}{100,000} \right)}{\ln(1.08)}
-\]</div>
+\[n = - \frac{\ln \left( 1 - \frac{533,738.81 \cdot 0.08}{100,000} \right)}{\ln(1.08)}\]</div>
 <div class="math notranslate nohighlight">
-\[
-\frac{533,738.81 \cdot 0.08}{100,000} = 0.42699
-\]</div>
+\[\frac{533,738.81 \cdot 0.08}{100,000} = 0.42699\]</div>
 <div class="math notranslate nohighlight">
-\[
-\ln(1 - 0.42699) = \ln(0.57301) \approx -0.5568
-\]</div>
+\[\ln(1 - 0.42699) = \ln(0.57301) \approx -0.5568\]</div>
 <div class="math notranslate nohighlight">
-\[
-n = \frac{0.5568}{0.07696} \approx 7.24 \text{ years}
-\]</div>
-<p>[cite_start][cite: 37]</p>
+\[n = \frac{0.5568}{0.07696} \approx 7.24 \text{ years}\]</div>
 <p><strong>Final Answer:</strong> The client can receive $100,000 for roughly 7.24 years.</p>
 </section>
 <hr class="docutils" />
@@ -1011,34 +877,22 @@ n = \frac{0.5568}{0.07696} \approx 7.24 \text{ years}
 </ul>
 <p><strong>Step 1: Calculate PV of Original Growing Annuity</strong></p>
 <div class="math notranslate nohighlight">
-\[
-PV = \frac{C_1}{r-g} \left[ 1 - \left( \frac{1+g}{1+r} \right)^n \right]
-\]</div>
+\[PV = \frac{C_1}{r-g} \left[ 1 - \left( \frac{1+g}{1+r} \right)^n \right]\]</div>
 <div class="math notranslate nohighlight">
-\[
-PV = \frac{50,000}{0.06} \left[ 1 - \left( \frac{1.02}{1.08} \right)^{25} \right]
-\]</div>
+\[PV = \frac{50,000}{0.06} \left[ 1 - \left( \frac{1.02}{1.08} \right)^{25} \right]\]</div>
 <div class="math notranslate nohighlight">
-\[
-PV = 833,333 \cdot [ 1 - 0.2395 ] = \$633,701.79
-\]</div>
-<p>[cite_start][cite: 90]</p>
+\[PV = 833,333 \cdot [ 1 - 0.2395 ] = \$633,701.79\]</div>
 <p><strong>Step 2: Solve for new <span class="math notranslate nohighlight">\(n\)</span> with <span class="math notranslate nohighlight">\(C_1 = 100,000\)</span></strong>
 We can use the “Flat Annuity Trick” by calculating <span class="math notranslate nohighlight">\(r^*\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-r^* = \frac{r-g}{1+g} = \frac{0.06}{1.02} = 0.0588235
-\]</div>
+\[r^* = \frac{r-g}{1+g} = \frac{0.06}{1.02} = 0.0588235\]</div>
 <p>Now we solve a standard flat annuity problem with rate <span class="math notranslate nohighlight">\(r^*\)</span>.
 New Adjusted Payment <span class="math notranslate nohighlight">\(C_{adj} = 100,000 / 1.02 = 98,039.21\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-n = - \frac{\ln \left( 1 - \frac{633,701.79 \cdot 0.05882}{98,039.21} \right)}{\ln(1.05882)}
-\]</div>
+\[n = - \frac{\ln \left( 1 - \frac{633,701.79 \cdot 0.05882}{98,039.21} \right)}{\ln(1.05882)}\]</div>
 <p><strong>Calculation:</strong>
 Term inside log <span class="math notranslate nohighlight">\(\approx 1 - 0.38 = 0.62\)</span>.
 <span class="math notranslate nohighlight">\(n \approx 8.37\)</span> years.</p>
-<p>[cite_start][cite: 93]</p>
 </section>
 <hr class="docutils" />
 <section id="example-3-valuing-a-client-acquisition-strategy-linear-growth">
@@ -1058,18 +912,16 @@ Parameters: <span class="math notranslate nohighlight">\(a=0\)</span>, <span cla
 Use <span class="math notranslate nohighlight">\(PVLGA\)</span> formula (Difference of Linear Perpetuities).
 <span class="math notranslate nohighlight">\(PVLGP(start=1) - PVLGP(start=16)\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-PVLGP(1) = \frac{0 + 50k}{0.12} + \frac{50k(1.12)}{0.12^2} = 416,666 + 3,888,888 = 4,305,555
-\]</div>
+\[PVLGP(1) = \frac{0 + 50k}{0.12} + \frac{50k(1.12)}{0.12^2} = 416,666 + 3,888,888 = 4,305,555\]</div>
 <p>(Wait, verifying text calculation… The text gets 3,888,888 as the <em>second</em> term. The first term is <span class="math notranslate nohighlight">\(50k/0.12 = 416k\)</span>. Total <span class="math notranslate nohighlight">\(\approx 4.3m\)</span>.)</p>
-<p>[cite_start]Text calculation result for annuity part: <strong>$2,036,551.79</strong>[cite: 113].</p>
+<p>Text calculation result for annuity part: <strong>$2,036,551.79</strong>.</p>
 <p><strong>Step 2: Value the Tail (Flat Perpetuity from Year 16+)</strong>
 From year 16 onward, revenue is flat at <span class="math notranslate nohighlight">\(15 \times 50,000 = 750,000\)</span>.
 Value at year 15: <span class="math notranslate nohighlight">\(V_{15} = 750,000 / 0.12 = 6,250,000\)</span>.
 Value at year 0: <span class="math notranslate nohighlight">\(V_0 = 6,250,000 / (1.12)^{15}\)</span>.
 <span class="math notranslate nohighlight">\(V_0 = 1,141,851.63\)</span>.</p>
 <p><strong>Step 3: Total Value</strong>
-[cite_start]<span class="math notranslate nohighlight">\(Total = 2,036,551.79 + 1,141,851.63 = \mathbf{\$3,178,403.45}\)</span>[cite: 115].</p>
+<span class="math notranslate nohighlight">\(Total = 2,036,551.79 + 1,141,851.63 = \mathbf{\$3,178,403.45}\)</span>.</p>
 </section>
 <hr class="docutils" />
 <section id="example-4-mean-reversion-corn-prices">
@@ -1083,25 +935,17 @@ Value 20 years of 1 million bushels/year.</p>
 <p><strong>Step 2: Value Component A (The Fixed Mean)</strong>
 Annuity of $5.00 for 20 years at 5%.</p>
 <div class="math notranslate nohighlight">
-\[
-PVA(5, 20, 0.05) = \frac{5}{0.05} [1 - (1.05)^{-20}] = 100 \cdot 0.623 = \$62.31
-\]</div>
-<p>[cite_start][cite: 122]</p>
+\[PVA(5, 20, 0.05) = \frac{5}{0.05} [1 - (1.05)^{-20}] = 100 \cdot 0.623 = \$62.31\]</div>
 <p><strong>Step 3: Value Component B (The Decay)</strong>
 Decaying Annuity. <span class="math notranslate nohighlight">\(C_1 = -1.50(0.9)\)</span>. Growth <span class="math notranslate nohighlight">\(g = -10\%\)</span>. <span class="math notranslate nohighlight">\(r=5\%\)</span>.
 Wait, the text uses the formula with <span class="math notranslate nohighlight">\(C_1 = (1-\kappa)(S_0-\mu) = 0.9(-1.5) = -1.35\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-PVGA = \frac{-1.35}{0.05 - (-0.10)} \left[ 1 - \left( \frac{0.90}{1.05} \right)^{20} \right]
-\]</div>
+\[PVGA = \frac{-1.35}{0.05 - (-0.10)} \left[ 1 - \left( \frac{0.90}{1.05} \right)^{20} \right]\]</div>
 <div class="math notranslate nohighlight">
-\[
-PVGA = \frac{-1.35}{0.15} \left[ 1 - (0.857)^{20} \right] = -9.00 \cdot [1 - 0.0458] = -8.587
-\]</div>
-<p>[cite_start][cite: 122]</p>
+\[PVGA = \frac{-1.35}{0.15} \left[ 1 - (0.857)^{20} \right] = -9.00 \cdot [1 - 0.0458] = -8.587\]</div>
 <p><strong>Step 4: Total Value</strong>
 <span class="math notranslate nohighlight">\(PV_{total} = 62.31 - 8.59 = 53.72\)</span> per bushel.
-[cite_start]For 1 million bushels: <strong>$53,723,440.37</strong>[cite: 122].</p>
+For 1 million bushels: <strong>$53,723,440.37</strong>.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -1117,9 +961,7 @@ PVGA = \frac{-1.35}{0.15} \left[ 1 - (0.857)^{20} \right] = -9.00 \cdot [1 - 0.0
 <p>This is a <strong>Growing Perpetuity</strong>.
 Formula: <span class="math notranslate nohighlight">\(V_0 = C_1 / (r-g)\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{20,000}{0.07 - 0.03} = \frac{20,000}{0.04} = \$500,000
-\]</div>
+\[V_0 = \frac{20,000}{0.07 - 0.03} = \frac{20,000}{0.04} = \$500,000\]</div>
 </details>
 </section>
 <section id="practice-problem-2-the-zero-coupon-bond">
@@ -1131,9 +973,7 @@ V_0 = \frac{20,000}{0.07 - 0.03} = \frac{20,000}{0.04} = \$500,000
 <summary><strong>Click for Solution</strong></summary>
 <p>Formula: <span class="math notranslate nohighlight">\(V = F / (1+r)^n\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-V = \frac{1000}{(1.06)^{10}} = \frac{1000}{1.7908} = \$558.39
-\]</div>
+\[V = \frac{1000}{(1.06)^{10}} = \frac{1000}{1.7908} = \$558.39\]</div>
 </details>
 </section>
 <section id="practice-problem-3-the-arithmetic-pension">
@@ -1155,7 +995,7 @@ So <span class="math notranslate nohighlight">\(b=1,000\)</span>. <span class="m
 Wait, let’s use the formula derived:
 <span class="math notranslate nohighlight">\(PV = \frac{CF_1}{r} + \frac{b}{r^2}\)</span>. (Standard Actuarial Result).</p></li>
 </ol>
-<p>[cite_start]Let’s check text formula[cite: 52]:
+<p>Let’s check text formula:
 <span class="math notranslate nohighlight">\(PV = \left[ \frac{a+b}{r} + \frac{b(1+r)}{r^2} \right]\)</span> if <span class="math notranslate nohighlight">\(s=1\)</span>.
 Term 1: <span class="math notranslate nohighlight">\(10,000 / 0.05 = 200,000\)</span>.
 Term 2: <span class="math notranslate nohighlight">\(1,000(1.05) / 0.0025 = 1,050 / 0.0025 = 420,000\)</span>.
@@ -1218,7 +1058,6 @@ Bond prices are not linear. The curve <span class="math notranslate nohighlight"
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
 </section>
 </section>

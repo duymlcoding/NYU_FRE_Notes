@@ -51,18 +51,22 @@ In this chapter, a **Financial Derivative** $D$ is defined abstractly as a contr
 * **$CF_R$:** The random end-of-period cash flow/value of $R$.
 * **$CF_D$:** The random end-of-period payoff of the derivative.
     $$ CF_D = g(CF_R) $$
+
     where $g(\cdot)$ is potentially nonlinear.
 
 ### 2. Examples of Payoff Functions
 
 1.  **Forward Contract:** Linear payoff.
     $$ CF_D = a(CF_R - F) $$
+
     where $F$ is the forward price.
 2.  **Power Derivative:** Nonlinear payoff.
     $$ CF_D = a(CF_R)^b $$
+
     While rare, these are easy to value if $CF_R$ is lognormal (since powers of lognormals are lognormal).
 3.  **European Call Option:** Piecewise linear (kinked) payoff.
     $$ CF_D = \max(CF_R - X, 0) $$
+
     where $X$ is the strike price.
 
 **The Valuation Goal:**
@@ -79,7 +83,9 @@ To value the option, we must model the probability distribution of the reference
 From Chapter 6, the stock price $S_T$ at time $T$ is:
 
 $$
+
 S_T = S_0 \exp\left( (\alpha - \frac{1}{2}\sigma^2)T + \sigma \sqrt{T} Z \right)
+
 $$
 
 Where:
@@ -90,6 +96,7 @@ Where:
 
 **Distribution:**
 The logarithm of the price is normally distributed:
+
 $$ \ln(S_T) \sim N\left( \ln(S_0) + (\alpha - 0.5\sigma^2)T, \, \sigma^2 T \right) $$
 
 Let's define the parameters of this normal distribution for simplicity:
@@ -101,13 +108,16 @@ So $\ln(S_T) \sim N(\mu', \sigma'^2)$.
 ### 2. Expected Value of the Stock
 
 Recall the expectation of a lognormal variable $Y = e^X$:
+
 $$ E[Y] = e^{E[X] + \frac{1}{2}Var(X)} $$
 
 $$ E[S_T] = \exp\left( \mu' + \frac{1}{2}\sigma'^2 \right) $$
+
 $$ E[S_T] = \exp\left( \ln(S_0) + \alpha T - 0.5\sigma^2 T + 0.5\sigma^2 T \right) $$
+
 $$ E[S_T] = S_0 e^{\alpha T} $$
 
-We define $\mu = E[S_T]$ as the expected future price. [cite_start]Note the distinction: $\mu$ is the expected *price* (arithmetic mean), while $\alpha$ is the expected *return* (geometric drift). [cite: 355-356]
+We define $\mu = E[S_T]$ as the expected future price. Note the distinction: $\mu$ is the expected *price* (arithmetic mean), while $\alpha$ is the expected *return* (geometric drift). 
 
 ---
 
@@ -120,7 +130,9 @@ We seek to calculate the expected payoff of a call option $E[C_T]$ under the phy
 ### 1. Setting up the Integral
 
 $$
+
 E[C_T] = \int_{-\infty}^{\infty} \max(S_T(z) - X, 0) n(z) dz
+
 $$
 
 Where $n(z) = \frac{1}{\sqrt{2\pi}} e^{-z^2/2}$ is the standard normal PDF.
@@ -128,12 +140,17 @@ The payoff is non-zero only when $S_T > X$.
 Let's find the threshold value of $z$ where $S_T = X$.
 
 $$
+
 S_0 e^{\mu' + \sigma' z} = X
+
 $$
+
 (Note: Here we assume $S_T = e^{\mu' + \sigma' Z}$ for simpler notation, recognizing $\mu'$ incorporates the drift terms).
 
 Solving for the threshold $z^*$:
+
 $$ \mu' + \sigma' z^* = \ln(X) $$
+
 $$ z^* = \frac{\ln(X) - \mu'}{\sigma'} $$
 
 Since $S_T$ increases with $z$, the option is in-the-money for $z > z^*$.
@@ -142,62 +159,82 @@ Since $S_T$ increases with $z$, the option is in-the-money for $z > z^*$.
 **The Integral Split:**
 
 $$
+
 E[C_T] = \int_{z^*}^{\infty} (S_T(z) - X) n(z) dz
+
 $$
 
 $$
+
 E[C_T] = \underbrace{\int_{z^*}^{\infty} S_T(z) n(z) dz}_{Term 1} - \underbrace{X \int_{z^*}^{\infty} n(z) dz}_{Term 2}
+
 $$
 
 ### 2. Evaluating Term 2 (The Cash Part)
 
 Term 2 is simply $X$ times the probability that $z > z^*$.
+
 $$ \int_{z^*}^{\infty} n(z) dz = P(Z > z^*) = P(Z < -z^*) = N(-z^*) $$
 
 Let's define $d_2 = -z^*$.
+
 $$ d_2 = \frac{\mu' - \ln(X)}{\sigma'} = \frac{\ln(S_0) + (\alpha - 0.5\sigma^2)T - \ln(X)}{\sigma \sqrt{T}} $$
+
 $$ d_2 = \frac{\ln(S_0/X) + (\alpha - 0.5\sigma^2)T}{\sigma \sqrt{T}} $$
 
-[cite_start]So Term 2 is **$X N(d_2)$**. [cite: 370-372]
+So Term 2 is **$X N(d_2)$**. 
 
 ### 3. Evaluating Term 1 (The Asset Part)
 
 Term 1 is the expected value of the stock *conditional* on it being above the strike, weighted by the probability.
 
 $$
+
 I_1 = \int_{z^*}^{\infty} S_0 e^{\mu' + \sigma' z} \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz
+
 $$
 
 Combine the exponents:
+
 $$ \text{Exponent} = \mu' + \sigma' z - \frac{z^2}{2} = -\frac{1}{2} (z^2 - 2\sigma' z - 2\mu') $$
 
 **Completing the Square:**
 We want to form $-(z - \sigma')^2 / 2$.
+
 $$ z^2 - 2\sigma' z = (z - \sigma')^2 - \sigma'^2 $$
+
 So the exponent becomes:
+
 $$ -\frac{1}{2} \left( (z - \sigma')^2 - \sigma'^2 - 2\mu' \right) = -\frac{(z-\sigma')^2}{2} + \frac{\sigma'^2}{2} + \mu' $$
 
 Substitute back into the integral:
+
 $$ I_1 = S_0 e^{\mu' + \sigma'^2/2} \int_{z^*}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-(z-\sigma')^2/2} dz $$
 
 Recall that $E[S_T] = S_0 e^{\mu' + \sigma'^2/2} = \mu_{stock}$.
 The integral is the probability that a variable $Y \sim N(\sigma', 1)$ is greater than $z^*$.
 Let $u = z - \sigma'$. The limit changes to $z^* - \sigma'$.
+
 $$ \text{Integral} = \int_{z^* - \sigma'}^{\infty} n(u) du = N(-(z^* - \sigma')) = N(\sigma' - z^*) $$
 
 Let $d_1 = \sigma' - z^* = \sigma' + d_2$.
+
 $$ d_1 = \sigma \sqrt{T} + \frac{\ln(S_0/X) + (\alpha - 0.5\sigma^2)T}{\sigma \sqrt{T}} $$
+
 $$ d_1 = \frac{\sigma^2 T + \ln(S_0/X) + \alpha T - 0.5\sigma^2 T}{\sigma \sqrt{T}} $$
+
 $$ d_1 = \frac{\ln(S_0/X) + (\alpha + 0.5\sigma^2)T}{\sigma \sqrt{T}} $$
 
-[cite_start]So Term 1 is **$\mu_{stock} N(d_1)$**. [cite: 375-379]
+So Term 1 is **$\mu_{stock} N(d_1)$**. 
 
 ### 4. The Physical Measure Formula
 
 Putting it all together, the expected payoff of the call under the physical (real-world) measure is:
 
 $$
+
 E[C_T] = E[S_T] N(d_1(\alpha)) - X N(d_2(\alpha))
+
 $$
 
 Where $d_1, d_2$ depend on the real drift $\alpha$.
@@ -223,11 +260,15 @@ Instead of discounting the real expected payoff at a risky rate (which is hard t
 Substitute $\alpha = r$ into the $d_1, d_2$ formulas:
 
 $$
+
 d_1 = \frac{\ln(S_0/X) + (r + 0.5\sigma^2)T}{\sigma \sqrt{T}}
+
 $$
 
 $$
+
 d_2 = d_1 - \sigma \sqrt{T} = \frac{\ln(S_0/X) + (r - 0.5\sigma^2)T}{\sigma \sqrt{T}}
+
 $$
 
 ### 3. The Black-Scholes Formula
@@ -235,7 +276,9 @@ $$
 The value of the call is the discounted risk-neutral expectation:
 
 $$
+
 C_0 = e^{-rT} \left[ (S_0 e^{rT}) N(d_1) - X N(d_2) \right]
+
 $$
 
 Distributing the discount factor $e^{-rT}$:
@@ -245,10 +288,12 @@ Distributing the discount factor $e^{-rT}$:
 **Final Result:**
 
 $$
+
 C_0 = S_0 N(d_1) - X e^{-rT} N(d_2)
+
 $$
 
-[cite_start][cite: 390-392]
+
 
 **Interpretation:**
 * **$N(d_2)$**: The risk-neutral probability that the option finishes in-the-money ($S_T > X$).
@@ -271,10 +316,13 @@ $$
 * Time $T = 1$ year.
 
 **Step 1: Calculate $d_1$**
+
 $$ d_1 = \frac{\ln(100/100) + (0.05 + 0.5(0.04))1}{0.2 \sqrt{1}} $$
+
 $$ d_1 = \frac{0 + 0.05 + 0.02}{0.2} = \frac{0.07}{0.2} = 0.35 $$
 
 **Step 2: Calculate $d_2$**
+
 $$ d_2 = d_1 - \sigma \sqrt{T} = 0.35 - 0.20 = 0.15 $$
 
 **Step 3: Look up Probabilities**
@@ -290,11 +338,15 @@ $N(0.15) \approx 0.5596$.
 **Problem:** Using the values from Example 1, find the Call Price.
 
 **Formula:**
+
 $$ C_0 = S_0 N(d_1) - X e^{-rT} N(d_2) $$
 
 **Calculation:**
+
 $$ C_0 = 100(0.6368) - 100 e^{-0.05}(0.5596) $$
+
 $$ C_0 = 63.68 - 100(0.9512)(0.5596) $$
+
 $$ C_0 = 63.68 - 53.23 = 10.45 $$
 
 **Answer:** The call option is worth **\$10.45**.
@@ -314,10 +366,13 @@ The Black-Scholes formula uses $N(d_2)$ with $r=5\%$ for *pricing*.
 To find the *actual* probability, we must recalculate $d_2$ using $\alpha = 15\%$.
 
 **Calculation:**
+
 $$ d_2^{real} = \frac{\ln(100/100) + (0.15 - 0.5(0.04))1}{0.2} $$
+
 $$ d_2^{real} = \frac{0.15 - 0.02}{0.2} = \frac{0.13}{0.2} = 0.65 $$
 
 **Probability:**
+
 $$ P(S_T > X) = N(d_2^{real}) = N(0.65) \approx 0.7422 $$
 
 **Insight:**
@@ -338,9 +393,13 @@ The market prices the option as if the probability of exercise is 56% ($N(d_2)$ 
 <summary><strong>Click for Solution</strong></summary>
 
 $$ P = C - S + X e^{-rT} $$
+
 $$ P = 10.45 - 100 + 100 e^{-0.05} $$
+
 $$ P = 10.45 - 100 + 95.12 $$
+
 $$ P = 10.45 - 4.88 = 5.57 $$
+
 **Put Price: \$5.57**
 
 </details>
@@ -354,9 +413,11 @@ $$ P = 10.45 - 4.88 = 5.57 $$
 <summary><strong>Click for Solution</strong></summary>
 
 **Intrinsic Value:** The value if exercised today.
+
 $$ IV = \max(S-X, 0) = \max(110-100, 0) = 10 $$
 
 **Time Value:** The premium paid for future volatility.
+
 $$ TV = \text{Price} - \text{Intrinsic} = 15 - 10 = 5 $$
 
 </details>
@@ -376,7 +437,9 @@ As $\sigma \to \infty$:
     So $N(d_2) \to 0$.
 
 **Limit Price:**
+
 $$ C \to S_0(1) - X e^{-rT}(0) = S_0 $$
+
 **Interpretation:** If volatility is infinite, the upside is unlimited, but the downside is capped at 0 (limited liability). The option becomes as valuable as the stock itself because you are almost guaranteed to be deep in the money (or the probability weight of the strike payment vanishes relative to the massive upside tail).
 
 </details>
@@ -413,4 +476,3 @@ We do not need to know the stock's beta or the market risk premium to price an o
 | **Put Price** | $X e^{-rT} N(-d_2) - S N(-d_1)$ |
 | **Put-Call Parity** | $C - P = S - X e^{-rT}$ |
 
----

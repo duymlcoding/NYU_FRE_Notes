@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -490,26 +490,30 @@ document.write(`
 <section id="abstract-definition">
 <h3>1. Abstract Definition<a class="headerlink" href="#abstract-definition" title="Link to this heading">#</a></h3>
 <p>In this chapter, a <strong>Financial Derivative</strong> <span class="math notranslate nohighlight">\(D\)</span> is defined abstractly as a contract whose payoff is a function of the end-of-period value of a <strong>Reference Portfolio</strong> <span class="math notranslate nohighlight">\(R\)</span>.</p>
-<ul class="simple">
+<ul>
 <li><p><strong><span class="math notranslate nohighlight">\(R\)</span>:</strong> The Reference Portfolio (e.g., the S&amp;P 500, a specific stock).</p></li>
 <li><p><strong><span class="math notranslate nohighlight">\(CF_R\)</span>:</strong> The random end-of-period cash flow/value of <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
 <li><p><strong><span class="math notranslate nohighlight">\(CF_D\)</span>:</strong> The random end-of-period payoff of the derivative.
-$<span class="math notranslate nohighlight">\( CF_D = g(CF_R) \)</span><span class="math notranslate nohighlight">\(
-  where \)</span>g(\cdot)$ is potentially nonlinear.</p></li>
+$<span class="math notranslate nohighlight">\( CF_D = g(CF_R) \)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(g(\cdot)\)</span> is potentially nonlinear.</p>
+</li>
 </ul>
 </section>
 <section id="examples-of-payoff-functions">
 <h3>2. Examples of Payoff Functions<a class="headerlink" href="#examples-of-payoff-functions" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p><strong>Forward Contract:</strong> Linear payoff.
-$<span class="math notranslate nohighlight">\( CF_D = a(CF_R - F) \)</span><span class="math notranslate nohighlight">\(
-where \)</span>F$ is the forward price.</p></li>
+$<span class="math notranslate nohighlight">\( CF_D = a(CF_R - F) \)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(F\)</span> is the forward price.</p>
+</li>
 <li><p><strong>Power Derivative:</strong> Nonlinear payoff.
-$<span class="math notranslate nohighlight">\( CF_D = a(CF_R)^b \)</span><span class="math notranslate nohighlight">\(
-While rare, these are easy to value if \)</span>CF_R$ is lognormal (since powers of lognormals are lognormal).</p></li>
+$<span class="math notranslate nohighlight">\( CF_D = a(CF_R)^b \)</span>$</p>
+<p>While rare, these are easy to value if <span class="math notranslate nohighlight">\(CF_R\)</span> is lognormal (since powers of lognormals are lognormal).</p>
+</li>
 <li><p><strong>European Call Option:</strong> Piecewise linear (kinked) payoff.
-$<span class="math notranslate nohighlight">\( CF_D = \max(CF_R - X, 0) \)</span><span class="math notranslate nohighlight">\(
-where \)</span>X$ is the strike price.</p></li>
+$<span class="math notranslate nohighlight">\( CF_D = \max(CF_R - X, 0) \)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(X\)</span> is the strike price.</p>
+</li>
 </ol>
 <p><strong>The Valuation Goal:</strong>
 Find the present value <span class="math notranslate nohighlight">\(V_D\)</span> of the derivative given the current price <span class="math notranslate nohighlight">\(V_R\)</span> and the risk-free rate <span class="math notranslate nohighlight">\(r\)</span>.</p>
@@ -523,9 +527,7 @@ Find the present value <span class="math notranslate nohighlight">\(V_D\)</span>
 <h3>1. Review of GRW Dynamics<a class="headerlink" href="#review-of-grw-dynamics" title="Link to this heading">#</a></h3>
 <p>From Chapter 6, the stock price <span class="math notranslate nohighlight">\(S_T\)</span> at time <span class="math notranslate nohighlight">\(T\)</span> is:</p>
 <div class="math notranslate nohighlight">
-\[
-S_T = S_0 \exp\left( (\alpha - \frac{1}{2}\sigma^2)T + \sigma \sqrt{T} Z \right)
-\]</div>
+\[S_T = S_0 \exp\left( (\alpha - \frac{1}{2}\sigma^2)T + \sigma \sqrt{T} Z \right)\]</div>
 <p>Where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_0\)</span>: Current price.</p></li>
@@ -534,8 +536,9 @@ S_T = S_0 \exp\left( (\alpha - \frac{1}{2}\sigma^2)T + \sigma \sqrt{T} Z \right)
 <li><p><span class="math notranslate nohighlight">\(Z \sim N(0,1)\)</span>.</p></li>
 </ul>
 <p><strong>Distribution:</strong>
-The logarithm of the price is normally distributed:
-$<span class="math notranslate nohighlight">\( \ln(S_T) \sim N\left( \ln(S_0) + (\alpha - 0.5\sigma^2)T, \, \sigma^2 T \right) \)</span>$</p>
+The logarithm of the price is normally distributed:</p>
+<div class="math notranslate nohighlight">
+\[ \ln(S_T) \sim N\left( \ln(S_0) + (\alpha - 0.5\sigma^2)T, \, \sigma^2 T \right) \]</div>
 <p>Let’s define the parameters of this normal distribution for simplicity:</p>
 <ul class="simple">
 <li><p>Mean <span class="math notranslate nohighlight">\(\mu' = \ln(S_0) + (\alpha - 0.5\sigma^2)T\)</span></p></li>
@@ -545,15 +548,16 @@ $<span class="math notranslate nohighlight">\( \ln(S_T) \sim N\left( \ln(S_0) + 
 </section>
 <section id="expected-value-of-the-stock">
 <h3>2. Expected Value of the Stock<a class="headerlink" href="#expected-value-of-the-stock" title="Link to this heading">#</a></h3>
-<p>Recall the expectation of a lognormal variable <span class="math notranslate nohighlight">\(Y = e^X\)</span>:
-$<span class="math notranslate nohighlight">\( E[Y] = e^{E[X] + \frac{1}{2}Var(X)} \)</span>$</p>
+<p>Recall the expectation of a lognormal variable <span class="math notranslate nohighlight">\(Y = e^X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ E[Y] = e^{E[X] + \frac{1}{2}Var(X)} \]</div>
 <div class="math notranslate nohighlight">
 \[ E[S_T] = \exp\left( \mu' + \frac{1}{2}\sigma'^2 \right) \]</div>
 <div class="math notranslate nohighlight">
 \[ E[S_T] = \exp\left( \ln(S_0) + \alpha T - 0.5\sigma^2 T + 0.5\sigma^2 T \right) \]</div>
 <div class="math notranslate nohighlight">
 \[ E[S_T] = S_0 e^{\alpha T} \]</div>
-<p>We define <span class="math notranslate nohighlight">\(\mu = E[S_T]\)</span> as the expected future price. [cite_start]Note the distinction: <span class="math notranslate nohighlight">\(\mu\)</span> is the expected <em>price</em> (arithmetic mean), while <span class="math notranslate nohighlight">\(\alpha\)</span> is the expected <em>return</em> (geometric drift). [cite: 355-356]</p>
+<p>We define <span class="math notranslate nohighlight">\(\mu = E[S_T]\)</span> as the expected future price. Note the distinction: <span class="math notranslate nohighlight">\(\mu\)</span> is the expected <em>price</em> (arithmetic mean), while <span class="math notranslate nohighlight">\(\alpha\)</span> is the expected <em>return</em> (geometric drift).</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -564,74 +568,75 @@ $<span class="math notranslate nohighlight">\( E[Y] = e^{E[X] + \frac{1}{2}Var(X
 <section id="setting-up-the-integral">
 <h3>1. Setting up the Integral<a class="headerlink" href="#setting-up-the-integral" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
-\[
-E[C_T] = \int_{-\infty}^{\infty} \max(S_T(z) - X, 0) n(z) dz
-\]</div>
+\[E[C_T] = \int_{-\infty}^{\infty} \max(S_T(z) - X, 0) n(z) dz\]</div>
 <p>Where <span class="math notranslate nohighlight">\(n(z) = \frac{1}{\sqrt{2\pi}} e^{-z^2/2}\)</span> is the standard normal PDF.
 The payoff is non-zero only when <span class="math notranslate nohighlight">\(S_T &gt; X\)</span>.
 Let’s find the threshold value of <span class="math notranslate nohighlight">\(z\)</span> where <span class="math notranslate nohighlight">\(S_T = X\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-S_0 e^{\mu' + \sigma' z} = X
-\]</div>
+\[S_0 e^{\mu' + \sigma' z} = X\]</div>
 <p>(Note: Here we assume <span class="math notranslate nohighlight">\(S_T = e^{\mu' + \sigma' Z}\)</span> for simpler notation, recognizing <span class="math notranslate nohighlight">\(\mu'\)</span> incorporates the drift terms).</p>
-<p>Solving for the threshold <span class="math notranslate nohighlight">\(z^*\)</span>:
-$<span class="math notranslate nohighlight">\( \mu' + \sigma' z^* = \ln(X) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( z^* = \frac{\ln(X) - \mu'}{\sigma'} \)</span>$</p>
+<p>Solving for the threshold <span class="math notranslate nohighlight">\(z^*\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \mu' + \sigma' z^* = \ln(X) \]</div>
+<div class="math notranslate nohighlight">
+\[ z^* = \frac{\ln(X) - \mu'}{\sigma'} \]</div>
 <p>Since <span class="math notranslate nohighlight">\(S_T\)</span> increases with <span class="math notranslate nohighlight">\(z\)</span>, the option is in-the-money for <span class="math notranslate nohighlight">\(z &gt; z^*\)</span>.
 (Note: The text defines the integral limits differently, essentially integrating over <span class="math notranslate nohighlight">\(S\)</span> or using a substitution that flips the sign. Let’s follow the text’s derivation path involving <span class="math notranslate nohighlight">\(\ln(S/X)\)</span>).</p>
 <p><strong>The Integral Split:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-E[C_T] = \int_{z^*}^{\infty} (S_T(z) - X) n(z) dz
-\]</div>
+\[E[C_T] = \int_{z^*}^{\infty} (S_T(z) - X) n(z) dz\]</div>
 <div class="math notranslate nohighlight">
-\[
-E[C_T] = \underbrace{\int_{z^*}^{\infty} S_T(z) n(z) dz}_{Term 1} - \underbrace{X \int_{z^*}^{\infty} n(z) dz}_{Term 2}
-\]</div>
+\[E[C_T] = \underbrace{\int_{z^*}^{\infty} S_T(z) n(z) dz}_{Term 1} - \underbrace{X \int_{z^*}^{\infty} n(z) dz}_{Term 2}\]</div>
 </section>
 <section id="evaluating-term-2-the-cash-part">
 <h3>2. Evaluating Term 2 (The Cash Part)<a class="headerlink" href="#evaluating-term-2-the-cash-part" title="Link to this heading">#</a></h3>
-<p>Term 2 is simply <span class="math notranslate nohighlight">\(X\)</span> times the probability that <span class="math notranslate nohighlight">\(z &gt; z^*\)</span>.
-$<span class="math notranslate nohighlight">\( \int_{z^*}^{\infty} n(z) dz = P(Z &gt; z^*) = P(Z &lt; -z^*) = N(-z^*) \)</span>$</p>
-<p>Let’s define <span class="math notranslate nohighlight">\(d_2 = -z^*\)</span>.
-$<span class="math notranslate nohighlight">\( d_2 = \frac{\mu' - \ln(X)}{\sigma'} = \frac{\ln(S_0) + (\alpha - 0.5\sigma^2)T - \ln(X)}{\sigma \sqrt{T}} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( d_2 = \frac{\ln(S_0/X) + (\alpha - 0.5\sigma^2)T}{\sigma \sqrt{T}} \)</span>$</p>
-<p>[cite_start]So Term 2 is <strong><span class="math notranslate nohighlight">\(X N(d_2)\)</span></strong>. [cite: 370-372]</p>
+<p>Term 2 is simply <span class="math notranslate nohighlight">\(X\)</span> times the probability that <span class="math notranslate nohighlight">\(z &gt; z^*\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \int_{z^*}^{\infty} n(z) dz = P(Z &gt; z^*) = P(Z &lt; -z^*) = N(-z^*) \]</div>
+<p>Let’s define <span class="math notranslate nohighlight">\(d_2 = -z^*\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ d_2 = \frac{\mu' - \ln(X)}{\sigma'} = \frac{\ln(S_0) + (\alpha - 0.5\sigma^2)T - \ln(X)}{\sigma \sqrt{T}} \]</div>
+<div class="math notranslate nohighlight">
+\[ d_2 = \frac{\ln(S_0/X) + (\alpha - 0.5\sigma^2)T}{\sigma \sqrt{T}} \]</div>
+<p>So Term 2 is <strong><span class="math notranslate nohighlight">\(X N(d_2)\)</span></strong>.</p>
 </section>
 <section id="evaluating-term-1-the-asset-part">
 <h3>3. Evaluating Term 1 (The Asset Part)<a class="headerlink" href="#evaluating-term-1-the-asset-part" title="Link to this heading">#</a></h3>
 <p>Term 1 is the expected value of the stock <em>conditional</em> on it being above the strike, weighted by the probability.</p>
 <div class="math notranslate nohighlight">
-\[
-I_1 = \int_{z^*}^{\infty} S_0 e^{\mu' + \sigma' z} \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz
-\]</div>
-<p>Combine the exponents:
-$<span class="math notranslate nohighlight">\( \text{Exponent} = \mu' + \sigma' z - \frac{z^2}{2} = -\frac{1}{2} (z^2 - 2\sigma' z - 2\mu') \)</span>$</p>
+\[I_1 = \int_{z^*}^{\infty} S_0 e^{\mu' + \sigma' z} \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz\]</div>
+<p>Combine the exponents:</p>
+<div class="math notranslate nohighlight">
+\[ \text{Exponent} = \mu' + \sigma' z - \frac{z^2}{2} = -\frac{1}{2} (z^2 - 2\sigma' z - 2\mu') \]</div>
 <p><strong>Completing the Square:</strong>
-We want to form <span class="math notranslate nohighlight">\(-(z - \sigma')^2 / 2\)</span>.
-$<span class="math notranslate nohighlight">\( z^2 - 2\sigma' z = (z - \sigma')^2 - \sigma'^2 \)</span><span class="math notranslate nohighlight">\(
-So the exponent becomes:
-\)</span><span class="math notranslate nohighlight">\( -\frac{1}{2} \left( (z - \sigma')^2 - \sigma'^2 - 2\mu' \right) = -\frac{(z-\sigma')^2}{2} + \frac{\sigma'^2}{2} + \mu' \)</span>$</p>
-<p>Substitute back into the integral:
-$<span class="math notranslate nohighlight">\( I_1 = S_0 e^{\mu' + \sigma'^2/2} \int_{z^*}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-(z-\sigma')^2/2} dz \)</span>$</p>
+We want to form <span class="math notranslate nohighlight">\(-(z - \sigma')^2 / 2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ z^2 - 2\sigma' z = (z - \sigma')^2 - \sigma'^2 \]</div>
+<p>So the exponent becomes:</p>
+<div class="math notranslate nohighlight">
+\[ -\frac{1}{2} \left( (z - \sigma')^2 - \sigma'^2 - 2\mu' \right) = -\frac{(z-\sigma')^2}{2} + \frac{\sigma'^2}{2} + \mu' \]</div>
+<p>Substitute back into the integral:</p>
+<div class="math notranslate nohighlight">
+\[ I_1 = S_0 e^{\mu' + \sigma'^2/2} \int_{z^*}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-(z-\sigma')^2/2} dz \]</div>
 <p>Recall that <span class="math notranslate nohighlight">\(E[S_T] = S_0 e^{\mu' + \sigma'^2/2} = \mu_{stock}\)</span>.
 The integral is the probability that a variable <span class="math notranslate nohighlight">\(Y \sim N(\sigma', 1)\)</span> is greater than <span class="math notranslate nohighlight">\(z^*\)</span>.
-Let <span class="math notranslate nohighlight">\(u = z - \sigma'\)</span>. The limit changes to <span class="math notranslate nohighlight">\(z^* - \sigma'\)</span>.
-$<span class="math notranslate nohighlight">\( \text{Integral} = \int_{z^* - \sigma'}^{\infty} n(u) du = N(-(z^* - \sigma')) = N(\sigma' - z^*) \)</span>$</p>
-<p>Let <span class="math notranslate nohighlight">\(d_1 = \sigma' - z^* = \sigma' + d_2\)</span>.
-$<span class="math notranslate nohighlight">\( d_1 = \sigma \sqrt{T} + \frac{\ln(S_0/X) + (\alpha - 0.5\sigma^2)T}{\sigma \sqrt{T}} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( d_1 = \frac{\sigma^2 T + \ln(S_0/X) + \alpha T - 0.5\sigma^2 T}{\sigma \sqrt{T}} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( d_1 = \frac{\ln(S_0/X) + (\alpha + 0.5\sigma^2)T}{\sigma \sqrt{T}} \)</span>$</p>
-<p>[cite_start]So Term 1 is <strong><span class="math notranslate nohighlight">\(\mu_{stock} N(d_1)\)</span></strong>. [cite: 375-379]</p>
+Let <span class="math notranslate nohighlight">\(u = z - \sigma'\)</span>. The limit changes to <span class="math notranslate nohighlight">\(z^* - \sigma'\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \text{Integral} = \int_{z^* - \sigma'}^{\infty} n(u) du = N(-(z^* - \sigma')) = N(\sigma' - z^*) \]</div>
+<p>Let <span class="math notranslate nohighlight">\(d_1 = \sigma' - z^* = \sigma' + d_2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ d_1 = \sigma \sqrt{T} + \frac{\ln(S_0/X) + (\alpha - 0.5\sigma^2)T}{\sigma \sqrt{T}} \]</div>
+<div class="math notranslate nohighlight">
+\[ d_1 = \frac{\sigma^2 T + \ln(S_0/X) + \alpha T - 0.5\sigma^2 T}{\sigma \sqrt{T}} \]</div>
+<div class="math notranslate nohighlight">
+\[ d_1 = \frac{\ln(S_0/X) + (\alpha + 0.5\sigma^2)T}{\sigma \sqrt{T}} \]</div>
+<p>So Term 1 is <strong><span class="math notranslate nohighlight">\(\mu_{stock} N(d_1)\)</span></strong>.</p>
 </section>
 <section id="the-physical-measure-formula">
 <h3>4. The Physical Measure Formula<a class="headerlink" href="#the-physical-measure-formula" title="Link to this heading">#</a></h3>
 <p>Putting it all together, the expected payoff of the call under the physical (real-world) measure is:</p>
 <div class="math notranslate nohighlight">
-\[
-E[C_T] = E[S_T] N(d_1(\alpha)) - X N(d_2(\alpha))
-\]</div>
+\[E[C_T] = E[S_T] N(d_1(\alpha)) - X N(d_2(\alpha))\]</div>
 <p>Where <span class="math notranslate nohighlight">\(d_1, d_2\)</span> depend on the real drift <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </section>
 </section>
@@ -656,21 +661,15 @@ E[C_T] = E[S_T] N(d_1(\alpha)) - X N(d_2(\alpha))
 <h3>2. Calculating Risk-Neutral Parameters<a class="headerlink" href="#calculating-risk-neutral-parameters" title="Link to this heading">#</a></h3>
 <p>Substitute <span class="math notranslate nohighlight">\(\alpha = r\)</span> into the <span class="math notranslate nohighlight">\(d_1, d_2\)</span> formulas:</p>
 <div class="math notranslate nohighlight">
-\[
-d_1 = \frac{\ln(S_0/X) + (r + 0.5\sigma^2)T}{\sigma \sqrt{T}}
-\]</div>
+\[d_1 = \frac{\ln(S_0/X) + (r + 0.5\sigma^2)T}{\sigma \sqrt{T}}\]</div>
 <div class="math notranslate nohighlight">
-\[
-d_2 = d_1 - \sigma \sqrt{T} = \frac{\ln(S_0/X) + (r - 0.5\sigma^2)T}{\sigma \sqrt{T}}
-\]</div>
+\[d_2 = d_1 - \sigma \sqrt{T} = \frac{\ln(S_0/X) + (r - 0.5\sigma^2)T}{\sigma \sqrt{T}}\]</div>
 </section>
 <section id="the-black-scholes-formula">
 <h3>3. The Black-Scholes Formula<a class="headerlink" href="#the-black-scholes-formula" title="Link to this heading">#</a></h3>
 <p>The value of the call is the discounted risk-neutral expectation:</p>
 <div class="math notranslate nohighlight">
-\[
-C_0 = e^{-rT} \left[ (S_0 e^{rT}) N(d_1) - X N(d_2) \right]
-\]</div>
+\[C_0 = e^{-rT} \left[ (S_0 e^{rT}) N(d_1) - X N(d_2) \right]\]</div>
 <p>Distributing the discount factor <span class="math notranslate nohighlight">\(e^{-rT}\)</span>:</p>
 <ul class="simple">
 <li><p>Term 1: <span class="math notranslate nohighlight">\(e^{-rT} S_0 e^{rT} N(d_1) = S_0 N(d_1)\)</span>.</p></li>
@@ -678,10 +677,7 @@ C_0 = e^{-rT} \left[ (S_0 e^{rT}) N(d_1) - X N(d_2) \right]
 </ul>
 <p><strong>Final Result:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-C_0 = S_0 N(d_1) - X e^{-rT} N(d_2)
-\]</div>
-<p>[cite_start][cite: 390-392]</p>
+\[C_0 = S_0 N(d_1) - X e^{-rT} N(d_2)\]</div>
 <p><strong>Interpretation:</strong></p>
 <ul class="simple">
 <li><p><strong><span class="math notranslate nohighlight">\(N(d_2)\)</span></strong>: The risk-neutral probability that the option finishes in-the-money (<span class="math notranslate nohighlight">\(S_T &gt; X\)</span>).</p></li>
@@ -705,11 +701,14 @@ C_0 = S_0 N(d_1) - X e^{-rT} N(d_2)
 <li><p>Volatility <span class="math notranslate nohighlight">\(\sigma = 20\%\)</span>.</p></li>
 <li><p>Time <span class="math notranslate nohighlight">\(T = 1\)</span> year.</p></li>
 </ul>
-<p><strong>Step 1: Calculate <span class="math notranslate nohighlight">\(d_1\)</span></strong>
-$<span class="math notranslate nohighlight">\( d_1 = \frac{\ln(100/100) + (0.05 + 0.5(0.04))1}{0.2 \sqrt{1}} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( d_1 = \frac{0 + 0.05 + 0.02}{0.2} = \frac{0.07}{0.2} = 0.35 \)</span>$</p>
-<p><strong>Step 2: Calculate <span class="math notranslate nohighlight">\(d_2\)</span></strong>
-$<span class="math notranslate nohighlight">\( d_2 = d_1 - \sigma \sqrt{T} = 0.35 - 0.20 = 0.15 \)</span>$</p>
+<p><strong>Step 1: Calculate <span class="math notranslate nohighlight">\(d_1\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[ d_1 = \frac{\ln(100/100) + (0.05 + 0.5(0.04))1}{0.2 \sqrt{1}} \]</div>
+<div class="math notranslate nohighlight">
+\[ d_1 = \frac{0 + 0.05 + 0.02}{0.2} = \frac{0.07}{0.2} = 0.35 \]</div>
+<p><strong>Step 2: Calculate <span class="math notranslate nohighlight">\(d_2\)</span></strong></p>
+<div class="math notranslate nohighlight">
+\[ d_2 = d_1 - \sigma \sqrt{T} = 0.35 - 0.20 = 0.15 \]</div>
 <p><strong>Step 3: Look up Probabilities</strong>
 From standard normal tables:
 <span class="math notranslate nohighlight">\(N(0.35) \approx 0.6368\)</span>.
@@ -720,12 +719,16 @@ From standard normal tables:
 <h3>Example 2: Pricing the Call<a class="headerlink" href="#example-2-pricing-the-call" title="Link to this heading">#</a></h3>
 <p>:class: tip</p>
 <p><strong>Problem:</strong> Using the values from Example 1, find the Call Price.</p>
-<p><strong>Formula:</strong>
-$<span class="math notranslate nohighlight">\( C_0 = S_0 N(d_1) - X e^{-rT} N(d_2) \)</span>$</p>
-<p><strong>Calculation:</strong>
-$<span class="math notranslate nohighlight">\( C_0 = 100(0.6368) - 100 e^{-0.05}(0.5596) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( C_0 = 63.68 - 100(0.9512)(0.5596) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( C_0 = 63.68 - 53.23 = 10.45 \)</span>$</p>
+<p><strong>Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[ C_0 = S_0 N(d_1) - X e^{-rT} N(d_2) \]</div>
+<p><strong>Calculation:</strong></p>
+<div class="math notranslate nohighlight">
+\[ C_0 = 100(0.6368) - 100 e^{-0.05}(0.5596) \]</div>
+<div class="math notranslate nohighlight">
+\[ C_0 = 63.68 - 100(0.9512)(0.5596) \]</div>
+<div class="math notranslate nohighlight">
+\[ C_0 = 63.68 - 53.23 = 10.45 \]</div>
 <p><strong>Answer:</strong> The call option is worth <strong>$10.45</strong>.</p>
 <p><strong>Physical Interpretation:</strong>
 To replicate this option, you would buy 0.6368 shares of stock (costing $63.68) and borrow $53.23. The net cost is $10.45.</p>
@@ -738,11 +741,14 @@ To replicate this option, you would buy 0.6368 shares of stock (costing $63.68) 
 <p><strong>Analysis:</strong>
 The Black-Scholes formula uses <span class="math notranslate nohighlight">\(N(d_2)\)</span> with <span class="math notranslate nohighlight">\(r=5\%\)</span> for <em>pricing</em>.
 To find the <em>actual</em> probability, we must recalculate <span class="math notranslate nohighlight">\(d_2\)</span> using <span class="math notranslate nohighlight">\(\alpha = 15\%\)</span>.</p>
-<p><strong>Calculation:</strong>
-$<span class="math notranslate nohighlight">\( d_2^{real} = \frac{\ln(100/100) + (0.15 - 0.5(0.04))1}{0.2} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( d_2^{real} = \frac{0.15 - 0.02}{0.2} = \frac{0.13}{0.2} = 0.65 \)</span>$</p>
-<p><strong>Probability:</strong>
-$<span class="math notranslate nohighlight">\( P(S_T &gt; X) = N(d_2^{real}) = N(0.65) \approx 0.7422 \)</span>$</p>
+<p><strong>Calculation:</strong></p>
+<div class="math notranslate nohighlight">
+\[ d_2^{real} = \frac{\ln(100/100) + (0.15 - 0.5(0.04))1}{0.2} \]</div>
+<div class="math notranslate nohighlight">
+\[ d_2^{real} = \frac{0.15 - 0.02}{0.2} = \frac{0.13}{0.2} = 0.65 \]</div>
+<p><strong>Probability:</strong></p>
+<div class="math notranslate nohighlight">
+\[ P(S_T &gt; X) = N(d_2^{real}) = N(0.65) \approx 0.7422 \]</div>
 <p><strong>Insight:</strong>
 The market prices the option as if the probability of exercise is 56% (<span class="math notranslate nohighlight">\(N(d_2)\)</span> with <span class="math notranslate nohighlight">\(r\)</span>), but the real probability (if you believe <span class="math notranslate nohighlight">\(\alpha=15\%\)</span>) is 74%. The difference reflects the risk premium.</p>
 </section>
@@ -774,10 +780,12 @@ The market prices the option as if the probability of exercise is 56% (<span cla
 <p><strong>Problem:</strong> An option has <span class="math notranslate nohighlight">\(S=110, X=100, C=15\)</span>. What is the Intrinsic Value and Time Value?</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
-<p><strong>Intrinsic Value:</strong> The value if exercised today.
-$<span class="math notranslate nohighlight">\( IV = \max(S-X, 0) = \max(110-100, 0) = 10 \)</span>$</p>
-<p><strong>Time Value:</strong> The premium paid for future volatility.
-$<span class="math notranslate nohighlight">\( TV = \text{Price} - \text{Intrinsic} = 15 - 10 = 5 \)</span>$</p>
+<p><strong>Intrinsic Value:</strong> The value if exercised today.</p>
+<div class="math notranslate nohighlight">
+\[ IV = \max(S-X, 0) = \max(110-100, 0) = 10 \]</div>
+<p><strong>Time Value:</strong> The premium paid for future volatility.</p>
+<div class="math notranslate nohighlight">
+\[ TV = \text{Price} - \text{Intrinsic} = 15 - 10 = 5 \]</div>
 </details>
 </section>
 <section id="practice-problem-3-volatility-impact">
@@ -793,9 +801,10 @@ So <span class="math notranslate nohighlight">\(N(d_1) \to 1\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(d_2 = d_1 - \sigma\sqrt{T} \approx -0.5\sigma\sqrt{T} \to -\infty\)</span>.
 So <span class="math notranslate nohighlight">\(N(d_2) \to 0\)</span>.</p></li>
 </ol>
-<p><strong>Limit Price:</strong>
-$<span class="math notranslate nohighlight">\( C \to S_0(1) - X e^{-rT}(0) = S_0 \)</span>$
-<strong>Interpretation:</strong> If volatility is infinite, the upside is unlimited, but the downside is capped at 0 (limited liability). The option becomes as valuable as the stock itself because you are almost guaranteed to be deep in the money (or the probability weight of the strike payment vanishes relative to the massive upside tail).</p>
+<p><strong>Limit Price:</strong></p>
+<div class="math notranslate nohighlight">
+\[ C \to S_0(1) - X e^{-rT}(0) = S_0 \]</div>
+<p><strong>Interpretation:</strong> If volatility is infinite, the upside is unlimited, but the downside is capped at 0 (limited liability). The option becomes as valuable as the stock itself because you are almost guaranteed to be deep in the money (or the probability weight of the strike payment vanishes relative to the massive upside tail).</p>
 </details>
 </section>
 </section>
@@ -848,7 +857,6 @@ We do not need to know the stock’s beta or the market risk premium to price an
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
 </section>
 </section>

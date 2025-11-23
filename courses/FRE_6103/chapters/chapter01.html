@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -418,7 +418,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mathematical-framework">Part 2: Mathematical Framework</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-return-metrics">Section 1: Return Metrics</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-start-standard-definitions-cite-36-40">[cite_start]Standard Definitions [cite: 36-40]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-definitions">Standard Definitions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-percentage-returns">The Problem with Percentage Returns</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-dollarized-returns">The Solution: Dollarized Returns</a></li>
 </ul>
@@ -472,10 +472,10 @@ document.write(`
 <h1>Chapter 1: Valuation Methods for Financial Engineers<a class="headerlink" href="#chapter-1-valuation-methods-for-financial-engineers" title="Link to this heading">#</a></h1>
 <section id="chapter-overview">
 <h2>Chapter Overview<a class="headerlink" href="#chapter-overview" title="Link to this heading">#</a></h2>
-<p>Welcome to the world of Financial Engineering. [cite_start]Unlike traditional corporate finance, which often relies on static formulas and historical averages, financial engineering is the discipline of applying technical methods to solve complex, dynamic, and practical problems in finance[cite: 1].</p>
+<p>Welcome to the world of Financial Engineering. Unlike traditional corporate finance, which often relies on static formulas and historical averages, financial engineering is the discipline of applying technical methods to solve complex, dynamic, and practical problems in finance.</p>
 <p>In this chapter, we establish the foundational philosophy for the entire course: <strong>Valuation</strong>.</p>
-<p>[cite_start]Nearly every financial decision—whether buying a stock, issuing a bond, building a factory, or entering a complex derivative contract—requires a valuation[cite: 3]. [cite_start]However, the traditional models you may have learned, such as the Capital Asset Pricing Model (CAPM) or simple Price/Earnings (P/E) ratios, are often too simplistic for the complex cash flows encountered in modern financial engineering[cite: 3].</p>
-<p>[cite_start]We will move away from closed-form formulas and towards a comprehensive simulation and benchmarking framework[cite: 5]. [cite_start]We will learn to value assets not just by what we <em>think</em> they are worth, but by referencing them against traded assets and contract prices in the market[cite: 6]. [cite_start]We will also derive the <strong>General Valuation Equation (GVE)</strong>, a powerful tool that unifies the pricing of stocks, bonds, derivatives, and real assets[cite: 56].</p>
+<p>Nearly every financial decision—whether buying a stock, issuing a bond, building a factory, or entering a complex derivative contract—requires a valuation. However, the traditional models you may have learned, such as the Capital Asset Pricing Model (CAPM) or simple Price/Earnings (P/E) ratios, are often too simplistic for the complex cash flows encountered in modern financial engineering.</p>
+<p>We will move away from closed-form formulas and towards a comprehensive simulation and benchmarking framework. We will learn to value assets not just by what we <em>think</em> they are worth, but by referencing them against traded assets and contract prices in the market. We will also derive the <strong>General Valuation Equation (GVE)</strong>, a powerful tool that unifies the pricing of stocks, bonds, derivatives, and real assets.</p>
 <section id="learning-objectives">
 <h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
 <p>By the end of this chapter, you will be able to:</p>
@@ -521,36 +521,36 @@ document.write(`
 <p>Financial engineering is often misunderstood as merely “creating new financial products.” While that is part of it, the discipline is much broader.</p>
 <div class="tip admonition">
 <p class="admonition-title">Key Concept: Financial Engineering</p>
-<p>[cite_start]<strong>Definition:</strong> Financial Engineering includes financial derivative security pricing, trading, risk models, product design, security structuring, and corporate finance decisions involving contingent capital[cite: 1].</p>
-<p>[cite_start]<strong>Why It Matters:</strong> Financial engineers are needed to apply theoretical frameworks to solve specific, practical problems that employers face based on their unique circumstances[cite: 2]. It is the translation of math into money.</p>
+<p><strong>Definition:</strong> Financial Engineering includes financial derivative security pricing, trading, risk models, product design, security structuring, and corporate finance decisions involving contingent capital.</p>
+<p><strong>Why It Matters:</strong> Financial engineers are needed to apply theoretical frameworks to solve specific, practical problems that employers face based on their unique circumstances. It is the translation of math into money.</p>
 <p><strong>Core Focus of this Course:</strong></p>
 <ul class="simple">
-<li><p>[cite_start]<strong>Discrete-time modeling:</strong> We will look at time in steps (e.g., days, months) rather than continuous time (calculus-based)[cite: 5].</p></li>
-<li><p>[cite_start]<strong>Simulation:</strong> Using flexible computational solutions rather than rigid formulas[cite: 5].</p></li>
-<li><p>[cite_start]<strong>Benchmarking:</strong> Valuing assets based on traded assets or contract prices[cite: 6].</p></li>
+<li><p><strong>Discrete-time modeling:</strong> We will look at time in steps (e.g., days, months) rather than continuous time (calculus-based).</p></li>
+<li><p><strong>Simulation:</strong> Using flexible computational solutions rather than rigid formulas.</p></li>
+<li><p><strong>Benchmarking:</strong> Valuing assets based on traded assets or contract prices.</p></li>
 </ul>
 </div>
 </section>
 <section id="the-benchmarking-approach">
 <h3>The Benchmarking Approach<a class="headerlink" href="#the-benchmarking-approach" title="Link to this heading">#</a></h3>
 <p>One of the most critical shifts in mindset for this course is the move toward <strong>Benchmarking</strong>.</p>
-<p>In traditional finance, you might value an asset by estimating its cash flows and picking a discount rate based on “gut feeling” or a generic beta. [cite_start]In financial engineering, we value an asset by asking: <em>How can we replicate this asset using things that are already trading?</em> [cite: 6]</p>
+<p>In traditional finance, you might value an asset by estimating its cash flows and picking a discount rate based on “gut feeling” or a generic beta. In financial engineering, we value an asset by asking: <em>How can we replicate this asset using things that are already trading?</em></p>
 <p><strong>The Process:</strong>
 To value a complex asset (like an oil refinery):</p>
 <ol class="arabic simple">
-<li><p>[cite_start]Build a stochastic pro-forma (a model of future financials)[cite: 6].</p></li>
-<li><p>[cite_start]Simulate the cash flows under various scenarios[cite: 7].</p></li>
-<li><p>[cite_start]<strong>Benchmark</strong> these cash flows against traded futures and options (e.g., energy futures)[cite: 7].</p></li>
-<li><p>[cite_start]Discount the components separately to reflect their specific risks[cite: 8].</p></li>
-<li><p>[cite_start]Determine the final valuation[cite: 8].</p></li>
+<li><p>Build a stochastic pro-forma (a model of future financials).</p></li>
+<li><p>Simulate the cash flows under various scenarios.</p></li>
+<li><p><strong>Benchmark</strong> these cash flows against traded futures and options (e.g., energy futures).</p></li>
+<li><p>Discount the components separately to reflect their specific risks.</p></li>
+<li><p>Determine the final valuation.</p></li>
 </ol>
 </section>
 <section id="taxonomy-of-assets">
 <h3>Taxonomy of Assets<a class="headerlink" href="#taxonomy-of-assets" title="Link to this heading">#</a></h3>
-<p>To value something, we must first understand what it is. [cite_start]We categorize assets into four distinct types[cite: 9].</p>
+<p>To value something, we must first understand what it is. We categorize assets into four distinct types.</p>
 <section id="capital-assets">
 <h4>1. Capital Assets<a class="headerlink" href="#capital-assets" title="Link to this heading">#</a></h4>
-<p>[cite_start]These are financial instruments like <strong>stocks and bonds</strong>[cite: 9].</p>
+<p>These are financial instruments like <strong>stocks and bonds</strong>.</p>
 <ul class="simple">
 <li><p><strong>Characteristics:</strong> They have contractual or expected cash flows.</p></li>
 <li><p><strong>Examples:</strong> A share of IBM, a US Treasury Bond.</p></li>
@@ -564,31 +564,31 @@ To value a complex asset (like an oil refinery):</p>
 </section>
 <section id="physical-assets">
 <h4>2. Physical Assets<a class="headerlink" href="#physical-assets" title="Link to this heading">#</a></h4>
-<p>[cite_start]These are non-financial assets[cite: 10].</p>
+<p>These are non-financial assets.</p>
 <ul class="simple">
 <li><p><strong>Characteristics:</strong> Value derives from tangible cash flows they produce or utility they provide.</p></li>
-<li><p>[cite_start]<strong>Examples:</strong> Real estate, a factory, a dairy cow[cite: 10, 23].</p></li>
-<li><p>[cite_start]<strong>Note:</strong> A dairy cow is an asset because it produces cash flows (milk) and has a terminal value (meat/sale price)[cite: 23].</p></li>
+<li><p><strong>Examples:</strong> Real estate, a factory, a dairy cow.</p></li>
+<li><p><strong>Note:</strong> A dairy cow is an asset because it produces cash flows (milk) and has a terminal value (meat/sale price).</p></li>
 </ul>
 </section>
 <section id="derivatives">
 <h4>3. Derivatives<a class="headerlink" href="#derivatives" title="Link to this heading">#</a></h4>
-<p>[cite_start]These are contracts, often requiring little initial investment[cite: 11].</p>
+<p>These are contracts, often requiring little initial investment.</p>
 <ul class="simple">
-<li><p><strong>Characteristics:</strong> Their value is derived from an underlying asset. [cite_start]They can start with zero value but become significant assets or liabilities[cite: 11].</p></li>
+<li><p><strong>Characteristics:</strong> Their value is derived from an underlying asset. They can start with zero value but become significant assets or liabilities.</p></li>
 <li><p><strong>Examples:</strong> Options, Futures, Forwards.</p></li>
-<li><p>[cite_start]<strong>Crucial Insight:</strong> One person’s asset is another person’s liability[cite: 12]. We must be able to value both sides.</p></li>
+<li><p><strong>Crucial Insight:</strong> One person’s asset is another person’s liability. We must be able to value both sides.</p></li>
 </ul>
 </section>
 <section id="corporate-assets-and-liabilities">
 <h4>4. Corporate Assets and Liabilities<a class="headerlink" href="#corporate-assets-and-liabilities" title="Link to this heading">#</a></h4>
-<p>[cite_start]These are assets whose values are influenced by corporate decisions[cite: 13].</p>
+<p>These are assets whose values are influenced by corporate decisions.</p>
 <ul class="simple">
 <li><p><strong>Influencing Decisions:</strong></p>
 <ul>
-<li><p>[cite_start]<em>Capital Budgeting:</em> When to invest[cite: 13].</p></li>
-<li><p>[cite_start]<em>Capital Structure:</em> Debt vs. Equity mix[cite: 14].</p></li>
-<li><p>[cite_start]<em>Risk Management:</em> Hedging strategies[cite: 14].</p></li>
+<li><p><em>Capital Budgeting:</em> When to invest.</p></li>
+<li><p><em>Capital Structure:</em> Debt vs. Equity mix.</p></li>
+<li><p><em>Risk Management:</em> Hedging strategies.</p></li>
 </ul>
 </li>
 </ul>
@@ -606,34 +606,34 @@ To value a complex asset (like an oil refinery):</p>
 </section>
 <section id="contracts-as-contingent-assets">
 <h3>Contracts as Contingent Assets<a class="headerlink" href="#contracts-as-contingent-assets" title="Link to this heading">#</a></h3>
-<p>A contract is a promise. [cite_start]In financial engineering, we view contracts as <strong>Contingent Assets</strong>[cite: 24].</p>
+<p>A contract is a promise. In financial engineering, we view contracts as <strong>Contingent Assets</strong>.</p>
 <div class="note admonition">
 <p class="admonition-title">Example: The Forward Contract</p>
-<p>[cite_start]Imagine a farmer signs a forward contract to sell wheat at $4.00/bushel[cite: 25].</p>
+<p>Imagine a farmer signs a forward contract to sell wheat at $4.00/bushel.</p>
 <ul class="simple">
-<li><p><strong>Scenario A:</strong> Market price rises to $5.00. The farmer <em>must</em> sell at $4.00. [cite_start]The contract has <strong>negative value</strong> to the farmer (an opportunity loss of $1.00)[cite: 25].</p></li>
+<li><p><strong>Scenario A:</strong> Market price rises to $5.00. The farmer <em>must</em> sell at $4.00. The contract has <strong>negative value</strong> to the farmer (an opportunity loss of $1.00).</p></li>
 <li><p><strong>Scenario B:</strong> Market price falls to $3.00. The farmer sells at $4.00. The contract has <strong>positive value</strong> to the farmer.</p></li>
 </ul>
-<p><strong>Key Takeaway:</strong> Contracts commit parties to actions that may create or destroy value. [cite_start]Even if a contract has zero value at inception, it can become a massive liability later[cite: 24].</p>
+<p><strong>Key Takeaway:</strong> Contracts commit parties to actions that may create or destroy value. Even if a contract has zero value at inception, it can become a massive liability later.</p>
 </div>
 </section>
 <section id="market-terminology-price-vs-value">
 <h3>Market Terminology: Price vs. Value<a class="headerlink" href="#market-terminology-price-vs-value" title="Link to this heading">#</a></h3>
-<p>[cite_start]It is vital to distinguish between <em>price</em> and <em>value</em>[cite: 26].</p>
+<p>It is vital to distinguish between <em>price</em> and <em>value</em>.</p>
 <ul class="simple">
 <li><p><strong>Bid Price:</strong> The price a buyer offers (The price you sell at).</p></li>
 <li><p><strong>Ask Price:</strong> The price a seller offers (The price you buy at).</p></li>
-<li><p>[cite_start]<strong>Value:</strong> The theoretical worth of the asset derived from a model[cite: 31].</p></li>
+<li><p><strong>Value:</strong> The theoretical worth of the asset derived from a model.</p></li>
 </ul>
 <p><strong>Public vs. Private Value:</strong></p>
 <ul class="simple">
-<li><p>[cite_start]<strong>Public Value:</strong> The consensus market value[cite: 27].</p></li>
-<li><p>[cite_start]<strong>Private Value:</strong> The value to a specific individual based on their unique constraints, tax situation, or beliefs[cite: 27].</p></li>
+<li><p><strong>Public Value:</strong> The consensus market value.</p></li>
+<li><p><strong>Private Value:</strong> The value to a specific individual based on their unique constraints, tax situation, or beliefs.</p></li>
 </ul>
 <p><strong>The Trading Rule:</strong></p>
 <ul class="simple">
-<li><p>[cite_start]<strong>BUY</strong> if Private Valuation &gt; Public Valuation[cite: 28].</p></li>
-<li><p>[cite_start]<strong>SELL</strong> if Private Valuation &lt; Public Valuation[cite: 29].</p></li>
+<li><p><strong>BUY</strong> if Private Valuation &gt; Public Valuation.</p></li>
+<li><p><strong>SELL</strong> if Private Valuation &lt; Public Valuation.</p></li>
 </ul>
 </section>
 </section>
@@ -643,8 +643,8 @@ To value a complex asset (like an oil refinery):</p>
 <section id="section-1-return-metrics">
 <h3>Section 1: Return Metrics<a class="headerlink" href="#section-1-return-metrics" title="Link to this heading">#</a></h3>
 <p>To compare assets, we measure returns. However, the standard definitions of “return” can break down in financial engineering contexts.</p>
-<section id="cite-start-standard-definitions-cite-36-40">
-<h4>[cite_start]Standard Definitions [cite: 36-40]<a class="headerlink" href="#cite-start-standard-definitions-cite-36-40" title="Link to this heading">#</a></h4>
+<section id="standard-definitions">
+<h4>Standard Definitions<a class="headerlink" href="#standard-definitions" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p><strong>Cash Flow (<span class="math notranslate nohighlight">\(C\)</span>):</strong> Payments received (dividends, coupons). Positive = inflow, Negative = outflow.</p></li>
 <li><p><strong>Capital Gain (<span class="math notranslate nohighlight">\(CG\)</span>):</strong> Change in asset price (<span class="math notranslate nohighlight">\(V_1 - V_0\)</span>).</p></li>
@@ -652,14 +652,12 @@ To value a complex asset (like an oil refinery):</p>
 <li><p><strong>Rate of Return (ROR):</strong> Growth rate expressed as a percentage.</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[
-\text{ROR} = \frac{(V_1 - V_0) + C_1}{V_0}
-\]</div>
+\[\text{ROR} = \frac{(V_1 - V_0) + C_1}{V_0}\]</div>
 </section>
 <section id="the-problem-with-percentage-returns">
 <h4>The Problem with Percentage Returns<a class="headerlink" href="#the-problem-with-percentage-returns" title="Link to this heading">#</a></h4>
-<p>Percentage returns work well for assets you buy with cash (Long positions). [cite_start]They fail for <strong>Short Positions</strong> and <strong>Derivatives</strong> where the initial investment (<span class="math notranslate nohighlight">\(V_0\)</span>) is zero or negative[cite: 58].</p>
-<p>[cite_start]<strong>The Short Sale Anomaly [cite: 58-61]:</strong></p>
+<p>Percentage returns work well for assets you buy with cash (Long positions). They fail for <strong>Short Positions</strong> and <strong>Derivatives</strong> where the initial investment (<span class="math notranslate nohighlight">\(V_0\)</span>) is zero or negative.</p>
+<p><strong>The Short Sale Anomaly :</strong></p>
 <ul class="simple">
 <li><p>A short sale involves borrowing stock, selling it, and buying it back later.</p></li>
 <li><p>If you sell at $50 and buy back at $60, you lose $10.</p></li>
@@ -668,63 +666,53 @@ To value a complex asset (like an oil refinery):</p>
 </ul>
 <p><strong>The Forward Contract Anomaly:</strong></p>
 <ul class="simple">
-<li><p>[cite_start]Forward contracts often have <span class="math notranslate nohighlight">\(V_0 = 0\)</span> (no money changes hands at signing)[cite: 61].</p></li>
-<li><p>[cite_start]If you make $1 profit, your return is <span class="math notranslate nohighlight">\(\$1 / 0 = \text{Undefined}\)</span>[cite: 61].</p></li>
+<li><p>Forward contracts often have <span class="math notranslate nohighlight">\(V_0 = 0\)</span> (no money changes hands at signing).</p></li>
+<li><p>If you make $1 profit, your return is <span class="math notranslate nohighlight">\(\$1 / 0 = \text{Undefined}\)</span>.</p></li>
 </ul>
 </section>
 <section id="the-solution-dollarized-returns">
 <h4>The Solution: Dollarized Returns<a class="headerlink" href="#the-solution-dollarized-returns" title="Link to this heading">#</a></h4>
-<p>[cite_start]In financial engineering, we often utilize <strong>Dollar Returns</strong> instead of percentages[cite: 62].</p>
+<p>In financial engineering, we often utilize <strong>Dollar Returns</strong> instead of percentages.</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Total Dollar Return} = \text{Dollar Capital Gain} + \text{Dollar Cash Flow}
-\]</div>
+\[\text{Total Dollar Return} = \text{Dollar Capital Gain} + \text{Dollar Cash Flow}\]</div>
 <div class="math notranslate nohighlight">
-\[
-\text{Total Dollar Return} = (V_1 - V_0) + C_1
-\]</div>
+\[\text{Total Dollar Return} = (V_1 - V_0) + C_1\]</div>
 <p>This works for <em>any</em> asset, liability, or contract, regardless of whether the initial value is positive, negative, or zero.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="section-2-the-general-valuation-equation-gve">
 <h3>Section 2: The General Valuation Equation (GVE)<a class="headerlink" href="#section-2-the-general-valuation-equation-gve" title="Link to this heading">#</a></h3>
-<p>The GVE is the governing formula for this course. [cite_start]It relates what an investor <em>needs</em> to earn (Required Return) with what they <em>expect</em> to earn (Expected Return)[cite: 54].</p>
+<p>The GVE is the governing formula for this course. It relates what an investor <em>needs</em> to earn (Required Return) with what they <em>expect</em> to earn (Expected Return).</p>
 <section id="derivation">
 <h4>Derivation<a class="headerlink" href="#derivation" title="Link to this heading">#</a></h4>
 <p><strong>Step 1: Define Required Return</strong>
-[cite_start]Investors require compensation for two things[cite: 46]:</p>
+Investors require compensation for two things:</p>
 <ol class="arabic simple">
 <li><p><strong>Time Value:</strong> Foregone interest on a risk-free investment (<span class="math notranslate nohighlight">\(r V_0\)</span>).</p></li>
 <li><p><strong>Risk Cost:</strong> Compensation for taking risk. This is modeled as the quantity of risk (<span class="math notranslate nohighlight">\(\sigma\)</span>) times the price per unit of risk (<span class="math notranslate nohighlight">\(k\)</span>).</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[
-\text{Required Return} = r V_0 + k \sigma
-\]</div>
+\[\text{Required Return} = r V_0 + k \sigma\]</div>
 <p><strong>Step 2: Define Expected Return</strong>
-[cite_start]Investors expect to receive value from two sources[cite: 51]:</p>
+Investors expect to receive value from two sources:</p>
 <ol class="arabic simple">
 <li><p><strong>Expected Capital Gains:</strong> <span class="math notranslate nohighlight">\(E[V_1 - V_0]\)</span></p></li>
 <li><p><strong>Expected Cash Flows:</strong> <span class="math notranslate nohighlight">\(E[C_1]\)</span></p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[
-\text{Expected Return} = E[V_1 - V_0] + E[C_1]
-\]</div>
+\[\text{Expected Return} = E[V_1 - V_0] + E[C_1]\]</div>
 <p><strong>Step 3: The Equilibrium Condition</strong>
 In a functioning market, for a transaction to occur, the buyer and seller must agree.</p>
 <ul class="simple">
-<li><p>[cite_start]Buyer demands: Required Return <span class="math notranslate nohighlight">\(\le\)</span> Expected Return[cite: 52].</p></li>
-<li><p>[cite_start]Seller demands: Required Return <span class="math notranslate nohighlight">\(\ge\)</span> Expected Return[cite: 53].</p></li>
-<li><p>[cite_start]<strong>Equilibrium:</strong> Required Return = Expected Return[cite: 54].</p></li>
+<li><p>Buyer demands: Required Return <span class="math notranslate nohighlight">\(\le\)</span> Expected Return.</p></li>
+<li><p>Seller demands: Required Return <span class="math notranslate nohighlight">\(\ge\)</span> Expected Return.</p></li>
+<li><p><strong>Equilibrium:</strong> Required Return = Expected Return.</p></li>
 </ul>
 <p><strong>Step 4: The General Valuation Equation</strong></p>
-<p>[cite_start]Equating Step 1 and Step 2[cite: 56]:</p>
+<p>Equating Step 1 and Step 2:</p>
 <div class="math notranslate nohighlight">
-\[
-r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]
-\]</div>
+\[r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\]</div>
 <p>where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(r\)</span> = risk-free interest rate</p></li>
@@ -742,24 +730,20 @@ This equation states that the <em>cost</em> of holding the asset (lost interest 
 <hr class="docutils" />
 <section id="section-3-insurance-valuation-reserves">
 <h3>Section 3: Insurance Valuation (Reserves)<a class="headerlink" href="#section-3-insurance-valuation-reserves" title="Link to this heading">#</a></h3>
-<p>[cite_start]Valuation applies to liabilities just as much as assets[cite: 67]. Insurance companies use “Reserves” to represent the value of future liabilities.</p>
-<p>[cite_start]<strong>Definition:</strong> A Reserve is value kept back to pay future claims[cite: 68].</p>
-<p>[cite_start]There are two ways to calculate reserves, and under consistent assumptions, they yield the same result[cite: 69].</p>
+<p>Valuation applies to liabilities just as much as assets. Insurance companies use “Reserves” to represent the value of future liabilities.</p>
+<p><strong>Definition:</strong> A Reserve is value kept back to pay future claims.</p>
+<p>There are two ways to calculate reserves, and under consistent assumptions, they yield the same result.</p>
 <section id="retrospective-reserve-looking-backward">
 <h4>1. Retrospective Reserve (Looking Backward)<a class="headerlink" href="#retrospective-reserve-looking-backward" title="Link to this heading">#</a></h4>
-<p>[cite_start]Calculated based on what has already happened[cite: 69].</p>
+<p>Calculated based on what has already happened.</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Reserve} = \text{FV(Premiums Received)} - \text{FV(Benefits &amp; Expenses Paid)}
-\]</div>
+\[\text{Reserve} = \text{FV(Premiums Received)} - \text{FV(Benefits &amp; Expenses Paid)}\]</div>
 </section>
 <section id="prospective-reserve-looking-forward">
 <h4>2. Prospective Reserve (Looking Forward)<a class="headerlink" href="#prospective-reserve-looking-forward" title="Link to this heading">#</a></h4>
-<p>[cite_start]Calculated based on what is expected to happen[cite: 70]. This is essentially a Net Present Value calculation.</p>
+<p>Calculated based on what is expected to happen. This is essentially a Net Present Value calculation.</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Reserve} = \text{PV(Future Benefits &amp; Expenses)} - \text{PV(Future Premiums)}
-\]</div>
+\[\text{Reserve} = \text{PV(Future Benefits &amp; Expenses)} - \text{PV(Future Premiums)}\]</div>
 </section>
 </section>
 </section>
@@ -769,7 +753,7 @@ This equation states that the <em>cost</em> of holding the asset (lost interest 
 <section id="example-1-applying-the-gve-to-a-risk-free-asset">
 <h3>Example 1: Applying the GVE to a Risk-Free Asset<a class="headerlink" href="#example-1-applying-the-gve-to-a-risk-free-asset" title="Link to this heading">#</a></h3>
 <p>:class: tip</p>
-<p>[cite_start]<strong>Context:</strong> We will use the General Valuation Equation to derive the standard Present Value formula for a risk-free bond[cite: 25].</p>
+<p><strong>Context:</strong> We will use the General Valuation Equation to derive the standard Present Value formula for a risk-free bond.</p>
 <p><strong>Problem Statement:</strong>
 Consider a risk-free asset that promises a single cash flow <span class="math notranslate nohighlight">\(C\)</span> one year from now. The risk-free rate is <span class="math notranslate nohighlight">\(r\)</span>. There is no uncertainty, so risk <span class="math notranslate nohighlight">\(\sigma = 0\)</span>. Determine the value <span class="math notranslate nohighlight">\(V_0\)</span> using the GVE.</p>
 <p><strong>Given:</strong></p>
@@ -784,42 +768,32 @@ Consider a risk-free asset that promises a single cash flow <span class="math no
 <li><p>Current Value <span class="math notranslate nohighlight">\(V_0\)</span></p></li>
 </ul>
 <p><strong>Approach:</strong>
-[cite_start]Apply the GVE: <span class="math notranslate nohighlight">\(r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\)</span>[cite: 25].</p>
+Apply the GVE: <span class="math notranslate nohighlight">\(r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\)</span>.</p>
 <p><strong>Step 1: Substitute Known Values</strong></p>
 <div class="math notranslate nohighlight">
-\[
-r V_0 + k(0) = (0 - V_0) + C
-\]</div>
+\[r V_0 + k(0) = (0 - V_0) + C\]</div>
 <p><strong>Step 2: Simplify</strong>
 The risk term vanishes.</p>
 <div class="math notranslate nohighlight">
-\[
-r V_0 = -V_0 + C
-\]</div>
+\[r V_0 = -V_0 + C\]</div>
 <p><strong>Step 3: Solve for <span class="math notranslate nohighlight">\(V_0\)</span></strong>
 Add <span class="math notranslate nohighlight">\(V_0\)</span> to both sides:</p>
 <div class="math notranslate nohighlight">
-\[
-r V_0 + V_0 = C
-\]</div>
+\[r V_0 + V_0 = C\]</div>
 <p>Factor out <span class="math notranslate nohighlight">\(V_0\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-V_0 (1 + r) = C
-\]</div>
+\[V_0 (1 + r) = C\]</div>
 <p>Divide by <span class="math notranslate nohighlight">\((1+r)\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-V_0 = \frac{C}{1+r}
-\]</div>
+\[V_0 = \frac{C}{1+r}\]</div>
 <p><strong>Physical Interpretation:</strong>
-[cite_start]This confirms that the GVE is consistent with the standard Present Value formula[cite: 26]. The value of a risk-free cash flow is simply the cash flow discounted by the risk-free rate.</p>
+This confirms that the GVE is consistent with the standard Present Value formula. The value of a risk-free cash flow is simply the cash flow discounted by the risk-free rate.</p>
 </section>
 <hr class="docutils" />
 <section id="example-2-the-walmart-investment-return-calculation">
 <h3>Example 2: The Walmart Investment (Return Calculation)<a class="headerlink" href="#example-2-the-walmart-investment-return-calculation" title="Link to this heading">#</a></h3>
 <p>:class: tip</p>
-<p>[cite_start]<strong>Context:</strong> Analyzing the components of return for a standard equity investment[cite: 20].</p>
+<p><strong>Context:</strong> Analyzing the components of return for a standard equity investment.</p>
 <p><strong>Problem Statement:</strong>
 One year ago, you bought a share of Walmart for $70 (<span class="math notranslate nohighlight">\(V_0\)</span>). You expected it to pay a $1.00 dividend (<span class="math notranslate nohighlight">\(C_{expected}\)</span>) and appreciate by $6.00 (<span class="math notranslate nohighlight">\(CG_{expected}\)</span>).
 Actually, it paid $0.50 in dividends and appreciated by $10.00 (<span class="math notranslate nohighlight">\(V_1 = \$80\)</span>).</p>
@@ -831,47 +805,31 @@ Actually, it paid $0.50 in dividends and appreciated by $10.00 (<span class="mat
 </ol>
 <p><strong>Step 1: Calculate Expected Returns (One Year Ago)</strong></p>
 <div class="math notranslate nohighlight">
-\[
-\text{Exp. Cap Gain} = \$6.00
-\]</div>
+\[\text{Exp. Cap Gain} = \$6.00\]</div>
 <div class="math notranslate nohighlight">
-\[
-\text{Exp. Cash Flow} = \$1.00
-\]</div>
+\[\text{Exp. Cash Flow} = \$1.00\]</div>
 <div class="math notranslate nohighlight">
-\[
-\text{Exp. Total Dollar Return} = \$6.00 + \$1.00 = \$7.00
-\]</div>
+\[\text{Exp. Total Dollar Return} = \$6.00 + \$1.00 = \$7.00\]</div>
 <p><strong>Step 2: Calculate Realized Returns (Today)</strong></p>
 <div class="math notranslate nohighlight">
-\[
-\text{Realized Cap Gain} = V_1 - V_0 = \$80 - \$70 = \$10.00
-\]</div>
+\[\text{Realized Cap Gain} = V_1 - V_0 = \$80 - \$70 = \$10.00\]</div>
 <div class="math notranslate nohighlight">
-\[
-\text{Realized Cash Flow} = \$0.50
-\]</div>
+\[\text{Realized Cash Flow} = \$0.50\]</div>
 <div class="math notranslate nohighlight">
-\[
-\text{Realized Total Dollar Return} = \$10.00 + \$0.50 = \$10.50
-\]</div>
+\[\text{Realized Total Dollar Return} = \$10.00 + \$0.50 = \$10.50\]</div>
 <p><strong>Step 3: Calculate Realized Percentage Return</strong></p>
 <div class="math notranslate nohighlight">
-\[
-\text{ROR} \% = \frac{\text{Total Dollar Return}}{V_0}
-\]</div>
+\[\text{ROR} \% = \frac{\text{Total Dollar Return}}{V_0}\]</div>
 <div class="math notranslate nohighlight">
-\[
-\text{ROR} \% = \frac{10.50}{70.00} = 0.15 = 15\%
-\]</div>
+\[\text{ROR} \% = \frac{10.50}{70.00} = 0.15 = 15\%\]</div>
 <p><strong>Key Insight:</strong>
-[cite_start]For a standard “long” asset like this, both dollar and percentage returns are easily calculated and meaningful [cite: 40-45].</p>
+For a standard “long” asset like this, both dollar and percentage returns are easily calculated and meaningful .</p>
 </section>
 <hr class="docutils" />
 <section id="example-3-the-short-sale-negative-investment">
 <h3>Example 3: The Short Sale (Negative Investment)<a class="headerlink" href="#example-3-the-short-sale-negative-investment" title="Link to this heading">#</a></h3>
 <p>:class: tip</p>
-<p>[cite_start]<strong>Context:</strong> Demonstrating why percentage returns fail for short sales and how to fix it using the “alternative” view[cite: 29, 63].</p>
+<p><strong>Context:</strong> Demonstrating why percentage returns fail for short sales and how to fix it using the “alternative” view.</p>
 <p><strong>Problem Statement:</strong>
 You short sell a stock at $50 (<span class="math notranslate nohighlight">\(V_0\)</span>). One year later, the price drops, and you buy it back for $40 (<span class="math notranslate nohighlight">\(V_1\)</span>).</p>
 <p><strong>Given:</strong></p>
@@ -886,29 +844,25 @@ You short sell a stock at $50 (<span class="math notranslate nohighlight">\(V_0\
 <li><p>If you treat the initial price as the basis: Return = <span class="math notranslate nohighlight">\(10/50 = 20\%\)</span>. But is it positive or negative? The price went down (-20%), but you made money (+20%). The signs get confusing.</p></li>
 </ul>
 <p><strong>Analysis 2: The “Alternative” Dollarized Approach</strong>
-[cite_start]Let’s define the investment by the cash flows relative to the investor’s pocket[cite: 63].</p>
+Let’s define the investment by the cash flows relative to the investor’s pocket.</p>
 <ul class="simple">
 <li><p><strong>Initial Investment:</strong> <span class="math notranslate nohighlight">\(-\$50\)</span>. (Wait, why negative? In this specific accounting view, we treat the liability created as a negative starting position to make the math work for percentages). <em>Note: The text suggests treating the $50 received as a “negative investment” to force the math.</em></p></li>
 </ul>
 <p>Let’s look at the text’s logic carefully:</p>
 <ol class="arabic simple">
-<li><p>[cite_start]”Initial investment = -$50 (because you receive this amount…)” [cite: 63]</p></li>
-<li><p>[cite_start]”Ending cash flow = -$40 (because you pay this amount…)” [cite: 63]</p></li>
+<li><p>“Initial investment = -$50 (because you receive this amount…)”</p></li>
+<li><p>“Ending cash flow = -$40 (because you pay this amount…)”</p></li>
 <li><p>“Dollar return = (-40) - (-50) = $10”.</p></li>
 </ol>
 <p><strong>Percentage Return Calculation:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-\% \text{Return} = \frac{\text{Dollar Return}}{\text{Initial Investment}}
-\]</div>
+\[\% \text{Return} = \frac{\text{Dollar Return}}{\text{Initial Investment}}\]</div>
 <div class="math notranslate nohighlight">
-\[
-\% \text{Return} = \frac{\$10}{-\$50} = -20\%
-\]</div>
+\[\% \text{Return} = \frac{\$10}{-\$50} = -20\%\]</div>
 <p><strong>Interpretation:</strong>
-This result is mathematically consistent but intuitively strange. [cite_start]You made a profit of $10, but the return is listed as -20%[cite: 63].</p>
+This result is mathematically consistent but intuitively strange. You made a profit of $10, but the return is listed as -20%.</p>
 <ul class="simple">
-<li><p>[cite_start]<strong>Reason:</strong> “Shorting converts a negative percentage return into a positive dollar return because the original investment is negative”[cite: 63].</p></li>
+<li><p><strong>Reason:</strong> “Shorting converts a negative percentage return into a positive dollar return because the original investment is negative”.</p></li>
 <li><p>Dollar Return = (-20%) <span class="math notranslate nohighlight">\(\times\)</span> (-<span class="math notranslate nohighlight">\(50) = +\)</span>10.</p></li>
 </ul>
 <p><strong>Conclusion:</strong> This confusing sign-flipping is why <strong>Dollar Returns</strong> are preferred in financial engineering. It is unambiguous to say “I made $10.”</p>
@@ -917,7 +871,7 @@ This result is mathematically consistent but intuitively strange. [cite_start]Yo
 <section id="example-4-insurance-reserves-backward-vs-forward">
 <h3>Example 4: Insurance Reserves (Backward vs. Forward)<a class="headerlink" href="#example-4-insurance-reserves-backward-vs-forward" title="Link to this heading">#</a></h3>
 <p>:class: tip</p>
-<p>[cite_start]<strong>Context:</strong> A simple 3-year term policy to demonstrate how reserves work[cite: 33].</p>
+<p><strong>Context:</strong> A simple 3-year term policy to demonstrate how reserves work.</p>
 <p><strong>Problem Statement:</strong>
 An insurance company issues a policy.</p>
 <ul class="simple">
@@ -931,17 +885,17 @@ An insurance company issues a policy.</p>
 <ul class="simple">
 <li><p>Accumulated Premiums (Year 1 &amp; 2) = <span class="math notranslate nohighlight">\(100 + 100 = 200\)</span>.</p></li>
 <li><p>Accumulated Benefits (Year 1 &amp; 2) = <span class="math notranslate nohighlight">\(50 + 100 = 150\)</span>.</p></li>
-<li><p>[cite_start]Reserve = Premiums - Benefits = <span class="math notranslate nohighlight">\(200 - 150 = 50\)</span>[cite: 33, 69].</p></li>
+<li><p>Reserve = Premiums - Benefits = <span class="math notranslate nohighlight">\(200 - 150 = 50\)</span>.</p></li>
 </ul>
 <p><strong>Method 2: Prospective (Forward Looking)</strong></p>
 <ul class="simple">
 <li><p>Future Benefits (Year 3) = <span class="math notranslate nohighlight">\(150\)</span>.</p></li>
 <li><p>Future Premiums (Year 3) = <span class="math notranslate nohighlight">\(100\)</span>.</p></li>
 <li><p>Reserve = PV(Future Benefits) - PV(Future Premiums).</p></li>
-<li><p>[cite_start]Reserve = <span class="math notranslate nohighlight">\(150 - 100 = 50\)</span>[cite: 33, 70].</p></li>
+<li><p>Reserve = <span class="math notranslate nohighlight">\(150 - 100 = 50\)</span>.</p></li>
 </ul>
 <p><strong>Result:</strong>
-Both methods yield a Reserve of <strong>50</strong>. [cite_start]This requires the company to hold 50 in assets to ensure they can pay the Year 3 deficit[cite: 71].</p>
+Both methods yield a Reserve of <strong>50</strong>. This requires the company to hold 50 in assets to ensure they can pay the Year 3 deficit.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -962,28 +916,20 @@ An asset has a current value <span class="math notranslate nohighlight">\(V_0 = 
 <li><p><span class="math notranslate nohighlight">\(E[C_1] = 4\)</span></p></li>
 </ul>
 <p><strong>Find:</strong> <span class="math notranslate nohighlight">\(E[V_1 - V_0]\)</span></p>
-<p>[cite_start]<strong>Hint:</strong> Use the equation <span class="math notranslate nohighlight">\(r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\)</span>[cite: 56].</p>
+<p><strong>Hint:</strong> Use the equation <span class="math notranslate nohighlight">\(r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\)</span>.</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
 <p><strong>Step 1: Calculate Required Return (LHS)</strong></p>
 <div class="math notranslate nohighlight">
-\[
-\text{Req. Return} = (0.05 \times 100) + (0.5 \times 10)
-\]</div>
+\[\text{Req. Return} = (0.05 \times 100) + (0.5 \times 10)\]</div>
 <div class="math notranslate nohighlight">
-\[
-\text{Req. Return} = 5 + 5 = 10
-\]</div>
+\[\text{Req. Return} = 5 + 5 = 10\]</div>
 <p><strong>Step 2: Set up GVE</strong></p>
 <div class="math notranslate nohighlight">
-\[
-10 = E[V_1 - V_0] + 4
-\]</div>
+\[10 = E[V_1 - V_0] + 4\]</div>
 <p><strong>Step 3: Solve for Expected Capital Gain</strong></p>
 <div class="math notranslate nohighlight">
-\[
-E[V_1 - V_0] = 10 - 4 = 6
-\]</div>
+\[E[V_1 - V_0] = 10 - 4 = 6\]</div>
 <p><strong>Answer:</strong> The expected capital gain must be <strong>$6</strong>.</p>
 </details>
 </section>
@@ -1006,13 +952,12 @@ You enter a forward contract to buy oil at $75/barrel in one year. The initial c
 <summary><strong>Click for Solution</strong></summary>
 <p><strong>1. Dollar Return:</strong>
 You are obligated to buy at $75. The asset is worth $72.
-[cite_start]Profit/Loss = Value - Cost = <span class="math notranslate nohighlight">\(72 - 75 = -\$3\)</span>[cite: 25].
+Profit/Loss = Value - Cost = <span class="math notranslate nohighlight">\(72 - 75 = -\$3\)</span>.
 <strong>Dollar Return = -$3 per barrel.</strong></p>
-<p><strong>2. Percentage Return:</strong>
-$<span class="math notranslate nohighlight">\(
-\% \text{Return} = \frac{\text{Dollar Return}}{\text{Initial Investment}} = \frac{-3}{0}
-\)</span>$
-Division by zero is undefined. [cite_start]This illustrates why we must use dollar returns for zero-cost derivatives[cite: 61].</p>
+<p><strong>2. Percentage Return:</strong></p>
+<div class="math notranslate nohighlight">
+\[\% \text{Return} = \frac{\text{Dollar Return}}{\text{Initial Investment}} = \frac{-3}{0}\]</div>
+<p>Division by zero is undefined. This illustrates why we must use dollar returns for zero-cost derivatives.</p>
 </details>
 </section>
 <section id="practice-problem-3-private-vs-public-value">
@@ -1022,7 +967,7 @@ Division by zero is undefined. [cite_start]This illustrates why we must use doll
 A publicly traded bond is priced at $950 (Public Valuation). You have a specific tax advantage that makes the bond’s cash flows worth $980 to you (Private Valuation). According to the valuation trading rules, what should you do?</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
-<p>[cite_start]<strong>Rule:</strong> Buy if Private Value &gt; Public Value[cite: 28].
+<p><strong>Rule:</strong> Buy if Private Value &gt; Public Value.
 <strong>Analysis:</strong> <span class="math notranslate nohighlight">\(980 &gt; 950\)</span>.
 <strong>Decision:</strong> <strong>Buy the bond.</strong> You represent a “high value” user of this asset.</p>
 </details>
@@ -1036,20 +981,20 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 <p>You may notice similarities between the General Valuation Equation and the Capital Asset Pricing Model (CAPM).</p>
 <p><strong>GVE:</strong> <span class="math notranslate nohighlight">\(Required = r V_0 + k \sigma\)</span> (in dollars)
 <strong>CAPM:</strong> <span class="math notranslate nohighlight">\(E[R] = r_f + \beta (R_m - r_f)\)</span> (in percent)</p>
-<p>The GVE is actually a generalization. If we define the risk measure <span class="math notranslate nohighlight">\(\sigma\)</span> specifically as Beta (<span class="math notranslate nohighlight">\(\beta\)</span>) and the price of risk <span class="math notranslate nohighlight">\(k\)</span> as the Market Risk Premium <span class="math notranslate nohighlight">\((R_m - r_f)\)</span>, the GVE can be transformed into the CAPM. [cite_start]However, GVE is superior for financial engineering because it can handle non-linear risks (<span class="math notranslate nohighlight">\(\sigma\)</span>) that Beta (which assumes linear correlation) cannot capture[cite: 3, 56].</p>
+<p>The GVE is actually a generalization. If we define the risk measure <span class="math notranslate nohighlight">\(\sigma\)</span> specifically as Beta (<span class="math notranslate nohighlight">\(\beta\)</span>) and the price of risk <span class="math notranslate nohighlight">\(k\)</span> as the Market Risk Premium <span class="math notranslate nohighlight">\((R_m - r_f)\)</span>, the GVE can be transformed into the CAPM. However, GVE is superior for financial engineering because it can handle non-linear risks (<span class="math notranslate nohighlight">\(\sigma\)</span>) that Beta (which assumes linear correlation) cannot capture.</p>
 </section>
 <section id="extension-2-valuation-models">
 <h3>Extension 2: Valuation Models<a class="headerlink" href="#extension-2-valuation-models" title="Link to this heading">#</a></h3>
-<p>[cite_start]While we focus on Benchmarking and GVE, it is important to understand the hierarchy of valuation models used in practice[cite: 32]:</p>
+<p>While we focus on Benchmarking and GVE, it is important to understand the hierarchy of valuation models used in practice:</p>
 <ol class="arabic simple">
 <li><p><strong>Liquidation Value:</strong> The “fire sale” price. Usually the lowest bound.</p></li>
 <li><p><strong>Replacement Cost:</strong> Cost to rebuild. Used often in insurance and physical assets.</p></li>
 <li><p><strong>Comparable Value:</strong> Used in Real Estate (e.g., “What did the house next door sell for?”).</p></li>
-<li><p><strong>Benchmark Valuation:</strong> The gold standard for this course. [cite_start]Replicating cash flows using a portfolio of traded instruments[cite: 33].</p></li>
+<li><p><strong>Benchmark Valuation:</strong> The gold standard for this course. Replicating cash flows using a portfolio of traded instruments.</p></li>
 <li><p><strong>Net Present Value (NPV):</strong> Discounted cash flows.</p></li>
 <li><p><strong>Portfolio Value:</strong> The marginal value added to a specific portfolio.</p></li>
 </ol>
-<p>[cite_start]We will focus primarily on <strong>#4 (Benchmark)</strong> and <strong>#5 (NPV)</strong> throughout this course[cite: 34].</p>
+<p>We will focus primarily on <strong>#4 (Benchmark)</strong> and <strong>#5 (NPV)</strong> throughout this course.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -1060,33 +1005,31 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 <p>:class: important</p>
 <p><strong>Main Concepts:</strong></p>
 <ol class="arabic simple">
-<li><p>[cite_start]<strong>Financial Engineering:</strong> The application of mathematical and simulation techniques to solve practical financial problems, specifically regarding valuation and risk[cite: 1, 2].</p></li>
-<li><p>[cite_start]<strong>Benchmarking:</strong> The most robust valuation method involves simulating cash flows and pricing them based on traded assets (benchmarks) rather than subjective estimates[cite: 6].</p></li>
+<li><p><strong>Financial Engineering:</strong> The application of mathematical and simulation techniques to solve practical financial problems, specifically regarding valuation and risk.</p></li>
+<li><p><strong>Benchmarking:</strong> The most robust valuation method involves simulating cash flows and pricing them based on traded assets (benchmarks) rather than subjective estimates.</p></li>
 <li><p><strong>Asset Classes:</strong></p>
 <ul class="simple">
-<li><p>[cite_start]<strong>Capital:</strong> Stocks/Bonds[cite: 9].</p></li>
-<li><p>[cite_start]<strong>Physical:</strong> Real Estate/Commodities[cite: 10].</p></li>
-<li><p>[cite_start]<strong>Derivatives:</strong> Options/Forwards (Contingent assets)[cite: 11].</p></li>
-<li><p>[cite_start]<strong>Corporate:</strong> Assets affected by firm structure (Tax/Bankruptcy)[cite: 13].</p></li>
+<li><p><strong>Capital:</strong> Stocks/Bonds.</p></li>
+<li><p><strong>Physical:</strong> Real Estate/Commodities.</p></li>
+<li><p><strong>Derivatives:</strong> Options/Forwards (Contingent assets).</p></li>
+<li><p><strong>Corporate:</strong> Assets affected by firm structure (Tax/Bankruptcy).</p></li>
 </ul>
 </li>
-<li><p><strong>Dollar vs. Percentage Returns:</strong> Percentage returns fail for zero-investment assets (derivatives) and short positions. [cite_start]Dollar returns are universally applicable[cite: 62].</p></li>
+<li><p><strong>Dollar vs. Percentage Returns:</strong> Percentage returns fail for zero-investment assets (derivatives) and short positions. Dollar returns are universally applicable.</p></li>
 </ol>
 <p><strong>Critical Formula: The General Valuation Equation (GVE)</strong></p>
 <div class="math notranslate nohighlight">
-\[
-r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]
-\]</div>
-<p>[cite_start]This equation enforces that the compensation for time and risk must equal the expected financial gain[cite: 56].</p>
+\[r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\]</div>
+<p>This equation enforces that the compensation for time and risk must equal the expected financial gain.</p>
 </section>
 <section id="study-tips">
 <h3>Study Tips<a class="headerlink" href="#study-tips" title="Link to this heading">#</a></h3>
 <p>:class: tip</p>
 <ol class="arabic simple">
-<li><p>[cite_start]<strong>Think in Dollars:</strong> Whenever you see a derivative or a short position, immediately switch your mental model from “% return” to “$ profit/loss”[cite: 62].</p></li>
+<li><p><strong>Think in Dollars:</strong> Whenever you see a derivative or a short position, immediately switch your mental model from “% return” to “$ profit/loss”.</p></li>
 <li><p><strong>Master the GVE:</strong> Practice rearranging the GVE variables. Can you solve for <span class="math notranslate nohighlight">\(k\)</span>? Can you solve for <span class="math notranslate nohighlight">\(V_0\)</span>?</p></li>
-<li><p><strong>Visualize Reserves:</strong> When working with liabilities (insurance), draw a timeline. “Retrospective” looks left; “Prospective” looks right. [cite_start]They must meet in the middle[cite: 69, 70].</p></li>
-<li><p>[cite_start]<strong>Remember the Goal:</strong> We are not just calculating numbers; we are trying to determine the <em>fair market value</em> of assets by comparing them to what is already trading[cite: 6].</p></li>
+<li><p><strong>Visualize Reserves:</strong> When working with liabilities (insurance), draw a timeline. “Retrospective” looks left; “Prospective” looks right. They must meet in the middle.</p></li>
+<li><p><strong>Remember the Goal:</strong> We are not just calculating numbers; we are trying to determine the <em>fair market value</em> of assets by comparing them to what is already trading.</p></li>
 </ol>
 </section>
 </section>
@@ -1179,7 +1122,7 @@ r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mathematical-framework">Part 2: Mathematical Framework</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-return-metrics">Section 1: Return Metrics</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-start-standard-definitions-cite-36-40">[cite_start]Standard Definitions [cite: 36-40]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-definitions">Standard Definitions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-percentage-returns">The Problem with Percentage Returns</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-dollarized-returns">The Solution: Dollarized Returns</a></li>
 </ul>

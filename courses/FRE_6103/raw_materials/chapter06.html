@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -496,9 +496,7 @@ document.write(`
 <p>The ARW models the <strong>change</strong> in price as a random variable added to the previous price.</p>
 <p><strong>Discrete Time Equation:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-S_{t+1} = S_t + \mu + \sigma Z_t
-\]</div>
+\[S_{t+1} = S_t + \mu + \sigma Z_t\]</div>
 <p>Where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_t\)</span>: Asset price at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
@@ -509,34 +507,24 @@ S_{t+1} = S_t + \mu + \sigma Z_t
 <p><strong>Continuous Time (Arithmetic Brownian Motion):</strong>
 As the time step <span class="math notranslate nohighlight">\(\Delta t \to dt\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-dS_t = \mu dt + \sigma dZ_t
-\]</div>
+\[dS_t = \mu dt + \sigma dZ_t\]</div>
 </section>
 <section id="properties-over-time">
 <h3>2. Properties over Time<a class="headerlink" href="#properties-over-time" title="Link to this heading">#</a></h3>
 <p>What happens if we look <span class="math notranslate nohighlight">\(j\)</span> periods into the future?
 We can write <span class="math notranslate nohighlight">\(S_{t+j}\)</span> as a collapsing sum of incremental changes:</p>
 <div class="math notranslate nohighlight">
-\[
-S_{t+j} = S_t + \sum_{i=1}^j (S_{t+i} - S_{t+i-1})
-\]</div>
+\[S_{t+j} = S_t + \sum_{i=1}^j (S_{t+i} - S_{t+i-1})\]</div>
 <p>Substituting the dynamics <span class="math notranslate nohighlight">\(S_{k} - S_{k-1} = \mu + \sigma Z_{k-1}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-S_{t+j} = S_t + \sum_{i=1}^j (\mu + \sigma Z_{t+i-1})
-\]</div>
+\[S_{t+j} = S_t + \sum_{i=1}^j (\mu + \sigma Z_{t+i-1})\]</div>
 <div class="math notranslate nohighlight">
-\[
-S_{t+j} = S_t + j\mu + \sigma \sum_{i=1}^j Z_{t+i-1}
-\]</div>
+\[S_{t+j} = S_t + j\mu + \sigma \sum_{i=1}^j Z_{t+i-1}\]</div>
 <p>Since the sum of <span class="math notranslate nohighlight">\(j\)</span> independent standard normals is normal with variance <span class="math notranslate nohighlight">\(j\)</span>:
 <span class="math notranslate nohighlight">\(\sum_{i=1}^j Z_i \sim N(0, j)\)</span>.</p>
 <p><strong>Distribution of Future Price:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-S_{t+j} \sim N(S_t + j\mu, j\sigma^2)
-\]</div>
+\[S_{t+j} \sim N(S_t + j\mu, j\sigma^2)\]</div>
 <ul class="simple">
 <li><p><strong>Expected Value:</strong> <span class="math notranslate nohighlight">\(E[S_{t+j}] = S_t + j\mu\)</span>. (Linear growth).</p></li>
 <li><p><strong>Variance:</strong> <span class="math notranslate nohighlight">\(\text{Var}(S_{t+j}) = j\sigma^2\)</span>. (Variance grows linearly with time).</p></li>
@@ -547,20 +535,14 @@ S_{t+j} \sim N(S_t + j\mu, j\sigma^2)
 <h3>3. Autocorrelation Structure<a class="headerlink" href="#autocorrelation-structure" title="Link to this heading">#</a></h3>
 <p>In simulation, we often need the covariance between prices at different times, e.g., <span class="math notranslate nohighlight">\(S_{t+j}\)</span> and <span class="math notranslate nohighlight">\(S_{t+m}\)</span> where <span class="math notranslate nohighlight">\(j &lt; m\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Cov}(S_{t+j}, S_{t+m}) = \text{Cov}\left( S_t + j\mu + \sigma \sum_{i=1}^j Z_i, \quad S_t + m\mu + \sigma \sum_{k=1}^m Z_k \right)
-\]</div>
+\[\text{Cov}(S_{t+j}, S_{t+m}) = \text{Cov}\left( S_t + j\mu + \sigma \sum_{i=1}^j Z_i, \quad S_t + m\mu + \sigma \sum_{k=1}^m Z_k \right)\]</div>
 <p>Since <span class="math notranslate nohighlight">\(S_t, \mu\)</span> are constants (at time <span class="math notranslate nohighlight">\(t\)</span>), they drop out of the covariance. We are left with the covariance of the sums of <span class="math notranslate nohighlight">\(Z\)</span>.
 The first <span class="math notranslate nohighlight">\(j\)</span> terms of <span class="math notranslate nohighlight">\(Z\)</span> are common to both sums. The terms from <span class="math notranslate nohighlight">\(j+1\)</span> to <span class="math notranslate nohighlight">\(m\)</span> in the second sum are independent of the first sum.</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Cov}(S_{t+j}, S_{t+m}) = \sigma^2 \sum_{i=1}^j \text{Var}(Z_i) = \sigma^2 \cdot j
-\]</div>
+\[\text{Cov}(S_{t+j}, S_{t+m}) = \sigma^2 \sum_{i=1}^j \text{Var}(Z_i) = \sigma^2 \cdot j\]</div>
 <p><strong>General Formula:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-\text{Cov}(S_{t+j}, S_{t+m}) = \sigma^2 \min(j, m)
-\]</div>
+\[\text{Cov}(S_{t+j}, S_{t+m}) = \sigma^2 \min(j, m)\]</div>
 <p>This covariance structure allows us to construct the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> for a vector of prices <span class="math notranslate nohighlight">\((S_{t+1}, S_{t+2}, \dots, S_{t+k})\)</span> and simulate the entire path using the Cholesky decomposition method from Chapter 5.</p>
 <p><strong>Simulation Algorithm:</strong></p>
 <ol class="arabic simple">
@@ -604,14 +586,10 @@ This economic gravity is called <strong>Mean Reversion</strong>.</p></li>
 <p>The Ornstein-Uhlenbeck (OU) process pulls the variable back to a long-run mean <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <p><strong>Discrete Time Equation:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-S_{t+1} = S_t + \kappa(\mu - S_t) + \sigma Z_t
-\]</div>
+\[S_{t+1} = S_t + \kappa(\mu - S_t) + \sigma Z_t\]</div>
 <p>Alternatively written as:</p>
 <div class="math notranslate nohighlight">
-\[
-S_{t+1} - \mu = (1 - \kappa)(S_t - \mu) + \sigma Z_t
-\]</div>
+\[S_{t+1} - \mu = (1 - \kappa)(S_t - \mu) + \sigma Z_t\]</div>
 <p>Where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mu\)</span>: Long-run mean level.</p></li>
@@ -628,49 +606,36 @@ S_{t+1} - \mu = (1 - \kappa)(S_t - \mu) + \sigma Z_t
 <h3>2. Properties over Time<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Expanding the recurrence relation for <span class="math notranslate nohighlight">\(S_{t+j}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-S_{t+j} - \mu = (1-\kappa)^j (S_t - \mu) + \sum_{i=0}^{j-1} (1-\kappa)^i \sigma Z_{t+j-i}
-\]</div>
+\[S_{t+j} - \mu = (1-\kappa)^j (S_t - \mu) + \sum_{i=0}^{j-1} (1-\kappa)^i \sigma Z_{t+j-i}\]</div>
 <p><strong>Expected Value:</strong>
 The random <span class="math notranslate nohighlight">\(Z\)</span> terms average to zero.</p>
 <div class="math notranslate nohighlight">
-\[
-E[S_{t+j}] = \mu + (1-\kappa)^j (S_t - \mu)
-\]</div>
+\[E[S_{t+j}] = \mu + (1-\kappa)^j (S_t - \mu)\]</div>
 <ul class="simple">
 <li><p>As <span class="math notranslate nohighlight">\(j \to \infty\)</span>, <span class="math notranslate nohighlight">\((1-\kappa)^j \to 0\)</span>, so <span class="math notranslate nohighlight">\(E[S_{t+j}] \to \mu\)</span>. The forecast converges to the long-run mean.</p></li>
 </ul>
 <p><strong>Variance:</strong>
 The variance is the sum of the variances of the independent shock terms.</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Var}(S_{t+j}) = \sigma^2 \sum_{i=0}^{j-1} \left[ (1-\kappa)^i \right]^2 = \sigma^2 \sum_{i=0}^{j-1} (1-\kappa)^{2i}
-\]</div>
+\[\text{Var}(S_{t+j}) = \sigma^2 \sum_{i=0}^{j-1} \left[ (1-\kappa)^i \right]^2 = \sigma^2 \sum_{i=0}^{j-1} (1-\kappa)^{2i}\]</div>
 <p>This is a geometric series sum <span class="math notranslate nohighlight">\(\sum r^i\)</span> where <span class="math notranslate nohighlight">\(r = (1-\kappa)^2\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Var}(S_{t+j}) = \sigma^2 \frac{1 - (1-\kappa)^{2j}}{1 - (1-\kappa)^2}
-\]</div>
+\[\text{Var}(S_{t+j}) = \sigma^2 \frac{1 - (1-\kappa)^{2j}}{1 - (1-\kappa)^2}\]</div>
 <p>Approximating denominator <span class="math notranslate nohighlight">\(1 - (1-2\kappa+\kappa^2) \approx 2\kappa\)</span> (for small <span class="math notranslate nohighlight">\(\kappa\)</span>):</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Var}(S_{t+j}) \approx \frac{\sigma^2}{2\kappa} \left( 1 - (1-\kappa)^{2j} \right)
-\]</div>
+\[\text{Var}(S_{t+j}) \approx \frac{\sigma^2}{2\kappa} \left( 1 - (1-\kappa)^{2j} \right)\]</div>
 <p><strong>Limit Behavior:</strong></p>
 <ul class="simple">
 <li><p><strong>ARW:</strong> Variance <span class="math notranslate nohighlight">\(\to \infty\)</span>.</p></li>
 <li><p><strong>OU:</strong> Variance converges to a finite limit <span class="math notranslate nohighlight">\(\frac{\sigma^2}{2\kappa}\)</span>.</p></li>
-<li><p>[cite_start]<strong>”Increases at a decreasing rate”:</strong> The uncertainty grows initially but eventually saturates. [cite: 804-806]</p></li>
+<li><p><strong>“Increases at a decreasing rate”:</strong> The uncertainty grows initially but eventually saturates.</p></li>
 </ul>
 </section>
 <section id="id3">
 <h3>3. Autocorrelation Structure<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>The covariance between <span class="math notranslate nohighlight">\(S_{t+j}\)</span> and <span class="math notranslate nohighlight">\(S_{t+m}\)</span> (where <span class="math notranslate nohighlight">\(j &lt; m\)</span>) involves the overlap of shocks.</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Cov}(S_{t+i}, S_{t+j}) = \sigma^2 (1-\kappa)^{|i-j|} \frac{1 - (1-\kappa)^{2 \min(i,j)}}{1 - (1-\kappa)^2}
-\]</div>
-<p>[cite_start][cite: 810]</p>
+\[\text{Cov}(S_{t+i}, S_{t+j}) = \sigma^2 (1-\kappa)^{|i-j|} \frac{1 - (1-\kappa)^{2 \min(i,j)}}{1 - (1-\kappa)^2}\]</div>
 </section>
 <section id="critique-of-ou">
 <h3>4. Critique of OU<a class="headerlink" href="#critique-of-ou" title="Link to this heading">#</a></h3>
@@ -696,40 +661,34 @@ The variance is the sum of the variances of the independent shock terms.</p>
 <p>Instead of modeling price changes <span class="math notranslate nohighlight">\(S_{t+1} - S_t\)</span>, we model <strong>returns</strong> (log-price changes).</p>
 <p>Let <span class="math notranslate nohighlight">\(\Sigma_t = \ln(S_t)\)</span>. We model <span class="math notranslate nohighlight">\(\Sigma_t\)</span> as an <strong>Arithmetic</strong> Random Walk.</p>
 <div class="math notranslate nohighlight">
-\[
-\ln(S_{t+1}) - \ln(S_t) = \nu + \sigma Z_t
-\]</div>
+\[\ln(S_{t+1}) - \ln(S_t) = \nu + \sigma Z_t\]</div>
 <div class="math notranslate nohighlight">
-\[
-\ln\left( \frac{S_{t+1}}{S_t} \right) \sim N(\nu, \sigma^2)
-\]</div>
+\[\ln\left( \frac{S_{t+1}}{S_t} \right) \sim N(\nu, \sigma^2)\]</div>
 <p>Where <span class="math notranslate nohighlight">\(\nu\)</span> is the expected <em>log-return</em>.</p>
 <p><strong>Dynamics:</strong></p>
 <div class="math notranslate nohighlight">
-\[
-S_{t+1} = S_t e^{\nu + \sigma Z_t}
-\]</div>
+\[S_{t+1} = S_t e^{\nu + \sigma Z_t}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(e^x\)</span> is always positive, <span class="math notranslate nohighlight">\(S_{t+1}\)</span> can never be negative. The price follows a <strong>Log-Normal Distribution</strong>.</p>
 </section>
 <section id="the-convexity-adjustment-drift">
 <h3>2. The Convexity Adjustment (Drift)<a class="headerlink" href="#the-convexity-adjustment-drift" title="Link to this heading">#</a></h3>
 <p>There is a subtle but critical distinction between the <strong>Expected Log Return</strong> (<span class="math notranslate nohighlight">\(E[\ln(S_{t+1}/S_t)]\)</span>) and the <strong>Log of Expected Return</strong> (<span class="math notranslate nohighlight">\(\ln(E[S_{t+1}/S_t])\)</span>).</p>
-<p>If <span class="math notranslate nohighlight">\(Y = e^X\)</span> where <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>, then:
-$<span class="math notranslate nohighlight">\( E[Y] = e^{\mu + \frac{1}{2}\sigma^2} \)</span>$</p>
-<p>We usually define the drift <span class="math notranslate nohighlight">\(\mu\)</span> in terms of the <em>expected rate of return</em> of the stock:
-$<span class="math notranslate nohighlight">\( E[S_{t+1}] = S_t e^{\mu} \)</span>$ (using continuous compounding notation).</p>
-<p>Matching the expectations:
-$<span class="math notranslate nohighlight">\( E[S_{t+1}] = S_t E[e^{\nu + \sigma Z}] = S_t e^{\nu + \frac{1}{2}\sigma^2} \)</span><span class="math notranslate nohighlight">\(
-Set this equal to the target drift \)</span>S_t e^{\mu}<span class="math notranslate nohighlight">\(:
-\)</span><span class="math notranslate nohighlight">\( e^{\nu + \frac{1}{2}\sigma^2} = e^{\mu} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \nu = \mu - \frac{1}{2}\sigma^2 \)</span>$</p>
+<p>If <span class="math notranslate nohighlight">\(Y = e^X\)</span> where <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[ E[Y] = e^{\mu + \frac{1}{2}\sigma^2} \]</div>
+<p>We usually define the drift <span class="math notranslate nohighlight">\(\mu\)</span> in terms of the <em>expected rate of return</em> of the stock:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned} E[S_{t+1}] = S_t e^{\mu} $$ (using continuous compounding notation).\\Matching the expectations:\\$$ E[S_{t+1}] = S_t E[e^{\nu + \sigma Z}] = S_t e^{\nu + \frac{1}{2}\sigma^2} \end{aligned}\end{align} \]</div>
+<p>Set this equal to the target drift <span class="math notranslate nohighlight">\(S_t e^{\mu}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ e^{\nu + \frac{1}{2}\sigma^2} = e^{\mu} \]</div>
+<div class="math notranslate nohighlight">
+\[ \nu = \mu - \frac{1}{2}\sigma^2 \]</div>
 <p><strong>The GRW Generator Equation:</strong>
 To simulate a stock with expected return <span class="math notranslate nohighlight">\(\mu\)</span> and volatility <span class="math notranslate nohighlight">\(\sigma\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-S_{t+1} = S_t \exp\left( (\mu - \frac{1}{2}\sigma^2) + \sigma Z_t \right)
-\]</div>
-<p>The term <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2\)</span> is the <strong>Drift Adjustment</strong> or <strong>Convexity Adjustment</strong>. [cite_start]It accounts for the fact that volatility drags down the compounded geometric return relative to the arithmetic average. [cite: 865-867]</p>
+\[S_{t+1} = S_t \exp\left( (\mu - \frac{1}{2}\sigma^2) + \sigma Z_t \right)\]</div>
+<p>The term <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2\)</span> is the <strong>Drift Adjustment</strong> or <strong>Convexity Adjustment</strong>. It accounts for the fact that volatility drags down the compounded geometric return relative to the arithmetic average.</p>
 </section>
 <section id="id4">
 <h3>3. Properties over Time<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
@@ -780,10 +739,13 @@ Random draws <span class="math notranslate nohighlight">\(Z_1 = 0.5, Z_2 = -1.2,
 <p><strong>Problem:</strong> Corn price <span class="math notranslate nohighlight">\(S_0 = 5\)</span>. Long run mean <span class="math notranslate nohighlight">\(\mu = 4\)</span>. Mean reversion <span class="math notranslate nohighlight">\(\kappa = 0.20\)</span>. Volatility <span class="math notranslate nohighlight">\(\sigma = 0.75\)</span>. Calculate expected price at <span class="math notranslate nohighlight">\(t=5\)</span>.</p>
 <p><strong>Formula:</strong>
 <span class="math notranslate nohighlight">\(E[S_t] = \mu + (1-\kappa)^t (S_0 - \mu)\)</span>.</p>
-<p><strong>Calculation:</strong>
-$<span class="math notranslate nohighlight">\( E[S_5] = 4 + (1 - 0.20)^5 (5 - 4) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( E[S_5] = 4 + (0.8)^5 (1) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( E[S_5] = 4 + 0.32768 = 4.33 \)</span>$</p>
+<p><strong>Calculation:</strong></p>
+<div class="math notranslate nohighlight">
+\[ E[S_5] = 4 + (1 - 0.20)^5 (5 - 4) \]</div>
+<div class="math notranslate nohighlight">
+\[ E[S_5] = 4 + (0.8)^5 (1) \]</div>
+<div class="math notranslate nohighlight">
+\[ E[S_5] = 4 + 0.32768 = 4.33 \]</div>
 <p><strong>Interpretation:</strong>
 The price started high (5) relative to the mean (4). Over 5 years, it is expected to drift down towards 4, reaching 4.33.</p>
 </section>
@@ -793,10 +755,13 @@ The price started high (5) relative to the mean (4). Over 5 years, it is expecte
 <p><strong>Problem:</strong> A stock has an expected annual return of 10% (<span class="math notranslate nohighlight">\(\mu=0.10\)</span>) and volatility of 20% (<span class="math notranslate nohighlight">\(\sigma=0.20\)</span>). What is the mean of the <em>log-returns</em> (<span class="math notranslate nohighlight">\(\nu\)</span>)?</p>
 <p><strong>Formula:</strong>
 <span class="math notranslate nohighlight">\(\nu = \mu - \frac{1}{2}\sigma^2\)</span>.</p>
-<p><strong>Calculation:</strong>
-$<span class="math notranslate nohighlight">\( \nu = 0.10 - 0.5(0.20)^2 \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \nu = 0.10 - 0.5(0.04) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \nu = 0.10 - 0.02 = 0.08 \)</span>$</p>
+<p><strong>Calculation:</strong></p>
+<div class="math notranslate nohighlight">
+\[ \nu = 0.10 - 0.5(0.20)^2 \]</div>
+<div class="math notranslate nohighlight">
+\[ \nu = 0.10 - 0.5(0.04) \]</div>
+<div class="math notranslate nohighlight">
+\[ \nu = 0.10 - 0.02 = 0.08 \]</div>
 <p><strong>Result:</strong>
 Even though the arithmetic expected return is 10%, the most likely path (geometric drift) grows at 8%. This 2% drag is the “volatility tax.”</p>
 </section>
@@ -822,13 +787,15 @@ Alternatively: <span class="math notranslate nohighlight">\(\text{StdDev} = \sig
 <p><strong>Problem:</strong> For an OU process with <span class="math notranslate nohighlight">\(\sigma = 10\)</span> and <span class="math notranslate nohighlight">\(\kappa = 0.5\)</span>, what is the maximum long-term variance?</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
-<p>The variance of an OU process converges to:
-$<span class="math notranslate nohighlight">\( \lim_{t \to \infty} \text{Var}(S_t) = \frac{\sigma^2}{1 - (1-\kappa)^2} \approx \frac{\sigma^2}{2\kappa} \)</span><span class="math notranslate nohighlight">\(
-Using the approximate formula:
-\)</span><span class="math notranslate nohighlight">\( \text{Var} \approx \frac{100}{2(0.5)} = \frac{100}{1} = 100 \)</span><span class="math notranslate nohighlight">\(
-Using exact formula:
-Denominator \)</span>= 1 - (0.5)^2 = 1 - 0.25 = 0.75<span class="math notranslate nohighlight">\(.
-\)</span>\text{Var} = 100 / 0.75 = 133.33$.</p>
+<p>The variance of an OU process converges to:</p>
+<div class="math notranslate nohighlight">
+\[ \lim_{t \to \infty} \text{Var}(S_t) = \frac{\sigma^2}{1 - (1-\kappa)^2} \approx \frac{\sigma^2}{2\kappa} \]</div>
+<p>Using the approximate formula:</p>
+<div class="math notranslate nohighlight">
+\[ \text{Var} \approx \frac{100}{2(0.5)} = \frac{100}{1} = 100 \]</div>
+<p>Using exact formula:
+Denominator <span class="math notranslate nohighlight">\(= 1 - (0.5)^2 = 1 - 0.25 = 0.75\)</span>.
+<span class="math notranslate nohighlight">\(\text{Var} = 100 / 0.75 = 133.33\)</span>.</p>
 </details>
 </section>
 <section id="practice-problem-3-grw-simulation">
@@ -837,11 +804,15 @@ Denominator \)</span>= 1 - (0.5)^2 = 1 - 0.25 = 0.75<span class="math notranslat
 <p><strong>Problem:</strong> Simulate one step of a GRW. <span class="math notranslate nohighlight">\(S_0 = 100, \mu = 0.05, \sigma = 0.10, Z = -1\)</span>.</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
-<p>Formula: <span class="math notranslate nohighlight">\(S_1 = S_0 \exp(\mu - 0.5\sigma^2 + \sigma Z)\)</span>.
-$<span class="math notranslate nohighlight">\( S_1 = 100 \exp(0.05 - 0.5(0.01) + 0.1(-1)) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( S_1 = 100 \exp(0.05 - 0.005 - 0.1) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( S_1 = 100 \exp(-0.055) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( S_1 = 100 (0.9465) = 94.65 \)</span>$</p>
+<p>Formula: <span class="math notranslate nohighlight">\(S_1 = S_0 \exp(\mu - 0.5\sigma^2 + \sigma Z)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ S_1 = 100 \exp(0.05 - 0.5(0.01) + 0.1(-1)) \]</div>
+<div class="math notranslate nohighlight">
+\[ S_1 = 100 \exp(0.05 - 0.005 - 0.1) \]</div>
+<div class="math notranslate nohighlight">
+\[ S_1 = 100 \exp(-0.055) \]</div>
+<div class="math notranslate nohighlight">
+\[ S_1 = 100 (0.9465) = 94.65 \]</div>
 </details>
 </section>
 </section>
@@ -894,7 +865,6 @@ When moving from Normal shocks to Lognormal prices, we must subtract <span class
 </tbody>
 </table>
 </div>
-<hr class="docutils" />
 </section>
 </section>
 </section>

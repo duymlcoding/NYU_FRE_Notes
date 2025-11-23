@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -501,7 +501,7 @@ document.write(`
 <ul>
 <li><p><strong>Buyer’s Risk:</strong> Dying too soon (losing the investment value), Inflation eroding purchasing power, Insurer default.</p></li>
 <li><p><strong>Insurer’s Risk:</strong> Buyer living too long (Longevity risk), Low interest rates (Reinvestment risk), Regulatory changes.</p></li>
-<li><p>[cite_start]<em>Insight:</em> One party’s risk is often the other party’s opportunity or hedge. [cite: 331-333]</p></li>
+<li><p><em>Insight:</em> One party’s risk is often the other party’s opportunity or hedge.</p></li>
 </ul>
 </li>
 </ul>
@@ -522,37 +522,44 @@ Investors typically fear loss, not volatility per se.</p>
 <li><p><strong>Downside Deviation (Semi-deviation):</strong>
 $<span class="math notranslate nohighlight">\( \sigma_{down} = \sqrt{E[\min(0, X-\mu)^2]} \)</span>$</p></li>
 <li><p><strong>Value at Risk (VaR):</strong> The maximum loss with a certain confidence level (e.g., 95%).</p></li>
-<li><p>[cite_start]<strong>Conditional Tail Expectation (CTE):</strong> The expected loss <em>given</em> that the loss exceeds the VaR threshold (also called Expected Shortfall). [cite: 335-342]</p></li>
+<li><p><strong>Conditional Tail Expectation (CTE):</strong> The expected loss <em>given</em> that the loss exceeds the VaR threshold (also called Expected Shortfall).</p></li>
 </ul>
 </section>
 </section>
 <hr class="docutils" />
 <section id="part-2-the-gve-and-pricing-risk">
 <h2>Part 2: The GVE and Pricing Risk<a class="headerlink" href="#part-2-the-gve-and-pricing-risk" title="Link to this heading">#</a></h2>
-<p>The General Valuation Equation (GVE) remains our anchor.
-$<span class="math notranslate nohighlight">\( \text{Required Return} = \text{Expected Capital Gain} + \text{Expected Cash Flow} \)</span>$</p>
+<p>The General Valuation Equation (GVE) remains our anchor.</p>
+<div class="math notranslate nohighlight">
+\[ \text{Required Return} = \text{Expected Capital Gain} + \text{Expected Cash Flow} \]</div>
 <p>How do we account for risk in this equation? We have two primary methods.</p>
 <section id="method-1-risk-adjusted-discount-rate">
 <h3>Method 1: Risk-Adjusted Discount Rate<a class="headerlink" href="#method-1-risk-adjusted-discount-rate" title="Link to this heading">#</a></h3>
-<p>We add a risk premium to the risk-free rate.
-$<span class="math notranslate nohighlight">\( r_{adjusted} = r_{riskfree} + \kappa \)</span><span class="math notranslate nohighlight">\(
-Where \)</span>\kappa<span class="math notranslate nohighlight">\( is the risk premium.
-\)</span><span class="math notranslate nohighlight">\( V_0 = \frac{E[CF]}{1 + r + \kappa} \)</span>$</p>
-<p>This is the standard “CAPM” or “WACC” approach. [cite_start]It assumes risk grows over time (compounding). [cite: 344]</p>
+<p>We add a risk premium to the risk-free rate.</p>
+<div class="math notranslate nohighlight">
+\[ r_{adjusted} = r_{riskfree} + \kappa \]</div>
+<p>Where <span class="math notranslate nohighlight">\(\kappa\)</span> is the risk premium.</p>
+<div class="math notranslate nohighlight">
+\[ V_0 = \frac{E[CF]}{1 + r + \kappa} \]</div>
+<p>This is the standard “CAPM” or “WACC” approach. It assumes risk grows over time (compounding).</p>
 </section>
 <section id="method-2-certainty-equivalent">
 <h3>Method 2: Certainty Equivalent<a class="headerlink" href="#method-2-certainty-equivalent" title="Link to this heading">#</a></h3>
-<p>We adjust the <em>cash flow</em> for risk, then discount at the risk-free rate.
-$<span class="math notranslate nohighlight">\( \text{Certainty Equivalent (CE)} = E[CF] - \text{Risk Charge} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( V_0 = \frac{CE}{1 + r} \)</span>$</p>
-<p>If we define the Risk Charge as a multiple of volatility (<span class="math notranslate nohighlight">\(\lambda \sigma\)</span>):
-$<span class="math notranslate nohighlight">\( V_0 = \frac{\mu - \lambda \sigma}{1 + r} \)</span>$</p>
+<p>We adjust the <em>cash flow</em> for risk, then discount at the risk-free rate.</p>
+<div class="math notranslate nohighlight">
+\[ \text{Certainty Equivalent (CE)} = E[CF] - \text{Risk Charge} \]</div>
+<div class="math notranslate nohighlight">
+\[ V_0 = \frac{CE}{1 + r} \]</div>
+<p>If we define the Risk Charge as a multiple of volatility (<span class="math notranslate nohighlight">\(\lambda \sigma\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[ V_0 = \frac{\mu - \lambda \sigma}{1 + r} \]</div>
 <p><strong>Equivalence:</strong>
-If we set the risk premium <span class="math notranslate nohighlight">\(\kappa\)</span> such that the two prices are equal, we find that for a single period:
-$<span class="math notranslate nohighlight">\( \frac{\mu}{1 + r + \kappa} = \frac{\mu - \lambda \sigma}{1 + r} \)</span><span class="math notranslate nohighlight">\(
-[cite_start]This implies a relationship between the &quot;price of risk&quot; \)</span>\lambda<span class="math notranslate nohighlight">\( and the &quot;risk premium&quot; \)</span>\kappa$. [cite: 345-348]</p>
+If we set the risk premium <span class="math notranslate nohighlight">\(\kappa\)</span> such that the two prices are equal, we find that for a single period:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\mu}{1 + r + \kappa} = \frac{\mu - \lambda \sigma}{1 + r} \]</div>
+<p>This implies a relationship between the “price of risk” <span class="math notranslate nohighlight">\(\lambda\)</span> and the “risk premium” <span class="math notranslate nohighlight">\(\kappa\)</span>.</p>
 <p><strong>Why Method 2 is Powerful:</strong>
-Method 1 (adjusting rates) is hard to apply to derivatives or short positions where the initial investment might be zero or negative. [cite_start]Method 2 (adjusting cash flows) works universally because we always discount at <span class="math notranslate nohighlight">\(r\)</span>. [cite: 357]</p>
+Method 1 (adjusting rates) is hard to apply to derivatives or short positions where the initial investment might be zero or negative. Method 2 (adjusting cash flows) works universally because we always discount at <span class="math notranslate nohighlight">\(r\)</span>.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -572,19 +579,22 @@ Method 1 (adjusting rates) is hard to apply to derivatives or short positions wh
 <li><p>Startup Risk Capital = $100.</p></li>
 <li><p>Blue Chip Risk Capital = $20. (The other $80 is effectively a risk-free deposit).</p></li>
 </ul>
-<p><strong>Return on Risk Capital:</strong>
-$<span class="math notranslate nohighlight">\( \text{RORC} = \frac{\text{Expected Return} - \text{Risk Free Return}}{\text{Risk Capital}} \)</span>$
-[cite_start]This metric often reveals that “low return” assets are actually highly profitable relative to the small amount of <em>true</em> risk they entail. [cite: 366-371]</p>
+<p><strong>Return on Risk Capital:</strong></p>
+<div class="math notranslate nohighlight">
+\[ \text{RORC} = \frac{\text{Expected Return} - \text{Risk Free Return}}{\text{Risk Capital}} \]</div>
+<p>This metric often reveals that “low return” assets are actually highly profitable relative to the small amount of <em>true</em> risk they entail.</p>
 </section>
 <section id="the-sharpe-ratio">
 <h3>2. The Sharpe Ratio<a class="headerlink" href="#the-sharpe-ratio" title="Link to this heading">#</a></h3>
 <p>The Sharpe Ratio is the premier metric for “Return per unit of Risk.”</p>
-<p><strong>Percentage Definition:</strong>
-$<span class="math notranslate nohighlight">\( \text{Sharpe} = \frac{E[r_i] - r_f}{\sigma_i} \)</span>$</p>
-<p><strong>Dollarized Definition:</strong>
-$<span class="math notranslate nohighlight">\( \text{Sharpe} = \frac{E[\text{Profit}] - \text{Financing Cost}}{\text{Risk Measure (e.g., } \sigma_{\$} \text{)}} \)</span>$</p>
+<p><strong>Percentage Definition:</strong></p>
+<div class="math notranslate nohighlight">
+\[ \text{Sharpe} = \frac{E[r_i] - r_f}{\sigma_i} \]</div>
+<p><strong>Dollarized Definition:</strong></p>
+<div class="math notranslate nohighlight">
+\[ \text{Sharpe} = \frac{E[\text{Profit}] - \text{Financing Cost}}{\text{Risk Measure (e.g., } \sigma_{\$} \text{)}} \]</div>
 <p><strong>Connection to GVE:</strong>
-The Dollarized Sharpe Ratio is exactly the “Price of Risk” parameter <span class="math notranslate nohighlight">\(\lambda\)</span> (or <span class="math notranslate nohighlight">\(\theta\)</span>) we used in previous chapters. [cite_start]It represents how many dollars of expected return the market demands for taking one dollar (or unit) of volatility risk. [cite: 395-397]</p>
+The Dollarized Sharpe Ratio is exactly the “Price of Risk” parameter <span class="math notranslate nohighlight">\(\lambda\)</span> (or <span class="math notranslate nohighlight">\(\theta\)</span>) we used in previous chapters. It represents how many dollars of expected return the market demands for taking one dollar (or unit) of volatility risk.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -603,47 +613,33 @@ The Dollarized Sharpe Ratio is exactly the “Price of Risk” parameter <span c
 <h3>2. Return on Equity<a class="headerlink" href="#return-on-equity" title="Link to this heading">#</a></h3>
 <p>The return on the equity (<span class="math notranslate nohighlight">\(r_E\)</span>) is the return on the asset minus the interest on debt, scaled by the equity base.</p>
 <div class="math notranslate nohighlight">
-\[
-r_E = \frac{A(1+r_A) - D(1+r)}{E} - 1
-\]</div>
+\[r_E = \frac{A(1+r_A) - D(1+r)}{E} - 1\]</div>
 <p>Simplifying (since <span class="math notranslate nohighlight">\(A = E+D\)</span>):</p>
 <div class="math notranslate nohighlight">
-\[
-E[r_E] = r + \frac{A}{E} (E[r_A] - r)
-\]</div>
+\[E[r_E] = r + \frac{A}{E} (E[r_A] - r)\]</div>
 <p><strong>Implication:</strong> The expected return on equity increases linearly with leverage (<span class="math notranslate nohighlight">\(A/E\)</span>).</p>
 </section>
 <section id="volatility-of-equity">
 <h3>3. Volatility of Equity<a class="headerlink" href="#volatility-of-equity" title="Link to this heading">#</a></h3>
 <p>Since <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(r\)</span> are constant, the volatility comes solely from <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-\sigma_E = \frac{A}{E} \sigma_A
-\]</div>
+\[\sigma_E = \frac{A}{E} \sigma_A\]</div>
 <p><strong>Implication:</strong> The risk of equity also increases linearly with leverage.</p>
 </section>
 <section id="the-invariance-of-the-sharpe-ratio">
 <h3>4. The Invariance of the Sharpe Ratio<a class="headerlink" href="#the-invariance-of-the-sharpe-ratio" title="Link to this heading">#</a></h3>
 <p>Let’s calculate the Sharpe Ratio of the levered equity:</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Sharpe}_E = \frac{E[r_E] - r}{\sigma_E}
-\]</div>
+\[\text{Sharpe}_E = \frac{E[r_E] - r}{\sigma_E}\]</div>
 <p>Substitute the formulas derived above:</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Sharpe}_E = \frac{\left( r + \frac{A}{E} (E[r_A] - r) \right) - r}{\frac{A}{E} \sigma_A}
-\]</div>
+\[\text{Sharpe}_E = \frac{\left( r + \frac{A}{E} (E[r_A] - r) \right) - r}{\frac{A}{E} \sigma_A}\]</div>
 <div class="math notranslate nohighlight">
-\[
-\text{Sharpe}_E = \frac{\frac{A}{E} (E[r_A] - r)}{\frac{A}{E} \sigma_A}
-\]</div>
+\[\text{Sharpe}_E = \frac{\frac{A}{E} (E[r_A] - r)}{\frac{A}{E} \sigma_A}\]</div>
 <p>The leverage ratio <span class="math notranslate nohighlight">\(A/E\)</span> cancels out!</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Sharpe}_E = \frac{E[r_A] - r}{\sigma_A} = \text{Sharpe}_A
-\]</div>
-<p><strong>Conclusion:</strong> Financial leverage increases risk and expected return proportionally. It does <strong>not</strong> create value (increase the Sharpe Ratio). [cite_start]Value is created only by finding assets with superior underlying risk-return profiles. [cite: 413-415]</p>
+\[\text{Sharpe}_E = \frac{E[r_A] - r}{\sigma_A} = \text{Sharpe}_A\]</div>
+<p><strong>Conclusion:</strong> Financial leverage increases risk and expected return proportionally. It does <strong>not</strong> create value (increase the Sharpe Ratio). Value is created only by finding assets with superior underlying risk-return profiles.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -654,9 +650,7 @@ E[r_E] = r + \frac{A}{E} (E[r_A] - r)
 <h3>1. The Linear Model<a class="headerlink" href="#the-linear-model" title="Link to this heading">#</a></h3>
 <p>We model the excess return of Asset <span class="math notranslate nohighlight">\(i\)</span> against the Market Benchmark <span class="math notranslate nohighlight">\(m\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-(r_i - r) = \alpha + \beta (r_m - r) + \epsilon
-\]</div>
+\[(r_i - r) = \alpha + \beta (r_m - r) + \epsilon\]</div>
 <p>Where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\beta\)</span>: Systematic risk (sensitivity to market).</p></li>
@@ -667,20 +661,16 @@ E[r_E] = r + \frac{A}{E} (E[r_A] - r)
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\beta = \frac{\text{Cov}(r_i, r_m)}{\text{Var}(r_m)}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(E[\epsilon] = 0\)</span></p></li>
-<li><p>[cite_start]<span class="math notranslate nohighlight">\(\text{Cov}(\epsilon, r_m) = 0\)</span> (Residuals are uncorrelated with the factor). [cite: 490]</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{Cov}(\epsilon, r_m) = 0\)</span> (Residuals are uncorrelated with the factor).</p></li>
 </ul>
 </section>
 <section id="pricing-risk-components">
 <h3>2. Pricing Risk Components<a class="headerlink" href="#pricing-risk-components" title="Link to this heading">#</a></h3>
 <p>The variance decomposes into two parts:</p>
 <div class="math notranslate nohighlight">
-\[
-\text{Var}(r_i) = \beta^2 \text{Var}(r_m) + \text{Var}(\epsilon)
-\]</div>
+\[\text{Var}(r_i) = \beta^2 \text{Var}(r_m) + \text{Var}(\epsilon)\]</div>
 <div class="math notranslate nohighlight">
-\[
-\text{Total Risk} = \text{Systematic Risk} + \text{Idiosyncratic Risk}
-\]</div>
+\[\text{Total Risk} = \text{Systematic Risk} + \text{Idiosyncratic Risk}\]</div>
 <p><strong>Pricing Principle:</strong></p>
 <ul class="simple">
 <li><p><strong>Systematic Risk</strong> is priced. The market demands a premium for <span class="math notranslate nohighlight">\(\beta\)</span>.</p></li>
@@ -688,10 +678,8 @@ E[r_E] = r + \frac{A}{E} (E[r_A] - r)
 </ul>
 <p><strong>Resulting Valuation (CAPM):</strong></p>
 <div class="math notranslate nohighlight">
-\[
-E[r_i] = r + \beta (E[r_m] - r)
-\]</div>
-<p>[cite_start]This is the discount rate we use for the asset. [cite: 499]</p>
+\[E[r_i] = r + \beta (E[r_m] - r)\]</div>
+<p>This is the discount rate we use for the asset.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -710,8 +698,8 @@ We have a factory. Its cash flow <span class="math notranslate nohighlight">\(CF
 <li><p>Intercept <span class="math notranslate nohighlight">\(a = 3091\)</span>. (Wait, let’s check the slide data).</p>
 <ul>
 <li><p>Slide 79: Regression Line <span class="math notranslate nohighlight">\(y = 3280 + 3091 x\)</span>.</p></li>
-<li><p>This means intercept <span class="math notranslate nohighlight">\(a = 3280\)</span>. Slope <span class="math notranslate nohighlight">\(b = 3091\)</span>. (Actually, let’s re-read slide 79 carefully).
-[cite_start]* [cite: 520] “Regression Line y = 3280 + 3091 x”.</p></li>
+<li><p>This means intercept <span class="math notranslate nohighlight">\(a = 3280\)</span>. Slope <span class="math notranslate nohighlight">\(b = 3091\)</span>. (Actually, let’s re-read slide 79 carefully).</p></li>
+<li><p>“Regression Line y = 3280 + 3091 x”.</p></li>
 <li><p>Standard notation <span class="math notranslate nohighlight">\(y = a + bx\)</span>. So <span class="math notranslate nohighlight">\(a=3280\)</span>, <span class="math notranslate nohighlight">\(b=3091\)</span>.</p></li>
 <li><p>Wait, slide 81 calculates “Covariance” using “mb_sigma^2”.</p></li>
 <li><p>Slide 81 says <span class="math notranslate nohighlight">\(b = 41.29\)</span>. Where did 3091 come from?</p></li>
@@ -721,45 +709,53 @@ We have a factory. Its cash flow <span class="math notranslate nohighlight">\(CF
 </li>
 </ul>
 <p><strong>Method A: Certainty Equivalent (The Robust Way)</strong></p>
-<p><strong>Step 1: Determine the Market Price of Risk (<span class="math notranslate nohighlight">\(\lambda\)</span>)</strong>
-$<span class="math notranslate nohighlight">\( \lambda = \frac{E[r_m] - r}{\sigma_m} = \frac{7.76\% - 3.00\%}{11.22\%} = \frac{4.76\%}{11.22\%} = 0.424 \)</span><span class="math notranslate nohighlight">\(
-(Note: The text calculates a parameter called \)</span>\lambda<span class="math notranslate nohighlight">\( differently on slide 78 as \)</span>\frac{\mu_m - r}{\sigma_m^2}<span class="math notranslate nohighlight">\(. Let's follow the text's specific formula).
-[cite_start]Text formula[cite: 518]: \)</span>\frac{E[r_m] - r}{\sigma_m^2}<span class="math notranslate nohighlight">\(.
-Calculation: \)</span>\frac{0.0776 - 0.03}{0.1122^2} = \frac{0.0476}{0.012589} = 3.78$.</p>
+<p><strong>Step 1: Determine the Market Price of Risk (<span class="math notranslate nohighlight">\(\lambda\)</span>)</strong></p>
+<div class="math notranslate nohighlight">
+\[ \lambda = \frac{E[r_m] - r}{\sigma_m} = \frac{7.76\% - 3.00\%}{11.22\%} = \frac{4.76\%}{11.22\%} = 0.424 \]</div>
+<p>(Note: The text calculates a parameter called <span class="math notranslate nohighlight">\(\lambda\)</span> differently on slide 78 as <span class="math notranslate nohighlight">\(\frac{\mu_m - r}{\sigma_m^2}\)</span>. Let’s follow the text’s specific formula).
+Text formula: <span class="math notranslate nohighlight">\(\frac{E[r_m] - r}{\sigma_m^2}\)</span>.
+Calculation: <span class="math notranslate nohighlight">\(\frac{0.0776 - 0.03}{0.1122^2} = \frac{0.0476}{0.012589} = 3.78\)</span>.</p>
 <p><strong>Step 2: Calculate Covariance with Market</strong>
 Slope <span class="math notranslate nohighlight">\(b_{reg} = \frac{\text{Cov}(CF, r_m)}{\text{Var}(r_m)}\)</span>.
 So <span class="math notranslate nohighlight">\(\text{Cov}(CF, r_m) = b_{reg} \times \sigma_m^2\)</span>.
 (Slide 81 has a confusing calculation. Let’s use the standard formula derived in slide 58).
 Slope <span class="math notranslate nohighlight">\(b = \text{Cov}(Y,X)/\text{Var}(X)\)</span>.
-[cite_start]In the example[cite: 520], the regression equation is <span class="math notranslate nohighlight">\(CF = 3280 + 3091 r_m\)</span>.
+In the example, the regression equation is <span class="math notranslate nohighlight">\(CF = 3280 + 3091 r_m\)</span>.
 So slope <span class="math notranslate nohighlight">\(b = 3091\)</span>.
 <span class="math notranslate nohighlight">\(\text{Cov}(CF, r_m) = 3091 \times (0.1122)^2 = 3091 \times 0.012589 = 38.91\)</span>.
 (The text gets 41.29. This suggests the regression coefficients in the slide example might be slightly different or rounded). Let’s use the text’s value of <strong>41.29</strong>.</p>
-<p><strong>Step 3: Calculate Expected Cash Flow</strong>
-$<span class="math notranslate nohighlight">\( E[CF] = a + b E[r_m] \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( E[CF] = 3280 + 3091(0.0776) \)</span><span class="math notranslate nohighlight">\( (Using regression params).
-[cite_start]Text says \)</span>E[CF] = 3345.53$.[cite: 527].</p>
-<p><strong>Step 4: Calculate Certainty Equivalent</strong>
-$<span class="math notranslate nohighlight">\( CE = E[CF] - \text{Risk Charge} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \text{Risk Charge} = \lambda \times \text{Cov}(CF, r_m) \)</span><span class="math notranslate nohighlight">\(
-Using the text's \)</span>\lambda<span class="math notranslate nohighlight">\( (which was 3.78):
-\)</span><span class="math notranslate nohighlight">\( \text{Risk Charge} = 3.78 \times 41.29 = 156.08 \)</span><span class="math notranslate nohighlight">\(
-Wait, let's check the formula on slide 78: \)</span>V_0 = \frac{E[CF] - \lambda \text{Cov}}{1+r}<span class="math notranslate nohighlight">\(.
-\)</span>CE = 3345.53 - (3.78 \times 41.29)<span class="math notranslate nohighlight">\(.
+<p><strong>Step 3: Calculate Expected Cash Flow</strong></p>
+<div class="math notranslate nohighlight">
+\[ E[CF] = a + b E[r_m] \]</div>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned} E[CF] = 3280 + 3091(0.0776) $$ (Using regression params).
+Text says $E[CF] = 3345.53$..\\**Step 4: Calculate Certainty Equivalent**\\$$ CE = E[CF] - \text{Risk Charge} \end{aligned}\end{align} \]</div>
+<div class="math notranslate nohighlight">
+\[ \text{Risk Charge} = \lambda \times \text{Cov}(CF, r_m) \]</div>
+<p>Using the text’s <span class="math notranslate nohighlight">\(\lambda\)</span> (which was 3.78):</p>
+<div class="math notranslate nohighlight">
+\[ \text{Risk Charge} = 3.78 \times 41.29 = 156.08 \]</div>
+<p>Wait, let’s check the formula on slide 78: <span class="math notranslate nohighlight">\(V_0 = \frac{E[CF] - \lambda \text{Cov}}{1+r}\)</span>.
+<span class="math notranslate nohighlight">\(CE = 3345.53 - (3.78 \times 41.29)\)</span>.
 Actually, the text calculates this as:
-[cite_start]\)</span>V_0 = \frac{3345.53 - 3.78(41.29)}{1.03} = \frac{3345.53 - 156.07}{1.03} = \frac{3189.46}{1.03} = 3096.56$. [cite: 528]</p>
+<span class="math notranslate nohighlight">\(V_0 = \frac{3345.53 - 3.78(41.29)}{1.03} = \frac{3345.53 - 156.07}{1.03} = \frac{3189.46}{1.03} = 3096.56\)</span>.</p>
 <p><strong>Method B: Risk-Adjusted Rate (CAPM)</strong></p>
-<p><strong>Step 1: Calculate Beta</strong>
-$<span class="math notranslate nohighlight">\( \beta = \frac{\text{Cov}(CF, r_m)}{\text{Var}(r_m) \times V_0} \)</span><span class="math notranslate nohighlight">\(
-Problem: We don't know \)</span>V_0<span class="math notranslate nohighlight">\( yet! This is why Method A is better for non-traded assets.
-However, if we iterate or assume the value found in Method A (\)</span>V_0 = 3096.56<span class="math notranslate nohighlight">\():
-\)</span><span class="math notranslate nohighlight">\( \text{Cov}(r_i, r_m) = \frac{\text{Cov}(CF, r_m)}{V_0} = \frac{41.29}{3096.56} = 0.0133 \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \beta = \frac{0.0133}{(0.1122)^2} = 1.06 \)</span>$</p>
-<p><strong>Step 2: Calculate Discount Rate</strong>
-$<span class="math notranslate nohighlight">\( r_{adj} = 3\% + 1.06(7.76\% - 3\%) = 3\% + 1.06(4.76\%) = 8.04\% \)</span>$</p>
-<p><strong>Step 3: Calculate PV</strong>
-$<span class="math notranslate nohighlight">\( V_0 = \frac{E[CF]}{1 + r_{adj}} = \frac{3345.53}{1.0804} = 3096.56 \)</span>$</p>
-<p>[cite_start]<strong>Result:</strong> Both methods yield the exact same value. [cite: 533-534]</p>
+<p><strong>Step 1: Calculate Beta</strong></p>
+<div class="math notranslate nohighlight">
+\[ \beta = \frac{\text{Cov}(CF, r_m)}{\text{Var}(r_m) \times V_0} \]</div>
+<p>Problem: We don’t know <span class="math notranslate nohighlight">\(V_0\)</span> yet! This is why Method A is better for non-traded assets.
+However, if we iterate or assume the value found in Method A (<span class="math notranslate nohighlight">\(V_0 = 3096.56\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[ \text{Cov}(r_i, r_m) = \frac{\text{Cov}(CF, r_m)}{V_0} = \frac{41.29}{3096.56} = 0.0133 \]</div>
+<div class="math notranslate nohighlight">
+\[ \beta = \frac{0.0133}{(0.1122)^2} = 1.06 \]</div>
+<p><strong>Step 2: Calculate Discount Rate</strong></p>
+<div class="math notranslate nohighlight">
+\[ r_{adj} = 3\% + 1.06(7.76\% - 3\%) = 3\% + 1.06(4.76\%) = 8.04\% \]</div>
+<p><strong>Step 3: Calculate PV</strong></p>
+<div class="math notranslate nohighlight">
+\[ V_0 = \frac{E[CF]}{1 + r_{adj}} = \frac{3345.53}{1.0804} = 3096.56 \]</div>
+<p><strong>Result:</strong> Both methods yield the exact same value.</p>
 </section>
 <hr class="docutils" />
 <section id="part-7-practice-problems">
@@ -797,24 +793,32 @@ Excess Dollar Return: <span class="math notranslate nohighlight">\(100 - 20 = 80
 <li><p><span class="math notranslate nohighlight">\(r = 2\%\)</span></p></li>
 <li><p>Leverage Ratio <span class="math notranslate nohighlight">\(A/E = 2\)</span>.</p></li>
 </ul>
-<p><strong>Return:</strong>
-$<span class="math notranslate nohighlight">\( E[r_E] = r + \frac{A}{E}(E[r_A] - r) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( E[r_E] = 0.02 + 2(0.10 - 0.02) = 0.02 + 2(0.08) = 0.18 = 18\% \)</span>$</p>
-<p><strong>Volatility:</strong>
-$<span class="math notranslate nohighlight">\( \sigma_E = \frac{A}{E} \sigma_A \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \sigma_E = 2(20\%) = 40\% \)</span>$</p>
-<p><strong>Check Sharpe Ratio:</strong>
-$<span class="math notranslate nohighlight">\( \text{Sharpe}_A = \frac{10-2}{20} = 0.4 \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \text{Sharpe}_E = \frac{18-2}{40} = 0.4 \)</span>$
-The Sharpe Ratio is invariant.</p>
+<p><strong>Return:</strong></p>
+<div class="math notranslate nohighlight">
+\[ E[r_E] = r + \frac{A}{E}(E[r_A] - r) \]</div>
+<div class="math notranslate nohighlight">
+\[ E[r_E] = 0.02 + 2(0.10 - 0.02) = 0.02 + 2(0.08) = 0.18 = 18\% \]</div>
+<p><strong>Volatility:</strong></p>
+<div class="math notranslate nohighlight">
+\[ \sigma_E = \frac{A}{E} \sigma_A \]</div>
+<div class="math notranslate nohighlight">
+\[ \sigma_E = 2(20\%) = 40\% \]</div>
+<p><strong>Check Sharpe Ratio:</strong></p>
+<div class="math notranslate nohighlight">
+\[ \text{Sharpe}_A = \frac{10-2}{20} = 0.4 \]</div>
+<div class="math notranslate nohighlight">
+\[ \text{Sharpe}_E = \frac{18-2}{40} = 0.4 \]</div>
+<p>The Sharpe Ratio is invariant.</p>
 </section>
 <section id="practice-problem-3-implied-market-price-of-risk">
 <h3>Practice Problem 3: Implied Market Price of Risk<a class="headerlink" href="#practice-problem-3-implied-market-price-of-risk" title="Link to this heading">#</a></h3>
 <p>:class: tip</p>
 <p><strong>Problem:</strong> The market index has an expected return of 8% and volatility of 15%. The risk-free rate is 3%. A project has a covariance with the market of 0.0045 (in return terms). What is the required risk premium for this project?</p>
-<p><strong>Formula:</strong>
-$<span class="math notranslate nohighlight">\( \text{Risk Premium} = \beta \times (E[r_m] - r) \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \beta = \frac{\text{Cov}(r_i, r_m)}{\text{Var}(r_m)} \)</span>$</p>
+<p><strong>Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[ \text{Risk Premium} = \beta \times (E[r_m] - r) \]</div>
+<div class="math notranslate nohighlight">
+\[ \beta = \frac{\text{Cov}(r_i, r_m)}{\text{Var}(r_m)} \]</div>
 <p><strong>Step 1: Calculate Beta</strong>
 <span class="math notranslate nohighlight">\(\text{Var}(r_m) = (0.15)^2 = 0.0225\)</span>.
 <span class="math notranslate nohighlight">\(\beta = 0.0045 / 0.0225 = 0.2\)</span>.</p>
@@ -837,9 +841,10 @@ Do not confuse the amount of money wired to a broker with the amount of “Risk 
 <p><strong>3. Leverage is a Magnifier:</strong>
 Modigliani-Miller teaches us that financial engineering (leverage) cannot create value in a vacuum. It linearly scales both return and risk, leaving the fundamental quality of the investment (Sharpe Ratio) unchanged.</p>
 <p><strong>4. The Certainty Equivalent:</strong>
-For complex, non-traded assets, don’t guess a discount rate. Use the benchmark method:
-$<span class="math notranslate nohighlight">\( V_0 = \frac{E[CF] - \frac{E[r_m]-r}{\sigma_m^2}\text{Cov}(CF, r_m)}{1+r} \)</span>$
-This separates the market’s price of risk from the asset’s specific quantity of risk.</p>
+For complex, non-traded assets, don’t guess a discount rate. Use the benchmark method:</p>
+<div class="math notranslate nohighlight">
+\[ V_0 = \frac{E[CF] - \frac{E[r_m]-r}{\sigma_m^2}\text{Cov}(CF, r_m)}{1+r} \]</div>
+<p>This separates the market’s price of risk from the asset’s specific quantity of risk.</p>
 </section>
 <section id="formula-cheat-sheet">
 <h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
