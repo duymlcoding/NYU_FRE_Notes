@@ -45,20 +45,20 @@ To build flexible models in Excel or Python, we must first standardize our notat
 
 ### Standard Notation
 
-* [cite_start]**$i$**: A floating point in time (often the current evaluation date)[cite: 1].
-* [cite_start]**$s$**: A fixed starting point in time for payments[cite: 1].
-* [cite_start]**$n$**: The date of the final payment (or number of payments)[cite: 1].
-* [cite_start]**$r$**: The risk-free rate of interest (simple annual or discount rate)[cite: 1].
-* [cite_start]**$C$**: Amount of a single flat cash flow[cite: 1].
-* [cite_start]**$g$**: Percentage growth rate in cash flow (Geometric growth), where $C_{i+1} = C_i(1+g)$[cite: 2, 3].
-* [cite_start]**$b$**: Fixed dollar increase in cash flow (Linear growth), where $C_{i+1} = C_i + b$[cite: 3, 4].
-* [cite_start]**$\mu$**: Long-run mean (asymptotic) cash payment for mean-reverting processes[cite: 4].
-* [cite_start]**$\kappa$**: Speed of mean reversion; the expected percentage movement toward the long-run mean in one period[cite: 4].
-* [cite_start]**$v$**: The discount factor, defined as $v = 1/(1+r)$[cite: 10].
+* **$i$**: A floating point in time (often the current evaluation date).
+* **$s$**: A fixed starting point in time for payments.
+* **$n$**: The date of the final payment (or number of payments).
+* **$r$**: The risk-free rate of interest (simple annual or discount rate).
+* **$C$**: Amount of a single flat cash flow.
+* **$g$**: Percentage growth rate in cash flow (Geometric growth), where $C_{i+1} = C_i(1+g)$.
+* **$b$**: Fixed dollar increase in cash flow (Linear growth), where $C_{i+1} = C_i + b$.
+* **$\mu$**: Long-run mean (asymptotic) cash payment for mean-reverting processes.
+* **$\kappa$**: Speed of mean reversion; the expected percentage movement toward the long-run mean in one period.
+* **$v$**: The discount factor, defined as $v = 1/(1+r)$.
 
 ### The "Back Sweep" Method for Single Cash Flows
 
-[cite_start]Before attacking infinite streams, let us verify our valuation logic on a single future cash flow using the **Back Sweep** method and the **GVE**[cite: 3].
+Before attacking infinite streams, let us verify our valuation logic on a single future cash flow using the **Back Sweep** method and the **GVE**.
 
 **Strategy:** Start at the maturity date and work backwards recursively.
 
@@ -68,54 +68,66 @@ Suppose a payment $C_2$ is due at time $i=2$.
 The value of cash immediately upon receipt is the cash itself.
 
 $$
+
 V_2 = C_2
+
 $$
 
-[cite_start][cite: 4]
+
 
 **Step 2: Value at Time 1 (Back Sweep)**
 Using the GVE: $r V_1 = (V_2 - V_1) + \text{Cash Flow at 1}$.
 Since there is no cash flow at time 1 ($CF_1 = 0$) and $V_2 = C_2$:
 
 $$
+
 r V_1 = (C_2 - V_1)
+
 $$
 
 Rearranging:
 
 $$
+
 V_1(1+r) = C_2 \implies V_1 = \frac{C_2}{(1+r)}
+
 $$
 
-[cite_start][cite: 11]
+
 
 **Step 3: Value at Time 0**
 Repeat the process:
 
 $$
+
 r V_0 = (V_1 - V_0)
+
 $$
 
 $$
+
 V_0 = \frac{V_1}{(1+r)} = \frac{C_2}{(1+r)^2}
+
 $$
 
-[cite_start][cite: 11]
+
 
 **Generalization:**
 By induction, the present value of a single cash flow $C$ at time $i$ is:
 
 $$
+
 V_0 = \frac{C}{(1+r)^i}
+
 $$
 
-[cite_start][cite: 6]
+
 
 ---
 
 ## Part 2: Perpetuities
 
-[cite_start]A **Perpetuity** is an annuity that continues forever[cite: 1]. While "forever" rarely exists in practice, many financial instruments (like preferred stock or consols) are modeled this way.
+A **Perpetuity** is an annuity that continues forever. While "forever" rarely exists in practice, many financial instruments (like preferred stock or consols) are modeled this way.
 
 ### 1. The Standard Perpetuity
 
@@ -124,59 +136,77 @@ We wish to value a stream of constant payments $C$ starting one period from now 
 #### Derivation 1: The Infinite Series Sum
 
 $$
+
 V_0 = \sum_{i=1}^{\infty} \frac{C}{(1+r)^i}
+
 $$
 
-[cite_start][cite: 6]
+
 
 Let $v = 1/(1+r)$. The sum can be written as:
 
 $$
+
 S = C(v + v^2 + v^3 + \dots)
+
 $$
 
-[cite_start][cite: 10]
+
 
 Multiply the entire series by $v$:
 
 $$
+
 vS = C(v^2 + v^3 + v^4 + \dots)
+
 $$
 
 Subtract the second equation from the first:
 
 $$
+
 S - vS = C(v - 0)
+
 $$
 
 $$
+
 S(1-v) = Cv
+
 $$
 
 Substitute $v = 1/(1+r)$ back in:
 
 $$
+
 S \left( 1 - \frac{1}{1+r} \right) = \frac{C}{1+r}
+
 $$
 
 $$
+
 S \left( \frac{1+r-1}{1+r} \right) = \frac{C}{1+r}
+
 $$
 
 $$
+
 S \cdot \frac{r}{1+r} = \frac{C}{1+r}
+
 $$
 
 $$
+
 V_0 = S = \frac{C}{r}
+
 $$
 
-[cite_start][cite: 14]
+
 
 #### Derivation 2: The General Valuation Equation (GVE) Approach
 
 This method is often faster and more intuitive for financial engineers.
-[cite_start]**GVE:** $Required Return = Expected Capital Gain + Expected Cash Flow$[cite: 16].
+**GVE:** $Required Return = Expected Capital Gain + Expected Cash Flow$.
 
 For a perpetuity paying $C$:
 1.  **Cash Flow:** Expected $CF = C$.
@@ -185,21 +215,25 @@ For a perpetuity paying $C$:
 Substitute into GVE:
 
 $$
+
 r V_0 = (0) + C
+
 $$
 
 $$
+
 V_0 = \frac{C}{r}
+
 $$
 
-[cite_start][cite: 24]
+
 
 ### 2. The Growing Perpetuity ($PVGP$)
 
 Now consider a stream where each payment grows by a factor $g$.
 $C_1 = C$, $C_2 = C(1+g)$, $C_3 = C(1+g)^2$, etc.
 
-[cite_start]**Condition for Convergence:** The discount rate $r$ must be greater than the growth rate $g$ ($r > g$)[cite: 36].
+**Condition for Convergence:** The discount rate $r$ must be greater than the growth rate $g$ ($r > g$).
 
 #### Derivation via "Phantom Payment" and Adjusted Rate
 
@@ -209,24 +243,30 @@ Let the "Phantom Payment" be the initial cash flow $C_1$ adjusted for growth? No
 The summation is:
 
 $$
+
 V_0 = \sum_{i=1}^{\infty} \frac{C_1 (1+g)^{i-1}}{(1+r)^i} = \frac{C_1}{1+g} \sum_{i=1}^{\infty} \left( \frac{1+g}{1+r} \right)^i
+
 $$
 
-[cite_start][cite: 35]
+
 
 We define a new "growth-adjusted" discount factor $v^*$:
 
 $$
+
 v^* = \frac{1+g}{1+r}
+
 $$
 
 This implies a new effective discount rate $r^*$:
 
 $$
+
 \frac{1}{1+r^*} = \frac{1+g}{1+r} \implies r^* = \frac{1+r}{1+g} - 1 = \frac{r-g}{1+g}
+
 $$
 
-[cite_start][cite: 36, 75]
+
 
 Using the standard perpetuity formula $V_0 = \frac{\text{First Payment}}{r^*}$:
 However, we must be careful with the "First Payment". In the transformed summation, the term outside is $C_1/(1+g)$.
@@ -235,50 +275,64 @@ Actually, the text provides a simpler derivation using the GVE.
 #### Derivation via GVE
 
 $$
+
 r V_0 = E[V_1 - V_0] + C_1
+
 $$
 
-[cite_start][cite: 76]
+
 
 Key Insight: For a growing perpetuity, the value at time 1 ($V_1$) is exactly $(1+g)$ times the value at time 0 ($V_0$). Why? Because the cash flow stream at time 1 is identical to time 0, just scaled up by $(1+g)$.
 
 $$
+
 V_1 = V_0(1+g)
+
 $$
 
-[cite_start][cite: 77]
+
 
 Substitute into GVE:
 
 $$
+
 r V_0 = (V_0(1+g) - V_0) + C_1
+
 $$
 
 $$
+
 r V_0 = V_0(1 + g - 1) + C_1
+
 $$
 
 $$
+
 r V_0 = g V_0 + C_1
+
 $$
 
 $$
+
 (r - g) V_0 = C_1
+
 $$
 
 **Final Formula:**
 
 $$
+
 V_0 = \frac{C_1}{r - g}
+
 $$
 
-[cite_start][cite: 77]
+
 
 ---
 
 ## Part 3: Annuities
 
-[cite_start]An **Annuity** is a sequence of equally spaced payments that ends at time $n$[cite: 1].
+An **Annuity** is a sequence of equally spaced payments that ends at time $n$.
 
 ### 1. The Standard Annuity ($PVA$)
 
@@ -287,21 +341,27 @@ We can define the value of an annuity as the difference between two perpetuities
 2.  A perpetuity starting at time $n+1$ (which we subtract).
 
 $$
+
 PVA = \text{Perp}(0) - \text{Perp}(n)
+
 $$
 
 The perpetuity starting at time $n+1$ has a present value at time $n$ of $C/r$.
 Its present value at time 0 is $(C/r) \cdot v^n$.
 
 $$
+
 PVA = \frac{C}{r} - \frac{C}{r} \cdot \frac{1}{(1+r)^n}
+
 $$
 
 $$
+
 PVA = \frac{C}{r} \left[ 1 - \frac{1}{(1+r)^n} \right]
+
 $$
 
-[cite_start][cite: 19, 28]
+
 
 ### 2. The Growing Annuity ($PVGA$)
 
@@ -316,10 +376,12 @@ Using the relationship $V_1 = V_0(1+g) - C_1(1+g)^n / (1+r)^n$? No, let's use th
 The formula derived is:
 
 $$
+
 V_0 = \frac{C_1}{r-g} \left[ 1 - \left( \frac{1+g}{1+r} \right)^n \right]
+
 $$
 
-[cite_start][cite: 43, 85]
+
 
 **Important Note:** This formula works even if $g > r$.
 However, there is a singularity if $g = r$.
@@ -332,26 +394,32 @@ The standard formula divides by zero ($r-g=0$).
 We must return to the summation. If $g=r$:
 
 $$
+
 V_0 = \sum_{i=1}^{n} \frac{C_1 (1+r)^{i-1}}{(1+r)^i} = \sum_{i=1}^{n} \frac{C_1}{1+r}
+
 $$
 
 Every term in the sum is identical!
-There are $n$ terms, each equal to $C_1 / (1+r)$. [cite_start]No, looking at the text derivation[cite: 88]:
+There are $n$ terms, each equal to $C_1 / (1+r)$. No, looking at the text derivation:
 
 $$
+
 V_0 = \frac{n C_1}{1+r}
+
 $$
 
 Wait, the text says $V_0 = n C_0$ where $C_0 = C_1/(1+g)$.
 Let's check the text carefully.
-[cite_start]"If $g=r$, the discount factors are all identically equal to 1... hence $V_0 = n C_0$"[cite: 88].
+"If $g=r$, the discount factors are all identically equal to 1... hence $V_0 = n C_0$".
 Where $C_0$ is the value at time 0. $C_1 = C_0(1+g)$.
 So $V_0 = n \frac{C_1}{1+g} = n \frac{C_1}{1+r}$.
 
 Correct Formula when $g=r$:
 
 $$
+
 V_0 = \frac{n C_1}{1+r}
+
 $$
 
 ---
@@ -360,15 +428,17 @@ $$
 
 A simplified bond consists of:
 1.  An annuity of coupon payments ($C$).
-2.  [cite_start]A final lump sum payment of Face Value ($F$) at time $n$[cite: 46].
+2.  A final lump sum payment of Face Value ($F$) at time $n$.
 
 **Valuation Formula:**
 
 $$
+
 V_{bond} = C \cdot \left[ \frac{1 - (1+r)^{-n}}{r} \right] + \frac{F}{(1+r)^n}
+
 $$
 
-[cite_start][cite: 47]
+
 
 ### Coupon Rate vs. Discount Rate Relationships
 
@@ -379,7 +449,7 @@ The **Discount Rate** ($r$) is the market yield.
 * **Premium:** Coupon Rate > $r \implies$ Value > $F$.
 * **Discount:** Coupon Rate < $r \implies$ Value < $F$.
 
-[cite_start][cite: 50-55]
+
 
 ### Bond Convexity
 
@@ -393,29 +463,37 @@ Let's simplify to the general form $V = \sum CF_i (1+r)^{-i}$.
 **First Derivative (Duration relationship):**
 
 $$
+
 \frac{dV}{dr} = \sum -i \cdot CF_i \cdot (1+r)^{-i-1} < 0
+
 $$
 
-[cite_start]Bond prices fall when rates rise[cite: 66].
+Bond prices fall when rates rise.
 
 **Second Derivative (Convexity):**
 
 $$
+
 \frac{d^2V}{dr^2} = \sum (-i)(-i-1) \cdot CF_i \cdot (1+r)^{-i-2}
+
 $$
 
 $$
+
 \frac{d^2V}{dr^2} = \sum (i^2+i) \cdot CF_i \cdot (1+r)^{-(i+2)}
+
 $$
 
 Since time $i > 0$, cash flows $CF > 0$, and $(1+r) > 0$:
 Every term in this sum is **positive**.
 
 $$
+
 \frac{d^2V}{dr^2} > 0
+
 $$
 
-[cite_start][cite: 67]
+
 
 **Physical Interpretation:**
 As interest rates rise, bond prices fall, but they fall at a *decreasing* rate. This is beneficial for investors (prices don't crash as hard as a linear model would predict). As rates fall, prices rise at an *increasing* rate.
@@ -435,7 +513,7 @@ Function: $PVLGP(a, b, r, s)$
 
 ### Decomposition of a Linearly Growing Perpetuity
 
-[cite_start]We can view the stream $1, 2, 3, 4 \dots$ as a "perpetuity of perpetuities"[cite: 96].
+We can view the stream $1, 2, 3, 4 \dots$ as a "perpetuity of perpetuities".
 * Row 1: $1, 1, 1, 1 \dots$ (Starts t=1) $\to PV = 1/r$
 * Row 2: $0, 1, 1, 1 \dots$ (Starts t=2) $\to PV = (1/r) \cdot v$
 * Row 3: $0, 0, 1, 1 \dots$ (Starts t=3) $\to PV = (1/r) \cdot v^2$
@@ -443,7 +521,9 @@ Function: $PVLGP(a, b, r, s)$
 Sum of PVs:
 
 $$
+
 PV = \frac{1}{r} (1 + v + v^2 + \dots) = \frac{1}{r} \cdot \frac{1}{1-v}
+
 $$
 
 Since $1/(1-v) = (1+r)/r \approx 1/r$ (for continuous) or $1/d$.
@@ -451,37 +531,52 @@ Using the text's discrete derivation:
 The sum of the increasing perpetuity $(Ia)_\infty$ is:
 
 $$
+
 (Ia)_{\infty} = \frac{1}{r} + \frac{1}{r^2}
-$$
-
-[cite_start]Wait, the text derivation [cite: 96] leads to:
 
 $$
+
+Wait, the text derivation  leads to:
+
+$$
+
 PV = \frac{1}{r} \left( \frac{1+r}{r} \right) = \frac{1}{r^2} + \frac{1}{r}
+
 $$
 
 **General Formula for Linear Perpetuity ($a + bt$):**
 Starting at time $s$, with cash flows $a+bs, a+b(s+1) \dots$
 
 $$
+
 V_0 = \frac{a+bs}{r} \cdot v^{s-1} + \frac{b(1+r)}{r^2} \cdot v^{s-1}
+
 $$
 
 Let's check the text's specific derivation for $PVLGP$.
 Text says:
-$$V_0 = \frac{a+bs}{r} (1+r) v^s + \frac{b(1+r)}{r^2} v^s$$
-[cite_start]Actually, looking at[cite: 52]:
-$$PV = \left[ \frac{a+bs}{r} + \frac{b(1+r)}{r^2} \right] v^{s-1}$$
+
+$$
+V_0 = \frac{a+bs}{r} (1+r) v^s + \frac{b(1+r)}{r^2} v^s
+$$
+
+Actually, looking at:
+
+$$
+PV = \left[ \frac{a+bs}{r} + \frac{b(1+r)}{r^2} \right] v^{s-1}
+$$
 
 ### Linearly Growing Annuity ($PVLGA$)
 
 To value a linear annuity ending at $n$, we simply subtract the tail.
 
 $$
+
 PVLGA(a, b, n, r, s) = PVLGP(a, b, r, s) - PVLGP(a, b, r, n+s)
+
 $$
 
-[cite_start][cite: 107]
+
 
 This "Difference of Perpetuities" method is significantly faster than summing individual terms.
 
@@ -495,18 +590,22 @@ In commodities (oil, corn, copper), prices do not grow forever. They exhibit **M
 Spot price $S_t$ reverts to long-run mean $\mu$ with speed $\kappa$.
 
 $$
+
 (S_t - \mu) = (1-\kappa)^t (S_0 - \mu)
+
 $$
 
-[cite_start][cite: 116]
+
 
 Rearranging to solve for Price $S_t$:
 
 $$
+
 S_t = \mu + (1-\kappa)^t (S_0 - \mu)
+
 $$
 
-[cite_start][cite: 117]
+
 
 ### The Valuation Strategy: Decomposition
 
@@ -517,10 +616,12 @@ We can decompose the expected price $S_t$ into two distinct annuity streams:
 **Formula:**
 
 $$
+
 PVMRA = PVA(\mu, n, r, 0, s) + PVGA(C_{decay}, n, r, -\kappa, 0, s)
+
 $$
 
-[cite_start]Where $C_{decay} = (1-\kappa)(S_0 - \mu)$[cite: 117].
+Where $C_{decay} = (1-\kappa)(S_0 - \mu)$.
 
 This powerful insight allows us to value complex commodity derivatives using standard annuity functions.
 
@@ -548,52 +649,72 @@ The insurance company offers to **double** the annual payment to \$100,000 if th
 **Step 1: Set up the Annuity Equation**
 
 $$
+
 PV = \frac{C}{r} \left[ 1 - \frac{1}{(1+r)^n} \right]
+
 $$
 
 **Step 2: Isolate the term with $n$**
 
 $$
+
 PV \cdot r = C \left[ 1 - (1+r)^{-n} \right]
+
 $$
 
 $$
+
 \frac{PV \cdot r}{C} = 1 - (1+r)^{-n}
+
 $$
 
 $$
+
 (1+r)^{-n} = 1 - \frac{PV \cdot r}{C}
+
 $$
 
 **Step 3: Solve for $n$ using Logarithms**
 
 $$
+
 -n \ln(1+r) = \ln \left( 1 - \frac{PV \cdot r}{C} \right)
+
 $$
 
 $$
+
 n = - \frac{\ln \left( 1 - \frac{PV \cdot r}{C} \right)}{\ln(1+r)}
+
 $$
 
 **Step 4: Substitute and Calculate**
 
 $$
+
 n = - \frac{\ln \left( 1 - \frac{533,738.81 \cdot 0.08}{100,000} \right)}{\ln(1.08)}
+
 $$
 
 $$
+
 \frac{533,738.81 \cdot 0.08}{100,000} = 0.42699
+
 $$
 
 $$
+
 \ln(1 - 0.42699) = \ln(0.57301) \approx -0.5568
+
 $$
 
 $$
+
 n = \frac{0.5568}{0.07696} \approx 7.24 \text{ years}
+
 $$
 
-[cite_start][cite: 37]
+
 
 **Final Answer:** The client can receive \$100,000 for roughly 7.24 years.
 
@@ -613,38 +734,48 @@ $$
 **Step 1: Calculate PV of Original Growing Annuity**
 
 $$
+
 PV = \frac{C_1}{r-g} \left[ 1 - \left( \frac{1+g}{1+r} \right)^n \right]
+
 $$
 
 $$
+
 PV = \frac{50,000}{0.06} \left[ 1 - \left( \frac{1.02}{1.08} \right)^{25} \right]
+
 $$
 
 $$
+
 PV = 833,333 \cdot [ 1 - 0.2395 ] = \$633,701.79
+
 $$
 
-[cite_start][cite: 90]
+
 
 **Step 2: Solve for new $n$ with $C_1 = 100,000$**
 We can use the "Flat Annuity Trick" by calculating $r^*$.
 
 $$
+
 r^* = \frac{r-g}{1+g} = \frac{0.06}{1.02} = 0.0588235
+
 $$
 
 Now we solve a standard flat annuity problem with rate $r^*$.
 New Adjusted Payment $C_{adj} = 100,000 / 1.02 = 98,039.21$.
 
 $$
+
 n = - \frac{\ln \left( 1 - \frac{633,701.79 \cdot 0.05882}{98,039.21} \right)}{\ln(1.05882)}
+
 $$
 
 **Calculation:**
 Term inside log $\approx 1 - 0.38 = 0.62$.
 $n \approx 8.37$ years.
 
-[cite_start][cite: 93]
+
 
 ---
 
@@ -668,12 +799,14 @@ Use $PVLGA$ formula (Difference of Linear Perpetuities).
 $PVLGP(start=1) - PVLGP(start=16)$.
 
 $$
+
 PVLGP(1) = \frac{0 + 50k}{0.12} + \frac{50k(1.12)}{0.12^2} = 416,666 + 3,888,888 = 4,305,555
+
 $$
 
 (Wait, verifying text calculation... The text gets 3,888,888 as the *second* term. The first term is $50k/0.12 = 416k$. Total $\approx 4.3m$.)
 
-[cite_start]Text calculation result for annuity part: **\$2,036,551.79**[cite: 113].
+Text calculation result for annuity part: **\$2,036,551.79**.
 
 **Step 2: Value the Tail (Flat Perpetuity from Year 16+)**
 From year 16 onward, revenue is flat at $15 \times 50,000 = 750,000$.
@@ -682,7 +815,7 @@ Value at year 0: $V_0 = 6,250,000 / (1.12)^{15}$.
 $V_0 = 1,141,851.63$.
 
 **Step 3: Total Value**
-[cite_start]$Total = 2,036,551.79 + 1,141,851.63 = \mathbf{\$3,178,403.45}$[cite: 115].
+$Total = 2,036,551.79 + 1,141,851.63 = \mathbf{\$3,178,403.45}$.
 
 ---
 
@@ -700,28 +833,34 @@ $S_t = 5 + (0.9)^t (3.50 - 5) = 5 - 1.50(0.9)^t$.
 Annuity of \$5.00 for 20 years at 5%.
 
 $$
+
 PVA(5, 20, 0.05) = \frac{5}{0.05} [1 - (1.05)^{-20}] = 100 \cdot 0.623 = \$62.31
+
 $$
 
-[cite_start][cite: 122]
+
 
 **Step 3: Value Component B (The Decay)**
 Decaying Annuity. $C_1 = -1.50(0.9)$. Growth $g = -10\%$. $r=5\%$.
 Wait, the text uses the formula with $C_1 = (1-\kappa)(S_0-\mu) = 0.9(-1.5) = -1.35$.
 
 $$
+
 PVGA = \frac{-1.35}{0.05 - (-0.10)} \left[ 1 - \left( \frac{0.90}{1.05} \right)^{20} \right]
+
 $$
 
 $$
+
 PVGA = \frac{-1.35}{0.15} \left[ 1 - (0.857)^{20} \right] = -9.00 \cdot [1 - 0.0458] = -8.587
+
 $$
 
-[cite_start][cite: 122]
+
 
 **Step 4: Total Value**
 $PV_{total} = 62.31 - 8.59 = 53.72$ per bushel.
-[cite_start]For 1 million bushels: **\$53,723,440.37**[cite: 122].
+For 1 million bushels: **\$53,723,440.37**.
 
 ---
 
@@ -741,7 +880,9 @@ This is a **Growing Perpetuity**.
 Formula: $V_0 = C_1 / (r-g)$.
 
 $$
+
 V_0 = \frac{20,000}{0.07 - 0.03} = \frac{20,000}{0.04} = \$500,000
+
 $$
 
 </details>
@@ -759,7 +900,9 @@ $$
 Formula: $V = F / (1+r)^n$.
 
 $$
+
 V = \frac{1000}{(1.06)^{10}} = \frac{1000}{1.7908} = \$558.39
+
 $$
 
 </details>
@@ -785,7 +928,7 @@ We use the decomposition method:
 Wait, let's use the formula derived:
 $PV = \frac{CF_1}{r} + \frac{b}{r^2}$. (Standard Actuarial Result).
 
-[cite_start]Let's check text formula[cite: 52]:
+Let's check text formula:
 $PV = \left[ \frac{a+b}{r} + \frac{b(1+r)}{r^2} \right]$ if $s=1$.
 Term 1: $10,000 / 0.05 = 200,000$.
 Term 2: $1,000(1.05) / 0.0025 = 1,050 / 0.0025 = 420,000$.

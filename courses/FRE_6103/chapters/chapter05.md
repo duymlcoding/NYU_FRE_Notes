@@ -11,7 +11,7 @@ date: "2025"
 
 In the previous chapters, we relied on "closed-form" solutions—formulas like the GVE or annuity equations that give a precise answer based on deterministic inputs. However, the real world is rarely so cooperative. Financial engineers often face problems where the random variables are too complex, too numerous, or too interdependent for a single equation to solve.
 
-This chapter introduces **Simulation** (often called Monte Carlo Simulation). [cite_start]While it is computationally the "slowest and least accurate" method compared to analytic formulas, it is the "most flexible"[cite: 345]. It allows us to model complex phenomena like:
+This chapter introduces **Simulation** (often called Monte Carlo Simulation). While it is computationally the "slowest and least accurate" method compared to analytic formulas, it is the "most flexible". It allows us to model complex phenomena like:
 * Stochastic interest rates and exchange rates.
 * Path-dependent commodity prices.
 * Event risks (defaults, accidents) with non-standard distributions.
@@ -55,7 +55,7 @@ $U \sim U[a, b]$ means any value between $a$ and $b$ is equally likely.
 For simulation, we use the standard uniform $U[0, 1]$.
 
 * **PDF:** $u(x) = 1$ for $x \in [0, 1]$.
-* [cite_start]**CDF:** $U(x) = x$ for $x \in [0, 1]$. [cite: 351]
+* **CDF:** $U(x) = x$ for $x \in [0, 1]$. 
 
 ### 2. The Inverse Transform Theorem
 
@@ -68,22 +68,28 @@ If $U \sim U[0,1]$ and $X = F^{-1}(U)$, then $X$ has the CDF $F(x)$.
 Since $F(x)$ is a monotonic increasing function:
 
 $$
+
 P(X \le x) = P(F^{-1}(U) \le x)
+
 $$
 
 Apply $F$ to both sides of the inequality inside the probability:
 
 $$
+
 P(X \le x) = P(U \le F(x))
+
 $$
 
 Since $P(U \le k) = k$ for a uniform distribution:
 
 $$
+
 P(X \le x) = F(x)
+
 $$
 
-[cite_start]Thus, $X$ follows the distribution $F$. [cite: 356]
+Thus, $X$ follows the distribution $F$. 
 
 
 ### 3. Generating Specific Distributions
@@ -93,39 +99,51 @@ For a standard normal $Z \sim N(0, 1)$, the CDF is denoted $N(z)$.
 We generate $z$ using the inverse CDF:
 
 $$
+
 z = N^{-1}(u)
+
 $$
 
 In Excel: `=NORMSINV(RAND())`
-[cite_start]In Python: `numpy.random.normal()` [cite: 359]
+In Python: `numpy.random.normal()` 
 
 #### The Exponential Distribution
 Used for "time until arrival" models.
 PDF: $f(x) = \lambda e^{-\lambda x}$ for $x \ge 0$.
-[cite_start]CDF: $F(x) = 1 - e^{-\lambda x}$. [cite: 10]
+CDF: $F(x) = 1 - e^{-\lambda x}$. 
 
 To simulate, set $u = F(x)$ and solve for $x$:
 
 $$
+
 u = 1 - e^{-\lambda x}
+
 $$
 
 $$
+
 e^{-\lambda x} = 1 - u
+
 $$
 
 $$
+
 -\lambda x = \ln(1 - u)
+
 $$
 
 $$
+
 x = -\frac{\ln(1 - u)}{\lambda}
+
 $$
 
 Since $(1-u)$ is distributed identically to $u$ (both uniform on [0,1]), we often simplify to:
 
 $$
+
 x = -\frac{\ln(u)}{\lambda}
+
 $$
 
 
@@ -138,10 +156,12 @@ CDF: $F(i) = 1 - (1-\pi)^i$.
 To simulate, we solve for $i$ and round up to the nearest integer:
 
 $$
+
 i = \text{roundup} \left( \frac{\ln(1-u)}{\ln(1-\pi)} \right)
+
 $$
 
-[cite_start][cite: 423-424]
+
 
 ---
 
@@ -153,10 +173,12 @@ Simulation is an experimental process. Instead of solving an integral analytical
 
 1.  **Generate** $N$ random outcomes ($z_1, z_2, \dots, z_N$).
 2.  **Calculate** the target function $f(z_i)$ for each outcome (e.g., the payoff of an option).
-3.  **Aggregate** to find the sample mean $\bar{x}$. [cite_start]This is our estimate of the Expected Value $E[f(Z)]$. [cite: 346-347]
+3.  **Aggregate** to find the sample mean $\bar{x}$. This is our estimate of the Expected Value $E[f(Z)]$. 
 
 $$
+
 \bar{x} = \frac{1}{N} \sum_{i=1}^N f(z_i)
+
 $$
 
 ### 2. Measuring Error
@@ -165,23 +187,26 @@ Because simulation relies on random sampling, the answer is never exact. We must
 
 * **Sample Variance ($s^2$):**
     $$s^2 = \frac{1}{N-1} \sum (x_i - \bar{x})^2$$
+
 * **Standard Error (SE):** The standard deviation of the *mean itself*.
-    [cite_start]$$SE = \frac{s}{\sqrt{N}}$$ [cite: 367]
+    $$SE = \frac{s}{\sqrt{N}}$$ 
 
 **Confidence Intervals:**
 According to the Central Limit Theorem, the sample mean $\bar{x}$ is normally distributed for large $N$.
 
 $$
+
 \text{Confidence Interval} = \bar{x} \pm m \left( \frac{s}{\sqrt{N}} \right)
+
 $$
 
 Where $m$ determines the confidence level:
 * $m=1$: 68% confidence
 * $m=2$: 95% confidence
-* [cite_start]$m=3$: 99.7% confidence [cite: 373]
+* $m=3$: 99.7% confidence 
 
 **The Law of Precision:**
-To reduce the error by a factor of $k$, you must increase the sample size $N$ by a factor of $k^2$. [cite_start]Simulation is computationally expensive! [cite: 375]
+To reduce the error by a factor of $k$, you must increase the sample size $N$ by a factor of $k^2$. Simulation is computationally expensive! 
 
 ---
 
@@ -199,10 +224,12 @@ Random samples rarely have a mean of exactly 0 and standard deviation of exactly
 3.  Transform each $z_i$ into a standardized $\hat{z}_i$:
 
 $$
+
 \hat{z}_i = \frac{z_i - \bar{z}}{s_z}
+
 $$
 
-[cite_start]Now, the sample mean of $\hat{z}$ is exactly 0 and the variance is exactly 1. This eliminates "noise" in the first two moments. [cite: 388]
+Now, the sample mean of $\hat{z}$ is exactly 0 and the variance is exactly 1. This eliminates "noise" in the first two moments. 
 
 ### 2. Antithetic Sampling
 
@@ -214,8 +241,10 @@ This technique exploits negative correlation. For every random number $u$, we al
 **Why it works:**
 The estimator becomes $\bar{x} = \frac{z + w}{2}$.
 If $z$ and $w$ are negatively correlated, the variance of their sum is lower than the sum of their variances.
+
 $$\text{Var}(z+w) = \text{Var}(z) + \text{Var}(w) + 2\text{Cov}(z,w)$$
-[cite_start]Since $\text{Cov}(z, -z)$ is negative, the total variance decreases. [cite: 392-393]
+
+Since $\text{Cov}(z, -z)$ is negative, the total variance decreases. 
 
 ---
 
@@ -229,13 +258,15 @@ We can build correlated normals from independent normals.
 If $Z_1, Z_3 \sim N(0,1)$ are independent, we can construct $Z_2$:
 
 $$
+
 Z_2 = \rho Z_1 + \sqrt{1-\rho^2} Z_3
+
 $$
 
 Properties of $Z_2$:
 * Mean: 0
 * Variance: $\rho^2(1) + (1-\rho^2)(1) = 1$
-* [cite_start]Correlation with $Z_1$: $\rho$ [cite: 441-442]
+* Correlation with $Z_1$: $\rho$ 
 
 ### 2. The Cholesky Decomposition
 
@@ -244,22 +275,24 @@ For $k > 2$ variables, we generalize using matrices. We need to transform a vect
 **Goal:** Find a matrix $\mathbf{R}$ such that if we multiply independent $\mathbf{Z}$ by $\mathbf{R}^T$, the resulting covariance is $\mathbf{A}$.
 
 $$
+
 \text{Var}(\mathbf{Z}\mathbf{R}^T) = \mathbf{R} \text{Var}(\mathbf{Z}) \mathbf{R}^T = \mathbf{R} \mathbf{I} \mathbf{R}^T = \mathbf{R}\mathbf{R}^T
+
 $$
 
 So we need $\mathbf{A} = \mathbf{R}\mathbf{R}^T$.
-This is called the **Cholesky Decomposition**. [cite_start]$\mathbf{R}$ is a lower triangular matrix. [cite: 487]
+This is called the **Cholesky Decomposition**. $\mathbf{R}$ is a lower triangular matrix. 
 
 **Algorithm for 2x2 Matrix:**
 Given $\mathbf{A} = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}$ and $\mathbf{R} = \begin{pmatrix} r_{11} & 0 \\ r_{21} & r_{22} \end{pmatrix}$.
 
 1.  $r_{11}^2 = a_{11} \implies r_{11} = \sqrt{a_{11}}$
 2.  $r_{21} r_{11} = a_{21} \implies r_{21} = a_{21} / r_{11}$
-3.  [cite_start]$r_{21}^2 + r_{22}^2 = a_{22} \implies r_{22} = \sqrt{a_{22} - r_{21}^2}$ [cite: 488-489]
+3.  $r_{21}^2 + r_{22}^2 = a_{22} \implies r_{22} = \sqrt{a_{22} - r_{21}^2}$ 
 
 **Simulation Step:**
 1.  Generate independent $\mathbf{Z}$ (vector of $N(0,1)$).
-2.  [cite_start]Calculate $\mathbf{X} = \boldsymbol{\mu} + \mathbf{Z} \mathbf{R}^T$. [cite: 501]
+2.  Calculate $\mathbf{X} = \boldsymbol{\mu} + \mathbf{Z} \mathbf{R}^T$. 
 
 ---
 
@@ -273,17 +306,21 @@ This algebraic trick is essential for Gaussian integrals.
 Given a quadratic $p(x) = -ax^2 + bx + c$, we can rewrite it as:
 
 $$
+
 p(x) = -a(x - h)^2 + k
+
 $$
 
-[cite_start]Where $h = \frac{b}{2a}$ and $k = c + \frac{b^2}{4a}$. [cite: 448-449]
+Where $h = \frac{b}{2a}$ and $k = c + \frac{b^2}{4a}$. 
 
 ### 2. MGF of a Normal Distribution
 
 The MGF is defined as $M_X(t) = E[e^{tX}]$. For a Normal $X \sim N(\mu, \sigma^2)$:
 
 $$
+
 M_X(t) = \int_{-\infty}^{\infty} e^{tx} \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx
+
 $$
 
 The exponent is quadratic in $x$. By "completing the square" in the exponent, we can isolate the $x$ terms into a Gaussian integral (which sums to 1) and separate the $t$ terms.
@@ -291,10 +328,12 @@ The exponent is quadratic in $x$. By "completing the square" in the exponent, we
 **Result:**
 
 $$
+
 M_X(t) = e^{\mu t + \frac{1}{2}\sigma^2 t^2}
+
 $$
 
-[cite_start][cite: 460]
+
 
 ### 3. Proof for Linear Combinations
 
@@ -302,20 +341,26 @@ Let $Y = aX_1 + bX_2$.
 Since $X_1, X_2$ are independent:
 
 $$
+
 M_Y(t) = E[e^{t(aX_1 + bX_2)}] = E[e^{atX_1}] E[e^{btX_2}]
+
 $$
 
 Substitute the Normal MGF formula:
 
 $$
+
 M_Y(t) = e^{\mu_1 (at) + \frac{1}{2}\sigma_1^2 (at)^2} \cdot e^{\mu_2 (bt) + \frac{1}{2}\sigma_2^2 (bt)^2}
+
 $$
 
 $$
+
 M_Y(t) = e^{(\mu_1 a + \mu_2 b)t + \frac{1}{2}(a^2\sigma_1^2 + b^2\sigma_2^2)t^2}
+
 $$
 
-This is the MGF of a Normal distribution with mean $a\mu_1 + b\mu_2$ and variance $a^2\sigma_1^2 + b^2\sigma_2^2$. [cite_start]Thus, linear combinations of normals are normal. [cite: 461-462]
+This is the MGF of a Normal distribution with mean $a\mu_1 + b\mu_2$ and variance $a^2\sigma_1^2 + b^2\sigma_2^2$. Thus, linear combinations of normals are normal. 
 
 ---
 
@@ -331,12 +376,13 @@ The Cholesky method only works for Normal distributions. What if we need to corr
 1.  **Correlation:** Generate correlated standard normals $z_1, z_2$ using Cholesky (correlation $\rho$).
 2.  **Uniform Mapping:** Convert $z$ values to uniform $u$ values using the Normal CDF.
     $$u_1 = N(z_1), \quad u_2 = N(z_2)$$
+
     Now $u_1, u_2$ are correlated uniform variables.
 3.  **Target Mapping:** Convert $u$ values to the target distribution using the Inverse Transform.
     For Geometric (bond default):
     $$x_1 = \text{Geometric}^{-1}(u_1), \quad x_2 = \text{Geometric}^{-1}(u_2)$$
 
-[cite_start][cite: 530-531]
+
 
 **Physical Interpretation:**
 We are correlating the "percentile rankings" of the variables. If Bond A is in the "bad" tail of the normal distribution (low $z$, low $u$), Bond B is likely also in the bad tail (due to correlation), leading to simultaneous early defaults.
@@ -352,11 +398,13 @@ We are correlating the "percentile rankings" of the variables. If Bond A is in t
 **Problem:** Estimate $E[\max(Z, 0.5)]$ where $Z \sim N(0,1)$. Compare with exact theory.
 
 **Exact Theory:**
+
 $$E[\max(Z, c)] = c N(c) + n(c)$$
+
 For $c=0.5$:
 $N(0.5) = 0.69146$
 $n(0.5) = \frac{1}{\sqrt{2\pi}} e^{-0.5^2/2} = 0.352$
-[cite_start]$E = 0.5(0.69146) + 0.352 = 0.6978$. [cite: 378]
+$E = 0.5(0.69146) + 0.352 = 0.6978$. 
 
 **Simulation:**
 1.  Generate 1000 $z$ values.
@@ -365,7 +413,7 @@ $n(0.5) = \frac{1}{\sqrt{2\pi}} e^{-0.5^2/2} = 0.352$
     * *Standard Simulation:* might yield $0.6974 \pm 0.0250$.
     * *Moment Matching:* reduces error significantly.
     * *Antithetic:* further refinement.
-    [cite_start][cite: 411-412]
+    
 
 ### Example 2: Cholesky Decomposition
 :class: tip
@@ -373,17 +421,21 @@ $n(0.5) = \frac{1}{\sqrt{2\pi}} e^{-0.5^2/2} = 0.352$
 **Problem:** Find the Cholesky matrix $\mathbf{R}$ for Covariance Matrix $\mathbf{A} = \begin{pmatrix} 100 & 80 \\ 80 & 144 \end{pmatrix}$.
 
 **Step 1: $r_{11}$**
+
 $$r_{11} = \sqrt{a_{11}} = \sqrt{100} = 10$$
 
 **Step 2: $r_{21}$**
+
 $$r_{21} = a_{21} / r_{11} = 80 / 10 = 8$$
 
 **Step 3: $r_{22}$**
+
 $$r_{22} = \sqrt{a_{22} - r_{21}^2} = \sqrt{144 - 8^2} = \sqrt{144 - 64} = \sqrt{80} \approx 8.94$$
 
 **Result:**
+
 $$\mathbf{R} = \begin{pmatrix} 10 & 0 \\ 8 & 8.94 \end{pmatrix}$$
-[cite_start][cite: 491]
+
 
 ### Example 3: Inventory Optimization (Common Random Numbers)
 :class: tip
@@ -400,7 +452,7 @@ Profit = $5 \min(s, D) - 3 \max(s-D, 0) - 7 \max(D-s, 0)$.
 3.  Compare results.
 
 **Why Common Random Numbers?**
-If we used different random numbers for $s=10$ and $s=11$, the noise might mask the small difference in profitability. By using the same random inputs, we isolate the effect of changing $s$. [cite_start]This produces a smooth optimization curve rather than a jagged one. [cite: 545-546]
+If we used different random numbers for $s=10$ and $s=11$, the noise might mask the small difference in profitability. By using the same random inputs, we isolate the effect of changing $s$. This produces a smooth optimization curve rather than a jagged one. 
 
 ---
 
@@ -414,7 +466,9 @@ If we used different random numbers for $s=10$ and $s=11$, the noise might mask 
 **Solution:**
 Mean $\mu = 1/\lambda = 10 \implies \lambda = 0.1$.
 Inverse CDF formula:
+
 $$x = -\frac{\ln(u)}{0.1} = -10 \ln(u)$$
+
 Generate $u \sim U[0,1]$, apply formula.
 
 ### Practice Problem 2: Correlated Simulation
@@ -426,7 +480,9 @@ Generate $u \sim U[0,1]$, apply formula.
 Formula: $z_2 = \rho z_1 + \sqrt{1-\rho^2} z_3$.
 $\rho = 0.6$.
 $\sqrt{1 - 0.6^2} = \sqrt{0.64} = 0.8$.
+
 $$z_2 = 0.6(0.5) + 0.8(-1.2)$$
+
 $$z_2 = 0.3 - 0.96 = -0.66$$
 
 ### Practice Problem 3: Confidence Interval

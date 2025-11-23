@@ -55,7 +55,9 @@ The ARW models the **change** in price as a random variable added to the previou
 **Discrete Time Equation:**
 
 $$
+
 S_{t+1} = S_t + \mu + \sigma Z_t
+
 $$
 
 Where:
@@ -68,7 +70,9 @@ Where:
 As the time step $\Delta t \to dt$:
 
 $$
+
 dS_t = \mu dt + \sigma dZ_t
+
 $$
 
 ### 2. Properties over Time
@@ -77,17 +81,23 @@ What happens if we look $j$ periods into the future?
 We can write $S_{t+j}$ as a collapsing sum of incremental changes:
 
 $$
+
 S_{t+j} = S_t + \sum_{i=1}^j (S_{t+i} - S_{t+i-1})
+
 $$
 
 Substituting the dynamics $S_{k} - S_{k-1} = \mu + \sigma Z_{k-1}$:
 
 $$
+
 S_{t+j} = S_t + \sum_{i=1}^j (\mu + \sigma Z_{t+i-1})
+
 $$
 
 $$
+
 S_{t+j} = S_t + j\mu + \sigma \sum_{i=1}^j Z_{t+i-1}
+
 $$
 
 Since the sum of $j$ independent standard normals is normal with variance $j$:
@@ -96,7 +106,9 @@ $\sum_{i=1}^j Z_i \sim N(0, j)$.
 **Distribution of Future Price:**
 
 $$
+
 S_{t+j} \sim N(S_t + j\mu, j\sigma^2)
+
 $$
 
 * **Expected Value:** $E[S_{t+j}] = S_t + j\mu$. (Linear growth).
@@ -108,20 +120,26 @@ $$
 In simulation, we often need the covariance between prices at different times, e.g., $S_{t+j}$ and $S_{t+m}$ where $j < m$.
 
 $$
+
 \text{Cov}(S_{t+j}, S_{t+m}) = \text{Cov}\left( S_t + j\mu + \sigma \sum_{i=1}^j Z_i, \quad S_t + m\mu + \sigma \sum_{k=1}^m Z_k \right)
+
 $$
 
 Since $S_t, \mu$ are constants (at time $t$), they drop out of the covariance. We are left with the covariance of the sums of $Z$.
 The first $j$ terms of $Z$ are common to both sums. The terms from $j+1$ to $m$ in the second sum are independent of the first sum.
 
 $$
+
 \text{Cov}(S_{t+j}, S_{t+m}) = \sigma^2 \sum_{i=1}^j \text{Var}(Z_i) = \sigma^2 \cdot j
+
 $$
 
 **General Formula:**
 
 $$
+
 \text{Cov}(S_{t+j}, S_{t+m}) = \sigma^2 \min(j, m)
+
 $$
 
 This covariance structure allows us to construct the covariance matrix $\mathbf{A}$ for a vector of prices $(S_{t+1}, S_{t+2}, \dots, S_{t+k})$ and simulate the entire path using the Cholesky decomposition method from Chapter 5.
@@ -164,13 +182,17 @@ The Ornstein-Uhlenbeck (OU) process pulls the variable back to a long-run mean $
 **Discrete Time Equation:**
 
 $$
+
 S_{t+1} = S_t + \kappa(\mu - S_t) + \sigma Z_t
+
 $$
 
 Alternatively written as:
 
 $$
+
 S_{t+1} - \mu = (1 - \kappa)(S_t - \mu) + \sigma Z_t
+
 $$
 
 Where:
@@ -185,14 +207,18 @@ Where:
 Expanding the recurrence relation for $S_{t+j}$:
 
 $$
+
 S_{t+j} - \mu = (1-\kappa)^j (S_t - \mu) + \sum_{i=0}^{j-1} (1-\kappa)^i \sigma Z_{t+j-i}
+
 $$
 
 **Expected Value:**
 The random $Z$ terms average to zero.
 
 $$
+
 E[S_{t+j}] = \mu + (1-\kappa)^j (S_t - \mu)
+
 $$
 
 * As $j \to \infty$, $(1-\kappa)^j \to 0$, so $E[S_{t+j}] \to \mu$. The forecast converges to the long-run mean.
@@ -201,35 +227,43 @@ $$
 The variance is the sum of the variances of the independent shock terms.
 
 $$
+
 \text{Var}(S_{t+j}) = \sigma^2 \sum_{i=0}^{j-1} \left[ (1-\kappa)^i \right]^2 = \sigma^2 \sum_{i=0}^{j-1} (1-\kappa)^{2i}
+
 $$
 
 This is a geometric series sum $\sum r^i$ where $r = (1-\kappa)^2$.
 
 $$
+
 \text{Var}(S_{t+j}) = \sigma^2 \frac{1 - (1-\kappa)^{2j}}{1 - (1-\kappa)^2}
+
 $$
 
 Approximating denominator $1 - (1-2\kappa+\kappa^2) \approx 2\kappa$ (for small $\kappa$):
 
 $$
+
 \text{Var}(S_{t+j}) \approx \frac{\sigma^2}{2\kappa} \left( 1 - (1-\kappa)^{2j} \right)
+
 $$
 
 **Limit Behavior:**
 * **ARW:** Variance $\to \infty$.
 * **OU:** Variance converges to a finite limit $\frac{\sigma^2}{2\kappa}$.
-* [cite_start]**"Increases at a decreasing rate":** The uncertainty grows initially but eventually saturates. [cite: 804-806]
+* **"Increases at a decreasing rate":** The uncertainty grows initially but eventually saturates. 
 
 ### 3. Autocorrelation Structure
 
 The covariance between $S_{t+j}$ and $S_{t+m}$ (where $j < m$) involves the overlap of shocks.
 
 $$
+
 \text{Cov}(S_{t+i}, S_{t+j}) = \sigma^2 (1-\kappa)^{|i-j|} \frac{1 - (1-\kappa)^{2 \min(i,j)}}{1 - (1-\kappa)^2}
+
 $$
 
-[cite_start][cite: 810]
+
 
 ### 4. Critique of OU
 
@@ -255,11 +289,15 @@ Instead of modeling price changes $S_{t+1} - S_t$, we model **returns** (log-pri
 Let $\Sigma_t = \ln(S_t)$. We model $\Sigma_t$ as an **Arithmetic** Random Walk.
 
 $$
+
 \ln(S_{t+1}) - \ln(S_t) = \nu + \sigma Z_t
+
 $$
 
 $$
+
 \ln\left( \frac{S_{t+1}}{S_t} \right) \sim N(\nu, \sigma^2)
+
 $$
 
 Where $\nu$ is the expected *log-return*.
@@ -267,7 +305,9 @@ Where $\nu$ is the expected *log-return*.
 **Dynamics:**
 
 $$
+
 S_{t+1} = S_t e^{\nu + \sigma Z_t}
+
 $$
 
 Since $e^x$ is always positive, $S_{t+1}$ can never be negative. The price follows a **Log-Normal Distribution**.
@@ -277,25 +317,35 @@ Since $e^x$ is always positive, $S_{t+1}$ can never be negative. The price follo
 There is a subtle but critical distinction between the **Expected Log Return** ($E[\ln(S_{t+1}/S_t)]$) and the **Log of Expected Return** ($\ln(E[S_{t+1}/S_t])$).
 
 If $Y = e^X$ where $X \sim N(\mu, \sigma^2)$, then:
+
 $$ E[Y] = e^{\mu + \frac{1}{2}\sigma^2} $$
 
 We usually define the drift $\mu$ in terms of the *expected rate of return* of the stock:
-$$ E[S_{t+1}] = S_t e^{\mu} $$ (using continuous compounding notation).
+
+$$ E[S_{t+1}] = S_t e^{\mu} $$
+
+(using continuous compounding notation).
 
 Matching the expectations:
+
 $$ E[S_{t+1}] = S_t E[e^{\nu + \sigma Z}] = S_t e^{\nu + \frac{1}{2}\sigma^2} $$
+
 Set this equal to the target drift $S_t e^{\mu}$:
+
 $$ e^{\nu + \frac{1}{2}\sigma^2} = e^{\mu} $$
+
 $$ \nu = \mu - \frac{1}{2}\sigma^2 $$
 
 **The GRW Generator Equation:**
 To simulate a stock with expected return $\mu$ and volatility $\sigma$:
 
 $$
+
 S_{t+1} = S_t \exp\left( (\mu - \frac{1}{2}\sigma^2) + \sigma Z_t \right)
+
 $$
 
-The term $-\frac{1}{2}\sigma^2$ is the **Drift Adjustment** or **Convexity Adjustment**. [cite_start]It accounts for the fact that volatility drags down the compounded geometric return relative to the arithmetic average. [cite: 865-867]
+The term $-\frac{1}{2}\sigma^2$ is the **Drift Adjustment** or **Convexity Adjustment**. It accounts for the fact that volatility drags down the compounded geometric return relative to the arithmetic average. 
 
 ### 3. Properties over Time
 
@@ -349,8 +399,11 @@ $S_3 = S_2 + \mu + \sigma Z_3 = 16.5 + 0 + 5(0.8) = 16.5 + 4 = 20.5$.
 $E[S_t] = \mu + (1-\kappa)^t (S_0 - \mu)$.
 
 **Calculation:**
+
 $$ E[S_5] = 4 + (1 - 0.20)^5 (5 - 4) $$
+
 $$ E[S_5] = 4 + (0.8)^5 (1) $$
+
 $$ E[S_5] = 4 + 0.32768 = 4.33 $$
 
 **Interpretation:**
@@ -365,8 +418,11 @@ The price started high (5) relative to the mean (4). Over 5 years, it is expecte
 $\nu = \mu - \frac{1}{2}\sigma^2$.
 
 **Calculation:**
+
 $$ \nu = 0.10 - 0.5(0.20)^2 $$
+
 $$ \nu = 0.10 - 0.5(0.04) $$
+
 $$ \nu = 0.10 - 0.02 = 0.08 $$
 
 **Result:**
@@ -400,9 +456,13 @@ Alternatively: $\text{StdDev} = \sigma \sqrt{t} = 2 \sqrt{16} = 2 \times 4 = 8$.
 <summary><strong>Click for Solution</strong></summary>
 
 The variance of an OU process converges to:
+
 $$ \lim_{t \to \infty} \text{Var}(S_t) = \frac{\sigma^2}{1 - (1-\kappa)^2} \approx \frac{\sigma^2}{2\kappa} $$
+
 Using the approximate formula:
+
 $$ \text{Var} \approx \frac{100}{2(0.5)} = \frac{100}{1} = 100 $$
+
 Using exact formula:
 Denominator $= 1 - (0.5)^2 = 1 - 0.25 = 0.75$.
 $\text{Var} = 100 / 0.75 = 133.33$.
@@ -418,9 +478,13 @@ $\text{Var} = 100 / 0.75 = 133.33$.
 <summary><strong>Click for Solution</strong></summary>
 
 Formula: $S_1 = S_0 \exp(\mu - 0.5\sigma^2 + \sigma Z)$.
+
 $$ S_1 = 100 \exp(0.05 - 0.5(0.01) + 0.1(-1)) $$
+
 $$ S_1 = 100 \exp(0.05 - 0.005 - 0.1) $$
+
 $$ S_1 = 100 \exp(-0.055) $$
+
 $$ S_1 = 100 (0.9465) = 94.65 $$
 
 </details>
