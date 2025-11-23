@@ -424,7 +424,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>
@@ -474,9 +473,6 @@ document.write(`
 <li><p><strong>Calculus:</strong> Basic derivatives and integration (for proving properties of MGFs and limits).</p></li>
 <li><p><strong>Geometric Series:</strong> Summation formulas for <span class="math notranslate nohighlight">\(\sum r^k\)</span>.</p></li>
 </ul>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 </section>
 </section>
@@ -728,6 +724,7 @@ Random draws <span class="math notranslate nohighlight">\(Z_1 = 0.5, Z_2 = -1.2,
 <p><strong>Step 3: <span class="math notranslate nohighlight">\(t=3\)</span></strong>
 <span class="math notranslate nohighlight">\(S_3 = S_2 + \mu + \sigma Z_3 = 16.5 + 0 + 5(0.8) = 16.5 + 4 = 20.5\)</span>.</p>
 <p><strong>Path:</strong> 20 <span class="math notranslate nohighlight">\(\to\)</span> 22.5 <span class="math notranslate nohighlight">\(\to\)</span> 16.5 <span class="math notranslate nohighlight">\(\to\)</span> 20.5.</p>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Example 2: OU Expected Value</p>
 <p><strong>Problem:</strong> Corn price <span class="math notranslate nohighlight">\(S_0 = 5\)</span>. Long run mean <span class="math notranslate nohighlight">\(\mu = 4\)</span>. Mean reversion <span class="math notranslate nohighlight">\(\kappa = 0.20\)</span>. Volatility <span class="math notranslate nohighlight">\(\sigma = 0.75\)</span>. Calculate expected price at <span class="math notranslate nohighlight">\(t=5\)</span>.</p>
@@ -742,6 +739,7 @@ Random draws <span class="math notranslate nohighlight">\(Z_1 = 0.5, Z_2 = -1.2,
 \[ E[S_5] = 4 + 0.32768 = 4.33 \]</div>
 <p><strong>Interpretation:</strong>
 The price started high (5) relative to the mean (4). Over 5 years, it is expected to drift down towards 4, reaching 4.33.</p>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Example 3: GRW Convexity Adjustment</p>
 <p><strong>Problem:</strong> A stock has an expected annual return of 10% (<span class="math notranslate nohighlight">\(\mu=0.10\)</span>) and volatility of 20% (<span class="math notranslate nohighlight">\(\sigma=0.20\)</span>). What is the mean of the <em>log-returns</em> (<span class="math notranslate nohighlight">\(\nu\)</span>)?</p>
@@ -756,8 +754,6 @@ The price started high (5) relative to the mean (4). Over 5 years, it is expecte
 \[ \nu = 0.10 - 0.02 = 0.08 \]</div>
 <p><strong>Result:</strong>
 Even though the arithmetic expected return is 10%, the most likely path (geometric drift) grows at 8%. This 2% drag is the “volatility tax.”</p>
-</div>
-</div>
 </div>
 </section>
 <hr class="docutils" />
@@ -810,9 +806,9 @@ Denominator <span class="math notranslate nohighlight">\(= 1 - (0.5)^2 = 1 - 0.2
 <hr class="docutils" />
 <section id="part-6-chapter-summary">
 <h2>Part 6: Chapter Summary<a class="headerlink" href="#part-6-chapter-summary" title="Link to this heading">#</a></h2>
-<section id="key-concepts-recap">
-<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
-<p>:class: important</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Key Concepts Recap</strong></p>
 <p><strong>1. The Trio of Processes:</strong></p>
 <ul class="simple">
 <li><p><strong>ARW:</strong> Additive noise. Good for spreads/cash flows. Risk of negative prices.</p></li>
@@ -826,7 +822,7 @@ Denominator <span class="math notranslate nohighlight">\(= 1 - (0.5)^2 = 1 - 0.2
 </ul>
 <p><strong>3. The Convexity Adjustment:</strong>
 When moving from Normal shocks to Lognormal prices, we must subtract <span class="math notranslate nohighlight">\(\frac{1}{2}\sigma^2\)</span> from the drift. This ensures that <span class="math notranslate nohighlight">\(E[S_t]\)</span> matches the arithmetic return <span class="math notranslate nohighlight">\(\mu\)</span>, counteracting the mathematical fact that <span class="math notranslate nohighlight">\(E[e^X] &gt; e^{E[X]}\)</span>.</p>
-</section>
+</div>
 <section id="formula-cheat-sheet">
 <h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -953,7 +949,6 @@ When moving from Normal shocks to Lognormal prices, we must subtract <span class
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>

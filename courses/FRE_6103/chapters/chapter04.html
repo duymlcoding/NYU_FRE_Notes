@@ -434,7 +434,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-worked-examples">Part 6: Worked Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-practice-problems">Part 7: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-chapter-summary">Part 8: Chapter Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>
@@ -490,9 +489,6 @@ document.write(`
 <li><p><strong>Annuities:</strong> Proficiency with annuity summation formulas from Chapter 2.</p></li>
 <li><p><strong>Calculus:</strong> Basic limits and derivatives for sensitivity analysis.</p></li>
 </ul>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 </section>
 </section>
@@ -823,6 +819,7 @@ r^* \approx r + \theta + \pi
 \[ 1 + \text{EAY} = (1.00401)^{1/0.4} = (1.00401)^{2.5} \]</div>
 <div class="math notranslate nohighlight">
 \[ \text{EAY} \approx 1.01005 \implies 1.005\% \]</div>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Example 2: Corporate Bond Valuation (Approximate)</p>
 <p><strong>Problem:</strong> A corporate bond yields 4.04%. A comparable Treasury yields 2.84%. The bond has an AA rating with an annual default probability of 0.02%. Assume Loss Given Default (LGD) is 100%. Calculate the implied Risk Premium.</p>
@@ -847,6 +844,7 @@ r^* \approx r + \theta + \pi
 <div class="math notranslate nohighlight">
 \[ \kappa = 1.18\% \]</div>
 <p><strong>Insight:</strong> The vast majority of the spread (1.18% vs 0.02%) is due to risk aversion (the premium), not the actuarial expected loss. This is typical for high-grade bonds.</p>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Example 3: Exact Default Valuation (The Geometric Model)</p>
 <p><strong>Problem:</strong></p>
@@ -882,8 +880,6 @@ Actually, the text derivation simplifies this:
 <span class="math notranslate nohighlight">\(PV = 965.58/1.04^5 = 793.63\)</span>.</p></li>
 </ul>
 <p><strong>Total Value:</strong> Sum of PVs.</p>
-</div>
-</div>
 </div>
 </section>
 <hr class="docutils" />
@@ -974,9 +970,9 @@ Valued at rate <span class="math notranslate nohighlight">\(r^* \approx r + \pi 
 <hr class="docutils" />
 <section id="part-8-chapter-summary">
 <h2>Part 8: Chapter Summary<a class="headerlink" href="#part-8-chapter-summary" title="Link to this heading">#</a></h2>
-<section id="key-concepts-recap">
-<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
-<p>:class: important</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Key Concepts Recap</strong></p>
 <p><strong>1. Market Prices as Information:</strong>
 We do not just value bonds; we interrogate them. A TIPS price reveals inflation expectations. A Muni price reveals tax brackets. A Corporate price reveals default fears.</p>
 <p><strong>2. Yield Conventions Matter:</strong>
@@ -993,7 +989,7 @@ A defaultable bond is mathematically equivalent to a portfolio of:</p>
 <div class="math notranslate nohighlight">
 \[ V = \sum_{i} PV(\text{Guaranteed CF}) + \sum_{i} PV(\text{Risky CF} | \text{Survival}) \]</div>
 <p>By splitting the cash flows into <span class="math notranslate nohighlight">\((1-\lambda)\)</span> (Guaranteed) and <span class="math notranslate nohighlight">\(\lambda\)</span> (Risky), we simplify the valuation of complex corporate debt structures.</p>
-</section>
+</div>
 <section id="formula-cheat-sheet">
 <h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -1131,7 +1127,6 @@ A defaultable bond is mathematically equivalent to a portfolio of:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-worked-examples">Part 6: Worked Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-practice-problems">Part 7: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-chapter-summary">Part 8: Chapter Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>

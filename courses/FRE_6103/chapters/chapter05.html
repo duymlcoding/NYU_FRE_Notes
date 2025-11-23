@@ -439,7 +439,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>
@@ -490,9 +489,6 @@ document.write(`
 <li><p><strong>Calculus:</strong> Integration techniques (substitution) for deriving MGFs.</p></li>
 <li><p><strong>Excel/Python:</strong> Basic familiarity with <code class="docutils literal notranslate"><span class="pre">RAND()</span></code>, <code class="docutils literal notranslate"><span class="pre">NORMSINV()</span></code>, or <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>.</p></li>
 </ul>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 </section>
 </section>
@@ -770,6 +766,7 @@ We are correlating the “percentile rankings” of the variables. If Bond A is 
 </ul>
 </li>
 </ol>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Example 2: Cholesky Decomposition</p>
 <p><strong>Problem:</strong> Find the Cholesky matrix <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> for Covariance Matrix <span class="math notranslate nohighlight">\(\mathbf{A} = \begin{pmatrix} 100 &amp; 80 \\ 80 &amp; 144 \end{pmatrix}\)</span>.</p>
@@ -785,6 +782,7 @@ We are correlating the “percentile rankings” of the variables. If Bond A is 
 <p><strong>Result:</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{R} = \begin{pmatrix} 10 &amp; 0 \\ 8 &amp; 8.94 \end{pmatrix}\end{split}\]</div>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Example 3: Inventory Optimization (Common Random Numbers)</p>
 <p><strong>Context:</strong> Maximize profit where Demand <span class="math notranslate nohighlight">\(D \sim \text{Geometric}(\pi=0.1)\)</span>.
@@ -800,8 +798,6 @@ Calculate average profit using the <em>same</em> <span class="math notranslate n
 <p><strong>Why Common Random Numbers?</strong>
 If we used different random numbers for <span class="math notranslate nohighlight">\(s=10\)</span> and <span class="math notranslate nohighlight">\(s=11\)</span>, the noise might mask the small difference in profitability. By using the same random inputs, we isolate the effect of changing <span class="math notranslate nohighlight">\(s\)</span>. This produces a smooth optimization curve rather than a jagged one.</p>
 </div>
-</div>
-</div>
 </section>
 <hr class="docutils" />
 <section id="part-8-practice-problems">
@@ -815,6 +811,7 @@ Inverse CDF formula:</p>
 <div class="math notranslate nohighlight">
 \[x = -\frac{\ln(u)}{0.1} = -10 \ln(u)\]</div>
 <p>Generate <span class="math notranslate nohighlight">\(u \sim U[0,1]\)</span>, apply formula.</p>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Practice Problem 2: Correlated Simulation</p>
 <p><strong>Problem:</strong> You have two independent standard normals <span class="math notranslate nohighlight">\(z_1 = 0.5, z_3 = -1.2\)</span>. You want to create <span class="math notranslate nohighlight">\(z_2\)</span> such that <span class="math notranslate nohighlight">\(\text{corr}(z_1, z_2) = 0.6\)</span>.</p>
@@ -826,6 +823,7 @@ Formula: <span class="math notranslate nohighlight">\(z_2 = \rho z_1 + \sqrt{1-\
 \[z_2 = 0.6(0.5) + 0.8(-1.2)\]</div>
 <div class="math notranslate nohighlight">
 \[z_2 = 0.3 - 0.96 = -0.66\]</div>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Practice Problem 3: Confidence Interval</p>
 <p><strong>Problem:</strong> Simulation of 10,000 trials yields mean <span class="math notranslate nohighlight">\(\bar{x} = 100\)</span> and sample std dev <span class="math notranslate nohighlight">\(s = 20\)</span>. Calculate the 95% confidence interval (<span class="math notranslate nohighlight">\(m=2\)</span>).</p>
@@ -834,15 +832,13 @@ Standard Error <span class="math notranslate nohighlight">\(SE = 20 / \sqrt{1000
 Interval = <span class="math notranslate nohighlight">\(100 \pm 2(0.2)\)</span>.
 Range: <span class="math notranslate nohighlight">\([99.6, 100.4]\)</span>.</p>
 </div>
-</div>
-</div>
 </section>
 <hr class="docutils" />
 <section id="part-9-chapter-summary">
 <h2>Part 9: Chapter Summary<a class="headerlink" href="#part-9-chapter-summary" title="Link to this heading">#</a></h2>
-<section id="key-concepts-recap">
-<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
-<p>:class: important</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Key Concepts Recap</strong></p>
 <p><strong>1. The Inverse Transform:</strong>
 The universal key to simulation. By mapping uniform random numbers through the inverse CDF (<span class="math notranslate nohighlight">\(F^{-1}(u)\)</span>), we can replicate any statistical distribution.</p>
 <p><strong>2. The Cost of Precision:</strong>
@@ -853,7 +849,7 @@ To model the real world, variables must move together. We achieve this by decomp
 Real risks (like defaults) are often not normal. Gaussian Copulas allow us to maintain the correlation structure of the Normal distribution while enforcing the marginal distributions (like Geometric) of the underlying assets.</p>
 <p><strong>5. Simulation as Optimization:</strong>
 Beyond pricing, simulation helps make decisions (like inventory levels). Using <strong>Common Random Numbers</strong> ensures that comparisons between choices are fair and not driven by random noise.</p>
-</section>
+</div>
 <section id="formula-cheat-sheet">
 <h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -999,7 +995,6 @@ Beyond pricing, simulation helps make decisions (like inventory levels). Using <
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
 </ul>
 </li>
