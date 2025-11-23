@@ -164,9 +164,9 @@ Inflation erodes the value of money. We must distinguish between the number of d
 * **Real Dollars:** Purchasing power relative to a base year.
 * **CPI (Consumer Price Index):** A standardized basket of goods used to measure price levels.
 
-    $$
-    \text{Inflation Rate (i)} = \frac{\text{CPI}_{new}}{\text{CPI}_{old}} - 1
-    $$
+$$
+\text{Inflation Rate (i)} = \frac{\text{CPI}_{new}}{\text{CPI}_{old}} - 1
+$$
 
 ### 2. The Fisher Equation
 
