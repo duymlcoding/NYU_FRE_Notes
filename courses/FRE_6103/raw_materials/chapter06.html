@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 6: Stochastic Processes in Finance &#8212; FRE 6103: Valuation Methods for Financial Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'raw_materials/chapter06';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6103: Valuation Methods for Financial Engineering</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter01.html">Chapter 1: Valuation Methods for Financial Engineers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter02.html">Chapter 2: Annuities and Perpetuities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter03.html">Chapter 3: Complications and Resolutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter04.html">Chapter 4: Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter05.html">Chapter 5: Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter06.html">Chapter 6: Stochastic Processes in Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter07.html">Chapter 7: Risk, Capital and Valuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter08.html">Chapter 8: The Single Period CAPM and CFPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter09.html">Chapter 9: Derivative Pricing in the Static CAPM</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/raw_materials/chapter06.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fraw_materials/chapter06.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/raw_materials/chapter06.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 6: Stochastic Processes in Finance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-arithmetic-random-walk-arw">Part 1: The Arithmetic Random Walk (ARW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-dynamics">1. Definition and Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-over-time">2. Properties over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-structure">3. Autocorrelation Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-arw">4. Critique of ARW</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mean-reversion-ornstein-uhlenbeck">Part 2: Mean Reversion (Ornstein-Uhlenbeck)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Definition and Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. Properties over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3. Autocorrelation Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-ou">4. Critique of OU</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-the-geometric-random-walk-grw">Part 3: The Geometric Random Walk (GRW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-log-normal-transformation">1. The Log-Normal Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-convexity-adjustment-drift">2. The Convexity Adjustment (Drift)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3. Properties over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-grw">4. Critique of GRW</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simulating-an-arw">Example 1: Simulating an ARW</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-ou-expected-value">Example 2: OU Expected Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-grw-convexity-adjustment">Example 3: GRW Convexity Adjustment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-arw-variance">Practice Problem 1: ARW Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-ou-limit">Practice Problem 2: OU Limit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-grw-simulation">Practice Problem 3: GRW Simulation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-stochastic-processes-in-finance">
+<h1>Chapter 6: Stochastic Processes in Finance<a class="headerlink" href="#chapter-6-stochastic-processes-in-finance" title="Link to this heading">#</a></h1>
+<section id="chapter-overview">
+<h2>Chapter Overview<a class="headerlink" href="#chapter-overview" title="Link to this heading">#</a></h2>
+<p>In Chapter 5, we learned how to simulate random variables at a single point in time. In Chapter 6, we extend this concept to the dimension of <strong>time</strong>. We are no longer just asking “What is the distribution of the stock price tomorrow?” but rather “What does the entire path of the stock price look like over the next year?”</p>
+<p>This chapter introduces the fundamental stochastic processes that underpin modern financial engineering:</p>
+<ol class="arabic simple">
+<li><p><strong>The Arithmetic Random Walk (ARW):</strong> The simplest model, additive and volatile.</p></li>
+<li><p><strong>The Ornstein-Uhlenbeck (OU) Process:</strong> A mean-reverting model essential for commodities and interest rates.</p></li>
+<li><p><strong>The Geometric Random Walk (GRW):</strong> The multiplicative model that forms the basis of the Black-Scholes option pricing formula.</p></li>
+</ol>
+<p>We will derive the properties of these processes from first principles, analyze their moments (mean and variance) over time, and learn how to simulate their paths using the techniques from Chapter 5.</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol class="arabic simple">
+<li><p><strong>Differentiate</strong> between Arithmetic, Mean Reverting, and Geometric processes and select the appropriate model for a given asset class (stocks vs. commodities vs. cash flows).</p></li>
+<li><p><strong>Derive</strong> the expected value and variance of a stochastic process as a function of time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><strong>Construct</strong> covariance matrices for multi-period simulations of these processes.</p></li>
+<li><p><strong>Simulate</strong> sample paths for ARW, OU, and GRW processes in discrete time steps.</p></li>
+<li><p><strong>Analyze</strong> the limitations of each model, such as the possibility of negative prices in ARW/OU and the lack of mean reversion in GRW.</p></li>
+<li><p><strong>Implement</strong> the “convexity adjustment” required to transition from logarithmic returns to arithmetic expectations in the GRW.</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Prerequisites</p>
+<p>Before studying this chapter, you should be familiar with:</p>
+<ul class="simple">
+<li><p><strong>Chapter 5:</strong> Simulation techniques, specifically Cholesky decomposition for correlated random variables.</p></li>
+<li><p><strong>Probability:</strong> Normal distribution properties, Expected Value, Variance, Covariance.</p></li>
+<li><p><strong>Calculus:</strong> Basic derivatives and integration (for proving properties of MGFs and limits).</p></li>
+<li><p><strong>Geometric Series:</strong> Summation formulas for <span class="math notranslate nohighlight">\(\sum r^k\)</span>.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-1-the-arithmetic-random-walk-arw">
+<h2>Part 1: The Arithmetic Random Walk (ARW)<a class="headerlink" href="#part-1-the-arithmetic-random-walk-arw" title="Link to this heading">#</a></h2>
+<p>The Random Walk hypothesis, popularized by Louis Bachelier in 1900, posits that asset price changes are random and unpredictable. Even if we don’t believe markets are truly random, the <strong>Efficient Market Hypothesis</strong> suggests we cannot systematically outperform them, so modeling prices as random is a rational baseline.</p>
+<section id="definition-and-dynamics">
+<h3>1. Definition and Dynamics<a class="headerlink" href="#definition-and-dynamics" title="Link to this heading">#</a></h3>
+<p>The ARW models the <strong>change</strong> in price as a random variable added to the previous price.</p>
+<p><strong>Discrete Time Equation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+S_{t+1} = S_t + \mu + \sigma Z_t
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S_t\)</span>: Asset price at time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span>: Drift parameter (expected dollar change per period).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span>: Volatility parameter (standard deviation of dollar change per period).</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z_t \sim N(0,1)\)</span>: Standard normal random shock (the “innovation”).</p></li>
+</ul>
+<p><strong>Continuous Time (Arithmetic Brownian Motion):</strong>
+As the time step <span class="math notranslate nohighlight">\(\Delta t \to dt\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+dS_t = \mu dt + \sigma dZ_t
+\]</div>
+</section>
+<section id="properties-over-time">
+<h3>2. Properties over Time<a class="headerlink" href="#properties-over-time" title="Link to this heading">#</a></h3>
+<p>What happens if we look <span class="math notranslate nohighlight">\(j\)</span> periods into the future?
+We can write <span class="math notranslate nohighlight">\(S_{t+j}\)</span> as a collapsing sum of incremental changes:</p>
+<div class="math notranslate nohighlight">
+\[
+S_{t+j} = S_t + \sum_{i=1}^j (S_{t+i} - S_{t+i-1})
+\]</div>
+<p>Substituting the dynamics <span class="math notranslate nohighlight">\(S_{k} - S_{k-1} = \mu + \sigma Z_{k-1}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+S_{t+j} = S_t + \sum_{i=1}^j (\mu + \sigma Z_{t+i-1})
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+S_{t+j} = S_t + j\mu + \sigma \sum_{i=1}^j Z_{t+i-1}
+\]</div>
+<p>Since the sum of <span class="math notranslate nohighlight">\(j\)</span> independent standard normals is normal with variance <span class="math notranslate nohighlight">\(j\)</span>:
+<span class="math notranslate nohighlight">\(\sum_{i=1}^j Z_i \sim N(0, j)\)</span>.</p>
+<p><strong>Distribution of Future Price:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+S_{t+j} \sim N(S_t + j\mu, j\sigma^2)
+\]</div>
+<ul class="simple">
+<li><p><strong>Expected Value:</strong> <span class="math notranslate nohighlight">\(E[S_{t+j}] = S_t + j\mu\)</span>. (Linear growth).</p></li>
+<li><p><strong>Variance:</strong> <span class="math notranslate nohighlight">\(\text{Var}(S_{t+j}) = j\sigma^2\)</span>. (Variance grows linearly with time).</p></li>
+<li><p><strong>Standard Deviation:</strong> <span class="math notranslate nohighlight">\(\sigma \sqrt{j}\)</span>. (Risk grows with the square root of time).</p></li>
+</ul>
+</section>
+<section id="autocorrelation-structure">
+<h3>3. Autocorrelation Structure<a class="headerlink" href="#autocorrelation-structure" title="Link to this heading">#</a></h3>
+<p>In simulation, we often need the covariance between prices at different times, e.g., <span class="math notranslate nohighlight">\(S_{t+j}\)</span> and <span class="math notranslate nohighlight">\(S_{t+m}\)</span> where <span class="math notranslate nohighlight">\(j &lt; m\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Cov}(S_{t+j}, S_{t+m}) = \text{Cov}\left( S_t + j\mu + \sigma \sum_{i=1}^j Z_i, \quad S_t + m\mu + \sigma \sum_{k=1}^m Z_k \right)
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(S_t, \mu\)</span> are constants (at time <span class="math notranslate nohighlight">\(t\)</span>), they drop out of the covariance. We are left with the covariance of the sums of <span class="math notranslate nohighlight">\(Z\)</span>.
+The first <span class="math notranslate nohighlight">\(j\)</span> terms of <span class="math notranslate nohighlight">\(Z\)</span> are common to both sums. The terms from <span class="math notranslate nohighlight">\(j+1\)</span> to <span class="math notranslate nohighlight">\(m\)</span> in the second sum are independent of the first sum.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Cov}(S_{t+j}, S_{t+m}) = \sigma^2 \sum_{i=1}^j \text{Var}(Z_i) = \sigma^2 \cdot j
+\]</div>
+<p><strong>General Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{Cov}(S_{t+j}, S_{t+m}) = \sigma^2 \min(j, m)
+\]</div>
+<p>This covariance structure allows us to construct the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> for a vector of prices <span class="math notranslate nohighlight">\((S_{t+1}, S_{t+2}, \dots, S_{t+k})\)</span> and simulate the entire path using the Cholesky decomposition method from Chapter 5.</p>
+<p><strong>Simulation Algorithm:</strong></p>
+<ol class="arabic simple">
+<li><p>Construct the Covariance Matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> where <span class="math notranslate nohighlight">\(A_{ij} = \sigma^2 \min(i, j)\)</span>.</p></li>
+<li><p>Compute Cholesky <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> such that <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{R}\mathbf{R}^T\)</span>.</p></li>
+<li><p>Generate independent <span class="math notranslate nohighlight">\(Z \sim N(0,1)\)</span>.</p></li>
+<li><p>Path <span class="math notranslate nohighlight">\(\mathbf{S} = \mathbf{S}_{mean} + \mathbf{Z}\mathbf{R}^T\)</span>.
+Actually, simpler: <span class="math notranslate nohighlight">\(\mathbf{S} = \mathbf{S}_{mean} + \mathbf{R}\mathbf{Z}\)</span>? No, in Chapter 5 it was <span class="math notranslate nohighlight">\(\mathbf{Z}\mathbf{R}^T\)</span> if <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span> is a row vector.
+Note: For ARW, the Cholesky matrix <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> is simply a lower triangular matrix of <span class="math notranslate nohighlight">\(\sigma\)</span>’s.
+<span class="math notranslate nohighlight">\(S_{t+1} = S_t + \mu + \sigma Z_1\)</span>
+<span class="math notranslate nohighlight">\(S_{t+2} = S_{t+1} + \mu + \sigma Z_2 = S_t + 2\mu + \sigma(Z_1 + Z_2)\)</span>
+This confirms the “cumulative sum” structure.</p></li>
+</ol>
+</section>
+<section id="critique-of-arw">
+<h3>4. Critique of ARW<a class="headerlink" href="#critique-of-arw" title="Link to this heading">#</a></h3>
+<p><strong>Pros:</strong></p>
+<ul class="simple">
+<li><p>Simple to understand and implement.</p></li>
+<li><p>Good for short-term approximations.</p></li>
+<li><p>Suitable for variables that can be negative (e.g., “Basis” spread between two commodities, or net corporate Cash Flows).</p></li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul class="simple">
+<li><p><strong>Negative Prices:</strong> For stocks, <span class="math notranslate nohighlight">\(S_t\)</span> can drift below zero, which violates limited liability.</p></li>
+<li><p><strong>Unbounded Variance:</strong> Uncertainty grows infinitely (<span class="math notranslate nohighlight">\(\sqrt{t}\)</span>), which may not fit stable economic variables like interest rates.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-mean-reversion-ornstein-uhlenbeck">
+<h2>Part 2: Mean Reversion (Ornstein-Uhlenbeck)<a class="headerlink" href="#part-2-mean-reversion-ornstein-uhlenbeck" title="Link to this heading">#</a></h2>
+<p>Commodities (oil, copper, wheat) and interest rates do not wander infinitely like stocks.</p>
+<ul class="simple">
+<li><p><strong>High Prices:</strong> Stimulate supply, reduce demand <span class="math notranslate nohighlight">\(\to\)</span> Price falls.</p></li>
+<li><p><strong>Low Prices:</strong> Reduce supply, stimulate demand <span class="math notranslate nohighlight">\(\to\)</span> Price rises.
+This economic gravity is called <strong>Mean Reversion</strong>.</p></li>
+</ul>
+<section id="id1">
+<h3>1. Definition and Dynamics<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The Ornstein-Uhlenbeck (OU) process pulls the variable back to a long-run mean <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p><strong>Discrete Time Equation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+S_{t+1} = S_t + \kappa(\mu - S_t) + \sigma Z_t
+\]</div>
+<p>Alternatively written as:</p>
+<div class="math notranslate nohighlight">
+\[
+S_{t+1} - \mu = (1 - \kappa)(S_t - \mu) + \sigma Z_t
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span>: Long-run mean level.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\kappa\)</span>: Speed of mean reversion (<span class="math notranslate nohighlight">\(0 \le \kappa \le 1\)</span>).</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\kappa=0\)</span>: Random Walk (no reversion).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\kappa=1\)</span>: Instant reversion to mean (no memory).</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span>: Volatility of the shock.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>2. Properties over Time<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Expanding the recurrence relation for <span class="math notranslate nohighlight">\(S_{t+j}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+S_{t+j} - \mu = (1-\kappa)^j (S_t - \mu) + \sum_{i=0}^{j-1} (1-\kappa)^i \sigma Z_{t+j-i}
+\]</div>
+<p><strong>Expected Value:</strong>
+The random <span class="math notranslate nohighlight">\(Z\)</span> terms average to zero.</p>
+<div class="math notranslate nohighlight">
+\[
+E[S_{t+j}] = \mu + (1-\kappa)^j (S_t - \mu)
+\]</div>
+<ul class="simple">
+<li><p>As <span class="math notranslate nohighlight">\(j \to \infty\)</span>, <span class="math notranslate nohighlight">\((1-\kappa)^j \to 0\)</span>, so <span class="math notranslate nohighlight">\(E[S_{t+j}] \to \mu\)</span>. The forecast converges to the long-run mean.</p></li>
+</ul>
+<p><strong>Variance:</strong>
+The variance is the sum of the variances of the independent shock terms.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(S_{t+j}) = \sigma^2 \sum_{i=0}^{j-1} \left[ (1-\kappa)^i \right]^2 = \sigma^2 \sum_{i=0}^{j-1} (1-\kappa)^{2i}
+\]</div>
+<p>This is a geometric series sum <span class="math notranslate nohighlight">\(\sum r^i\)</span> where <span class="math notranslate nohighlight">\(r = (1-\kappa)^2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(S_{t+j}) = \sigma^2 \frac{1 - (1-\kappa)^{2j}}{1 - (1-\kappa)^2}
+\]</div>
+<p>Approximating denominator <span class="math notranslate nohighlight">\(1 - (1-2\kappa+\kappa^2) \approx 2\kappa\)</span> (for small <span class="math notranslate nohighlight">\(\kappa\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(S_{t+j}) \approx \frac{\sigma^2}{2\kappa} \left( 1 - (1-\kappa)^{2j} \right)
+\]</div>
+<p><strong>Limit Behavior:</strong></p>
+<ul class="simple">
+<li><p><strong>ARW:</strong> Variance <span class="math notranslate nohighlight">\(\to \infty\)</span>.</p></li>
+<li><p><strong>OU:</strong> Variance converges to a finite limit <span class="math notranslate nohighlight">\(\frac{\sigma^2}{2\kappa}\)</span>.</p></li>
+<li><p>[cite_start]<strong>”Increases at a decreasing rate”:</strong> The uncertainty grows initially but eventually saturates. [cite: 804-806]</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>3. Autocorrelation Structure<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>The covariance between <span class="math notranslate nohighlight">\(S_{t+j}\)</span> and <span class="math notranslate nohighlight">\(S_{t+m}\)</span> (where <span class="math notranslate nohighlight">\(j &lt; m\)</span>) involves the overlap of shocks.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Cov}(S_{t+i}, S_{t+j}) = \sigma^2 (1-\kappa)^{|i-j|} \frac{1 - (1-\kappa)^{2 \min(i,j)}}{1 - (1-\kappa)^2}
+\]</div>
+<p>[cite_start][cite: 810]</p>
+</section>
+<section id="critique-of-ou">
+<h3>4. Critique of OU<a class="headerlink" href="#critique-of-ou" title="Link to this heading">#</a></h3>
+<p><strong>Pros:</strong></p>
+<ul class="simple">
+<li><p>Captures economic reality of supply/demand equilibrium.</p></li>
+<li><p>Bounded variance makes long-term modeling more stable.</p></li>
+<li><p>Ideal for <strong>Commodities</strong> and <strong>Interest Rates</strong>.</p></li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul class="simple">
+<li><p>Still allows negative values (since shocks are Normal additive).</p></li>
+<li><p>Not suitable for assets that grow exponentially (stocks).</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-the-geometric-random-walk-grw">
+<h2>Part 3: The Geometric Random Walk (GRW)<a class="headerlink" href="#part-3-the-geometric-random-walk-grw" title="Link to this heading">#</a></h2>
+<p>To model stock prices while respecting limited liability (<span class="math notranslate nohighlight">\(S \ge 0\)</span>) and exponential growth, we use the Geometric Random Walk. This is the engine behind the Black-Scholes model.</p>
+<section id="the-log-normal-transformation">
+<h3>1. The Log-Normal Transformation<a class="headerlink" href="#the-log-normal-transformation" title="Link to this heading">#</a></h3>
+<p>Instead of modeling price changes <span class="math notranslate nohighlight">\(S_{t+1} - S_t\)</span>, we model <strong>returns</strong> (log-price changes).</p>
+<p>Let <span class="math notranslate nohighlight">\(\Sigma_t = \ln(S_t)\)</span>. We model <span class="math notranslate nohighlight">\(\Sigma_t\)</span> as an <strong>Arithmetic</strong> Random Walk.</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(S_{t+1}) - \ln(S_t) = \nu + \sigma Z_t
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\ln\left( \frac{S_{t+1}}{S_t} \right) \sim N(\nu, \sigma^2)
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\nu\)</span> is the expected <em>log-return</em>.</p>
+<p><strong>Dynamics:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+S_{t+1} = S_t e^{\nu + \sigma Z_t}
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(e^x\)</span> is always positive, <span class="math notranslate nohighlight">\(S_{t+1}\)</span> can never be negative. The price follows a <strong>Log-Normal Distribution</strong>.</p>
+</section>
+<section id="the-convexity-adjustment-drift">
+<h3>2. The Convexity Adjustment (Drift)<a class="headerlink" href="#the-convexity-adjustment-drift" title="Link to this heading">#</a></h3>
+<p>There is a subtle but critical distinction between the <strong>Expected Log Return</strong> (<span class="math notranslate nohighlight">\(E[\ln(S_{t+1}/S_t)]\)</span>) and the <strong>Log of Expected Return</strong> (<span class="math notranslate nohighlight">\(\ln(E[S_{t+1}/S_t])\)</span>).</p>
+<p>If <span class="math notranslate nohighlight">\(Y = e^X\)</span> where <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>, then:
+$<span class="math notranslate nohighlight">\( E[Y] = e^{\mu + \frac{1}{2}\sigma^2} \)</span>$</p>
+<p>We usually define the drift <span class="math notranslate nohighlight">\(\mu\)</span> in terms of the <em>expected rate of return</em> of the stock:
+$<span class="math notranslate nohighlight">\( E[S_{t+1}] = S_t e^{\mu} \)</span>$ (using continuous compounding notation).</p>
+<p>Matching the expectations:
+$<span class="math notranslate nohighlight">\( E[S_{t+1}] = S_t E[e^{\nu + \sigma Z}] = S_t e^{\nu + \frac{1}{2}\sigma^2} \)</span><span class="math notranslate nohighlight">\(
+Set this equal to the target drift \)</span>S_t e^{\mu}<span class="math notranslate nohighlight">\(:
+\)</span><span class="math notranslate nohighlight">\( e^{\nu + \frac{1}{2}\sigma^2} = e^{\mu} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \nu = \mu - \frac{1}{2}\sigma^2 \)</span>$</p>
+<p><strong>The GRW Generator Equation:</strong>
+To simulate a stock with expected return <span class="math notranslate nohighlight">\(\mu\)</span> and volatility <span class="math notranslate nohighlight">\(\sigma\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+S_{t+1} = S_t \exp\left( (\mu - \frac{1}{2}\sigma^2) + \sigma Z_t \right)
+\]</div>
+<p>The term <span class="math notranslate nohighlight">\(-\frac{1}{2}\sigma^2\)</span> is the <strong>Drift Adjustment</strong> or <strong>Convexity Adjustment</strong>. [cite_start]It accounts for the fact that volatility drags down the compounded geometric return relative to the arithmetic average. [cite: 865-867]</p>
+</section>
+<section id="id4">
+<h3>3. Properties over Time<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><strong>Log Price:</strong>
+<span class="math notranslate nohighlight">\(\ln(S_{t+j}) \sim N(\ln(S_t) + j(\mu - 0.5\sigma^2), j\sigma^2)\)</span>.</p>
+<p><strong>Price Level:</strong></p>
+<ul class="simple">
+<li><p><strong>Expected Value:</strong> <span class="math notranslate nohighlight">\(E[S_{t+j}] = S_t e^{j\mu}\)</span>.</p></li>
+<li><p><strong>Variance:</strong> <span class="math notranslate nohighlight">\(\text{Var}(S_{t+j}) = S_t^2 e^{2j\mu} (e^{j\sigma^2} - 1)\)</span>.</p></li>
+</ul>
+</section>
+<section id="critique-of-grw">
+<h3>4. Critique of GRW<a class="headerlink" href="#critique-of-grw" title="Link to this heading">#</a></h3>
+<p><strong>Pros:</strong></p>
+<ul class="simple">
+<li><p>Prevents negative prices (<span class="math notranslate nohighlight">\(S \ge 0\)</span>).</p></li>
+<li><p>Consistent with compounding interest.</p></li>
+<li><p>Standard model for <strong>Stocks</strong> and <strong>Indices</strong>.</p></li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul class="simple">
+<li><p>Assumes constant volatility (markets have stochastic vol).</p></li>
+<li><p>Does not allow for default (stock price 0 is asymptotic, never hit).</p></li>
+<li><p>Fails to capture “Fat Tails” (extreme events are more common in reality than Normal distribution predicts).</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-worked-examples">
+<h2>Part 4: Worked Examples<a class="headerlink" href="#part-4-worked-examples" title="Link to this heading">#</a></h2>
+<section id="example-1-simulating-an-arw">
+<h3>Example 1: Simulating an ARW<a class="headerlink" href="#example-1-simulating-an-arw" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Simulate 3 periods of a stock price using ARW.
+<span class="math notranslate nohighlight">\(S_0 = 20, \mu = 0, \sigma = 5\)</span>.
+Random draws <span class="math notranslate nohighlight">\(Z_1 = 0.5, Z_2 = -1.2, Z_3 = 0.8\)</span>.</p>
+<p><strong>Step 1: <span class="math notranslate nohighlight">\(t=1\)</span></strong>
+<span class="math notranslate nohighlight">\(S_1 = S_0 + \mu + \sigma Z_1 = 20 + 0 + 5(0.5) = 22.5\)</span>.</p>
+<p><strong>Step 2: <span class="math notranslate nohighlight">\(t=2\)</span></strong>
+<span class="math notranslate nohighlight">\(S_2 = S_1 + \mu + \sigma Z_2 = 22.5 + 0 + 5(-1.2) = 22.5 - 6 = 16.5\)</span>.</p>
+<p><strong>Step 3: <span class="math notranslate nohighlight">\(t=3\)</span></strong>
+<span class="math notranslate nohighlight">\(S_3 = S_2 + \mu + \sigma Z_3 = 16.5 + 0 + 5(0.8) = 16.5 + 4 = 20.5\)</span>.</p>
+<p><strong>Path:</strong> 20 <span class="math notranslate nohighlight">\(\to\)</span> 22.5 <span class="math notranslate nohighlight">\(\to\)</span> 16.5 <span class="math notranslate nohighlight">\(\to\)</span> 20.5.</p>
+</section>
+<section id="example-2-ou-expected-value">
+<h3>Example 2: OU Expected Value<a class="headerlink" href="#example-2-ou-expected-value" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Corn price <span class="math notranslate nohighlight">\(S_0 = 5\)</span>. Long run mean <span class="math notranslate nohighlight">\(\mu = 4\)</span>. Mean reversion <span class="math notranslate nohighlight">\(\kappa = 0.20\)</span>. Volatility <span class="math notranslate nohighlight">\(\sigma = 0.75\)</span>. Calculate expected price at <span class="math notranslate nohighlight">\(t=5\)</span>.</p>
+<p><strong>Formula:</strong>
+<span class="math notranslate nohighlight">\(E[S_t] = \mu + (1-\kappa)^t (S_0 - \mu)\)</span>.</p>
+<p><strong>Calculation:</strong>
+$<span class="math notranslate nohighlight">\( E[S_5] = 4 + (1 - 0.20)^5 (5 - 4) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( E[S_5] = 4 + (0.8)^5 (1) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( E[S_5] = 4 + 0.32768 = 4.33 \)</span>$</p>
+<p><strong>Interpretation:</strong>
+The price started high (5) relative to the mean (4). Over 5 years, it is expected to drift down towards 4, reaching 4.33.</p>
+</section>
+<section id="example-3-grw-convexity-adjustment">
+<h3>Example 3: GRW Convexity Adjustment<a class="headerlink" href="#example-3-grw-convexity-adjustment" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> A stock has an expected annual return of 10% (<span class="math notranslate nohighlight">\(\mu=0.10\)</span>) and volatility of 20% (<span class="math notranslate nohighlight">\(\sigma=0.20\)</span>). What is the mean of the <em>log-returns</em> (<span class="math notranslate nohighlight">\(\nu\)</span>)?</p>
+<p><strong>Formula:</strong>
+<span class="math notranslate nohighlight">\(\nu = \mu - \frac{1}{2}\sigma^2\)</span>.</p>
+<p><strong>Calculation:</strong>
+$<span class="math notranslate nohighlight">\( \nu = 0.10 - 0.5(0.20)^2 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \nu = 0.10 - 0.5(0.04) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \nu = 0.10 - 0.02 = 0.08 \)</span>$</p>
+<p><strong>Result:</strong>
+Even though the arithmetic expected return is 10%, the most likely path (geometric drift) grows at 8%. This 2% drag is the “volatility tax.”</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-practice-problems">
+<h2>Part 5: Practice Problems<a class="headerlink" href="#part-5-practice-problems" title="Link to this heading">#</a></h2>
+<section id="practice-problem-1-arw-variance">
+<h3>Practice Problem 1: ARW Variance<a class="headerlink" href="#practice-problem-1-arw-variance" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> An ARW process has <span class="math notranslate nohighlight">\(\sigma = 2\)</span>. What is the standard deviation of the price at <span class="math notranslate nohighlight">\(t=16\)</span>?</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p>Variance <span class="math notranslate nohighlight">\(\text{Var}(S_t) = t \sigma^2\)</span>.
+<span class="math notranslate nohighlight">\(\text{Var}(S_{16}) = 16 \times 2^2 = 16 \times 4 = 64\)</span>.
+Standard Deviation <span class="math notranslate nohighlight">\(= \sqrt{64} = 8\)</span>.
+Alternatively: <span class="math notranslate nohighlight">\(\text{StdDev} = \sigma \sqrt{t} = 2 \sqrt{16} = 2 \times 4 = 8\)</span>.</p>
+</details>
+</section>
+<section id="practice-problem-2-ou-limit">
+<h3>Practice Problem 2: OU Limit<a class="headerlink" href="#practice-problem-2-ou-limit" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> For an OU process with <span class="math notranslate nohighlight">\(\sigma = 10\)</span> and <span class="math notranslate nohighlight">\(\kappa = 0.5\)</span>, what is the maximum long-term variance?</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p>The variance of an OU process converges to:
+$<span class="math notranslate nohighlight">\( \lim_{t \to \infty} \text{Var}(S_t) = \frac{\sigma^2}{1 - (1-\kappa)^2} \approx \frac{\sigma^2}{2\kappa} \)</span><span class="math notranslate nohighlight">\(
+Using the approximate formula:
+\)</span><span class="math notranslate nohighlight">\( \text{Var} \approx \frac{100}{2(0.5)} = \frac{100}{1} = 100 \)</span><span class="math notranslate nohighlight">\(
+Using exact formula:
+Denominator \)</span>= 1 - (0.5)^2 = 1 - 0.25 = 0.75<span class="math notranslate nohighlight">\(.
+\)</span>\text{Var} = 100 / 0.75 = 133.33$.</p>
+</details>
+</section>
+<section id="practice-problem-3-grw-simulation">
+<h3>Practice Problem 3: GRW Simulation<a class="headerlink" href="#practice-problem-3-grw-simulation" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Simulate one step of a GRW. <span class="math notranslate nohighlight">\(S_0 = 100, \mu = 0.05, \sigma = 0.10, Z = -1\)</span>.</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p>Formula: <span class="math notranslate nohighlight">\(S_1 = S_0 \exp(\mu - 0.5\sigma^2 + \sigma Z)\)</span>.
+$<span class="math notranslate nohighlight">\( S_1 = 100 \exp(0.05 - 0.5(0.01) + 0.1(-1)) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( S_1 = 100 \exp(0.05 - 0.005 - 0.1) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( S_1 = 100 \exp(-0.055) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( S_1 = 100 (0.9465) = 94.65 \)</span>$</p>
+</details>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-6-chapter-summary">
+<h2>Part 6: Chapter Summary<a class="headerlink" href="#part-6-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="key-concepts-recap">
+<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
+<p>:class: important</p>
+<p><strong>1. The Trio of Processes:</strong></p>
+<ul class="simple">
+<li><p><strong>ARW:</strong> Additive noise. Good for spreads/cash flows. Risk of negative prices.</p></li>
+<li><p><strong>OU:</strong> Mean reverting. Good for commodities/rates. Bounded variance.</p></li>
+<li><p><strong>GRW:</strong> Multiplicative noise. Good for stocks. Convexity adjustment required.</p></li>
+</ul>
+<p><strong>2. Volatility and Time:</strong></p>
+<ul class="simple">
+<li><p>In Random Walks (ARW/GRW), risk grows with time (<span class="math notranslate nohighlight">\(\sigma \sqrt{t}\)</span>). The future is infinitely uncertain.</p></li>
+<li><p>In Mean Reversion (OU), risk is bounded. The economic forces of supply and demand limit how far prices can drift.</p></li>
+</ul>
+<p><strong>3. The Convexity Adjustment:</strong>
+When moving from Normal shocks to Lognormal prices, we must subtract <span class="math notranslate nohighlight">\(\frac{1}{2}\sigma^2\)</span> from the drift. This ensures that <span class="math notranslate nohighlight">\(E[S_t]\)</span> matches the arithmetic return <span class="math notranslate nohighlight">\(\mu\)</span>, counteracting the mathematical fact that <span class="math notranslate nohighlight">\(E[e^X] &gt; e^{E[X]}\)</span>.</p>
+</section>
+<section id="formula-cheat-sheet">
+<h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Model</p></th>
+<th class="head text-left"><p>Dynamics Equation</p></th>
+<th class="head text-left"><p>Expected Value <span class="math notranslate nohighlight">\(E[S_t]\)</span></p></th>
+<th class="head text-left"><p>Variance <span class="math notranslate nohighlight">\(\text{Var}(S_t)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>ARW</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(S_{t+1} = S_t + \mu + \sigma Z\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(S_0 + t\mu\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(t\sigma^2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>OU</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(S_{t+1} = S_t + \kappa(\mu-S_t) + \sigma Z\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mu + (1-\kappa)^t(S_0-\mu)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\approx \frac{\sigma^2}{2\kappa} (1 - (1-\kappa)^{2t})\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>GRW</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(S_{t+1} = S_t e^{(\mu - 0.5\sigma^2) + \sigma Z}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(S_0 e^{t\mu}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(S_0^2 e^{2t\mu}(e^{t\sigma^2}-1)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./raw_materials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-arithmetic-random-walk-arw">Part 1: The Arithmetic Random Walk (ARW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-and-dynamics">1. Definition and Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-over-time">2. Properties over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation-structure">3. Autocorrelation Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-arw">4. Critique of ARW</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mean-reversion-ornstein-uhlenbeck">Part 2: Mean Reversion (Ornstein-Uhlenbeck)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Definition and Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. Properties over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3. Autocorrelation Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-ou">4. Critique of OU</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-the-geometric-random-walk-grw">Part 3: The Geometric Random Walk (GRW)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-log-normal-transformation">1. The Log-Normal Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-convexity-adjustment-drift">2. The Convexity Adjustment (Drift)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3. Properties over Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-grw">4. Critique of GRW</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simulating-an-arw">Example 1: Simulating an ARW</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-ou-expected-value">Example 2: OU Expected Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-grw-convexity-adjustment">Example 3: GRW Convexity Adjustment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-arw-variance">Practice Problem 1: ARW Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-ou-limit">Practice Problem 2: OU Limit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-grw-simulation">Practice Problem 3: GRW Simulation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David C. Shimko
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

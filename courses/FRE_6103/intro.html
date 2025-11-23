@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; FRE 6103: Valuation Methods for Financial Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 1: Valuation Methods for Financial Engineers" href="chapters/chapter01.html" />
+    <link rel="prev" title="FRE 6103: Valuation Methods for Financial Engineering" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6103: Valuation Methods for Financial Engineering</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapters/chapter01.html">Chapter 1: Valuation Methods for Financial Engineers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/chapter02.html">Chapter 2: Annuities and Perpetuities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/chapter03.html">Chapter 3: Complications and Resolutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/chapter04.html">Chapter 4: Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/chapter05.html">Chapter 5: Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/chapter06.html">Chapter 6: Stochastic Processes in Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/chapter07.html">Chapter 7: Risk, Capital and Valuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/chapter08.html">Chapter 8: The Single Period CAPM and CFPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/chapter09.html">Chapter 9: Derivative Pricing in the Static CAPM</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/intro.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure">Course Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i-valuation-foundations-chapters-1-3">Part I: Valuation Foundations (Chapters 1-3)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-fixed-income-chapter-4">Part II: Fixed Income (Chapter 4)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iii-simulation-methods-chapters-5-6">Part III: Simulation Methods (Chapters 5-6)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iv-asset-pricing-chapters-7-9">Part IV: Asset Pricing (Chapters 7-9)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy-and-approach">Philosophy and Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-these-notes">How to Use These Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-notation">Mathematical Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-references">Recommended References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-tools">Practical Tools</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<section id="course-overview">
+<h2>Course Overview<a class="headerlink" href="#course-overview" title="Link to this heading">#</a></h2>
+<p>FRE 6103: Valuation Methods for Financial Engineering is a graduate-level course that establishes the quantitative foundations for valuing financial assets. Unlike traditional corporate finance which relies on static formulas, this course emphasizes dynamic valuation methods using benchmarking, simulation, and risk-neutral pricing.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<p>Students should have a solid background in:</p>
+<ul class="simple">
+<li><p><strong>Calculus:</strong> Single and multivariable calculus, integration, differentiation</p></li>
+<li><p><strong>Linear Algebra:</strong> Matrix operations, solving systems of equations</p></li>
+<li><p><strong>Probability and Statistics:</strong> Probability distributions, expected value, variance</p></li>
+<li><p><strong>Basic Finance:</strong> Time value of money, present value concepts</p></li>
+<li><p><strong>Programming:</strong> Familiarity with Python, MATLAB, or R is helpful for simulations</p></li>
+</ul>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this course, students will be able to:</p>
+<ol class="arabic simple">
+<li><p><strong>Apply the General Valuation Equation (GVE)</strong> to price various assets</p>
+<ul class="simple">
+<li><p>Understand the equilibrium of required and expected returns</p></li>
+<li><p>Value risk-free and risky cash flows</p></li>
+<li><p>Apply to stocks, bonds, derivatives, and real assets</p></li>
+</ul>
+</li>
+<li><p><strong>Master Time Value of Money</strong> calculations</p>
+<ul class="simple">
+<li><p>Work with annuities and perpetuities</p></li>
+<li><p>Handle complex cash flow patterns</p></li>
+<li><p>Account for taxes, transaction costs, and other complications</p></li>
+</ul>
+</li>
+<li><p><strong>Price Fixed Income Securities</strong></p>
+<ul class="simple">
+<li><p>Calculate bond prices and yields</p></li>
+<li><p>Understand duration and convexity</p></li>
+<li><p>Model the term structure of interest rates</p></li>
+</ul>
+</li>
+<li><p><strong>Implement Simulation Methods</strong></p>
+<ul class="simple">
+<li><p>Use Monte Carlo methods for valuation</p></li>
+<li><p>Model stochastic processes (Brownian motion, geometric Brownian motion)</p></li>
+<li><p>Simulate complex derivatives and portfolios</p></li>
+</ul>
+</li>
+<li><p><strong>Apply Asset Pricing Models</strong></p>
+<ul class="simple">
+<li><p>Understand and use the Capital Asset Pricing Model (CAPM)</p></li>
+<li><p>Apply the Cash Flow Pricing Model (CFPM)</p></li>
+<li><p>Price derivatives in static equilibrium frameworks</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="course-structure">
+<h2>Course Structure<a class="headerlink" href="#course-structure" title="Link to this heading">#</a></h2>
+<p>This course is organized into <strong>9 chapters</strong> covering four main areas:</p>
+<section id="part-i-valuation-foundations-chapters-1-3">
+<h3>Part I: Valuation Foundations (Chapters 1-3)<a class="headerlink" href="#part-i-valuation-foundations-chapters-1-3" title="Link to this heading">#</a></h3>
+<p><strong>Chapter 1: Valuation Methods for Financial Engineers</strong></p>
+<ul class="simple">
+<li><p>The General Valuation Equation (GVE)</p></li>
+<li><p>Benchmarking approach to valuation</p></li>
+<li><p>Risk-free and risky cash flows</p></li>
+<li><p>Insurance reserve calculations</p></li>
+</ul>
+<p><strong>Chapter 2: Annuities and Perpetuities, Basic and Complex</strong></p>
+<ul class="simple">
+<li><p>Present value of annuities</p></li>
+<li><p>Growing perpetuities</p></li>
+<li><p>Complex payment streams</p></li>
+<li><p>Mortgage and loan calculations</p></li>
+</ul>
+<p><strong>Chapter 3: Complications and Resolutions</strong></p>
+<ul class="simple">
+<li><p>Taxes and transaction costs</p></li>
+<li><p>Liquidity considerations</p></li>
+<li><p>Credit risk adjustments</p></li>
+<li><p>Currency and inflation effects</p></li>
+</ul>
+</section>
+<section id="part-ii-fixed-income-chapter-4">
+<h3>Part II: Fixed Income (Chapter 4)<a class="headerlink" href="#part-ii-fixed-income-chapter-4" title="Link to this heading">#</a></h3>
+<p><strong>Chapter 4: Bonds</strong></p>
+<ul class="simple">
+<li><p>Bond pricing fundamentals</p></li>
+<li><p>Yield to maturity and spot rates</p></li>
+<li><p>Duration and convexity</p></li>
+<li><p>Term structure models</p></li>
+</ul>
+</section>
+<section id="part-iii-simulation-methods-chapters-5-6">
+<h3>Part III: Simulation Methods (Chapters 5-6)<a class="headerlink" href="#part-iii-simulation-methods-chapters-5-6" title="Link to this heading">#</a></h3>
+<p><strong>Chapter 5: Simulation</strong></p>
+<ul class="simple">
+<li><p>Monte Carlo methods</p></li>
+<li><p>Random number generation</p></li>
+<li><p>Variance reduction techniques</p></li>
+<li><p>Applications to derivatives pricing</p></li>
+</ul>
+<p><strong>Chapter 6: Stochastic Processes in Finance</strong></p>
+<ul class="simple">
+<li><p>Brownian motion</p></li>
+<li><p>Geometric Brownian motion</p></li>
+<li><p>Jump processes</p></li>
+<li><p>Stochastic differential equations</p></li>
+</ul>
+</section>
+<section id="part-iv-asset-pricing-chapters-7-9">
+<h3>Part IV: Asset Pricing (Chapters 7-9)<a class="headerlink" href="#part-iv-asset-pricing-chapters-7-9" title="Link to this heading">#</a></h3>
+<p><strong>Chapter 7: Risk, Capital and Valuation</strong></p>
+<ul class="simple">
+<li><p>Risk measures (VaR, CVaR)</p></li>
+<li><p>Capital requirements</p></li>
+<li><p>Risk-adjusted valuation</p></li>
+<li><p>Economic capital allocation</p></li>
+</ul>
+<p><strong>Chapter 8: The Single Period CAPM and CFPM</strong></p>
+<ul class="simple">
+<li><p>Capital Asset Pricing Model</p></li>
+<li><p>Cash Flow Pricing Model</p></li>
+<li><p>Market equilibrium</p></li>
+<li><p>Beta and systematic risk</p></li>
+</ul>
+<p><strong>Chapter 9: Derivative Pricing in the Static CAPM</strong></p>
+<ul class="simple">
+<li><p>Option pricing in CAPM framework</p></li>
+<li><p>Risk-neutral probabilities</p></li>
+<li><p>Replication and arbitrage</p></li>
+<li><p>Extensions to exotic derivatives</p></li>
+</ul>
+</section>
+</section>
+<section id="philosophy-and-approach">
+<h2>Philosophy and Approach<a class="headerlink" href="#philosophy-and-approach" title="Link to this heading">#</a></h2>
+<p>This course adopts a <strong>practitioner-oriented</strong> approach to financial engineering:</p>
+<ol class="arabic simple">
+<li><p><strong>Benchmarking over Theory</strong>: We value assets by referencing traded instruments, not just abstract models</p></li>
+<li><p><strong>Simulation over Closed Forms</strong>: We emphasize numerical methods that handle real-world complexity</p></li>
+<li><p><strong>Risk-Neutral Pricing</strong>: We use the powerful framework that unifies derivative pricing</p></li>
+<li><p><strong>Applications First</strong>: Every concept is illustrated with real financial engineering problems</p></li>
+</ol>
+</section>
+<section id="how-to-use-these-notes">
+<h2>How to Use These Notes<a class="headerlink" href="#how-to-use-these-notes" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Before Class:</strong> Review the chapter overview and key definitions</p></li>
+<li><p><strong>During Class:</strong> Follow derivations and note practical applications</p></li>
+<li><p><strong>After Class:</strong> Work through examples and practice problems</p></li>
+<li><p><strong>For Projects:</strong> Reference the simulation code and implementation notes</p></li>
+</ol>
+</section>
+<section id="mathematical-notation">
+<h2>Mathematical Notation<a class="headerlink" href="#mathematical-notation" title="Link to this heading">#</a></h2>
+<p>Throughout these notes, we use standard financial mathematics notation:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(PV\)</span> = Present Value</p></li>
+<li><p><span class="math notranslate nohighlight">\(FV\)</span> = Future Value</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> = interest rate (risk-free)</p></li>
+<li><p><span class="math notranslate nohighlight">\(E[X]\)</span> or <span class="math notranslate nohighlight">\(\mathbb{E}[X]\)</span> = expected value of <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{var}[X]\)</span> = variance of <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span> = systematic risk (beta)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> = volatility (standard deviation)</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_t\)</span> = asset price at time <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dW_t\)</span> = increment of Brownian motion</p></li>
+</ul>
+</section>
+<section id="recommended-references">
+<h2>Recommended References<a class="headerlink" href="#recommended-references" title="Link to this heading">#</a></h2>
+<p>Primary textbook:</p>
+<ol class="arabic simple">
+<li><p>David C. Shimko, “Finance in Continuous Time: A Primer”, Kolb Publishing, 1992</p></li>
+</ol>
+<p>Supplementary references:</p>
+<ol class="arabic simple">
+<li><p>Hull, J., “Options, Futures and Other Derivatives”, Pearson</p></li>
+<li><p>Luenberger, D., “Investment Science”, Oxford University Press</p></li>
+<li><p>Shreve, S., “Stochastic Calculus for Finance I &amp; II”, Springer</p></li>
+</ol>
+<p>Additional references are provided at the end of each chapter.</p>
+</section>
+<section id="practical-tools">
+<h2>Practical Tools<a class="headerlink" href="#practical-tools" title="Link to this heading">#</a></h2>
+<p>The course makes use of:</p>
+<ul class="simple">
+<li><p><strong>Excel</strong>: For basic cash flow calculations</p></li>
+<li><p><strong>Python</strong>: For simulations and numerical methods</p></li>
+<li><p><strong>MATLAB/R</strong>: Alternative platforms for quantitative work</p></li>
+</ul>
+<hr class="docutils" />
+<p>Let’s begin with Chapter 1: Valuation Methods for Financial Engineers!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">FRE 6103: Valuation Methods for Financial Engineering</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapters/chapter01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 1: Valuation Methods for Financial Engineers</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-overview">Course Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure">Course Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i-valuation-foundations-chapters-1-3">Part I: Valuation Foundations (Chapters 1-3)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-fixed-income-chapter-4">Part II: Fixed Income (Chapter 4)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iii-simulation-methods-chapters-5-6">Part III: Simulation Methods (Chapters 5-6)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iv-asset-pricing-chapters-7-9">Part IV: Asset Pricing (Chapters 7-9)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy-and-approach">Philosophy and Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-these-notes">How to Use These Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-notation">Mathematical Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-references">Recommended References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-tools">Practical Tools</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David C. Shimko
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

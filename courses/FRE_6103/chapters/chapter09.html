@@ -1,0 +1,1008 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 9: Derivative Pricing in the Static CAPM &#8212; FRE 6103: Valuation Methods for Financial Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter09';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Chapter 8: The Single Period CAPM and CFPM" href="chapter08.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6103: Valuation Methods for Financial Engineering</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapter01.html">Chapter 1: Valuation Methods for Financial Engineers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter02.html">Chapter 2: Annuities and Perpetuities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter03.html">Chapter 3: Complications and Resolutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter04.html">Chapter 4: Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter05.html">Chapter 5: Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter06.html">Chapter 6: Stochastic Processes in Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter07.html">Chapter 7: Risk, Capital and Valuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter08.html">Chapter 8: The Single Period CAPM and CFPM</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 9: Derivative Pricing in the Static CAPM</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/chapters/chapter09.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter09.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/chapter09.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 9: Derivative Pricing in the Static CAPM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-derivatives-in-the-cfpm-framework">Part 1: Derivatives in the CFPM Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-definition">1. Abstract Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-payoff-functions">2. Examples of Payoff Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-lognormal-model-for-asset-prices">Part 2: The Lognormal Model for Asset Prices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-grw-dynamics">1. Review of GRW Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value-of-the-stock">2. Expected Value of the Stock</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-analytic-derivation-of-the-call-option-value">Part 3: Analytic Derivation of the Call Option Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-integral">1. Setting up the Integral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-term-2-the-cash-part">2. Evaluating Term 2 (The Cash Part)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-term-1-the-asset-part">3. Evaluating Term 1 (The Asset Part)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-physical-measure-formula">4. The Physical Measure Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-the-risk-neutral-substitution">Part 4: The Risk-Neutral Substitution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-principle">1. The Principle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-risk-neutral-parameters">2. Calculating Risk-Neutral Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-formula">3. The Black-Scholes Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-worked-examples">Part 5: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-calculating-d-1-and-d-2">Example 1: Calculating <span class="math notranslate nohighlight">\(d_1\)</span> and <span class="math notranslate nohighlight">\(d_2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-pricing-the-call">Example 2: Pricing the Call</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-the-probability-of-exercise">Example 3: The Probability of Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-practice-problems">Part 6: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-put-call-parity">Practice Problem 1: Put-Call Parity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-intrinsic-vs-time-value">Practice Problem 2: Intrinsic vs. Time Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-volatility-impact">Practice Problem 3: Volatility Impact</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-chapter-summary">Part 7: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-9-derivative-pricing-in-the-static-capm">
+<h1>Chapter 9: Derivative Pricing in the Static CAPM<a class="headerlink" href="#chapter-9-derivative-pricing-in-the-static-capm" title="Link to this heading">#</a></h1>
+<section id="chapter-overview">
+<h2>Chapter Overview<a class="headerlink" href="#chapter-overview" title="Link to this heading">#</a></h2>
+<p>In Chapter 8, we established the Cash Flow Portfolio Model (CFPM), which allows us to value risky cash flows based on their covariance with a market portfolio. However, traditional CFPM and CAPM rely on linear relationships (Beta). Financial derivatives, such as call and put options, have <strong>nonlinear</strong> payoffs (e.g., <span class="math notranslate nohighlight">\(\max(S-K, 0)\)</span>).</p>
+<p>This chapter bridges the gap between the static, linear world of CAPM and the dynamic, nonlinear world of option pricing. We will not rely on the complex stochastic calculus (Ito’s Lemma) or continuous trading assumptions (delta hedging) typically used to derive the Black-Scholes model. Instead, we will derive the Black-Scholes formula purely from <strong>Risk-Neutral Valuation</strong> principles within the CFPM framework.</p>
+<p>By treating the derivative as a contract on the end-of-period value of a reference asset, we can calculate its “Risk-Neutral Expected Value” and discount it at the risk-free rate. This approach demystifies the famous formula by connecting it directly to the fundamental valuation equation <span class="math notranslate nohighlight">\(V_0 = \frac{CE}{1+r}\)</span>.</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol class="arabic simple">
+<li><p><strong>Define</strong> a financial derivative in the context of the CFPM as a function of the end-of-period value of a reference portfolio.</p></li>
+<li><p><strong>Derive</strong> the risk-neutral expectation of a lognormally distributed asset price.</p></li>
+<li><p><strong>Evaluate</strong> the integral of a call option payoff <span class="math notranslate nohighlight">\(\int \max(S-X, 0) f(S) dS\)</span> using the properties of the lognormal density function.</p></li>
+<li><p><strong>Construct</strong> the Black-Scholes formula by applying the risk-neutral substitution (<span class="math notranslate nohighlight">\(\mu \to r\)</span>) to the expected payoff.</p></li>
+<li><p><strong>Interpret</strong> the terms <span class="math notranslate nohighlight">\(N(d_1)\)</span> and <span class="math notranslate nohighlight">\(N(d_2)\)</span> not just as probabilities, but as components of the expected value of a truncated lognormal distribution.</p></li>
+<li><p><strong>Contrast</strong> the “Physical Measure” (Real World) valuation with the “Risk-Neutral Measure” valuation.</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Prerequisites</p>
+<p>Before studying this chapter, you should be familiar with:</p>
+<ul class="simple">
+<li><p><strong>Chapter 6:</strong> Geometric Random Walk (GRW) and the Lognormal distribution properties (<span class="math notranslate nohighlight">\(E[e^X] = e^{\mu + 0.5\sigma^2}\)</span>).</p></li>
+<li><p><strong>Chapter 8:</strong> The concept of Risk-Neutral Valuation (valuing assets using risk-free rates and risk-adjusted probabilities).</p></li>
+<li><p><strong>Calculus:</strong> Integration by substitution and “Completing the Square” for Gaussian integrals.</p></li>
+<li><p><strong>Probability:</strong> Standard Normal CDF <span class="math notranslate nohighlight">\(N(x)\)</span> and PDF <span class="math notranslate nohighlight">\(n(x)\)</span>.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-1-derivatives-in-the-cfpm-framework">
+<h2>Part 1: Derivatives in the CFPM Framework<a class="headerlink" href="#part-1-derivatives-in-the-cfpm-framework" title="Link to this heading">#</a></h2>
+<section id="abstract-definition">
+<h3>1. Abstract Definition<a class="headerlink" href="#abstract-definition" title="Link to this heading">#</a></h3>
+<p>In this chapter, a <strong>Financial Derivative</strong> <span class="math notranslate nohighlight">\(D\)</span> is defined abstractly as a contract whose payoff is a function of the end-of-period value of a <strong>Reference Portfolio</strong> <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(R\)</span>:</strong> The Reference Portfolio (e.g., the S&amp;P 500, a specific stock).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(CF_R\)</span>:</strong> The random end-of-period cash flow/value of <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(CF_D\)</span>:</strong> The random end-of-period payoff of the derivative.
+$<span class="math notranslate nohighlight">\( CF_D = g(CF_R) \)</span><span class="math notranslate nohighlight">\(
+  where \)</span>g(\cdot)$ is potentially nonlinear.</p></li>
+</ul>
+</section>
+<section id="examples-of-payoff-functions">
+<h3>2. Examples of Payoff Functions<a class="headerlink" href="#examples-of-payoff-functions" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Forward Contract:</strong> Linear payoff.
+$<span class="math notranslate nohighlight">\( CF_D = a(CF_R - F) \)</span><span class="math notranslate nohighlight">\(
+where \)</span>F$ is the forward price.</p></li>
+<li><p><strong>Power Derivative:</strong> Nonlinear payoff.
+$<span class="math notranslate nohighlight">\( CF_D = a(CF_R)^b \)</span><span class="math notranslate nohighlight">\(
+While rare, these are easy to value if \)</span>CF_R$ is lognormal (since powers of lognormals are lognormal).</p></li>
+<li><p><strong>European Call Option:</strong> Piecewise linear (kinked) payoff.
+$<span class="math notranslate nohighlight">\( CF_D = \max(CF_R - X, 0) \)</span><span class="math notranslate nohighlight">\(
+where \)</span>X$ is the strike price.</p></li>
+</ol>
+<p><strong>The Valuation Goal:</strong>
+Find the present value <span class="math notranslate nohighlight">\(V_D\)</span> of the derivative given the current price <span class="math notranslate nohighlight">\(V_R\)</span> and the risk-free rate <span class="math notranslate nohighlight">\(r\)</span>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-the-lognormal-model-for-asset-prices">
+<h2>Part 2: The Lognormal Model for Asset Prices<a class="headerlink" href="#part-2-the-lognormal-model-for-asset-prices" title="Link to this heading">#</a></h2>
+<p>To value the option, we must model the probability distribution of the reference asset <span class="math notranslate nohighlight">\(S_T\)</span>. We assume the stock follows a <strong>Geometric Random Walk (GRW)</strong>.</p>
+<section id="review-of-grw-dynamics">
+<h3>1. Review of GRW Dynamics<a class="headerlink" href="#review-of-grw-dynamics" title="Link to this heading">#</a></h3>
+<p>From Chapter 6, the stock price <span class="math notranslate nohighlight">\(S_T\)</span> at time <span class="math notranslate nohighlight">\(T\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+S_T = S_0 \exp\left( (\alpha - \frac{1}{2}\sigma^2)T + \sigma \sqrt{T} Z \right)
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S_0\)</span>: Current price.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: Expected continuously compounded return (drift).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span>: Volatility.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z \sim N(0,1)\)</span>.</p></li>
+</ul>
+<p><strong>Distribution:</strong>
+The logarithm of the price is normally distributed:
+$<span class="math notranslate nohighlight">\( \ln(S_T) \sim N\left( \ln(S_0) + (\alpha - 0.5\sigma^2)T, \, \sigma^2 T \right) \)</span>$</p>
+<p>Let’s define the parameters of this normal distribution for simplicity:</p>
+<ul class="simple">
+<li><p>Mean <span class="math notranslate nohighlight">\(\mu' = \ln(S_0) + (\alpha - 0.5\sigma^2)T\)</span></p></li>
+<li><p>Standard Deviation <span class="math notranslate nohighlight">\(\sigma' = \sigma \sqrt{T}\)</span></p></li>
+</ul>
+<p>So <span class="math notranslate nohighlight">\(\ln(S_T) \sim N(\mu', \sigma'^2)\)</span>.</p>
+</section>
+<section id="expected-value-of-the-stock">
+<h3>2. Expected Value of the Stock<a class="headerlink" href="#expected-value-of-the-stock" title="Link to this heading">#</a></h3>
+<p>Recall the expectation of a lognormal variable <span class="math notranslate nohighlight">\(Y = e^X\)</span>:
+$<span class="math notranslate nohighlight">\( E[Y] = e^{E[X] + \frac{1}{2}Var(X)} \)</span>$</p>
+<div class="math notranslate nohighlight">
+\[ E[S_T] = \exp\left( \mu' + \frac{1}{2}\sigma'^2 \right) \]</div>
+<div class="math notranslate nohighlight">
+\[ E[S_T] = \exp\left( \ln(S_0) + \alpha T - 0.5\sigma^2 T + 0.5\sigma^2 T \right) \]</div>
+<div class="math notranslate nohighlight">
+\[ E[S_T] = S_0 e^{\alpha T} \]</div>
+<p>We define <span class="math notranslate nohighlight">\(\mu = E[S_T]\)</span> as the expected future price. [cite_start]Note the distinction: <span class="math notranslate nohighlight">\(\mu\)</span> is the expected <em>price</em> (arithmetic mean), while <span class="math notranslate nohighlight">\(\alpha\)</span> is the expected <em>return</em> (geometric drift). [cite: 355-356]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-analytic-derivation-of-the-call-option-value">
+<h2>Part 3: Analytic Derivation of the Call Option Value<a class="headerlink" href="#part-3-analytic-derivation-of-the-call-option-value" title="Link to this heading">#</a></h2>
+<p>We seek to calculate the expected payoff of a call option <span class="math notranslate nohighlight">\(E[C_T]\)</span> under the physical measure, then convert it to the risk-neutral measure.</p>
+<p><strong>Objective:</strong> Calculate <span class="math notranslate nohighlight">\(E[\max(S_T - X, 0)]\)</span>.</p>
+<section id="setting-up-the-integral">
+<h3>1. Setting up the Integral<a class="headerlink" href="#setting-up-the-integral" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+E[C_T] = \int_{-\infty}^{\infty} \max(S_T(z) - X, 0) n(z) dz
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(n(z) = \frac{1}{\sqrt{2\pi}} e^{-z^2/2}\)</span> is the standard normal PDF.
+The payoff is non-zero only when <span class="math notranslate nohighlight">\(S_T &gt; X\)</span>.
+Let’s find the threshold value of <span class="math notranslate nohighlight">\(z\)</span> where <span class="math notranslate nohighlight">\(S_T = X\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+S_0 e^{\mu' + \sigma' z} = X
+\]</div>
+<p>(Note: Here we assume <span class="math notranslate nohighlight">\(S_T = e^{\mu' + \sigma' Z}\)</span> for simpler notation, recognizing <span class="math notranslate nohighlight">\(\mu'\)</span> incorporates the drift terms).</p>
+<p>Solving for the threshold <span class="math notranslate nohighlight">\(z^*\)</span>:
+$<span class="math notranslate nohighlight">\( \mu' + \sigma' z^* = \ln(X) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( z^* = \frac{\ln(X) - \mu'}{\sigma'} \)</span>$</p>
+<p>Since <span class="math notranslate nohighlight">\(S_T\)</span> increases with <span class="math notranslate nohighlight">\(z\)</span>, the option is in-the-money for <span class="math notranslate nohighlight">\(z &gt; z^*\)</span>.
+(Note: The text defines the integral limits differently, essentially integrating over <span class="math notranslate nohighlight">\(S\)</span> or using a substitution that flips the sign. Let’s follow the text’s derivation path involving <span class="math notranslate nohighlight">\(\ln(S/X)\)</span>).</p>
+<p><strong>The Integral Split:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E[C_T] = \int_{z^*}^{\infty} (S_T(z) - X) n(z) dz
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E[C_T] = \underbrace{\int_{z^*}^{\infty} S_T(z) n(z) dz}_{Term 1} - \underbrace{X \int_{z^*}^{\infty} n(z) dz}_{Term 2}
+\]</div>
+</section>
+<section id="evaluating-term-2-the-cash-part">
+<h3>2. Evaluating Term 2 (The Cash Part)<a class="headerlink" href="#evaluating-term-2-the-cash-part" title="Link to this heading">#</a></h3>
+<p>Term 2 is simply <span class="math notranslate nohighlight">\(X\)</span> times the probability that <span class="math notranslate nohighlight">\(z &gt; z^*\)</span>.
+$<span class="math notranslate nohighlight">\( \int_{z^*}^{\infty} n(z) dz = P(Z &gt; z^*) = P(Z &lt; -z^*) = N(-z^*) \)</span>$</p>
+<p>Let’s define <span class="math notranslate nohighlight">\(d_2 = -z^*\)</span>.
+$<span class="math notranslate nohighlight">\( d_2 = \frac{\mu' - \ln(X)}{\sigma'} = \frac{\ln(S_0) + (\alpha - 0.5\sigma^2)T - \ln(X)}{\sigma \sqrt{T}} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( d_2 = \frac{\ln(S_0/X) + (\alpha - 0.5\sigma^2)T}{\sigma \sqrt{T}} \)</span>$</p>
+<p>[cite_start]So Term 2 is <strong><span class="math notranslate nohighlight">\(X N(d_2)\)</span></strong>. [cite: 370-372]</p>
+</section>
+<section id="evaluating-term-1-the-asset-part">
+<h3>3. Evaluating Term 1 (The Asset Part)<a class="headerlink" href="#evaluating-term-1-the-asset-part" title="Link to this heading">#</a></h3>
+<p>Term 1 is the expected value of the stock <em>conditional</em> on it being above the strike, weighted by the probability.</p>
+<div class="math notranslate nohighlight">
+\[
+I_1 = \int_{z^*}^{\infty} S_0 e^{\mu' + \sigma' z} \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz
+\]</div>
+<p>Combine the exponents:
+$<span class="math notranslate nohighlight">\( \text{Exponent} = \mu' + \sigma' z - \frac{z^2}{2} = -\frac{1}{2} (z^2 - 2\sigma' z - 2\mu') \)</span>$</p>
+<p><strong>Completing the Square:</strong>
+We want to form <span class="math notranslate nohighlight">\(-(z - \sigma')^2 / 2\)</span>.
+$<span class="math notranslate nohighlight">\( z^2 - 2\sigma' z = (z - \sigma')^2 - \sigma'^2 \)</span><span class="math notranslate nohighlight">\(
+So the exponent becomes:
+\)</span><span class="math notranslate nohighlight">\( -\frac{1}{2} \left( (z - \sigma')^2 - \sigma'^2 - 2\mu' \right) = -\frac{(z-\sigma')^2}{2} + \frac{\sigma'^2}{2} + \mu' \)</span>$</p>
+<p>Substitute back into the integral:
+$<span class="math notranslate nohighlight">\( I_1 = S_0 e^{\mu' + \sigma'^2/2} \int_{z^*}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-(z-\sigma')^2/2} dz \)</span>$</p>
+<p>Recall that <span class="math notranslate nohighlight">\(E[S_T] = S_0 e^{\mu' + \sigma'^2/2} = \mu_{stock}\)</span>.
+The integral is the probability that a variable <span class="math notranslate nohighlight">\(Y \sim N(\sigma', 1)\)</span> is greater than <span class="math notranslate nohighlight">\(z^*\)</span>.
+Let <span class="math notranslate nohighlight">\(u = z - \sigma'\)</span>. The limit changes to <span class="math notranslate nohighlight">\(z^* - \sigma'\)</span>.
+$<span class="math notranslate nohighlight">\( \text{Integral} = \int_{z^* - \sigma'}^{\infty} n(u) du = N(-(z^* - \sigma')) = N(\sigma' - z^*) \)</span>$</p>
+<p>Let <span class="math notranslate nohighlight">\(d_1 = \sigma' - z^* = \sigma' + d_2\)</span>.
+$<span class="math notranslate nohighlight">\( d_1 = \sigma \sqrt{T} + \frac{\ln(S_0/X) + (\alpha - 0.5\sigma^2)T}{\sigma \sqrt{T}} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( d_1 = \frac{\sigma^2 T + \ln(S_0/X) + \alpha T - 0.5\sigma^2 T}{\sigma \sqrt{T}} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( d_1 = \frac{\ln(S_0/X) + (\alpha + 0.5\sigma^2)T}{\sigma \sqrt{T}} \)</span>$</p>
+<p>[cite_start]So Term 1 is <strong><span class="math notranslate nohighlight">\(\mu_{stock} N(d_1)\)</span></strong>. [cite: 375-379]</p>
+</section>
+<section id="the-physical-measure-formula">
+<h3>4. The Physical Measure Formula<a class="headerlink" href="#the-physical-measure-formula" title="Link to this heading">#</a></h3>
+<p>Putting it all together, the expected payoff of the call under the physical (real-world) measure is:</p>
+<div class="math notranslate nohighlight">
+\[
+E[C_T] = E[S_T] N(d_1(\alpha)) - X N(d_2(\alpha))
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(d_1, d_2\)</span> depend on the real drift <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-the-risk-neutral-substitution">
+<h2>Part 4: The Risk-Neutral Substitution<a class="headerlink" href="#part-4-the-risk-neutral-substitution" title="Link to this heading">#</a></h2>
+<p>We have the expected future value. To get the present value <span class="math notranslate nohighlight">\(V_0\)</span>, the CFPM tells us we can use <strong>Risk-Neutral Valuation</strong>.</p>
+<section id="the-principle">
+<h3>1. The Principle<a class="headerlink" href="#the-principle" title="Link to this heading">#</a></h3>
+<p>Instead of discounting the real expected payoff at a risky rate (which is hard to determine for options), we:</p>
+<ol class="arabic simple">
+<li><p>Replace the risky drift <span class="math notranslate nohighlight">\(\alpha\)</span> with the risk-free rate <span class="math notranslate nohighlight">\(r\)</span> (continuous).</p></li>
+<li><p>Discount the resulting “risk-neutral expected payoff” at the risk-free rate <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+</ol>
+<p><strong>Substitution:</strong></p>
+<ul class="simple">
+<li><p>Real Drift <span class="math notranslate nohighlight">\(\alpha \to r\)</span>.</p></li>
+<li><p>Expected Stock Price <span class="math notranslate nohighlight">\(E[S_T] = S_0 e^{\alpha T} \to F = S_0 e^{rT}\)</span> (Forward Price).</p></li>
+</ul>
+</section>
+<section id="calculating-risk-neutral-parameters">
+<h3>2. Calculating Risk-Neutral Parameters<a class="headerlink" href="#calculating-risk-neutral-parameters" title="Link to this heading">#</a></h3>
+<p>Substitute <span class="math notranslate nohighlight">\(\alpha = r\)</span> into the <span class="math notranslate nohighlight">\(d_1, d_2\)</span> formulas:</p>
+<div class="math notranslate nohighlight">
+\[
+d_1 = \frac{\ln(S_0/X) + (r + 0.5\sigma^2)T}{\sigma \sqrt{T}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d_2 = d_1 - \sigma \sqrt{T} = \frac{\ln(S_0/X) + (r - 0.5\sigma^2)T}{\sigma \sqrt{T}}
+\]</div>
+</section>
+<section id="the-black-scholes-formula">
+<h3>3. The Black-Scholes Formula<a class="headerlink" href="#the-black-scholes-formula" title="Link to this heading">#</a></h3>
+<p>The value of the call is the discounted risk-neutral expectation:</p>
+<div class="math notranslate nohighlight">
+\[
+C_0 = e^{-rT} \left[ (S_0 e^{rT}) N(d_1) - X N(d_2) \right]
+\]</div>
+<p>Distributing the discount factor <span class="math notranslate nohighlight">\(e^{-rT}\)</span>:</p>
+<ul class="simple">
+<li><p>Term 1: <span class="math notranslate nohighlight">\(e^{-rT} S_0 e^{rT} N(d_1) = S_0 N(d_1)\)</span>.</p></li>
+<li><p>Term 2: <span class="math notranslate nohighlight">\(e^{-rT} X N(d_2) = X e^{-rT} N(d_2)\)</span>.</p></li>
+</ul>
+<p><strong>Final Result:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+C_0 = S_0 N(d_1) - X e^{-rT} N(d_2)
+\]</div>
+<p>[cite_start][cite: 390-392]</p>
+<p><strong>Interpretation:</strong></p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(N(d_2)\)</span></strong>: The risk-neutral probability that the option finishes in-the-money (<span class="math notranslate nohighlight">\(S_T &gt; X\)</span>).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(X e^{-rT} N(d_2)\)</span></strong>: The present value of the strike payment, weighted by the probability of paying it.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(N(d_1)\)</span></strong>: The “Delta” of the option. It represents the number of shares of stock to hold to replicate the option.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(S_0 N(d_1)\)</span></strong>: The value of the asset component of the replication strategy.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-worked-examples">
+<h2>Part 5: Worked Examples<a class="headerlink" href="#part-5-worked-examples" title="Link to this heading">#</a></h2>
+<section id="example-1-calculating-d-1-and-d-2">
+<h3>Example 1: Calculating <span class="math notranslate nohighlight">\(d_1\)</span> and <span class="math notranslate nohighlight">\(d_2\)</span><a class="headerlink" href="#example-1-calculating-d-1-and-d-2" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Calculate the Black-Scholes parameters.</p>
+<ul class="simple">
+<li><p>Stock Price <span class="math notranslate nohighlight">\(S_0 = 100\)</span>.</p></li>
+<li><p>Strike Price <span class="math notranslate nohighlight">\(X = 100\)</span>.</p></li>
+<li><p>Risk-free rate <span class="math notranslate nohighlight">\(r = 5\%\)</span>.</p></li>
+<li><p>Volatility <span class="math notranslate nohighlight">\(\sigma = 20\%\)</span>.</p></li>
+<li><p>Time <span class="math notranslate nohighlight">\(T = 1\)</span> year.</p></li>
+</ul>
+<p><strong>Step 1: Calculate <span class="math notranslate nohighlight">\(d_1\)</span></strong>
+$<span class="math notranslate nohighlight">\( d_1 = \frac{\ln(100/100) + (0.05 + 0.5(0.04))1}{0.2 \sqrt{1}} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( d_1 = \frac{0 + 0.05 + 0.02}{0.2} = \frac{0.07}{0.2} = 0.35 \)</span>$</p>
+<p><strong>Step 2: Calculate <span class="math notranslate nohighlight">\(d_2\)</span></strong>
+$<span class="math notranslate nohighlight">\( d_2 = d_1 - \sigma \sqrt{T} = 0.35 - 0.20 = 0.15 \)</span>$</p>
+<p><strong>Step 3: Look up Probabilities</strong>
+From standard normal tables:
+<span class="math notranslate nohighlight">\(N(0.35) \approx 0.6368\)</span>.
+<span class="math notranslate nohighlight">\(N(0.15) \approx 0.5596\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="example-2-pricing-the-call">
+<h3>Example 2: Pricing the Call<a class="headerlink" href="#example-2-pricing-the-call" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Using the values from Example 1, find the Call Price.</p>
+<p><strong>Formula:</strong>
+$<span class="math notranslate nohighlight">\( C_0 = S_0 N(d_1) - X e^{-rT} N(d_2) \)</span>$</p>
+<p><strong>Calculation:</strong>
+$<span class="math notranslate nohighlight">\( C_0 = 100(0.6368) - 100 e^{-0.05}(0.5596) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( C_0 = 63.68 - 100(0.9512)(0.5596) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( C_0 = 63.68 - 53.23 = 10.45 \)</span>$</p>
+<p><strong>Answer:</strong> The call option is worth <strong>$10.45</strong>.</p>
+<p><strong>Physical Interpretation:</strong>
+To replicate this option, you would buy 0.6368 shares of stock (costing $63.68) and borrow $53.23. The net cost is $10.45.</p>
+</section>
+<hr class="docutils" />
+<section id="example-3-the-probability-of-exercise">
+<h3>Example 3: The Probability of Exercise<a class="headerlink" href="#example-3-the-probability-of-exercise" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> What is the real-world probability that the option in Example 1 will be exercised if the stock’s actual expected return is <span class="math notranslate nohighlight">\(\alpha = 15\%\)</span>?</p>
+<p><strong>Analysis:</strong>
+The Black-Scholes formula uses <span class="math notranslate nohighlight">\(N(d_2)\)</span> with <span class="math notranslate nohighlight">\(r=5\%\)</span> for <em>pricing</em>.
+To find the <em>actual</em> probability, we must recalculate <span class="math notranslate nohighlight">\(d_2\)</span> using <span class="math notranslate nohighlight">\(\alpha = 15\%\)</span>.</p>
+<p><strong>Calculation:</strong>
+$<span class="math notranslate nohighlight">\( d_2^{real} = \frac{\ln(100/100) + (0.15 - 0.5(0.04))1}{0.2} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( d_2^{real} = \frac{0.15 - 0.02}{0.2} = \frac{0.13}{0.2} = 0.65 \)</span>$</p>
+<p><strong>Probability:</strong>
+$<span class="math notranslate nohighlight">\( P(S_T &gt; X) = N(d_2^{real}) = N(0.65) \approx 0.7422 \)</span>$</p>
+<p><strong>Insight:</strong>
+The market prices the option as if the probability of exercise is 56% (<span class="math notranslate nohighlight">\(N(d_2)\)</span> with <span class="math notranslate nohighlight">\(r\)</span>), but the real probability (if you believe <span class="math notranslate nohighlight">\(\alpha=15\%\)</span>) is 74%. The difference reflects the risk premium.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-6-practice-problems">
+<h2>Part 6: Practice Problems<a class="headerlink" href="#part-6-practice-problems" title="Link to this heading">#</a></h2>
+<section id="practice-problem-1-put-call-parity">
+<h3>Practice Problem 1: Put-Call Parity<a class="headerlink" href="#practice-problem-1-put-call-parity" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Using the call price from Example 2 ($10.45), calculate the price of a European Put with the same parameters.</p>
+<p><strong>Hint:</strong> Put-Call Parity states <span class="math notranslate nohighlight">\(C - P = S - X e^{-rT}\)</span>.</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<div class="math notranslate nohighlight">
+\[ P = C - S + X e^{-rT} \]</div>
+<div class="math notranslate nohighlight">
+\[ P = 10.45 - 100 + 100 e^{-0.05} \]</div>
+<div class="math notranslate nohighlight">
+\[ P = 10.45 - 100 + 95.12 \]</div>
+<div class="math notranslate nohighlight">
+\[ P = 10.45 - 4.88 = 5.57 \]</div>
+<p><strong>Put Price: $5.57</strong></p>
+</details>
+</section>
+<section id="practice-problem-2-intrinsic-vs-time-value">
+<h3>Practice Problem 2: Intrinsic vs. Time Value<a class="headerlink" href="#practice-problem-2-intrinsic-vs-time-value" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> An option has <span class="math notranslate nohighlight">\(S=110, X=100, C=15\)</span>. What is the Intrinsic Value and Time Value?</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p><strong>Intrinsic Value:</strong> The value if exercised today.
+$<span class="math notranslate nohighlight">\( IV = \max(S-X, 0) = \max(110-100, 0) = 10 \)</span>$</p>
+<p><strong>Time Value:</strong> The premium paid for future volatility.
+$<span class="math notranslate nohighlight">\( TV = \text{Price} - \text{Intrinsic} = 15 - 10 = 5 \)</span>$</p>
+</details>
+</section>
+<section id="practice-problem-3-volatility-impact">
+<h3>Practice Problem 3: Volatility Impact<a class="headerlink" href="#practice-problem-3-volatility-impact" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> If volatility <span class="math notranslate nohighlight">\(\sigma\)</span> increases, what happens to <span class="math notranslate nohighlight">\(d_1\)</span> and the Call Price? Analyze the limits as <span class="math notranslate nohighlight">\(\sigma \to \infty\)</span>.</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p>As <span class="math notranslate nohighlight">\(\sigma \to \infty\)</span>:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(d_1 \approx \frac{0.5\sigma^2 T}{\sigma \sqrt{T}} = 0.5\sigma\sqrt{T} \to \infty\)</span>.
+So <span class="math notranslate nohighlight">\(N(d_1) \to 1\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(d_2 = d_1 - \sigma\sqrt{T} \approx -0.5\sigma\sqrt{T} \to -\infty\)</span>.
+So <span class="math notranslate nohighlight">\(N(d_2) \to 0\)</span>.</p></li>
+</ol>
+<p><strong>Limit Price:</strong>
+$<span class="math notranslate nohighlight">\( C \to S_0(1) - X e^{-rT}(0) = S_0 \)</span>$
+<strong>Interpretation:</strong> If volatility is infinite, the upside is unlimited, but the downside is capped at 0 (limited liability). The option becomes as valuable as the stock itself because you are almost guaranteed to be deep in the money (or the probability weight of the strike payment vanishes relative to the massive upside tail).</p>
+</details>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-7-chapter-summary">
+<h2>Part 7: Chapter Summary<a class="headerlink" href="#part-7-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="key-concepts-recap">
+<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
+<p>:class: important</p>
+<p><strong>1. Derivatives are Contingent Claims:</strong>
+A derivative is just a function <span class="math notranslate nohighlight">\(g(S_T)\)</span>. Its value is the risk-neutral expectation of this function discounted at the risk-free rate.</p>
+<p><strong>2. The Lognormal Assumption:</strong>
+Stock prices cannot be negative. The Geometric Random Walk leads to a lognormal distribution for prices, which requires us to handle the “convexity adjustment” (<span class="math notranslate nohighlight">\(\mu = \ln S + \alpha T - 0.5\sigma^2 T\)</span>) carefully.</p>
+<p><strong>3. Risk-Neutral Valuation:</strong>
+We do not need to know the stock’s beta or the market risk premium to price an option. We simply replace the unknown drift <span class="math notranslate nohighlight">\(\alpha\)</span> with the known risk-free rate <span class="math notranslate nohighlight">\(r\)</span>. This works because the option can be perfectly hedged (in theory).</p>
+<p><strong>4. The Black-Scholes Formula Components:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S N(d_1)\)</span>: The value of the stock component (Asset).</p></li>
+<li><p><span class="math notranslate nohighlight">\(X e^{-rT} N(d_2)\)</span>: The value of the cash component (Liability).</p></li>
+<li><p>The formula essentially says: “The option is equivalent to owning Delta shares of stock and borrowing money.”</p></li>
+</ul>
+</section>
+<section id="formula-cheat-sheet">
+<h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Concept</p></th>
+<th class="head text-left"><p>Formula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Risk-Neutral Drift</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mu_{rn} = r\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>d1</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\frac{\ln(S/X) + (r + 0.5\sigma^2)T}{\sigma \sqrt{T}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>d2</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(d_1 - \sigma \sqrt{T}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Call Price</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(S N(d_1) - X e^{-rT} N(d_2)\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Put Price</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(X e^{-rT} N(-d_2) - S N(-d_1)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Put-Call Parity</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C - P = S - X e^{-rT}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter08.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 8: The Single Period CAPM and CFPM</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-derivatives-in-the-cfpm-framework">Part 1: Derivatives in the CFPM Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract-definition">1. Abstract Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-payoff-functions">2. Examples of Payoff Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-lognormal-model-for-asset-prices">Part 2: The Lognormal Model for Asset Prices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-grw-dynamics">1. Review of GRW Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value-of-the-stock">2. Expected Value of the Stock</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-analytic-derivation-of-the-call-option-value">Part 3: Analytic Derivation of the Call Option Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-integral">1. Setting up the Integral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-term-2-the-cash-part">2. Evaluating Term 2 (The Cash Part)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-term-1-the-asset-part">3. Evaluating Term 1 (The Asset Part)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-physical-measure-formula">4. The Physical Measure Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-the-risk-neutral-substitution">Part 4: The Risk-Neutral Substitution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-principle">1. The Principle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-risk-neutral-parameters">2. Calculating Risk-Neutral Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-scholes-formula">3. The Black-Scholes Formula</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-worked-examples">Part 5: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-calculating-d-1-and-d-2">Example 1: Calculating <span class="math notranslate nohighlight">\(d_1\)</span> and <span class="math notranslate nohighlight">\(d_2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-pricing-the-call">Example 2: Pricing the Call</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-the-probability-of-exercise">Example 3: The Probability of Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-practice-problems">Part 6: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-put-call-parity">Practice Problem 1: Put-Call Parity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-intrinsic-vs-time-value">Practice Problem 2: Intrinsic vs. Time Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-volatility-impact">Practice Problem 3: Volatility Impact</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-chapter-summary">Part 7: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David C. Shimko
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

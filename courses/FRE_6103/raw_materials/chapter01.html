@@ -1,0 +1,1258 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 1: Valuation Methods for Financial Engineers &#8212; FRE 6103: Valuation Methods for Financial Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'raw_materials/chapter01';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6103: Valuation Methods for Financial Engineering</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter01.html">Chapter 1: Valuation Methods for Financial Engineers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter02.html">Chapter 2: Annuities and Perpetuities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter03.html">Chapter 3: Complications and Resolutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter04.html">Chapter 4: Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter05.html">Chapter 5: Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter06.html">Chapter 6: Stochastic Processes in Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter07.html">Chapter 7: Risk, Capital and Valuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter08.html">Chapter 8: The Single Period CAPM and CFPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/chapter09.html">Chapter 9: Derivative Pricing in the Static CAPM</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/raw_materials/chapter01.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fraw_materials/chapter01.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/raw_materials/chapter01.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 1: Valuation Methods for Financial Engineers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications">Real-World Applications</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-fundamental-concepts">Part 1: Fundamental Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-financial-engineering">What is Financial Engineering?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-benchmarking-approach">The Benchmarking Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taxonomy-of-assets">Taxonomy of Assets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#capital-assets">1. Capital Assets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-assets">2. Physical Assets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives">3. Derivatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corporate-assets-and-liabilities">4. Corporate Assets and Liabilities</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-impact-of-corporate-structure-on-value">The Impact of Corporate Structure on Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contracts-as-contingent-assets">Contracts as Contingent Assets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-terminology-price-vs-value">Market Terminology: Price vs. Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mathematical-framework">Part 2: Mathematical Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-return-metrics">Section 1: Return Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-start-standard-definitions-cite-36-40">[cite_start]Standard Definitions [cite: 36-40]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-percentage-returns">The Problem with Percentage Returns</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-dollarized-returns">The Solution: Dollarized Returns</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-the-general-valuation-equation-gve">Section 2: The General Valuation Equation (GVE)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-insurance-valuation-reserves">Section 3: Insurance Valuation (Reserves)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrospective-reserve-looking-backward">1. Retrospective Reserve (Looking Backward)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prospective-reserve-looking-forward">2. Prospective Reserve (Looking Forward)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-worked-examples">Part 3: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-applying-the-gve-to-a-risk-free-asset">Example 1: Applying the GVE to a Risk-Free Asset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-the-walmart-investment-return-calculation">Example 2: The Walmart Investment (Return Calculation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-the-short-sale-negative-investment">Example 3: The Short Sale (Negative Investment)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-insurance-reserves-backward-vs-forward">Example 4: Insurance Reserves (Backward vs. Forward)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-practice-problems">Part 4: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-applying-the-gve">Practice Problem 1: Applying the GVE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-dollar-returns-on-forwards">Practice Problem 2: Dollar Returns on Forwards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-private-vs-public-value">Practice Problem 3: Private vs. Public Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-advanced-topics-and-extensions">Part 5: Advanced Topics and Extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-1-the-gve-and-capm">Extension 1: The GVE and CAPM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-2-valuation-models">Extension 2: Valuation Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-tips">Study Tips</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1-valuation-methods-for-financial-engineers">
+<h1>Chapter 1: Valuation Methods for Financial Engineers<a class="headerlink" href="#chapter-1-valuation-methods-for-financial-engineers" title="Link to this heading">#</a></h1>
+<section id="chapter-overview">
+<h2>Chapter Overview<a class="headerlink" href="#chapter-overview" title="Link to this heading">#</a></h2>
+<p>Welcome to the world of Financial Engineering. [cite_start]Unlike traditional corporate finance, which often relies on static formulas and historical averages, financial engineering is the discipline of applying technical methods to solve complex, dynamic, and practical problems in finance[cite: 1].</p>
+<p>In this chapter, we establish the foundational philosophy for the entire course: <strong>Valuation</strong>.</p>
+<p>[cite_start]Nearly every financial decision—whether buying a stock, issuing a bond, building a factory, or entering a complex derivative contract—requires a valuation[cite: 3]. [cite_start]However, the traditional models you may have learned, such as the Capital Asset Pricing Model (CAPM) or simple Price/Earnings (P/E) ratios, are often too simplistic for the complex cash flows encountered in modern financial engineering[cite: 3].</p>
+<p>[cite_start]We will move away from closed-form formulas and towards a comprehensive simulation and benchmarking framework[cite: 5]. [cite_start]We will learn to value assets not just by what we <em>think</em> they are worth, but by referencing them against traded assets and contract prices in the market[cite: 6]. [cite_start]We will also derive the <strong>General Valuation Equation (GVE)</strong>, a powerful tool that unifies the pricing of stocks, bonds, derivatives, and real assets[cite: 56].</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol class="arabic simple">
+<li><p><strong>Define</strong> financial engineering and distinguish its valuation approach from traditional corporate finance.</p></li>
+<li><p><strong>Categorize</strong> assets into capital, physical, derivative, and corporate classes, and explain how liability structures affect value.</p></li>
+<li><p><strong>Understand</strong> the limitations of percentage returns in the context of short positions and derivatives, and apply “dollarized” returns instead.</p></li>
+<li><p><strong>Derive</strong> the General Valuation Equation (GVE) from the equilibrium of Required and Expected returns.</p></li>
+<li><p><strong>Apply</strong> the GVE to solve for the present value of risk-free and risky cash flows.</p></li>
+<li><p><strong>Analyze</strong> insurance reserves using both retrospective (backward-looking) and prospective (forward-looking) methods.</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Prerequisites</p>
+<p>Before studying this chapter, you should be familiar with:</p>
+<ul class="simple">
+<li><p><strong>Basic Algebra:</strong> Solving linear equations and manipulating variables.</p></li>
+<li><p><strong>Time Value of Money:</strong> Concepts of Present Value (PV), Future Value (FV), and discounting.</p></li>
+<li><p><strong>Probability Theory:</strong> Basic understanding of Expected Value (<span class="math notranslate nohighlight">\(E[x]\)</span>) and Standard Deviation (<span class="math notranslate nohighlight">\(\sigma\)</span>).</p></li>
+<li><p><strong>Financial Terminology:</strong> Basic definitions of stocks, bonds, dividends, and interest.</p></li>
+</ul>
+<p>If you need review, consult a standard introductory corporate finance textbook.</p>
+</div>
+</section>
+<section id="real-world-applications">
+<h3>Real-World Applications<a class="headerlink" href="#real-world-applications" title="Link to this heading">#</a></h3>
+<p>The concepts in this chapter are used daily by:</p>
+<ul class="simple">
+<li><p><strong>Quantitative Analysts (Quants):</strong> To price options and futures on Wall Street.</p></li>
+<li><p><strong>Risk Managers:</strong> To determine the capital required to buffer against market crashes.</p></li>
+<li><p><strong>Corporate Treasurers:</strong> To decide whether to issue debt or equity, or how to hedge foreign exchange risk.</p></li>
+<li><p><strong>Actuaries:</strong> To calculate insurance reserves to ensure policyholders can be paid.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-1-fundamental-concepts">
+<h2>Part 1: Fundamental Concepts<a class="headerlink" href="#part-1-fundamental-concepts" title="Link to this heading">#</a></h2>
+<section id="what-is-financial-engineering">
+<h3>What is Financial Engineering?<a class="headerlink" href="#what-is-financial-engineering" title="Link to this heading">#</a></h3>
+<p>Financial engineering is often misunderstood as merely “creating new financial products.” While that is part of it, the discipline is much broader.</p>
+<div class="tip admonition">
+<p class="admonition-title">Key Concept: Financial Engineering</p>
+<p>[cite_start]<strong>Definition:</strong> Financial Engineering includes financial derivative security pricing, trading, risk models, product design, security structuring, and corporate finance decisions involving contingent capital[cite: 1].</p>
+<p>[cite_start]<strong>Why It Matters:</strong> Financial engineers are needed to apply theoretical frameworks to solve specific, practical problems that employers face based on their unique circumstances[cite: 2]. It is the translation of math into money.</p>
+<p><strong>Core Focus of this Course:</strong></p>
+<ul class="simple">
+<li><p>[cite_start]<strong>Discrete-time modeling:</strong> We will look at time in steps (e.g., days, months) rather than continuous time (calculus-based)[cite: 5].</p></li>
+<li><p>[cite_start]<strong>Simulation:</strong> Using flexible computational solutions rather than rigid formulas[cite: 5].</p></li>
+<li><p>[cite_start]<strong>Benchmarking:</strong> Valuing assets based on traded assets or contract prices[cite: 6].</p></li>
+</ul>
+</div>
+</section>
+<section id="the-benchmarking-approach">
+<h3>The Benchmarking Approach<a class="headerlink" href="#the-benchmarking-approach" title="Link to this heading">#</a></h3>
+<p>One of the most critical shifts in mindset for this course is the move toward <strong>Benchmarking</strong>.</p>
+<p>In traditional finance, you might value an asset by estimating its cash flows and picking a discount rate based on “gut feeling” or a generic beta. [cite_start]In financial engineering, we value an asset by asking: <em>How can we replicate this asset using things that are already trading?</em> [cite: 6]</p>
+<p><strong>The Process:</strong>
+To value a complex asset (like an oil refinery):</p>
+<ol class="arabic simple">
+<li><p>[cite_start]Build a stochastic pro-forma (a model of future financials)[cite: 6].</p></li>
+<li><p>[cite_start]Simulate the cash flows under various scenarios[cite: 7].</p></li>
+<li><p>[cite_start]<strong>Benchmark</strong> these cash flows against traded futures and options (e.g., energy futures)[cite: 7].</p></li>
+<li><p>[cite_start]Discount the components separately to reflect their specific risks[cite: 8].</p></li>
+<li><p>[cite_start]Determine the final valuation[cite: 8].</p></li>
+</ol>
+</section>
+<section id="taxonomy-of-assets">
+<h3>Taxonomy of Assets<a class="headerlink" href="#taxonomy-of-assets" title="Link to this heading">#</a></h3>
+<p>To value something, we must first understand what it is. [cite_start]We categorize assets into four distinct types[cite: 9].</p>
+<section id="capital-assets">
+<h4>1. Capital Assets<a class="headerlink" href="#capital-assets" title="Link to this heading">#</a></h4>
+<p>[cite_start]These are financial instruments like <strong>stocks and bonds</strong>[cite: 9].</p>
+<ul class="simple">
+<li><p><strong>Characteristics:</strong> They have contractual or expected cash flows.</p></li>
+<li><p><strong>Examples:</strong> A share of IBM, a US Treasury Bond.</p></li>
+<li><p><strong>Ownership Rights:</strong></p>
+<ul>
+<li><p><em>Stock:</em> Entitles the holder to dividends and capital appreciation.</p></li>
+<li><p><em>Bond:</em> Entitles the holder to coupons, principal repayment, and capital gains.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="physical-assets">
+<h4>2. Physical Assets<a class="headerlink" href="#physical-assets" title="Link to this heading">#</a></h4>
+<p>[cite_start]These are non-financial assets[cite: 10].</p>
+<ul class="simple">
+<li><p><strong>Characteristics:</strong> Value derives from tangible cash flows they produce or utility they provide.</p></li>
+<li><p>[cite_start]<strong>Examples:</strong> Real estate, a factory, a dairy cow[cite: 10, 23].</p></li>
+<li><p>[cite_start]<strong>Note:</strong> A dairy cow is an asset because it produces cash flows (milk) and has a terminal value (meat/sale price)[cite: 23].</p></li>
+</ul>
+</section>
+<section id="derivatives">
+<h4>3. Derivatives<a class="headerlink" href="#derivatives" title="Link to this heading">#</a></h4>
+<p>[cite_start]These are contracts, often requiring little initial investment[cite: 11].</p>
+<ul class="simple">
+<li><p><strong>Characteristics:</strong> Their value is derived from an underlying asset. [cite_start]They can start with zero value but become significant assets or liabilities[cite: 11].</p></li>
+<li><p><strong>Examples:</strong> Options, Futures, Forwards.</p></li>
+<li><p>[cite_start]<strong>Crucial Insight:</strong> One person’s asset is another person’s liability[cite: 12]. We must be able to value both sides.</p></li>
+</ul>
+</section>
+<section id="corporate-assets-and-liabilities">
+<h4>4. Corporate Assets and Liabilities<a class="headerlink" href="#corporate-assets-and-liabilities" title="Link to this heading">#</a></h4>
+<p>[cite_start]These are assets whose values are influenced by corporate decisions[cite: 13].</p>
+<ul class="simple">
+<li><p><strong>Influencing Decisions:</strong></p>
+<ul>
+<li><p>[cite_start]<em>Capital Budgeting:</em> When to invest[cite: 13].</p></li>
+<li><p>[cite_start]<em>Capital Structure:</em> Debt vs. Equity mix[cite: 14].</p></li>
+<li><p>[cite_start]<em>Risk Management:</em> Hedging strategies[cite: 14].</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="the-impact-of-corporate-structure-on-value">
+<h3>The Impact of Corporate Structure on Value<a class="headerlink" href="#the-impact-of-corporate-structure-on-value" title="Link to this heading">#</a></h3>
+<p>The legal structure of a corporation fundamentally alters valuation through three mechanisms:</p>
+<ol class="arabic simple">
+<li><p><strong>Limited Liability:</strong> Shareholders cannot lose more than their initial investment. This acts like an “insurance policy” or a “put option” for shareholders.</p></li>
+<li><p><strong>Bankruptcy:</strong> The right to default on debt. Instead of paying cash, the firm surrenders its assets to debtholders.</p></li>
+<li><p><strong>Tax Incentives:</strong> Interest on debt is often tax-deductible, increasing net cash flows to the firm.</p></li>
+</ol>
+<p><strong>Summary:</strong> Limited liability, bankruptcy protection, and tax incentives generally <strong>increase</strong> the value of the company.</p>
+</section>
+<section id="contracts-as-contingent-assets">
+<h3>Contracts as Contingent Assets<a class="headerlink" href="#contracts-as-contingent-assets" title="Link to this heading">#</a></h3>
+<p>A contract is a promise. [cite_start]In financial engineering, we view contracts as <strong>Contingent Assets</strong>[cite: 24].</p>
+<div class="note admonition">
+<p class="admonition-title">Example: The Forward Contract</p>
+<p>[cite_start]Imagine a farmer signs a forward contract to sell wheat at $4.00/bushel[cite: 25].</p>
+<ul class="simple">
+<li><p><strong>Scenario A:</strong> Market price rises to $5.00. The farmer <em>must</em> sell at $4.00. [cite_start]The contract has <strong>negative value</strong> to the farmer (an opportunity loss of $1.00)[cite: 25].</p></li>
+<li><p><strong>Scenario B:</strong> Market price falls to $3.00. The farmer sells at $4.00. The contract has <strong>positive value</strong> to the farmer.</p></li>
+</ul>
+<p><strong>Key Takeaway:</strong> Contracts commit parties to actions that may create or destroy value. [cite_start]Even if a contract has zero value at inception, it can become a massive liability later[cite: 24].</p>
+</div>
+</section>
+<section id="market-terminology-price-vs-value">
+<h3>Market Terminology: Price vs. Value<a class="headerlink" href="#market-terminology-price-vs-value" title="Link to this heading">#</a></h3>
+<p>[cite_start]It is vital to distinguish between <em>price</em> and <em>value</em>[cite: 26].</p>
+<ul class="simple">
+<li><p><strong>Bid Price:</strong> The price a buyer offers (The price you sell at).</p></li>
+<li><p><strong>Ask Price:</strong> The price a seller offers (The price you buy at).</p></li>
+<li><p>[cite_start]<strong>Value:</strong> The theoretical worth of the asset derived from a model[cite: 31].</p></li>
+</ul>
+<p><strong>Public vs. Private Value:</strong></p>
+<ul class="simple">
+<li><p>[cite_start]<strong>Public Value:</strong> The consensus market value[cite: 27].</p></li>
+<li><p>[cite_start]<strong>Private Value:</strong> The value to a specific individual based on their unique constraints, tax situation, or beliefs[cite: 27].</p></li>
+</ul>
+<p><strong>The Trading Rule:</strong></p>
+<ul class="simple">
+<li><p>[cite_start]<strong>BUY</strong> if Private Valuation &gt; Public Valuation[cite: 28].</p></li>
+<li><p>[cite_start]<strong>SELL</strong> if Private Valuation &lt; Public Valuation[cite: 29].</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-mathematical-framework">
+<h2>Part 2: Mathematical Framework<a class="headerlink" href="#part-2-mathematical-framework" title="Link to this heading">#</a></h2>
+<section id="section-1-return-metrics">
+<h3>Section 1: Return Metrics<a class="headerlink" href="#section-1-return-metrics" title="Link to this heading">#</a></h3>
+<p>To compare assets, we measure returns. However, the standard definitions of “return” can break down in financial engineering contexts.</p>
+<section id="cite-start-standard-definitions-cite-36-40">
+<h4>[cite_start]Standard Definitions [cite: 36-40]<a class="headerlink" href="#cite-start-standard-definitions-cite-36-40" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Cash Flow (<span class="math notranslate nohighlight">\(C\)</span>):</strong> Payments received (dividends, coupons). Positive = inflow, Negative = outflow.</p></li>
+<li><p><strong>Capital Gain (<span class="math notranslate nohighlight">\(CG\)</span>):</strong> Change in asset price (<span class="math notranslate nohighlight">\(V_1 - V_0\)</span>).</p></li>
+<li><p><strong>Total Return:</strong> Capital Gain + Cash Flow.</p></li>
+<li><p><strong>Rate of Return (ROR):</strong> Growth rate expressed as a percentage.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\text{ROR} = \frac{(V_1 - V_0) + C_1}{V_0}
+\]</div>
+</section>
+<section id="the-problem-with-percentage-returns">
+<h4>The Problem with Percentage Returns<a class="headerlink" href="#the-problem-with-percentage-returns" title="Link to this heading">#</a></h4>
+<p>Percentage returns work well for assets you buy with cash (Long positions). [cite_start]They fail for <strong>Short Positions</strong> and <strong>Derivatives</strong> where the initial investment (<span class="math notranslate nohighlight">\(V_0\)</span>) is zero or negative[cite: 58].</p>
+<p>[cite_start]<strong>The Short Sale Anomaly [cite: 58-61]:</strong></p>
+<ul class="simple">
+<li><p>A short sale involves borrowing stock, selling it, and buying it back later.</p></li>
+<li><p>If you sell at $50 and buy back at $60, you lose $10.</p></li>
+<li><p>What is your denominator? You didn’t pay money; you received money initially.</p></li>
+<li><p>Calculating a % return is mathematically ambiguous or impossible.</p></li>
+</ul>
+<p><strong>The Forward Contract Anomaly:</strong></p>
+<ul class="simple">
+<li><p>[cite_start]Forward contracts often have <span class="math notranslate nohighlight">\(V_0 = 0\)</span> (no money changes hands at signing)[cite: 61].</p></li>
+<li><p>[cite_start]If you make $1 profit, your return is <span class="math notranslate nohighlight">\(\$1 / 0 = \text{Undefined}\)</span>[cite: 61].</p></li>
+</ul>
+</section>
+<section id="the-solution-dollarized-returns">
+<h4>The Solution: Dollarized Returns<a class="headerlink" href="#the-solution-dollarized-returns" title="Link to this heading">#</a></h4>
+<p>[cite_start]In financial engineering, we often utilize <strong>Dollar Returns</strong> instead of percentages[cite: 62].</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Total Dollar Return} = \text{Dollar Capital Gain} + \text{Dollar Cash Flow}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Total Dollar Return} = (V_1 - V_0) + C_1
+\]</div>
+<p>This works for <em>any</em> asset, liability, or contract, regardless of whether the initial value is positive, negative, or zero.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="section-2-the-general-valuation-equation-gve">
+<h3>Section 2: The General Valuation Equation (GVE)<a class="headerlink" href="#section-2-the-general-valuation-equation-gve" title="Link to this heading">#</a></h3>
+<p>The GVE is the governing formula for this course. [cite_start]It relates what an investor <em>needs</em> to earn (Required Return) with what they <em>expect</em> to earn (Expected Return)[cite: 54].</p>
+<section id="derivation">
+<h4>Derivation<a class="headerlink" href="#derivation" title="Link to this heading">#</a></h4>
+<p><strong>Step 1: Define Required Return</strong>
+[cite_start]Investors require compensation for two things[cite: 46]:</p>
+<ol class="arabic simple">
+<li><p><strong>Time Value:</strong> Foregone interest on a risk-free investment (<span class="math notranslate nohighlight">\(r V_0\)</span>).</p></li>
+<li><p><strong>Risk Cost:</strong> Compensation for taking risk. This is modeled as the quantity of risk (<span class="math notranslate nohighlight">\(\sigma\)</span>) times the price per unit of risk (<span class="math notranslate nohighlight">\(k\)</span>).</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\text{Required Return} = r V_0 + k \sigma
+\]</div>
+<p><strong>Step 2: Define Expected Return</strong>
+[cite_start]Investors expect to receive value from two sources[cite: 51]:</p>
+<ol class="arabic simple">
+<li><p><strong>Expected Capital Gains:</strong> <span class="math notranslate nohighlight">\(E[V_1 - V_0]\)</span></p></li>
+<li><p><strong>Expected Cash Flows:</strong> <span class="math notranslate nohighlight">\(E[C_1]\)</span></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\text{Expected Return} = E[V_1 - V_0] + E[C_1]
+\]</div>
+<p><strong>Step 3: The Equilibrium Condition</strong>
+In a functioning market, for a transaction to occur, the buyer and seller must agree.</p>
+<ul class="simple">
+<li><p>[cite_start]Buyer demands: Required Return <span class="math notranslate nohighlight">\(\le\)</span> Expected Return[cite: 52].</p></li>
+<li><p>[cite_start]Seller demands: Required Return <span class="math notranslate nohighlight">\(\ge\)</span> Expected Return[cite: 53].</p></li>
+<li><p>[cite_start]<strong>Equilibrium:</strong> Required Return = Expected Return[cite: 54].</p></li>
+</ul>
+<p><strong>Step 4: The General Valuation Equation</strong></p>
+<p>[cite_start]Equating Step 1 and Step 2[cite: 56]:</p>
+<div class="math notranslate nohighlight">
+\[
+r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r\)</span> = risk-free interest rate</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_0\)</span> = Value at time 0</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> = Market price of risk</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> = Standard deviation (risk measure)</p></li>
+<li><p><span class="math notranslate nohighlight">\(E[\cdot]\)</span> = Expected value operator</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_1\)</span> = Value at time 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_1\)</span> = Cash flow at time 1</p></li>
+</ul>
+<p><strong>Physical Interpretation:</strong>
+This equation states that the <em>cost</em> of holding the asset (lost interest + risk borne) must equal the <em>benefit</em> of holding the asset (price appreciation + cash income).</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="section-3-insurance-valuation-reserves">
+<h3>Section 3: Insurance Valuation (Reserves)<a class="headerlink" href="#section-3-insurance-valuation-reserves" title="Link to this heading">#</a></h3>
+<p>[cite_start]Valuation applies to liabilities just as much as assets[cite: 67]. Insurance companies use “Reserves” to represent the value of future liabilities.</p>
+<p>[cite_start]<strong>Definition:</strong> A Reserve is value kept back to pay future claims[cite: 68].</p>
+<p>[cite_start]There are two ways to calculate reserves, and under consistent assumptions, they yield the same result[cite: 69].</p>
+<section id="retrospective-reserve-looking-backward">
+<h4>1. Retrospective Reserve (Looking Backward)<a class="headerlink" href="#retrospective-reserve-looking-backward" title="Link to this heading">#</a></h4>
+<p>[cite_start]Calculated based on what has already happened[cite: 69].</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Reserve} = \text{FV(Premiums Received)} - \text{FV(Benefits &amp; Expenses Paid)}
+\]</div>
+</section>
+<section id="prospective-reserve-looking-forward">
+<h4>2. Prospective Reserve (Looking Forward)<a class="headerlink" href="#prospective-reserve-looking-forward" title="Link to this heading">#</a></h4>
+<p>[cite_start]Calculated based on what is expected to happen[cite: 70]. This is essentially a Net Present Value calculation.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Reserve} = \text{PV(Future Benefits &amp; Expenses)} - \text{PV(Future Premiums)}
+\]</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-worked-examples">
+<h2>Part 3: Worked Examples<a class="headerlink" href="#part-3-worked-examples" title="Link to this heading">#</a></h2>
+<section id="example-1-applying-the-gve-to-a-risk-free-asset">
+<h3>Example 1: Applying the GVE to a Risk-Free Asset<a class="headerlink" href="#example-1-applying-the-gve-to-a-risk-free-asset" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p>[cite_start]<strong>Context:</strong> We will use the General Valuation Equation to derive the standard Present Value formula for a risk-free bond[cite: 25].</p>
+<p><strong>Problem Statement:</strong>
+Consider a risk-free asset that promises a single cash flow <span class="math notranslate nohighlight">\(C\)</span> one year from now. The risk-free rate is <span class="math notranslate nohighlight">\(r\)</span>. There is no uncertainty, so risk <span class="math notranslate nohighlight">\(\sigma = 0\)</span>. Determine the value <span class="math notranslate nohighlight">\(V_0\)</span> using the GVE.</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C_1 = C\)</span> (Guaranteed)</p></li>
+<li><p>Risk <span class="math notranslate nohighlight">\(\sigma = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V_1 = 0\)</span> (Asset expires after payment, so terminal value is 0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(E[C_1] = C\)</span> (Since it’s guaranteed)</p></li>
+</ul>
+<p><strong>Find:</strong></p>
+<ul class="simple">
+<li><p>Current Value <span class="math notranslate nohighlight">\(V_0\)</span></p></li>
+</ul>
+<p><strong>Approach:</strong>
+[cite_start]Apply the GVE: <span class="math notranslate nohighlight">\(r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\)</span>[cite: 25].</p>
+<p><strong>Step 1: Substitute Known Values</strong></p>
+<div class="math notranslate nohighlight">
+\[
+r V_0 + k(0) = (0 - V_0) + C
+\]</div>
+<p><strong>Step 2: Simplify</strong>
+The risk term vanishes.</p>
+<div class="math notranslate nohighlight">
+\[
+r V_0 = -V_0 + C
+\]</div>
+<p><strong>Step 3: Solve for <span class="math notranslate nohighlight">\(V_0\)</span></strong>
+Add <span class="math notranslate nohighlight">\(V_0\)</span> to both sides:</p>
+<div class="math notranslate nohighlight">
+\[
+r V_0 + V_0 = C
+\]</div>
+<p>Factor out <span class="math notranslate nohighlight">\(V_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+V_0 (1 + r) = C
+\]</div>
+<p>Divide by <span class="math notranslate nohighlight">\((1+r)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+V_0 = \frac{C}{1+r}
+\]</div>
+<p><strong>Physical Interpretation:</strong>
+[cite_start]This confirms that the GVE is consistent with the standard Present Value formula[cite: 26]. The value of a risk-free cash flow is simply the cash flow discounted by the risk-free rate.</p>
+</section>
+<hr class="docutils" />
+<section id="example-2-the-walmart-investment-return-calculation">
+<h3>Example 2: The Walmart Investment (Return Calculation)<a class="headerlink" href="#example-2-the-walmart-investment-return-calculation" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p>[cite_start]<strong>Context:</strong> Analyzing the components of return for a standard equity investment[cite: 20].</p>
+<p><strong>Problem Statement:</strong>
+One year ago, you bought a share of Walmart for $70 (<span class="math notranslate nohighlight">\(V_0\)</span>). You expected it to pay a $1.00 dividend (<span class="math notranslate nohighlight">\(C_{expected}\)</span>) and appreciate by $6.00 (<span class="math notranslate nohighlight">\(CG_{expected}\)</span>).
+Actually, it paid $0.50 in dividends and appreciated by $10.00 (<span class="math notranslate nohighlight">\(V_1 = \$80\)</span>).</p>
+<p><strong>Find:</strong></p>
+<ol class="arabic simple">
+<li><p>Expected Total Dollar Return</p></li>
+<li><p>Realized Total Dollar Return</p></li>
+<li><p>Realized Percentage Return</p></li>
+</ol>
+<p><strong>Step 1: Calculate Expected Returns (One Year Ago)</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{Exp. Cap Gain} = \$6.00
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Exp. Cash Flow} = \$1.00
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Exp. Total Dollar Return} = \$6.00 + \$1.00 = \$7.00
+\]</div>
+<p><strong>Step 2: Calculate Realized Returns (Today)</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{Realized Cap Gain} = V_1 - V_0 = \$80 - \$70 = \$10.00
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Realized Cash Flow} = \$0.50
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Realized Total Dollar Return} = \$10.00 + \$0.50 = \$10.50
+\]</div>
+<p><strong>Step 3: Calculate Realized Percentage Return</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{ROR} \% = \frac{\text{Total Dollar Return}}{V_0}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{ROR} \% = \frac{10.50}{70.00} = 0.15 = 15\%
+\]</div>
+<p><strong>Key Insight:</strong>
+[cite_start]For a standard “long” asset like this, both dollar and percentage returns are easily calculated and meaningful [cite: 40-45].</p>
+</section>
+<hr class="docutils" />
+<section id="example-3-the-short-sale-negative-investment">
+<h3>Example 3: The Short Sale (Negative Investment)<a class="headerlink" href="#example-3-the-short-sale-negative-investment" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p>[cite_start]<strong>Context:</strong> Demonstrating why percentage returns fail for short sales and how to fix it using the “alternative” view[cite: 29, 63].</p>
+<p><strong>Problem Statement:</strong>
+You short sell a stock at $50 (<span class="math notranslate nohighlight">\(V_0\)</span>). One year later, the price drops, and you buy it back for $40 (<span class="math notranslate nohighlight">\(V_1\)</span>).</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p>Initial Cash Flow from Shorting: <span class="math notranslate nohighlight">\(+\$50\)</span></p></li>
+<li><p>Ending Cash Flow from Covering: <span class="math notranslate nohighlight">\(-\$40\)</span></p></li>
+</ul>
+<p><strong>Analysis 1: The Standard Confusion</strong></p>
+<ul class="simple">
+<li><p>Profit = <span class="math notranslate nohighlight">\(\$50 - \$40 = \$10\)</span>.</p></li>
+<li><p>Initial Investment? Technically, you received cash. If you treat the initial investment as 0 (since you put up no money), Return = <span class="math notranslate nohighlight">\(10/0 = \infty\)</span>.</p></li>
+<li><p>If you treat the initial price as the basis: Return = <span class="math notranslate nohighlight">\(10/50 = 20\%\)</span>. But is it positive or negative? The price went down (-20%), but you made money (+20%). The signs get confusing.</p></li>
+</ul>
+<p><strong>Analysis 2: The “Alternative” Dollarized Approach</strong>
+[cite_start]Let’s define the investment by the cash flows relative to the investor’s pocket[cite: 63].</p>
+<ul class="simple">
+<li><p><strong>Initial Investment:</strong> <span class="math notranslate nohighlight">\(-\$50\)</span>. (Wait, why negative? In this specific accounting view, we treat the liability created as a negative starting position to make the math work for percentages). <em>Note: The text suggests treating the $50 received as a “negative investment” to force the math.</em></p></li>
+</ul>
+<p>Let’s look at the text’s logic carefully:</p>
+<ol class="arabic simple">
+<li><p>[cite_start]”Initial investment = -$50 (because you receive this amount…)” [cite: 63]</p></li>
+<li><p>[cite_start]”Ending cash flow = -$40 (because you pay this amount…)” [cite: 63]</p></li>
+<li><p>“Dollar return = (-40) - (-50) = $10”.</p></li>
+</ol>
+<p><strong>Percentage Return Calculation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\% \text{Return} = \frac{\text{Dollar Return}}{\text{Initial Investment}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\% \text{Return} = \frac{\$10}{-\$50} = -20\%
+\]</div>
+<p><strong>Interpretation:</strong>
+This result is mathematically consistent but intuitively strange. [cite_start]You made a profit of $10, but the return is listed as -20%[cite: 63].</p>
+<ul class="simple">
+<li><p>[cite_start]<strong>Reason:</strong> “Shorting converts a negative percentage return into a positive dollar return because the original investment is negative”[cite: 63].</p></li>
+<li><p>Dollar Return = (-20%) <span class="math notranslate nohighlight">\(\times\)</span> (-<span class="math notranslate nohighlight">\(50) = +\)</span>10.</p></li>
+</ul>
+<p><strong>Conclusion:</strong> This confusing sign-flipping is why <strong>Dollar Returns</strong> are preferred in financial engineering. It is unambiguous to say “I made $10.”</p>
+</section>
+<hr class="docutils" />
+<section id="example-4-insurance-reserves-backward-vs-forward">
+<h3>Example 4: Insurance Reserves (Backward vs. Forward)<a class="headerlink" href="#example-4-insurance-reserves-backward-vs-forward" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p>[cite_start]<strong>Context:</strong> A simple 3-year term policy to demonstrate how reserves work[cite: 33].</p>
+<p><strong>Problem Statement:</strong>
+An insurance company issues a policy.</p>
+<ul class="simple">
+<li><p><strong>Year 1:</strong> Premiums $100, Benefits/Expenses $50.</p></li>
+<li><p><strong>Year 2:</strong> Premiums $100, Benefits/Expenses $100.</p></li>
+<li><p><strong>Year 3:</strong> Premiums $100, Benefits/Expenses $150.</p></li>
+<li><p>Assume interest rate <span class="math notranslate nohighlight">\(r = 0\%\)</span> for simplicity.</p></li>
+</ul>
+<p><strong>Find:</strong> The Reserve at the End of Year 2 (EOY 2).</p>
+<p><strong>Method 1: Retrospective (Backward Looking)</strong></p>
+<ul class="simple">
+<li><p>Accumulated Premiums (Year 1 &amp; 2) = <span class="math notranslate nohighlight">\(100 + 100 = 200\)</span>.</p></li>
+<li><p>Accumulated Benefits (Year 1 &amp; 2) = <span class="math notranslate nohighlight">\(50 + 100 = 150\)</span>.</p></li>
+<li><p>[cite_start]Reserve = Premiums - Benefits = <span class="math notranslate nohighlight">\(200 - 150 = 50\)</span>[cite: 33, 69].</p></li>
+</ul>
+<p><strong>Method 2: Prospective (Forward Looking)</strong></p>
+<ul class="simple">
+<li><p>Future Benefits (Year 3) = <span class="math notranslate nohighlight">\(150\)</span>.</p></li>
+<li><p>Future Premiums (Year 3) = <span class="math notranslate nohighlight">\(100\)</span>.</p></li>
+<li><p>Reserve = PV(Future Benefits) - PV(Future Premiums).</p></li>
+<li><p>[cite_start]Reserve = <span class="math notranslate nohighlight">\(150 - 100 = 50\)</span>[cite: 33, 70].</p></li>
+</ul>
+<p><strong>Result:</strong>
+Both methods yield a Reserve of <strong>50</strong>. [cite_start]This requires the company to hold 50 in assets to ensure they can pay the Year 3 deficit[cite: 71].</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-practice-problems">
+<h2>Part 4: Practice Problems<a class="headerlink" href="#part-4-practice-problems" title="Link to this heading">#</a></h2>
+<p>Test your understanding with these problems. Try them before looking at solutions!</p>
+<section id="practice-problem-1-applying-the-gve">
+<h3>Practice Problem 1: Applying the GVE<a class="headerlink" href="#practice-problem-1-applying-the-gve" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong>
+An asset has a current value <span class="math notranslate nohighlight">\(V_0 = \$100\)</span>. The risk-free rate is <span class="math notranslate nohighlight">\(5\%\)</span>. The asset carries risk <span class="math notranslate nohighlight">\(\sigma = 10\)</span> units, and the market price of risk is <span class="math notranslate nohighlight">\(k = \$0.50\)</span> per unit. The expected cash flow <span class="math notranslate nohighlight">\(E[C_1]\)</span> is $4. What is the expected capital gain <span class="math notranslate nohighlight">\(E[V_1 - V_0]\)</span> required to satisfy the market equilibrium?</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_0 = 100\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r = 0.05\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma = 10\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(k = 0.5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E[C_1] = 4\)</span></p></li>
+</ul>
+<p><strong>Find:</strong> <span class="math notranslate nohighlight">\(E[V_1 - V_0]\)</span></p>
+<p>[cite_start]<strong>Hint:</strong> Use the equation <span class="math notranslate nohighlight">\(r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\)</span>[cite: 56].</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p><strong>Step 1: Calculate Required Return (LHS)</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\text{Req. Return} = (0.05 \times 100) + (0.5 \times 10)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{Req. Return} = 5 + 5 = 10
+\]</div>
+<p><strong>Step 2: Set up GVE</strong></p>
+<div class="math notranslate nohighlight">
+\[
+10 = E[V_1 - V_0] + 4
+\]</div>
+<p><strong>Step 3: Solve for Expected Capital Gain</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E[V_1 - V_0] = 10 - 4 = 6
+\]</div>
+<p><strong>Answer:</strong> The expected capital gain must be <strong>$6</strong>.</p>
+</details>
+</section>
+<section id="practice-problem-2-dollar-returns-on-forwards">
+<h3>Practice Problem 2: Dollar Returns on Forwards<a class="headerlink" href="#practice-problem-2-dollar-returns-on-forwards" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong>
+You enter a forward contract to buy oil at $75/barrel in one year. The initial cost of the contract is $0. One year later, the spot price of oil is $72.</p>
+<ol class="arabic simple">
+<li><p>Calculate the Dollar Return.</p></li>
+<li><p>Explain why the Percentage Return is undefined.</p></li>
+</ol>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p>Forward Price (Strike) <span class="math notranslate nohighlight">\(K = 75\)</span></p></li>
+<li><p>Spot Price at maturity <span class="math notranslate nohighlight">\(S_T = 72\)</span></p></li>
+<li><p>Initial Investment <span class="math notranslate nohighlight">\(V_0 = 0\)</span></p></li>
+</ul>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p><strong>1. Dollar Return:</strong>
+You are obligated to buy at $75. The asset is worth $72.
+[cite_start]Profit/Loss = Value - Cost = <span class="math notranslate nohighlight">\(72 - 75 = -\$3\)</span>[cite: 25].
+<strong>Dollar Return = -$3 per barrel.</strong></p>
+<p><strong>2. Percentage Return:</strong>
+$<span class="math notranslate nohighlight">\(
+\% \text{Return} = \frac{\text{Dollar Return}}{\text{Initial Investment}} = \frac{-3}{0}
+\)</span>$
+Division by zero is undefined. [cite_start]This illustrates why we must use dollar returns for zero-cost derivatives[cite: 61].</p>
+</details>
+</section>
+<section id="practice-problem-3-private-vs-public-value">
+<h3>Practice Problem 3: Private vs. Public Value<a class="headerlink" href="#practice-problem-3-private-vs-public-value" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong>
+A publicly traded bond is priced at $950 (Public Valuation). You have a specific tax advantage that makes the bond’s cash flows worth $980 to you (Private Valuation). According to the valuation trading rules, what should you do?</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p>[cite_start]<strong>Rule:</strong> Buy if Private Value &gt; Public Value[cite: 28].
+<strong>Analysis:</strong> <span class="math notranslate nohighlight">\(980 &gt; 950\)</span>.
+<strong>Decision:</strong> <strong>Buy the bond.</strong> You represent a “high value” user of this asset.</p>
+</details>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-advanced-topics-and-extensions">
+<h2>Part 5: Advanced Topics and Extensions<a class="headerlink" href="#part-5-advanced-topics-and-extensions" title="Link to this heading">#</a></h2>
+<section id="extension-1-the-gve-and-capm">
+<h3>Extension 1: The GVE and CAPM<a class="headerlink" href="#extension-1-the-gve-and-capm" title="Link to this heading">#</a></h3>
+<p>You may notice similarities between the General Valuation Equation and the Capital Asset Pricing Model (CAPM).</p>
+<p><strong>GVE:</strong> <span class="math notranslate nohighlight">\(Required = r V_0 + k \sigma\)</span> (in dollars)
+<strong>CAPM:</strong> <span class="math notranslate nohighlight">\(E[R] = r_f + \beta (R_m - r_f)\)</span> (in percent)</p>
+<p>The GVE is actually a generalization. If we define the risk measure <span class="math notranslate nohighlight">\(\sigma\)</span> specifically as Beta (<span class="math notranslate nohighlight">\(\beta\)</span>) and the price of risk <span class="math notranslate nohighlight">\(k\)</span> as the Market Risk Premium <span class="math notranslate nohighlight">\((R_m - r_f)\)</span>, the GVE can be transformed into the CAPM. [cite_start]However, GVE is superior for financial engineering because it can handle non-linear risks (<span class="math notranslate nohighlight">\(\sigma\)</span>) that Beta (which assumes linear correlation) cannot capture[cite: 3, 56].</p>
+</section>
+<section id="extension-2-valuation-models">
+<h3>Extension 2: Valuation Models<a class="headerlink" href="#extension-2-valuation-models" title="Link to this heading">#</a></h3>
+<p>[cite_start]While we focus on Benchmarking and GVE, it is important to understand the hierarchy of valuation models used in practice[cite: 32]:</p>
+<ol class="arabic simple">
+<li><p><strong>Liquidation Value:</strong> The “fire sale” price. Usually the lowest bound.</p></li>
+<li><p><strong>Replacement Cost:</strong> Cost to rebuild. Used often in insurance and physical assets.</p></li>
+<li><p><strong>Comparable Value:</strong> Used in Real Estate (e.g., “What did the house next door sell for?”).</p></li>
+<li><p><strong>Benchmark Valuation:</strong> The gold standard for this course. [cite_start]Replicating cash flows using a portfolio of traded instruments[cite: 33].</p></li>
+<li><p><strong>Net Present Value (NPV):</strong> Discounted cash flows.</p></li>
+<li><p><strong>Portfolio Value:</strong> The marginal value added to a specific portfolio.</p></li>
+</ol>
+<p>[cite_start]We will focus primarily on <strong>#4 (Benchmark)</strong> and <strong>#5 (NPV)</strong> throughout this course[cite: 34].</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-6-chapter-summary">
+<h2>Part 6: Chapter Summary<a class="headerlink" href="#part-6-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="key-concepts-recap">
+<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
+<p>:class: important</p>
+<p><strong>Main Concepts:</strong></p>
+<ol class="arabic simple">
+<li><p>[cite_start]<strong>Financial Engineering:</strong> The application of mathematical and simulation techniques to solve practical financial problems, specifically regarding valuation and risk[cite: 1, 2].</p></li>
+<li><p>[cite_start]<strong>Benchmarking:</strong> The most robust valuation method involves simulating cash flows and pricing them based on traded assets (benchmarks) rather than subjective estimates[cite: 6].</p></li>
+<li><p><strong>Asset Classes:</strong></p>
+<ul class="simple">
+<li><p>[cite_start]<strong>Capital:</strong> Stocks/Bonds[cite: 9].</p></li>
+<li><p>[cite_start]<strong>Physical:</strong> Real Estate/Commodities[cite: 10].</p></li>
+<li><p>[cite_start]<strong>Derivatives:</strong> Options/Forwards (Contingent assets)[cite: 11].</p></li>
+<li><p>[cite_start]<strong>Corporate:</strong> Assets affected by firm structure (Tax/Bankruptcy)[cite: 13].</p></li>
+</ul>
+</li>
+<li><p><strong>Dollar vs. Percentage Returns:</strong> Percentage returns fail for zero-investment assets (derivatives) and short positions. [cite_start]Dollar returns are universally applicable[cite: 62].</p></li>
+</ol>
+<p><strong>Critical Formula: The General Valuation Equation (GVE)</strong></p>
+<div class="math notranslate nohighlight">
+\[
+r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]
+\]</div>
+<p>[cite_start]This equation enforces that the compensation for time and risk must equal the expected financial gain[cite: 56].</p>
+</section>
+<section id="study-tips">
+<h3>Study Tips<a class="headerlink" href="#study-tips" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<ol class="arabic simple">
+<li><p>[cite_start]<strong>Think in Dollars:</strong> Whenever you see a derivative or a short position, immediately switch your mental model from “% return” to “$ profit/loss”[cite: 62].</p></li>
+<li><p><strong>Master the GVE:</strong> Practice rearranging the GVE variables. Can you solve for <span class="math notranslate nohighlight">\(k\)</span>? Can you solve for <span class="math notranslate nohighlight">\(V_0\)</span>?</p></li>
+<li><p><strong>Visualize Reserves:</strong> When working with liabilities (insurance), draw a timeline. “Retrospective” looks left; “Prospective” looks right. [cite_start]They must meet in the middle[cite: 69, 70].</p></li>
+<li><p>[cite_start]<strong>Remember the Goal:</strong> We are not just calculating numbers; we are trying to determine the <em>fair market value</em> of assets by comparing them to what is already trading[cite: 6].</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./raw_materials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications">Real-World Applications</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-fundamental-concepts">Part 1: Fundamental Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-financial-engineering">What is Financial Engineering?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-benchmarking-approach">The Benchmarking Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taxonomy-of-assets">Taxonomy of Assets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#capital-assets">1. Capital Assets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#physical-assets">2. Physical Assets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives">3. Derivatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corporate-assets-and-liabilities">4. Corporate Assets and Liabilities</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-impact-of-corporate-structure-on-value">The Impact of Corporate Structure on Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contracts-as-contingent-assets">Contracts as Contingent Assets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-terminology-price-vs-value">Market Terminology: Price vs. Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-mathematical-framework">Part 2: Mathematical Framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-return-metrics">Section 1: Return Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-start-standard-definitions-cite-36-40">[cite_start]Standard Definitions [cite: 36-40]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-percentage-returns">The Problem with Percentage Returns</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution-dollarized-returns">The Solution: Dollarized Returns</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-the-general-valuation-equation-gve">Section 2: The General Valuation Equation (GVE)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-insurance-valuation-reserves">Section 3: Insurance Valuation (Reserves)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrospective-reserve-looking-backward">1. Retrospective Reserve (Looking Backward)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prospective-reserve-looking-forward">2. Prospective Reserve (Looking Forward)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-worked-examples">Part 3: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-applying-the-gve-to-a-risk-free-asset">Example 1: Applying the GVE to a Risk-Free Asset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-the-walmart-investment-return-calculation">Example 2: The Walmart Investment (Return Calculation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-the-short-sale-negative-investment">Example 3: The Short Sale (Negative Investment)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-insurance-reserves-backward-vs-forward">Example 4: Insurance Reserves (Backward vs. Forward)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-practice-problems">Part 4: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-applying-the-gve">Practice Problem 1: Applying the GVE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-dollar-returns-on-forwards">Practice Problem 2: Dollar Returns on Forwards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-private-vs-public-value">Practice Problem 3: Private vs. Public Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-advanced-topics-and-extensions">Part 5: Advanced Topics and Extensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-1-the-gve-and-capm">Extension 1: The GVE and CAPM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-2-valuation-models">Extension 2: Valuation Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-tips">Study Tips</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David C. Shimko
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

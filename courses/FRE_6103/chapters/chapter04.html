@@ -1,0 +1,1217 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 4: Bonds &#8212; FRE 6103: Valuation Methods for Financial Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter04';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 5: Simulation" href="chapter05.html" />
+    <link rel="prev" title="Chapter 3: Complications and Resolutions" href="chapter03.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6103: Valuation Methods for Financial Engineering</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapter01.html">Chapter 1: Valuation Methods for Financial Engineers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter02.html">Chapter 2: Annuities and Perpetuities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter03.html">Chapter 3: Complications and Resolutions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 4: Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter05.html">Chapter 5: Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter06.html">Chapter 6: Stochastic Processes in Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter07.html">Chapter 7: Risk, Capital and Valuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter08.html">Chapter 8: The Single Period CAPM and CFPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter09.html">Chapter 9: Derivative Pricing in the Static CAPM</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/chapters/chapter04.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter04.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/chapter04.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 4: Bonds</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-us-government-debt-risk-free">Part 1: US Government Debt (“Risk-Free”)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-bills-t-bills">1. Treasury Bills (T-Bills)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bank-discount-yield-d">The Bank Discount Yield (<span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-yields">Converting Yields</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-notes-and-bonds">2. Treasury Notes and Bonds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strips-zero-coupon-curve">3. STRIPS (Zero Coupon Curve)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-bootstrapping-the-yield-curve">Part 2: Bootstrapping the Yield Curve</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm">The Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-tips-and-inflation">Part 3: TIPS and Inflation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanics-of-tips">1. Mechanics of TIPS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tax-complications">2. Tax Complications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-break-even-inflation-rate">3. The Break-Even Inflation Rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-municipal-bonds-and-implied-tax-rates">Part 4: Municipal Bonds and Implied Tax Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tax-arbitrage">1. Tax Arbitrage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-implied-tax-rate">2. The Implied Tax Rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-corporate-bonds-and-credit-risk">Part 5: Corporate Bonds and Credit Risk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-credit-risk">1. Components of Credit Risk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valuation-the-exact-method">2. Valuation: The Exact Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-analytic-decomposition-growing-annuity">3. The Analytic Decomposition (Growing Annuity)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-worked-examples">Part 6: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-t-bill-valuation">Example 1: T-Bill Valuation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-corporate-bond-valuation-approximate">Example 2: Corporate Bond Valuation (Approximate)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-exact-default-valuation-the-geometric-model">Example 3: Exact Default Valuation (The Geometric Model)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-practice-problems">Part 7: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-muni-tax-implication">Practice Problem 1: Muni Tax Implication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-t-bill-d-vs-r">Practice Problem 2: T-Bill “d” vs “r”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-decomposition">Practice Problem 3: Decomposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-chapter-summary">Part 8: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4-bonds">
+<h1>Chapter 4: Bonds<a class="headerlink" href="#chapter-4-bonds" title="Link to this heading">#</a></h1>
+<section id="chapter-overview">
+<h2>Chapter Overview<a class="headerlink" href="#chapter-overview" title="Link to this heading">#</a></h2>
+<p>In financial engineering, bonds are not merely fixed-income instruments to be held for interest; they are rich sources of market data. While a theoretical model can tell you what a bond <em>should</em> be worth, the market price tells you what it <em>is</em> worth. The discrepancy between the two often reveals hidden parameters of the economy.</p>
+<p>In this chapter, we reverse the valuation process. Instead of just calculating prices from known inputs, we will use observed bond prices to infer critical unknown parameters:</p>
+<ul class="simple">
+<li><p><strong>Inflation Expectations:</strong> Derived from Treasury Inflation-Protected Securities (TIPS).</p></li>
+<li><p><strong>Implied Tax Rates:</strong> Derived from the spread between Municipal and Treasury bonds.</p></li>
+<li><p><strong>Default Probabilities:</strong> Derived from the spread between Corporate and Treasury bonds.</p></li>
+<li><p><strong>Risk Premiums:</strong> Derived from the residual yield after accounting for default losses.</p></li>
+</ul>
+<p>We will progress from “Risk-Free” US Government debt (T-Bills, Notes, Bonds) to tax-advantaged Municipal bonds, and finally to Corporate bonds where we must model the stochastic nature of default.</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol class="arabic simple">
+<li><p><strong>Navigate</strong> the complex quoting conventions of T-Bills (Discount Yield) versus Notes/Bonds (Yield to Maturity) and convert between them.</p></li>
+<li><p><strong>Construct</strong> a Zero Coupon Bond (ZCB) yield curve via “bootstrapping” using both STRIPS and coupon-bearing instruments.</p></li>
+<li><p><strong>Analyze</strong> TIPS cash flows to distinguish between nominal and real yields and calculate the market’s break-even inflation rate.</p></li>
+<li><p><strong>Evaluate</strong> Municipal bonds to calculate the “implied tax rate” perceived by the market.</p></li>
+<li><p><strong>Model</strong> Corporate Bond valuation using two distinct methods:</p>
+<ul class="simple">
+<li><p>The <strong>Approximate Method</strong> (Credit Spreads).</p></li>
+<li><p>The <strong>Exact Method</strong> (Probabilistic valuation using the Geometric distribution of default times).</p></li>
+</ul>
+</li>
+<li><p><strong>Derive</strong> the risk-adjusted discount rates required to decompose a defaultable bond into “guaranteed” and “risky” annuity components.</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Prerequisites</p>
+<p>Before studying this chapter, you should be familiar with:</p>
+<ul class="simple">
+<li><p><strong>Chapter 3 Concepts:</strong> Continuous compounding (<span class="math notranslate nohighlight">\(\delta = \ln(1+r)\)</span>), spot vs. forward rates, and the Fisher Equation (<span class="math notranslate nohighlight">\(r \approx \rho + i\)</span>).</p></li>
+<li><p><strong>Probability Theory:</strong> Understanding of the <strong>Geometric Distribution</strong> (probability of <span class="math notranslate nohighlight">\(k\)</span> failures before first success) is crucial for the exact default model.</p></li>
+<li><p><strong>Annuities:</strong> Proficiency with annuity summation formulas from Chapter 2.</p></li>
+<li><p><strong>Calculus:</strong> Basic limits and derivatives for sensitivity analysis.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-1-us-government-debt-risk-free">
+<h2>Part 1: US Government Debt (“Risk-Free”)<a class="headerlink" href="#part-1-us-government-debt-risk-free" title="Link to this heading">#</a></h2>
+<p>[cite_start]The US Government debt market is the bedrock of global finance, valued at over $30 trillion[cite: 202]. [cite_start]While theoretically “risk-free” due to the government’s ability to print money, political risks (debt ceilings) do exist [cite: 203-204]. However, for valuation purposes, we treat these as the baseline for zero default risk.</p>
+<section id="treasury-bills-t-bills">
+<h3>1. Treasury Bills (T-Bills)<a class="headerlink" href="#treasury-bills-t-bills" title="Link to this heading">#</a></h3>
+<p>T-Bills are zero-coupon instruments with maturities of one year or less. Their valuation is complicated by an archaic quoting convention known as the <strong>Bank Discount Basis</strong>.</p>
+<section id="the-bank-discount-yield-d">
+<h4>The Bank Discount Yield (<span class="math notranslate nohighlight">\(d\)</span>)<a class="headerlink" href="#the-bank-discount-yield-d" title="Link to this heading">#</a></h4>
+<p>T-Bills are quoted in terms of a discount rate <span class="math notranslate nohighlight">\(d\)</span>, not an interest rate <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Basis:</strong> 360-day year.</p></li>
+<li><p><strong>Concept:</strong> Interest is calculated as a discount from the Face Value (<span class="math notranslate nohighlight">\(F\)</span>), not an addition to the Price (<span class="math notranslate nohighlight">\(P\)</span>).</p></li>
+</ul>
+<p><strong>Formula for Price:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+P = F \left[ 1 - d \left( \frac{n}{360} \right) \right]
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span> = Price</p></li>
+<li><p><span class="math notranslate nohighlight">\(F\)</span> = Face Value (usually $10,000 for calculations)</p></li>
+<li><p><span class="math notranslate nohighlight">\(d\)</span> = Quoted Ask Yield (decimal)</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> = Days to maturity</p></li>
+</ul>
+<p><strong>Intuition:</strong>
+If you borrow $10,000 at a discount rate <span class="math notranslate nohighlight">\(d\)</span>, the lender gives you less than $10,000 today, but you pay back exactly $10,000. [cite_start]The “interest” is pre-paid (deducted) at the start[cite: 210].</p>
+</section>
+<section id="converting-yields">
+<h4>Converting Yields<a class="headerlink" href="#converting-yields" title="Link to this heading">#</a></h4>
+<p>Financial engineers cannot use the 360-day discount yield <span class="math notranslate nohighlight">\(d\)</span> for modeling. We need the <strong>True Yields</strong>.</p>
+<p><strong>1. Continuously Compounded Yield (<span class="math notranslate nohighlight">\(r_{cc}\)</span>):</strong>
+This is the fundamental rate used in derivation.</p>
+<div class="math notranslate nohighlight">
+\[
+P = F e^{-r_{cc} \left( \frac{n}{365} \right)}
+\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(r_{cc}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+r_{cc} = - \frac{365}{n} \ln\left( \frac{P}{F} \right)
+\]</div>
+<p>[cite_start][cite: 213]</p>
+<p><strong>2. Effective Annual Yield (EAY):</strong>
+The annualized compound return over a 365-day year.</p>
+<div class="math notranslate nohighlight">
+\[
+P (1 + \text{EAY})^{n/365} = F
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{EAY} = \left( \frac{F}{P} \right)^{365/n} - 1
+\]</div>
+<p><strong>3. Investment Yield / Bond Equivalent Yield (BEY):</strong>
+This converts the T-Bill return to a format comparable with coupon bonds (simple interest, 365-day year). Also called the “Asked Yield” in quotes.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{BEY} = \frac{F - P}{P} \times \frac{365}{n}
+\]</div>
+<p>[cite_start][cite: 214]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="treasury-notes-and-bonds">
+<h3>2. Treasury Notes and Bonds<a class="headerlink" href="#treasury-notes-and-bonds" title="Link to this heading">#</a></h3>
+<p>These are coupon-bearing instruments.</p>
+<ul class="simple">
+<li><p><strong>Notes:</strong> 2, 3, 5, 7, 10 year maturities.</p></li>
+<li><p><strong>Bonds:</strong> 20, 30 year maturities.</p></li>
+</ul>
+<p><strong>Conventions:</strong></p>
+<ul class="simple">
+<li><p><strong>Coupons:</strong> Paid Semi-Annually.</p></li>
+<li><p><strong>Compounding:</strong> Semi-Annual.</p></li>
+<li><p><strong>Yield to Maturity (YTM):</strong> Quoted as an Annual Percentage Rate (APR) based on semi-annual compounding.</p></li>
+</ul>
+<p><strong>Valuation Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+P = \sum_{t=1}^{2N} \frac{C/2}{(1 + y/2)^t} + \frac{F}{(1 + y/2)^{2N}}
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y\)</span> = Quoted YTM (BEY).</p></li>
+<li><p><span class="math notranslate nohighlight">\(C\)</span> = Annual Coupon Amount.</p></li>
+<li><p><span class="math notranslate nohighlight">\(N\)</span> = Years to Maturity.</p></li>
+</ul>
+<p>[cite_start][cite: 218, 222]</p>
+</section>
+<hr class="docutils" />
+<section id="strips-zero-coupon-curve">
+<h3>3. STRIPS (Zero Coupon Curve)<a class="headerlink" href="#strips-zero-coupon-curve" title="Link to this heading">#</a></h3>
+<p>STRIPS (Separate Trading of Registered Interest and Principal of Securities) allow investors to trade individual coupons or principal payments as separate Zero Coupon Bonds (ZCBs).</p>
+<p><strong>Why Important?</strong>
+STRIPS provide a direct market observation of the spot rate <span class="math notranslate nohighlight">\(r_t\)</span> for any maturity <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<ul class="simple">
+<li><p>Price quoted per $100 face value.</p></li>
+<li><p>Valuation follows standard ZCB logic:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P = \frac{100}{(1 + \text{EAY})^{n/365}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+r_{cc} = \ln(1 + \text{EAY})
+\]</div>
+<p>[cite_start][cite: 227-229]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-bootstrapping-the-yield-curve">
+<h2>Part 2: Bootstrapping the Yield Curve<a class="headerlink" href="#part-2-bootstrapping-the-yield-curve" title="Link to this heading">#</a></h2>
+<p>When STRIPS data is unavailable or illiquid, we must infer the ZCB yield curve from coupon-bearing bonds. This process is called <strong>Bootstrapping</strong>.</p>
+<section id="the-algorithm">
+<h3>The Algorithm<a class="headerlink" href="#the-algorithm" title="Link to this heading">#</a></h3>
+<p><strong>Goal:</strong> Find the continuous spot rate function <span class="math notranslate nohighlight">\(y(t)\)</span> such that the model prices match market prices.</p>
+<p><strong>Assumption:</strong> The yield curve can be approximated by a flexible function (e.g., Nelson-Siegel or a polynomial spline).
+The text suggests a polynomial function for the spot rate <span class="math notranslate nohighlight">\(y(t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+y(t) = a_1 + a_2 t + a_3 t^2 + a_4 e^{-t} + \dots
+\]</div>
+<p><strong>Procedure:</strong></p>
+<ol class="arabic">
+<li><p><strong>Collect Data:</strong> Gather a set of liquid “on-the-run” Treasury coupon bonds.</p>
+<ul class="simple">
+<li><p>Prices <span class="math notranslate nohighlight">\(P_i^{market}\)</span>.</p></li>
+<li><p>Cash flows <span class="math notranslate nohighlight">\(CF_{i, t}\)</span> (coupons and principal) at specific dates <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Define Model Price:</strong>
+The model price of Bond <span class="math notranslate nohighlight">\(i\)</span> is the sum of its cash flows discounted by the spot rate function <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+    P_i^{model} = \sum_{t} CF_{i, t} e^{-y(t) \cdot t}
+    \]</div>
+</li>
+<li><p><strong>Optimization (Least Squares):</strong>
+Find the parameters <span class="math notranslate nohighlight">\(\{a_1, a_2, \dots\}\)</span> that minimize the sum of squared errors between model and market prices.</p>
+<div class="math notranslate nohighlight">
+\[
+    \min_{\{a_k\}} \sum_{i} \left( P_i^{market} - P_i^{model} \right)^2
+    \]</div>
+</li>
+</ol>
+<p>[cite_start][cite: 234-235]</p>
+<p><strong>Result:</strong> A continuous ZCB yield curve that can value <em>any</em> risk-free cash flow, even those without a matching STRIP.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-tips-and-inflation">
+<h2>Part 3: TIPS and Inflation<a class="headerlink" href="#part-3-tips-and-inflation" title="Link to this heading">#</a></h2>
+<p><strong>TIPS (Treasury Inflation-Protected Securities)</strong> allow us to infer the market’s expected inflation rate.</p>
+<section id="mechanics-of-tips">
+<h3>1. Mechanics of TIPS<a class="headerlink" href="#mechanics-of-tips" title="Link to this heading">#</a></h3>
+<p>TIPS are distinct from nominal bonds in two ways:</p>
+<ol class="arabic simple">
+<li><p><strong>Principal Adjustment:</strong> The principal <span class="math notranslate nohighlight">\(F_t\)</span> grows with the Consumer Price Index (CPI).
+$<span class="math notranslate nohighlight">\( F_t = F_0 \times \frac{CPI_t}{CPI_0} \)</span>$</p></li>
+<li><p><strong>Coupon Indexation:</strong> The coupon rate <span class="math notranslate nohighlight">\(c\)</span> is fixed, but it is applied to the <em>adjusted</em> principal.
+$<span class="math notranslate nohighlight">\( C_t = \frac{c}{2} \times F_t \)</span>$</p></li>
+</ol>
+<p><strong>Deflation Floor:</strong> At maturity, the investor receives <span class="math notranslate nohighlight">\(\max(F_0, F_T)\)</span>. [cite_start]This is an embedded option (a put on inflation) protecting the investor from deflation[cite: 244, 249].</p>
+</section>
+<section id="tax-complications">
+<h3>2. Tax Complications<a class="headerlink" href="#tax-complications" title="Link to this heading">#</a></h3>
+<p>Inflation adjustments are not free. The IRS taxes the increase in principal (<span class="math notranslate nohighlight">\(F_t - F_{t-1}\)</span>) as current income, even though the investor receives no cash for it until maturity.</p>
+<ul class="simple">
+<li><p><strong>Phantom Income:</strong> Investors must pay tax on money they haven’t received yet.</p></li>
+<li><p><strong>State Tax:</strong> TIPS are exempt from state and local taxes.</p></li>
+</ul>
+<p>[cite_start][cite: 248, 250]</p>
+</section>
+<section id="the-break-even-inflation-rate">
+<h3>3. The Break-Even Inflation Rate<a class="headerlink" href="#the-break-even-inflation-rate" title="Link to this heading">#</a></h3>
+<p>By comparing a nominal Treasury Bond and a TIPS bond of the same maturity, we can derive the <strong>Break-Even Inflation Rate (BEI)</strong>.</p>
+<p><strong>Logic (Fisher Equation):</strong></p>
+<ul class="simple">
+<li><p>Nominal Yield (<span class="math notranslate nohighlight">\(y_{nom}\)</span>) includes real return + inflation expectations + risk premiums.</p></li>
+<li><p>TIPS Yield (<span class="math notranslate nohighlight">\(y_{real}\)</span>) includes real return + liquidity premium.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+y_{nom} \approx y_{real} + E[i] + \text{Inflation Risk Premium} - \text{Liquidity Premium}
+\]</div>
+<p><strong>Approximation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+E[i] \approx y_{nom} - y_{real}
+\]</div>
+<p><strong>Interpretation:</strong>
+[cite_start]If the 10-year Treasury yields 4.0% and the 10-year TIPS yields 2.5%, the market expects average inflation to be roughly <span class="math notranslate nohighlight">\(4.0 - 2.5 = 1.5\%\)</span> over the next decade [cite: 252-255].</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-municipal-bonds-and-implied-tax-rates">
+<h2>Part 4: Municipal Bonds and Implied Tax Rates<a class="headerlink" href="#part-4-municipal-bonds-and-implied-tax-rates" title="Link to this heading">#</a></h2>
+<p>Municipal Bonds (“Munis”) are issued by state and local governments. Their primary feature is tax exemption.</p>
+<section id="tax-arbitrage">
+<h3>1. Tax Arbitrage<a class="headerlink" href="#tax-arbitrage" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Treasuries:</strong> Taxable at Federal level. Exempt at State level.</p></li>
+<li><p><strong>Munis:</strong> Exempt at Federal level. Usually exempt at State level (if issued in-state).</p></li>
+</ul>
+<p><strong>The Equilibrium Condition:</strong>
+An investor should be indifferent between a taxable corporate/treasury bond and a tax-free muni if the after-tax yields are equal.</p>
+<div class="math notranslate nohighlight">
+\[
+r_{muni} = r_{taxable} (1 - \tau)
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\tau\)</span> is the marginal tax rate.</p>
+</section>
+<section id="the-implied-tax-rate">
+<h3>2. The Implied Tax Rate<a class="headerlink" href="#the-implied-tax-rate" title="Link to this heading">#</a></h3>
+<p>We can rearrange this to find the tax rate implied by market prices. Note that Munis also carry default risk (<span class="math notranslate nohighlight">\(\pi\lambda\)</span>) and liquidity risk (<span class="math notranslate nohighlight">\(\kappa\)</span>).</p>
+<p><strong>Refined Equation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+r_{muni} = r_{treasury}(1 - \tau) + \pi\lambda + \kappa
+\]</div>
+<p><strong>Solving for Implied <span class="math notranslate nohighlight">\(\tau\)</span>:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\tau = \frac{r_{treasury} - r_{muni} + \pi\lambda + \kappa}{r_{treasury}}
+\]</div>
+<p>[cite_start][cite: 274-275]</p>
+<p><strong>Example:</strong>
+If 10-year Treasury yields 2.25% and 10-year AAA Muni yields 1.95% (with negligible default/risk premium):
+$<span class="math notranslate nohighlight">\( \tau = \frac{2.25\% - 1.95\%}{2.25\%} = 13.3\% \)</span>$
+If the statutory tax rate is 35%, and the implied rate is only 13%, Munis look “expensive” (yields are too low), or perhaps the market is pricing in significant risk premiums elsewhere.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-corporate-bonds-and-credit-risk">
+<h2>Part 5: Corporate Bonds and Credit Risk<a class="headerlink" href="#part-5-corporate-bonds-and-credit-risk" title="Link to this heading">#</a></h2>
+<p>This section introduces the most complex mathematics in the chapter: valuing bonds subject to default.</p>
+<section id="components-of-credit-risk">
+<h3>1. Components of Credit Risk<a class="headerlink" href="#components-of-credit-risk" title="Link to this heading">#</a></h3>
+<p>A corporate yield <span class="math notranslate nohighlight">\(y\)</span> is composed of:</p>
+<ol class="arabic simple">
+<li><p><strong>Risk-Free Rate (<span class="math notranslate nohighlight">\(r\)</span>):</strong> Time value of money.</p></li>
+<li><p><strong>Expected Loss (<span class="math notranslate nohighlight">\(EL = \pi\lambda\)</span>):</strong> The statistical expectation of default loss.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\pi\)</span>: Probability of Default (PD).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span>: Loss Given Default (LGD).</p></li>
+</ul>
+</li>
+<li><p><strong>Risk Premium (<span class="math notranslate nohighlight">\(\kappa\)</span> or <span class="math notranslate nohighlight">\(\theta\)</span>):</strong> Compensation for the <em>uncertainty</em> of default (variance) and illiquidity.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+y \approx r + \pi\lambda + \kappa
+\]</div>
+<p>[cite_start][cite: 277, 288]</p>
+</section>
+<section id="valuation-the-exact-method">
+<h3>2. Valuation: The Exact Method<a class="headerlink" href="#valuation-the-exact-method" title="Link to this heading">#</a></h3>
+<p>We assume the bond pays annual coupon <span class="math notranslate nohighlight">\(C\)</span> and face value <span class="math notranslate nohighlight">\(F\)</span> at year <span class="math notranslate nohighlight">\(n\)</span>.
+Default can occur in any year <span class="math notranslate nohighlight">\(i = 1, \dots, n\)</span>.</p>
+<p><strong>The Geometric Probability Model:</strong>
+Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable representing the year of default.
+Assume a constant annual conditional default probability <span class="math notranslate nohighlight">\(\pi\)</span>.
+The probability that default occurs exactly in year <span class="math notranslate nohighlight">\(i\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X=i) = (1-\pi)^{i-1} \pi
+\]</div>
+<p>The probability that the bond survives past year <span class="math notranslate nohighlight">\(n\)</span> (no default) is:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X &gt; n) = (1-\pi)^n
+\]</div>
+<p>[cite_start][cite: 299]</p>
+<p><strong>Conditional Cash Flows:</strong></p>
+<ul class="simple">
+<li><p><strong>If <span class="math notranslate nohighlight">\(X &gt; i\)</span> (Survival):</strong> Investor receives full payment <span class="math notranslate nohighlight">\(C\)</span>.</p></li>
+<li><p><strong>If <span class="math notranslate nohighlight">\(X \le i\)</span> (Default):</strong> Investor receives recovery value <span class="math notranslate nohighlight">\((1-\lambda)C\)</span> (or <span class="math notranslate nohighlight">\((1-\lambda)F\)</span> at maturity) in the year of default, and nothing thereafter. <em>Note: The text assumes recovery applies to the scheduled payment.</em></p></li>
+</ul>
+<p><strong>Expected Present Value Calculation:</strong>
+The value <span class="math notranslate nohighlight">\(V_0\)</span> is the probability-weighted average of the PVs for every possible default scenario.</p>
+<div class="math notranslate nohighlight">
+\[
+V_0 = \sum_{i=1}^n P(X=i) \times PV(\text{Cash flows given default at } i) + P(X&gt;n) \times PV(\text{Full Survival})
+\]</div>
+<p>[cite_start][cite: 324]</p>
+</section>
+<section id="the-analytic-decomposition-growing-annuity">
+<h3>3. The Analytic Decomposition (Growing Annuity)<a class="headerlink" href="#the-analytic-decomposition-growing-annuity" title="Link to this heading">#</a></h3>
+<p>Calculating the summation above is tedious. The text derives a powerful analytic shortcut by decomposing the cash flow into “Guaranteed” and “Risky” components.</p>
+<p><strong>Concept:</strong>
+Any expected cash flow <span class="math notranslate nohighlight">\(E[CF_i]\)</span> can be split:
+$<span class="math notranslate nohighlight">\( E[CF_i] = \underbrace{(1-\lambda)CF_i}_{\text{Guaranteed}} + \underbrace{\lambda CF_i P(\text{No Default by } i)}_{\text{Risky}} \)</span>$</p>
+<ul class="simple">
+<li><p><strong>Component A (Guaranteed):</strong> The recovery portion <span class="math notranslate nohighlight">\((1-\lambda)\)</span> is received regardless of whether default occurs or not. It is effectively risk-free (regarding default occurrence, though the recovery <em>rate</em> is assumed constant).</p></li>
+<li><p><strong>Component B (Risky):</strong> The potentially lost portion <span class="math notranslate nohighlight">\(\lambda\)</span> is received only if the bond survives.</p></li>
+</ul>
+<p><strong>Valuation Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+V_0 = (1-\lambda) \cdot A + \lambda \cdot B
+\]</div>
+<p>Where:</p>
+<ol class="arabic simple">
+<li><p><strong><span class="math notranslate nohighlight">\(A\)</span></strong>: The value of the promised cash flows discounted at the <strong>risk-adjusted rate</strong> corresponding to the risk premium <span class="math notranslate nohighlight">\(\theta\)</span> but <em>no</em> default loss.
+$<span class="math notranslate nohighlight">\( A = \text{Annuity}(C, n, y_A) + PV(F, n, y_A) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( y_A \approx r + \theta \)</span>$</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(B\)</span></strong>: The value of the promised cash flows discounted at a <strong>higher rate</strong> <span class="math notranslate nohighlight">\(r^*\)</span> that accounts for the probability of survival.
+$<span class="math notranslate nohighlight">\( B = \text{Annuity}(C, n, r^*) + PV(F, n, r^*) \)</span><span class="math notranslate nohighlight">\(
+The discount factor for \)</span>B<span class="math notranslate nohighlight">\( includes the survival probability \)</span>(1-\pi)<span class="math notranslate nohighlight">\(.
+\)</span><span class="math notranslate nohighlight">\( \frac{1}{1+r^*} = \frac{1-\pi}{1+r+\theta} \)</span><span class="math notranslate nohighlight">\(
+Solving for \)</span>r^*<span class="math notranslate nohighlight">\(:
+\)</span><span class="math notranslate nohighlight">\( r^* \approx r + \theta + \pi \)</span>$</p></li>
+</ol>
+<p>[cite_start][cite: 346-350]</p>
+<p><strong>Physical Interpretation:</strong></p>
+<ul class="simple">
+<li><p>Part A is valued like a Treasury bond (plus a small liquidity premium <span class="math notranslate nohighlight">\(\theta\)</span>).</p></li>
+<li><p>Part B is valued like a risky bond where the “growth rate” of the probability of payment is negative (<span class="math notranslate nohighlight">\(g = -\pi\)</span>).</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-6-worked-examples">
+<h2>Part 6: Worked Examples<a class="headerlink" href="#part-6-worked-examples" title="Link to this heading">#</a></h2>
+<section id="example-1-t-bill-valuation">
+<h3>Example 1: T-Bill Valuation<a class="headerlink" href="#example-1-t-bill-valuation" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> A 146-day T-Bill has a quoted Ask Yield (Discount) of 0.985%. Face Value is $10,000. Find the Price and the EAY.</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F = 10,000\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d = 0.00985\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n = 146\)</span></p></li>
+</ul>
+<p><strong>Step 1: Calculate Price (Bank Discount)</strong>
+$<span class="math notranslate nohighlight">\( P = 10,000 \left[ 1 - 0.00985 \left( \frac{146}{360} \right) \right] \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( P = 10,000 [ 1 - 0.0039947 ] = 10,000(0.996005) = \$9,960.05 \)</span>$</p>
+<p><strong>Step 2: Calculate EAY</strong>
+$<span class="math notranslate nohighlight">\( 9,960.05 (1 + \text{EAY})^{146/365} = 10,000 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( (1 + \text{EAY})^{0.4} = \frac{10,000}{9,960.05} = 1.00401 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 1 + \text{EAY} = (1.00401)^{1/0.4} = (1.00401)^{2.5} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \text{EAY} \approx 1.01005 \implies 1.005\% \)</span>$</p>
+<p>[cite_start][cite: 215-217]</p>
+</section>
+<section id="example-2-corporate-bond-valuation-approximate">
+<h3>Example 2: Corporate Bond Valuation (Approximate)<a class="headerlink" href="#example-2-corporate-bond-valuation-approximate" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> A corporate bond yields 4.04%. A comparable Treasury yields 2.84%. The bond has an AA rating with an annual default probability of 0.02%. Assume Loss Given Default (LGD) is 100%. Calculate the implied Risk Premium.</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_{corp} = 4.04\%\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r_{riskfree} = 2.84\%\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\pi = 0.0002\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda = 1.00\)</span></p></li>
+</ul>
+<p><strong>Step 1: Calculate Credit Spread</strong>
+$<span class="math notranslate nohighlight">\( \text{Spread} = 4.04\% - 2.84\% = 1.20\% \)</span>$</p>
+<p><strong>Step 2: Calculate Expected Loss (EL)</strong>
+$<span class="math notranslate nohighlight">\( EL = \pi \lambda = 0.0002 \times 1.00 = 0.02\% \)</span>$</p>
+<p><strong>Step 3: Isolate Risk Premium (<span class="math notranslate nohighlight">\(\kappa\)</span>)</strong>
+$<span class="math notranslate nohighlight">\( \text{Spread} = EL + \kappa \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 1.20\% = 0.02\% + \kappa \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \kappa = 1.18\% \)</span>$</p>
+<p><strong>Insight:</strong> The vast majority of the spread (1.18% vs 0.02%) is due to risk aversion (the premium), not the actuarial expected loss. This is typical for high-grade bonds.</p>
+<p>[cite_start][cite: 289]</p>
+</section>
+<section id="example-3-exact-default-valuation-the-geometric-model">
+<h3>Example 3: Exact Default Valuation (The Geometric Model)<a class="headerlink" href="#example-3-exact-default-valuation-the-geometric-model" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong></p>
+<ul class="simple">
+<li><p>5-year bond, annual coupon $55, Face $1000.</p></li>
+<li><p><span class="math notranslate nohighlight">\(r = 4\%\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\pi = 3\%\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda = 60\%\)</span> (Recovery = 40%).</p></li>
+<li><p>Value the bond using the expected cash flow method.</p></li>
+</ul>
+<p><strong>Step 1: Calculate Survival Probabilities</strong></p>
+<ul class="simple">
+<li><p>Prob(Survival Year 1) = <span class="math notranslate nohighlight">\((1-0.03) = 0.97\)</span></p></li>
+<li><p>Prob(Survival Year 2) = <span class="math notranslate nohighlight">\((0.97)^2 = 0.9409\)</span>
+…</p></li>
+<li><p>Prob(Survival Year 5) = <span class="math notranslate nohighlight">\((0.97)^5 = 0.8587\)</span></p></li>
+</ul>
+<p><strong>Step 2: Calculate Expected Cash Flows (<span class="math notranslate nohighlight">\(E[CF_t]\)</span>)</strong>
+Formula: <span class="math notranslate nohighlight">\(E[CF_t] = \text{Promised } CF_t \times [ (1-\lambda)\pi + (1-\pi)(1) ]\)</span>?
+Actually, the text derivation simplifies this:
+<span class="math notranslate nohighlight">\(E[CF_t] = (1-\lambda)CF_t + \lambda CF_t (1-\pi)^t\)</span>.</p>
+<ul class="simple">
+<li><p>Guaranteed portion: <span class="math notranslate nohighlight">\(0.40 \times 55 = 22\)</span>.</p></li>
+<li><p>Risky portion: <span class="math notranslate nohighlight">\(0.60 \times 55 \times (0.97)^t = 33(0.97)^t\)</span>.</p></li>
+</ul>
+<p><strong>Step 3: Discount Expected CFs at Risk-Free Rate (4%)</strong></p>
+<ul class="simple">
+<li><p>Year 1: <span class="math notranslate nohighlight">\(E[CF_1] = 22 + 33(0.97) = 54.01\)</span>. <span class="math notranslate nohighlight">\(PV = 54.01/1.04 = 51.93\)</span>.</p></li>
+<li><p>Year 2: <span class="math notranslate nohighlight">\(E[CF_2] = 22 + 33(0.97)^2 = 53.05\)</span>. <span class="math notranslate nohighlight">\(PV = 53.05/1.04^2 = 49.05\)</span>.</p></li>
+<li><p>…</p></li>
+<li><p>Year 5: <span class="math notranslate nohighlight">\(E[CF_5] = 0.4(1055) + 0.6(1055)(0.97)^5\)</span>.
+<span class="math notranslate nohighlight">\(E[CF_5] = 422 + 633(0.8587) = 965.58\)</span>.
+<span class="math notranslate nohighlight">\(PV = 965.58/1.04^5 = 793.63\)</span>.</p></li>
+</ul>
+<p><strong>Total Value:</strong> Sum of PVs.</p>
+<p>[cite_start][cite: 322, 328]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-7-practice-problems">
+<h2>Part 7: Practice Problems<a class="headerlink" href="#part-7-practice-problems" title="Link to this heading">#</a></h2>
+<section id="practice-problem-1-muni-tax-implication">
+<h3>Practice Problem 1: Muni Tax Implication<a class="headerlink" href="#practice-problem-1-muni-tax-implication" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> A 20-year Treasury yields 2.91%. A 20-year Muni yields 2.02%. Assuming the Muni has an expected loss rate of 0.05% and no liquidity premium, what is the implied marginal tax rate?</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_{tsy} = 2.91\%\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r_{muni} = 2.02\%\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\pi\lambda = 0.05\%\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\kappa = 0\)</span></p></li>
+</ul>
+<p><strong>Formula:</strong>
+$<span class="math notranslate nohighlight">\( r_{muni} = r_{tsy}(1-\tau) + \pi\lambda \)</span>$</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<div class="math notranslate nohighlight">
+\[ 2.02\% = 2.91\%(1-\tau) + 0.05\% \]</div>
+<div class="math notranslate nohighlight">
+\[ 1.97\% = 2.91\%(1-\tau) \]</div>
+<div class="math notranslate nohighlight">
+\[ 1-\tau = \frac{1.97}{2.91} = 0.677 \]</div>
+<div class="math notranslate nohighlight">
+\[ \tau = 1 - 0.677 = 0.323 \]</div>
+<p><strong>Implied Tax Rate = 32.3%</strong>
+[cite_start][cite: 275]</p>
+</details>
+</section>
+<section id="practice-problem-2-t-bill-d-vs-r">
+<h3>Practice Problem 2: T-Bill “d” vs “r”<a class="headerlink" href="#practice-problem-2-t-bill-d-vs-r" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> A T-Bill has a discount yield <span class="math notranslate nohighlight">\(d=2.00\%\)</span> and 90 days to maturity. Is the continuously compounded yield <span class="math notranslate nohighlight">\(r\)</span> higher or lower than 2.00%? Calculate it.</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p><strong>Intuition:</strong> The discount yield underestimates the true yield because (1) it divides by 360 instead of 365, and (2) it divides the interest by Face Value rather than Price (Price &lt; Face). Both factors make the true yield higher.</p>
+<p><strong>Calculation:</strong>
+$<span class="math notranslate nohighlight">\( P = 10,000 [ 1 - 0.02(90/360) ] = 10,000 [ 1 - 0.005 ] = 9,950 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 9,950 = 10,000 e^{-r(90/365)} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 0.995 = e^{-0.2466 r} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \ln(0.995) = -0.2466 r \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( -0.00501 = -0.2466 r \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( r = 0.0203 \implies 2.03\% \)</span>$
+<strong>Result:</strong> Higher, as expected.</p>
+</details>
+</section>
+<section id="practice-problem-3-decomposition">
+<h3>Practice Problem 3: Decomposition<a class="headerlink" href="#practice-problem-3-decomposition" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Value a 1-year corporate ZCB with Face $100. Risk-free rate 5%. Default prob 2%. Recovery 40% (<span class="math notranslate nohighlight">\(\lambda=60\%\)</span>). No risk premium (<span class="math notranslate nohighlight">\(\theta=0\)</span>). Use the <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> decomposition method.</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r = 0.05\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\pi = 0.02\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda = 0.6\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta = 0\)</span></p></li>
+</ul>
+<p><strong>Component A (Guaranteed):</strong>
+Valued at rate <span class="math notranslate nohighlight">\(y_A \approx r = 5\%\)</span>.
+$<span class="math notranslate nohighlight">\( A = \frac{100}{1.05} = 95.238 \)</span>$</p>
+<p><strong>Component B (Risky):</strong>
+Valued at rate <span class="math notranslate nohighlight">\(r^* \approx r + \pi = 7\%\)</span>.
+$<span class="math notranslate nohighlight">\( B = \frac{100}{1.07} = 93.458 \)</span>$</p>
+<p><strong>Total Value:</strong>
+$<span class="math notranslate nohighlight">\( V = (1-\lambda)A + \lambda B \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( V = 0.40(95.238) + 0.60(93.458) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( V = 38.095 + 56.075 = 94.17 \)</span>$</p>
+<p><strong>Check via Expected Cash Flow:</strong>
+<span class="math notranslate nohighlight">\(E[CF] = 0.98(100) + 0.02(40) = 98 + 0.8 = 98.8\)</span>.
+<span class="math notranslate nohighlight">\(PV = 98.8 / 1.05 = 94.095\)</span>.
+(Difference due to <span class="math notranslate nohighlight">\(r^*\)</span> approximation <span class="math notranslate nohighlight">\(1+r+\pi \approx (1+r)(1+\pi)^{-1}\)</span>).</p>
+</details>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-8-chapter-summary">
+<h2>Part 8: Chapter Summary<a class="headerlink" href="#part-8-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="key-concepts-recap">
+<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
+<p>:class: important</p>
+<p><strong>1. Market Prices as Information:</strong>
+We do not just value bonds; we interrogate them. A TIPS price reveals inflation expectations. A Muni price reveals tax brackets. A Corporate price reveals default fears.</p>
+<p><strong>2. Yield Conventions Matter:</strong>
+A T-Bill quoting 2.00% is not paying 2.00% interest. It is paying a discount based on a 360-day year. Always convert to <strong>Effective Annual Yield (EAY)</strong> or <strong>Continuous Yield (<span class="math notranslate nohighlight">\(r\)</span>)</strong> before comparing or modeling.</p>
+<p><strong>3. Bootstrapping:</strong>
+To value cash flows occurring at arbitrary times, we must construct a continuous spot rate curve <span class="math notranslate nohighlight">\(y(t)\)</span>. This is done by stripping coupons from bonds conceptually and solving for the zero-coupon rates that justify current market prices.</p>
+<p><strong>4. Credit Risk Decomposition:</strong>
+A defaultable bond is mathematically equivalent to a portfolio of:</p>
+<ul class="simple">
+<li><p>A <strong>Risk-Free Bond</strong> paying the recovery value.</p></li>
+<li><p>A <strong>Risky Bond</strong> paying the potential loss, which behaves like an annuity with a negative growth rate (the survival probability decays geometrically).</p></li>
+</ul>
+<p><strong>5. The Exact Valuation Formula:</strong>
+$<span class="math notranslate nohighlight">\( V = \sum_{i} PV(\text{Guaranteed CF}) + \sum_{i} PV(\text{Risky CF} | \text{Survival}) \)</span><span class="math notranslate nohighlight">\(
+By splitting the cash flows into \)</span>(1-\lambda)<span class="math notranslate nohighlight">\( (Guaranteed) and \)</span>\lambda$ (Risky), we simplify the valuation of complex corporate debt structures.</p>
+</section>
+<section id="formula-cheat-sheet">
+<h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Concept</p></th>
+<th class="head text-left"><p>Formula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>T-Bill Price</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(P = F [1 - d(n/360)]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>T-Bill BEY</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\frac{F-P}{P} \times \frac{365}{n}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Bootstrapping</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(P_{model} = \sum CF_t e^{-y(t) \cdot t}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Implied Tax Rate</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\tau = \frac{r_{tsy} - r_{muni} + EL}{r_{tsy}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Corporate Yield</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(y \approx r + \pi\lambda + \kappa\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Default Valuation</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(V = (1-\lambda)A(r+\theta) + \lambda B(r+\theta+\pi)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter03.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 3: Complications and Resolutions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter05.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 5: Simulation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-us-government-debt-risk-free">Part 1: US Government Debt (“Risk-Free”)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-bills-t-bills">1. Treasury Bills (T-Bills)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bank-discount-yield-d">The Bank Discount Yield (<span class="math notranslate nohighlight">\(d\)</span>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-yields">Converting Yields</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-notes-and-bonds">2. Treasury Notes and Bonds</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strips-zero-coupon-curve">3. STRIPS (Zero Coupon Curve)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-bootstrapping-the-yield-curve">Part 2: Bootstrapping the Yield Curve</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-algorithm">The Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-tips-and-inflation">Part 3: TIPS and Inflation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanics-of-tips">1. Mechanics of TIPS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tax-complications">2. Tax Complications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-break-even-inflation-rate">3. The Break-Even Inflation Rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-municipal-bonds-and-implied-tax-rates">Part 4: Municipal Bonds and Implied Tax Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tax-arbitrage">1. Tax Arbitrage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-implied-tax-rate">2. The Implied Tax Rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-corporate-bonds-and-credit-risk">Part 5: Corporate Bonds and Credit Risk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-credit-risk">1. Components of Credit Risk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valuation-the-exact-method">2. Valuation: The Exact Method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-analytic-decomposition-growing-annuity">3. The Analytic Decomposition (Growing Annuity)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-worked-examples">Part 6: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-t-bill-valuation">Example 1: T-Bill Valuation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-corporate-bond-valuation-approximate">Example 2: Corporate Bond Valuation (Approximate)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-exact-default-valuation-the-geometric-model">Example 3: Exact Default Valuation (The Geometric Model)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-practice-problems">Part 7: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-muni-tax-implication">Practice Problem 1: Muni Tax Implication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-t-bill-d-vs-r">Practice Problem 2: T-Bill “d” vs “r”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-decomposition">Practice Problem 3: Decomposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-chapter-summary">Part 8: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David C. Shimko
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

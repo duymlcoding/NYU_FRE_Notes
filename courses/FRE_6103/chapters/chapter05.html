@@ -1,0 +1,1107 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 5: Simulation &#8212; FRE 6103: Valuation Methods for Financial Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter05';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 6: Stochastic Processes in Finance" href="chapter06.html" />
+    <link rel="prev" title="Chapter 4: Bonds" href="chapter04.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6103: Valuation Methods for Financial Engineering</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapter01.html">Chapter 1: Valuation Methods for Financial Engineers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter02.html">Chapter 2: Annuities and Perpetuities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter03.html">Chapter 3: Complications and Resolutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter04.html">Chapter 4: Bonds</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 5: Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter06.html">Chapter 6: Stochastic Processes in Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter07.html">Chapter 7: Risk, Capital and Valuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter08.html">Chapter 8: The Single Period CAPM and CFPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter09.html">Chapter 9: Derivative Pricing in the Static CAPM</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/chapters/chapter05.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter05.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/chapter05.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 5: Simulation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-foundations-of-random-number-generation">Part 1: Foundations of Random Number Generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-uniform-distribution">1. The Uniform Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inverse-transform-theorem">2. The Inverse Transform Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-specific-distributions">3. Generating Specific Distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-distribution">The Normal Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-exponential-distribution">The Exponential Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometric-distribution-discrete">The Geometric Distribution (Discrete)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-simulation-core-logic">Part 2: The Simulation Core Logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-process">1. The Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-error">2. Measuring Error</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-variance-reduction-techniques">Part 3: Variance Reduction Techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moment-matching">1. Moment Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antithetic-sampling">2. Antithetic Sampling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-multivariate-simulation-correlated-variables">Part 4: Multivariate Simulation (Correlated Variables)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-combinations-of-normals">1. Linear Combinations of Normals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cholesky-decomposition">2. The Cholesky Decomposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-advanced-derivations-mgfs-and-completing-the-square">Part 5: Advanced Derivations (MGFs and Completing the Square)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completing-the-square-technique">1. “Completing the Square” Technique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mgf-of-a-normal-distribution">2. MGF of a Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-for-linear-combinations">3. Proof for Linear Combinations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-copulas-and-non-normal-correlation">Part 6: Copulas and Non-Normal Correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gaussian-copula-method">The Gaussian Copula Method</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-integrating-max-z-c">Example 1: Integrating <span class="math notranslate nohighlight">\(\max(Z, c)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-cholesky-decomposition">Example 2: Cholesky Decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-inventory-optimization-common-random-numbers">Example 3: Inventory Optimization (Common Random Numbers)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-exponential-inverse">Practice Problem 1: Exponential Inverse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-correlated-simulation">Practice Problem 2: Correlated Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-confidence-interval">Practice Problem 3: Confidence Interval</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-5-simulation">
+<h1>Chapter 5: Simulation<a class="headerlink" href="#chapter-5-simulation" title="Link to this heading">#</a></h1>
+<section id="chapter-overview">
+<h2>Chapter Overview<a class="headerlink" href="#chapter-overview" title="Link to this heading">#</a></h2>
+<p>In the previous chapters, we relied on “closed-form” solutions—formulas like the GVE or annuity equations that give a precise answer based on deterministic inputs. However, the real world is rarely so cooperative. Financial engineers often face problems where the random variables are too complex, too numerous, or too interdependent for a single equation to solve.</p>
+<p>This chapter introduces <strong>Simulation</strong> (often called Monte Carlo Simulation). [cite_start]While it is computationally the “slowest and least accurate” method compared to analytic formulas, it is the “most flexible”[cite: 345]. It allows us to model complex phenomena like:</p>
+<ul class="simple">
+<li><p>Stochastic interest rates and exchange rates.</p></li>
+<li><p>Path-dependent commodity prices.</p></li>
+<li><p>Event risks (defaults, accidents) with non-standard distributions.</p></li>
+</ul>
+<p>We will move from generating simple random numbers to building sophisticated engines that can simulate correlated default times for a bond portfolio using Cholesky decompositions and Copulas.</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol class="arabic simple">
+<li><p><strong>Apply</strong> the Inverse Transform Method to generate random numbers from any probability distribution (Normal, Exponential, Geometric).</p></li>
+<li><p><strong>Execute</strong> the core simulation loop: Generate <span class="math notranslate nohighlight">\(\to\)</span> Calculate <span class="math notranslate nohighlight">\(\to\)</span> Aggregate <span class="math notranslate nohighlight">\(\to\)</span> Analyze Error.</p></li>
+<li><p><strong>Implement</strong> Variance Reduction techniques (Moment Matching, Antithetic Sampling) to improve simulation precision without simply increasing sample size.</p></li>
+<li><p><strong>Derive</strong> the Cholesky Decomposition of a covariance matrix to simulate correlated random variables.</p></li>
+<li><p><strong>Prove</strong> the properties of Linear Combinations of Normal variables using Moment Generating Functions (MGFs) and “Completing the Square.”</p></li>
+<li><p><strong>Construct</strong> Gaussian Copulas to correlate non-normal random variables (e.g., discrete bond default times).</p></li>
+<li><p><strong>Optimize</strong> business decisions under uncertainty using simulation with Common Random Numbers (CRN).</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Prerequisites</p>
+<p>Before studying this chapter, you should be familiar with:</p>
+<ul class="simple">
+<li><p><strong>Probability Theory:</strong> CDFs, PDFs, Expected Value, Variance, Covariance.</p></li>
+<li><p><strong>Matrix Algebra:</strong> Matrix multiplication, transposes, and triangular matrices.</p></li>
+<li><p><strong>Calculus:</strong> Integration techniques (substitution) for deriving MGFs.</p></li>
+<li><p><strong>Excel/Python:</strong> Basic familiarity with <code class="docutils literal notranslate"><span class="pre">RAND()</span></code>, <code class="docutils literal notranslate"><span class="pre">NORMSINV()</span></code>, or <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-1-foundations-of-random-number-generation">
+<h2>Part 1: Foundations of Random Number Generation<a class="headerlink" href="#part-1-foundations-of-random-number-generation" title="Link to this heading">#</a></h2>
+<p>At the heart of every simulation is the <strong>Random Number Generator (RNG)</strong>. Most systems provide a way to generate a <strong>Uniform</strong> random number <span class="math notranslate nohighlight">\(U \sim [0, 1]\)</span>. The challenge is converting this uniform noise into specific distributions (Normal, Exponential, etc.) that represent financial variables.</p>
+<section id="the-uniform-distribution">
+<h3>1. The Uniform Distribution<a class="headerlink" href="#the-uniform-distribution" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(U \sim U[a, b]\)</span> means any value between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is equally likely.
+For simulation, we use the standard uniform <span class="math notranslate nohighlight">\(U[0, 1]\)</span>.</p>
+<ul class="simple">
+<li><p><strong>PDF:</strong> <span class="math notranslate nohighlight">\(u(x) = 1\)</span> for <span class="math notranslate nohighlight">\(x \in [0, 1]\)</span>.</p></li>
+<li><p>[cite_start]<strong>CDF:</strong> <span class="math notranslate nohighlight">\(U(x) = x\)</span> for <span class="math notranslate nohighlight">\(x \in [0, 1]\)</span>. [cite: 351]</p></li>
+</ul>
+</section>
+<section id="the-inverse-transform-theorem">
+<h3>2. The Inverse Transform Theorem<a class="headerlink" href="#the-inverse-transform-theorem" title="Link to this heading">#</a></h3>
+<p>This is the fundamental theorem for simulation. If we have a uniform random number <span class="math notranslate nohighlight">\(u\)</span>, we can transform it into <em>any</em> random variable <span class="math notranslate nohighlight">\(X\)</span> if we know the inverse of <span class="math notranslate nohighlight">\(X\)</span>’s Cumulative Distribution Function (CDF), <span class="math notranslate nohighlight">\(F^{-1}(u)\)</span>.</p>
+<p><strong>Theorem:</strong>
+If <span class="math notranslate nohighlight">\(U \sim U[0,1]\)</span> and <span class="math notranslate nohighlight">\(X = F^{-1}(U)\)</span>, then <span class="math notranslate nohighlight">\(X\)</span> has the CDF <span class="math notranslate nohighlight">\(F(x)\)</span>.</p>
+<p><strong>Proof Logic:</strong>
+Since <span class="math notranslate nohighlight">\(F(x)\)</span> is a monotonic increasing function:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X \le x) = P(F^{-1}(U) \le x)
+\]</div>
+<p>Apply <span class="math notranslate nohighlight">\(F\)</span> to both sides of the inequality inside the probability:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X \le x) = P(U \le F(x))
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(P(U \le k) = k\)</span> for a uniform distribution:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X \le x) = F(x)
+\]</div>
+<p>[cite_start]Thus, <span class="math notranslate nohighlight">\(X\)</span> follows the distribution <span class="math notranslate nohighlight">\(F\)</span>. [cite: 356]</p>
+</section>
+<section id="generating-specific-distributions">
+<h3>3. Generating Specific Distributions<a class="headerlink" href="#generating-specific-distributions" title="Link to this heading">#</a></h3>
+<section id="the-normal-distribution">
+<h4>The Normal Distribution<a class="headerlink" href="#the-normal-distribution" title="Link to this heading">#</a></h4>
+<p>For a standard normal <span class="math notranslate nohighlight">\(Z \sim N(0, 1)\)</span>, the CDF is denoted <span class="math notranslate nohighlight">\(N(z)\)</span>.
+We generate <span class="math notranslate nohighlight">\(z\)</span> using the inverse CDF:</p>
+<div class="math notranslate nohighlight">
+\[
+z = N^{-1}(u)
+\]</div>
+<p>In Excel: <code class="docutils literal notranslate"><span class="pre">=NORMSINV(RAND())</span></code>
+[cite_start]In Python: <code class="docutils literal notranslate"><span class="pre">numpy.random.normal()</span></code> [cite: 359]</p>
+</section>
+<section id="the-exponential-distribution">
+<h4>The Exponential Distribution<a class="headerlink" href="#the-exponential-distribution" title="Link to this heading">#</a></h4>
+<p>Used for “time until arrival” models.
+PDF: <span class="math notranslate nohighlight">\(f(x) = \lambda e^{-\lambda x}\)</span> for <span class="math notranslate nohighlight">\(x \ge 0\)</span>.
+[cite_start]CDF: <span class="math notranslate nohighlight">\(F(x) = 1 - e^{-\lambda x}\)</span>. [cite: 10]</p>
+<p>To simulate, set <span class="math notranslate nohighlight">\(u = F(x)\)</span> and solve for <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+u = 1 - e^{-\lambda x}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+e^{-\lambda x} = 1 - u
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+-\lambda x = \ln(1 - u)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x = -\frac{\ln(1 - u)}{\lambda}
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\((1-u)\)</span> is distributed identically to <span class="math notranslate nohighlight">\(u\)</span> (both uniform on [0,1]), we often simplify to:</p>
+<div class="math notranslate nohighlight">
+\[
+x = -\frac{\ln(u)}{\lambda}
+\]</div>
+</section>
+<section id="the-geometric-distribution-discrete">
+<h4>The Geometric Distribution (Discrete)<a class="headerlink" href="#the-geometric-distribution-discrete" title="Link to this heading">#</a></h4>
+<p>Used for discrete time-to-event models (e.g., bond defaults in Chapter 4).
+PDF: <span class="math notranslate nohighlight">\(f(i) = (1-\pi)^{i-1}\pi\)</span>.
+CDF: <span class="math notranslate nohighlight">\(F(i) = 1 - (1-\pi)^i\)</span>.</p>
+<p>To simulate, we solve for <span class="math notranslate nohighlight">\(i\)</span> and round up to the nearest integer:</p>
+<div class="math notranslate nohighlight">
+\[
+i = \text{roundup} \left( \frac{\ln(1-u)}{\ln(1-\pi)} \right)
+\]</div>
+<p>[cite_start][cite: 423-424]</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-the-simulation-core-logic">
+<h2>Part 2: The Simulation Core Logic<a class="headerlink" href="#part-2-the-simulation-core-logic" title="Link to this heading">#</a></h2>
+<p>Simulation is an experimental process. Instead of solving an integral analytically, we estimate it statistically.</p>
+<section id="the-process">
+<h3>1. The Process<a class="headerlink" href="#the-process" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Generate</strong> <span class="math notranslate nohighlight">\(N\)</span> random outcomes (<span class="math notranslate nohighlight">\(z_1, z_2, \dots, z_N\)</span>).</p></li>
+<li><p><strong>Calculate</strong> the target function <span class="math notranslate nohighlight">\(f(z_i)\)</span> for each outcome (e.g., the payoff of an option).</p></li>
+<li><p><strong>Aggregate</strong> to find the sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span>. [cite_start]This is our estimate of the Expected Value <span class="math notranslate nohighlight">\(E[f(Z)]\)</span>. [cite: 346-347]</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\bar{x} = \frac{1}{N} \sum_{i=1}^N f(z_i)
+\]</div>
+</section>
+<section id="measuring-error">
+<h3>2. Measuring Error<a class="headerlink" href="#measuring-error" title="Link to this heading">#</a></h3>
+<p>Because simulation relies on random sampling, the answer is never exact. We must quantify the uncertainty.</p>
+<ul class="simple">
+<li><p><strong>Sample Variance (<span class="math notranslate nohighlight">\(s^2\)</span>):</strong>
+$<span class="math notranslate nohighlight">\(s^2 = \frac{1}{N-1} \sum (x_i - \bar{x})^2\)</span>$</p></li>
+<li><p><strong>Standard Error (SE):</strong> The standard deviation of the <em>mean itself</em>.
+[cite_start]$<span class="math notranslate nohighlight">\(SE = \frac{s}{\sqrt{N}}\)</span>$ [cite: 367]</p></li>
+</ul>
+<p><strong>Confidence Intervals:</strong>
+According to the Central Limit Theorem, the sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span> is normally distributed for large <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Confidence Interval} = \bar{x} \pm m \left( \frac{s}{\sqrt{N}} \right)
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(m\)</span> determines the confidence level:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(m=1\)</span>: 68% confidence</p></li>
+<li><p><span class="math notranslate nohighlight">\(m=2\)</span>: 95% confidence</p></li>
+<li><p>[cite_start]<span class="math notranslate nohighlight">\(m=3\)</span>: 99.7% confidence [cite: 373]</p></li>
+</ul>
+<p><strong>The Law of Precision:</strong>
+To reduce the error by a factor of <span class="math notranslate nohighlight">\(k\)</span>, you must increase the sample size <span class="math notranslate nohighlight">\(N\)</span> by a factor of <span class="math notranslate nohighlight">\(k^2\)</span>. [cite_start]Simulation is computationally expensive! [cite: 375]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-variance-reduction-techniques">
+<h2>Part 3: Variance Reduction Techniques<a class="headerlink" href="#part-3-variance-reduction-techniques" title="Link to this heading">#</a></h2>
+<p>Since increasing <span class="math notranslate nohighlight">\(N\)</span> is costly, we use mathematical tricks to reduce the variance <span class="math notranslate nohighlight">\(s^2\)</span> without generating more samples.</p>
+<section id="moment-matching">
+<h3>1. Moment Matching<a class="headerlink" href="#moment-matching" title="Link to this heading">#</a></h3>
+<p>Random samples rarely have a mean of exactly 0 and standard deviation of exactly 1, even if drawn from <span class="math notranslate nohighlight">\(N(0,1)\)</span>. <strong>Moment Matching</strong> forces this property.</p>
+<p><strong>Algorithm:</strong></p>
+<ol class="arabic simple">
+<li><p>Generate raw samples <span class="math notranslate nohighlight">\(z\)</span>.</p></li>
+<li><p>Calculate sample mean <span class="math notranslate nohighlight">\(\bar{z}\)</span> and sample standard deviation <span class="math notranslate nohighlight">\(s_z\)</span>.</p></li>
+<li><p>Transform each <span class="math notranslate nohighlight">\(z_i\)</span> into a standardized <span class="math notranslate nohighlight">\(\hat{z}_i\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\hat{z}_i = \frac{z_i - \bar{z}}{s_z}
+\]</div>
+<p>[cite_start]Now, the sample mean of <span class="math notranslate nohighlight">\(\hat{z}\)</span> is exactly 0 and the variance is exactly 1. This eliminates “noise” in the first two moments. [cite: 388]</p>
+</section>
+<section id="antithetic-sampling">
+<h3>2. Antithetic Sampling<a class="headerlink" href="#antithetic-sampling" title="Link to this heading">#</a></h3>
+<p>This technique exploits negative correlation. For every random number <span class="math notranslate nohighlight">\(u\)</span>, we also generate its “mirror” <span class="math notranslate nohighlight">\(1-u\)</span>.</p>
+<ul class="simple">
+<li><p>Generate <span class="math notranslate nohighlight">\(z_i = F^{-1}(u_i)\)</span>.</p></li>
+<li><p>Generate <span class="math notranslate nohighlight">\(w_i = F^{-1}(1 - u_i)\)</span>. For symmetric distributions (like Normal), <span class="math notranslate nohighlight">\(w_i = -z_i\)</span>.</p></li>
+</ul>
+<p><strong>Why it works:</strong>
+The estimator becomes <span class="math notranslate nohighlight">\(\bar{x} = \frac{z + w}{2}\)</span>.
+If <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(w\)</span> are negatively correlated, the variance of their sum is lower than the sum of their variances.
+$<span class="math notranslate nohighlight">\(\text{Var}(z+w) = \text{Var}(z) + \text{Var}(w) + 2\text{Cov}(z,w)\)</span><span class="math notranslate nohighlight">\(
+[cite_start]Since \)</span>\text{Cov}(z, -z)$ is negative, the total variance decreases. [cite: 392-393]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-multivariate-simulation-correlated-variables">
+<h2>Part 4: Multivariate Simulation (Correlated Variables)<a class="headerlink" href="#part-4-multivariate-simulation-correlated-variables" title="Link to this heading">#</a></h2>
+<p>In finance, assets are correlated. A stock portfolio or a basket of bonds requires us to simulate multiple random variables that move together.</p>
+<section id="linear-combinations-of-normals">
+<h3>1. Linear Combinations of Normals<a class="headerlink" href="#linear-combinations-of-normals" title="Link to this heading">#</a></h3>
+<p>We can build correlated normals from independent normals.
+If <span class="math notranslate nohighlight">\(Z_1, Z_3 \sim N(0,1)\)</span> are independent, we can construct <span class="math notranslate nohighlight">\(Z_2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+Z_2 = \rho Z_1 + \sqrt{1-\rho^2} Z_3
+\]</div>
+<p>Properties of <span class="math notranslate nohighlight">\(Z_2\)</span>:</p>
+<ul class="simple">
+<li><p>Mean: 0</p></li>
+<li><p>Variance: <span class="math notranslate nohighlight">\(\rho^2(1) + (1-\rho^2)(1) = 1\)</span></p></li>
+<li><p>[cite_start]Correlation with <span class="math notranslate nohighlight">\(Z_1\)</span>: <span class="math notranslate nohighlight">\(\rho\)</span> [cite: 441-442]</p></li>
+</ul>
+</section>
+<section id="the-cholesky-decomposition">
+<h3>2. The Cholesky Decomposition<a class="headerlink" href="#the-cholesky-decomposition" title="Link to this heading">#</a></h3>
+<p>For <span class="math notranslate nohighlight">\(k &gt; 2\)</span> variables, we generalize using matrices. We need to transform a vector of independent normals <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span> into correlated normals <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> with covariance matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
+<p><strong>Goal:</strong> Find a matrix <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> such that if we multiply independent <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span> by <span class="math notranslate nohighlight">\(\mathbf{R}^T\)</span>, the resulting covariance is <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(\mathbf{Z}\mathbf{R}^T) = \mathbf{R} \text{Var}(\mathbf{Z}) \mathbf{R}^T = \mathbf{R} \mathbf{I} \mathbf{R}^T = \mathbf{R}\mathbf{R}^T
+\]</div>
+<p>So we need <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{R}\mathbf{R}^T\)</span>.
+This is called the <strong>Cholesky Decomposition</strong>. [cite_start]<span class="math notranslate nohighlight">\(\mathbf{R}\)</span> is a lower triangular matrix. [cite: 487]</p>
+<p><strong>Algorithm for 2x2 Matrix:</strong>
+Given <span class="math notranslate nohighlight">\(\mathbf{A} = \begin{pmatrix} a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22} \end{pmatrix}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{R} = \begin{pmatrix} r_{11} &amp; 0 \\ r_{21} &amp; r_{22} \end{pmatrix}\)</span>.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(r_{11}^2 = a_{11} \implies r_{11} = \sqrt{a_{11}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r_{21} r_{11} = a_{21} \implies r_{21} = a_{21} / r_{11}\)</span></p></li>
+<li><p>[cite_start]<span class="math notranslate nohighlight">\(r_{21}^2 + r_{22}^2 = a_{22} \implies r_{22} = \sqrt{a_{22} - r_{21}^2}\)</span> [cite: 488-489]</p></li>
+</ol>
+<p><strong>Simulation Step:</strong></p>
+<ol class="arabic simple">
+<li><p>Generate independent <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span> (vector of <span class="math notranslate nohighlight">\(N(0,1)\)</span>).</p></li>
+<li><p>[cite_start]Calculate <span class="math notranslate nohighlight">\(\mathbf{X} = \boldsymbol{\mu} + \mathbf{Z} \mathbf{R}^T\)</span>. [cite: 501]</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-advanced-derivations-mgfs-and-completing-the-square">
+<h2>Part 5: Advanced Derivations (MGFs and Completing the Square)<a class="headerlink" href="#part-5-advanced-derivations-mgfs-and-completing-the-square" title="Link to this heading">#</a></h2>
+<p>To prove that linear combinations of normals are indeed normal, we look at the <strong>Moment Generating Function (MGF)</strong>. This section provides the mathematical depth required to understand <em>why</em> the Cholesky method works.</p>
+<section id="completing-the-square-technique">
+<h3>1. “Completing the Square” Technique<a class="headerlink" href="#completing-the-square-technique" title="Link to this heading">#</a></h3>
+<p>This algebraic trick is essential for Gaussian integrals.
+Given a quadratic <span class="math notranslate nohighlight">\(p(x) = -ax^2 + bx + c\)</span>, we can rewrite it as:</p>
+<div class="math notranslate nohighlight">
+\[
+p(x) = -a(x - h)^2 + k
+\]</div>
+<p>[cite_start]Where <span class="math notranslate nohighlight">\(h = \frac{b}{2a}\)</span> and <span class="math notranslate nohighlight">\(k = c + \frac{b^2}{4a}\)</span>. [cite: 448-449]</p>
+</section>
+<section id="mgf-of-a-normal-distribution">
+<h3>2. MGF of a Normal Distribution<a class="headerlink" href="#mgf-of-a-normal-distribution" title="Link to this heading">#</a></h3>
+<p>The MGF is defined as <span class="math notranslate nohighlight">\(M_X(t) = E[e^{tX}]\)</span>. For a Normal <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma^2)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+M_X(t) = \int_{-\infty}^{\infty} e^{tx} \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx
+\]</div>
+<p>The exponent is quadratic in <span class="math notranslate nohighlight">\(x\)</span>. By “completing the square” in the exponent, we can isolate the <span class="math notranslate nohighlight">\(x\)</span> terms into a Gaussian integral (which sums to 1) and separate the <span class="math notranslate nohighlight">\(t\)</span> terms.</p>
+<p><strong>Result:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+M_X(t) = e^{\mu t + \frac{1}{2}\sigma^2 t^2}
+\]</div>
+<p>[cite_start][cite: 460]</p>
+</section>
+<section id="proof-for-linear-combinations">
+<h3>3. Proof for Linear Combinations<a class="headerlink" href="#proof-for-linear-combinations" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(Y = aX_1 + bX_2\)</span>.
+Since <span class="math notranslate nohighlight">\(X_1, X_2\)</span> are independent:</p>
+<div class="math notranslate nohighlight">
+\[
+M_Y(t) = E[e^{t(aX_1 + bX_2)}] = E[e^{atX_1}] E[e^{btX_2}]
+\]</div>
+<p>Substitute the Normal MGF formula:</p>
+<div class="math notranslate nohighlight">
+\[
+M_Y(t) = e^{\mu_1 (at) + \frac{1}{2}\sigma_1^2 (at)^2} \cdot e^{\mu_2 (bt) + \frac{1}{2}\sigma_2^2 (bt)^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+M_Y(t) = e^{(\mu_1 a + \mu_2 b)t + \frac{1}{2}(a^2\sigma_1^2 + b^2\sigma_2^2)t^2}
+\]</div>
+<p>This is the MGF of a Normal distribution with mean <span class="math notranslate nohighlight">\(a\mu_1 + b\mu_2\)</span> and variance <span class="math notranslate nohighlight">\(a^2\sigma_1^2 + b^2\sigma_2^2\)</span>. [cite_start]Thus, linear combinations of normals are normal. [cite: 461-462]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-6-copulas-and-non-normal-correlation">
+<h2>Part 6: Copulas and Non-Normal Correlation<a class="headerlink" href="#part-6-copulas-and-non-normal-correlation" title="Link to this heading">#</a></h2>
+<p>The Cholesky method only works for Normal distributions. What if we need to correlate <strong>Bond Default Times</strong>, which follow a Geometric distribution? We use a <strong>Copula</strong>.</p>
+<section id="the-gaussian-copula-method">
+<h3>The Gaussian Copula Method<a class="headerlink" href="#the-gaussian-copula-method" title="Link to this heading">#</a></h3>
+<p><strong>Concept:</strong> Use the Normal distribution as a “bridge” to induce correlation, then map back to the target distribution.</p>
+<p><strong>Algorithm:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Correlation:</strong> Generate correlated standard normals <span class="math notranslate nohighlight">\(z_1, z_2\)</span> using Cholesky (correlation <span class="math notranslate nohighlight">\(\rho\)</span>).</p></li>
+<li><p><strong>Uniform Mapping:</strong> Convert <span class="math notranslate nohighlight">\(z\)</span> values to uniform <span class="math notranslate nohighlight">\(u\)</span> values using the Normal CDF.
+$<span class="math notranslate nohighlight">\(u_1 = N(z_1), \quad u_2 = N(z_2)\)</span><span class="math notranslate nohighlight">\(
+Now \)</span>u_1, u_2$ are correlated uniform variables.</p></li>
+<li><p><strong>Target Mapping:</strong> Convert <span class="math notranslate nohighlight">\(u\)</span> values to the target distribution using the Inverse Transform.
+For Geometric (bond default):
+$<span class="math notranslate nohighlight">\(x_1 = \text{Geometric}^{-1}(u_1), \quad x_2 = \text{Geometric}^{-1}(u_2)\)</span>$</p></li>
+</ol>
+<p>[cite_start][cite: 530-531]</p>
+<p><strong>Physical Interpretation:</strong>
+We are correlating the “percentile rankings” of the variables. If Bond A is in the “bad” tail of the normal distribution (low <span class="math notranslate nohighlight">\(z\)</span>, low <span class="math notranslate nohighlight">\(u\)</span>), Bond B is likely also in the bad tail (due to correlation), leading to simultaneous early defaults.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-7-worked-examples">
+<h2>Part 7: Worked Examples<a class="headerlink" href="#part-7-worked-examples" title="Link to this heading">#</a></h2>
+<section id="example-1-integrating-max-z-c">
+<h3>Example 1: Integrating <span class="math notranslate nohighlight">\(\max(Z, c)\)</span><a class="headerlink" href="#example-1-integrating-max-z-c" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Estimate <span class="math notranslate nohighlight">\(E[\max(Z, 0.5)]\)</span> where <span class="math notranslate nohighlight">\(Z \sim N(0,1)\)</span>. Compare with exact theory.</p>
+<p><strong>Exact Theory:</strong>
+$<span class="math notranslate nohighlight">\(E[\max(Z, c)] = c N(c) + n(c)\)</span><span class="math notranslate nohighlight">\(
+For \)</span>c=0.5<span class="math notranslate nohighlight">\(:
+\)</span>N(0.5) = 0.69146<span class="math notranslate nohighlight">\(
+\)</span>n(0.5) = \frac{1}{\sqrt{2\pi}} e^{-0.5^2/2} = 0.352<span class="math notranslate nohighlight">\(
+[cite_start]\)</span>E = 0.5(0.69146) + 0.352 = 0.6978$. [cite: 378]</p>
+<p><strong>Simulation:</strong></p>
+<ol class="arabic simple">
+<li><p>Generate 1000 <span class="math notranslate nohighlight">\(z\)</span> values.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(x_i = \max(z_i, 0.5)\)</span>.</p></li>
+<li><p>Average <span class="math notranslate nohighlight">\(\bar{x}\)</span>.</p>
+<ul class="simple">
+<li><p><em>Standard Simulation:</em> might yield <span class="math notranslate nohighlight">\(0.6974 \pm 0.0250\)</span>.</p></li>
+<li><p><em>Moment Matching:</em> reduces error significantly.</p></li>
+<li><p><em>Antithetic:</em> further refinement.
+[cite_start][cite: 411-412]</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="example-2-cholesky-decomposition">
+<h3>Example 2: Cholesky Decomposition<a class="headerlink" href="#example-2-cholesky-decomposition" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Find the Cholesky matrix <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> for Covariance Matrix <span class="math notranslate nohighlight">\(\mathbf{A} = \begin{pmatrix} 100 &amp; 80 \\ 80 &amp; 144 \end{pmatrix}\)</span>.</p>
+<p><strong>Step 1: <span class="math notranslate nohighlight">\(r_{11}\)</span></strong>
+$<span class="math notranslate nohighlight">\(r_{11} = \sqrt{a_{11}} = \sqrt{100} = 10\)</span>$</p>
+<p><strong>Step 2: <span class="math notranslate nohighlight">\(r_{21}\)</span></strong>
+$<span class="math notranslate nohighlight">\(r_{21} = a_{21} / r_{11} = 80 / 10 = 8\)</span>$</p>
+<p><strong>Step 3: <span class="math notranslate nohighlight">\(r_{22}\)</span></strong>
+$<span class="math notranslate nohighlight">\(r_{22} = \sqrt{a_{22} - r_{21}^2} = \sqrt{144 - 8^2} = \sqrt{144 - 64} = \sqrt{80} \approx 8.94\)</span>$</p>
+<p><strong>Result:</strong>
+$<span class="math notranslate nohighlight">\(\mathbf{R} = \begin{pmatrix} 10 &amp; 0 \\ 8 &amp; 8.94 \end{pmatrix}\)</span>$
+[cite_start][cite: 491]</p>
+</section>
+<section id="example-3-inventory-optimization-common-random-numbers">
+<h3>Example 3: Inventory Optimization (Common Random Numbers)<a class="headerlink" href="#example-3-inventory-optimization-common-random-numbers" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Context:</strong> Maximize profit where Demand <span class="math notranslate nohighlight">\(D \sim \text{Geometric}(\pi=0.1)\)</span>.
+Profit = <span class="math notranslate nohighlight">\(5 \min(s, D) - 3 \max(s-D, 0) - 7 \max(D-s, 0)\)</span>.</p>
+<p><strong>Problem:</strong> Find optimal stock <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<p><strong>Method:</strong></p>
+<ol class="arabic simple">
+<li><p>Generate a fixed set of random demands <span class="math notranslate nohighlight">\(D_1, \dots, D_N\)</span> (e.g., 1000 scenarios).</p></li>
+<li><p>For each stocking level <span class="math notranslate nohighlight">\(s = 8, 9, \dots, 15\)</span>:
+Calculate average profit using the <em>same</em> <span class="math notranslate nohighlight">\(D\)</span> vectors.</p></li>
+<li><p>Compare results.</p></li>
+</ol>
+<p><strong>Why Common Random Numbers?</strong>
+If we used different random numbers for <span class="math notranslate nohighlight">\(s=10\)</span> and <span class="math notranslate nohighlight">\(s=11\)</span>, the noise might mask the small difference in profitability. By using the same random inputs, we isolate the effect of changing <span class="math notranslate nohighlight">\(s\)</span>. [cite_start]This produces a smooth optimization curve rather than a jagged one. [cite: 545-546]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-8-practice-problems">
+<h2>Part 8: Practice Problems<a class="headerlink" href="#part-8-practice-problems" title="Link to this heading">#</a></h2>
+<section id="practice-problem-1-exponential-inverse">
+<h3>Practice Problem 1: Exponential Inverse<a class="headerlink" href="#practice-problem-1-exponential-inverse" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Find the formula to generate random numbers for an Exponential distribution with mean 10.</p>
+<p><strong>Solution:</strong>
+Mean <span class="math notranslate nohighlight">\(\mu = 1/\lambda = 10 \implies \lambda = 0.1\)</span>.
+Inverse CDF formula:
+$<span class="math notranslate nohighlight">\(x = -\frac{\ln(u)}{0.1} = -10 \ln(u)\)</span><span class="math notranslate nohighlight">\(
+Generate \)</span>u \sim U[0,1]$, apply formula.</p>
+</section>
+<section id="practice-problem-2-correlated-simulation">
+<h3>Practice Problem 2: Correlated Simulation<a class="headerlink" href="#practice-problem-2-correlated-simulation" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> You have two independent standard normals <span class="math notranslate nohighlight">\(z_1 = 0.5, z_3 = -1.2\)</span>. You want to create <span class="math notranslate nohighlight">\(z_2\)</span> such that <span class="math notranslate nohighlight">\(\text{corr}(z_1, z_2) = 0.6\)</span>.</p>
+<p><strong>Solution:</strong>
+Formula: <span class="math notranslate nohighlight">\(z_2 = \rho z_1 + \sqrt{1-\rho^2} z_3\)</span>.
+<span class="math notranslate nohighlight">\(\rho = 0.6\)</span>.
+<span class="math notranslate nohighlight">\(\sqrt{1 - 0.6^2} = \sqrt{0.64} = 0.8\)</span>.
+$<span class="math notranslate nohighlight">\(z_2 = 0.6(0.5) + 0.8(-1.2)\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(z_2 = 0.3 - 0.96 = -0.66\)</span>$</p>
+</section>
+<section id="practice-problem-3-confidence-interval">
+<h3>Practice Problem 3: Confidence Interval<a class="headerlink" href="#practice-problem-3-confidence-interval" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Simulation of 10,000 trials yields mean <span class="math notranslate nohighlight">\(\bar{x} = 100\)</span> and sample std dev <span class="math notranslate nohighlight">\(s = 20\)</span>. Calculate the 95% confidence interval (<span class="math notranslate nohighlight">\(m=2\)</span>).</p>
+<p><strong>Solution:</strong>
+Standard Error <span class="math notranslate nohighlight">\(SE = 20 / \sqrt{10000} = 20 / 100 = 0.2\)</span>.
+Interval = <span class="math notranslate nohighlight">\(100 \pm 2(0.2)\)</span>.
+Range: <span class="math notranslate nohighlight">\([99.6, 100.4]\)</span>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-9-chapter-summary">
+<h2>Part 9: Chapter Summary<a class="headerlink" href="#part-9-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="key-concepts-recap">
+<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
+<p>:class: important</p>
+<p><strong>1. The Inverse Transform:</strong>
+The universal key to simulation. By mapping uniform random numbers through the inverse CDF (<span class="math notranslate nohighlight">\(F^{-1}(u)\)</span>), we can replicate any statistical distribution.</p>
+<p><strong>2. The Cost of Precision:</strong>
+Simulation error decreases with the square root of <span class="math notranslate nohighlight">\(N\)</span>. To double precision, we must quadruple the workload. This makes <strong>Variance Reduction</strong> techniques (like Moment Matching and Antithetic Sampling) critical for efficiency.</p>
+<p><strong>3. Correlation via Cholesky:</strong>
+To model the real world, variables must move together. We achieve this by decomposing the Covariance Matrix (<span class="math notranslate nohighlight">\(\Sigma = RR^T\)</span>) and mixing independent noise (<span class="math notranslate nohighlight">\(\mu + Z R^T\)</span>).</p>
+<p><strong>4. Copulas for the Non-Normal:</strong>
+Real risks (like defaults) are often not normal. Gaussian Copulas allow us to maintain the correlation structure of the Normal distribution while enforcing the marginal distributions (like Geometric) of the underlying assets.</p>
+<p><strong>5. Simulation as Optimization:</strong>
+Beyond pricing, simulation helps make decisions (like inventory levels). Using <strong>Common Random Numbers</strong> ensures that comparisons between choices are fair and not driven by random noise.</p>
+</section>
+<section id="formula-cheat-sheet">
+<h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Concept</p></th>
+<th class="head text-left"><p>Formula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Exponential Inverse</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(x = -\ln(u)/\lambda\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Standard Error</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(SE = s / \sqrt{N}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Confidence Interval</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{x} \pm m (s/\sqrt{N})\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Moment Matching</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\hat{z} = (z - \bar{z})/s_z\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Correlated Normal</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(Z_2 = \rho Z_1 + \sqrt{1-\rho^2} Z_3\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Cholesky (Vector)</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{X} = \boldsymbol{\mu} + \mathbf{Z} \mathbf{R}^T\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Cholesky (2x2)</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(r_{11}=\sqrt{a_{11}}, r_{21}=a_{21}/r_{11}, r_{22}=\sqrt{a_{22}-r_{21}^2}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter04.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 4: Bonds</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter06.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 6: Stochastic Processes in Finance</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-foundations-of-random-number-generation">Part 1: Foundations of Random Number Generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-uniform-distribution">1. The Uniform Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inverse-transform-theorem">2. The Inverse Transform Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-specific-distributions">3. Generating Specific Distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normal-distribution">The Normal Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-exponential-distribution">The Exponential Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometric-distribution-discrete">The Geometric Distribution (Discrete)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-simulation-core-logic">Part 2: The Simulation Core Logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-process">1. The Process</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-error">2. Measuring Error</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-variance-reduction-techniques">Part 3: Variance Reduction Techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moment-matching">1. Moment Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antithetic-sampling">2. Antithetic Sampling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-multivariate-simulation-correlated-variables">Part 4: Multivariate Simulation (Correlated Variables)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-combinations-of-normals">1. Linear Combinations of Normals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cholesky-decomposition">2. The Cholesky Decomposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-advanced-derivations-mgfs-and-completing-the-square">Part 5: Advanced Derivations (MGFs and Completing the Square)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completing-the-square-technique">1. “Completing the Square” Technique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mgf-of-a-normal-distribution">2. MGF of a Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-for-linear-combinations">3. Proof for Linear Combinations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-copulas-and-non-normal-correlation">Part 6: Copulas and Non-Normal Correlation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gaussian-copula-method">The Gaussian Copula Method</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-integrating-max-z-c">Example 1: Integrating <span class="math notranslate nohighlight">\(\max(Z, c)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-cholesky-decomposition">Example 2: Cholesky Decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-inventory-optimization-common-random-numbers">Example 3: Inventory Optimization (Common Random Numbers)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-exponential-inverse">Practice Problem 1: Exponential Inverse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-correlated-simulation">Practice Problem 2: Correlated Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-confidence-interval">Practice Problem 3: Confidence Interval</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David C. Shimko
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

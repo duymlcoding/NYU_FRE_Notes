@@ -1,0 +1,1201 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 3: Complications and Resolutions &#8212; FRE 6103: Valuation Methods for Financial Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter03';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 4: Bonds" href="chapter04.html" />
+    <link rel="prev" title="Chapter 2: Annuities and Perpetuities, Basic and Complex" href="chapter02.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6103: Valuation Methods for Financial Engineering</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapter01.html">Chapter 1: Valuation Methods for Financial Engineers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter02.html">Chapter 2: Annuities and Perpetuities</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 3: Complications and Resolutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter04.html">Chapter 4: Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter05.html">Chapter 5: Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter06.html">Chapter 6: Stochastic Processes in Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter07.html">Chapter 7: Risk, Capital and Valuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter08.html">Chapter 8: The Single Period CAPM and CFPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter09.html">Chapter 9: Derivative Pricing in the Static CAPM</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/chapters/chapter03.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter03.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/chapter03.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 3: Complications and Resolutions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-frequency-and-compounding">Part 1: Frequency and Compounding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-annual-rate-sar-vs-effective-annual-rate-ear">1. Simple Annual Rate (SAR) vs. Effective Annual Rate (EAR)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-compounding-the-limit-as-m-to-infty">2. Continuous Compounding (The Limit as <span class="math notranslate nohighlight">\(m \to \infty\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-mismatch-strategy">3. Frequency Mismatch Strategy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-inflation-and-purchasing-power">Part 2: Inflation and Purchasing Power</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">1. Definitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fisher-equation">2. The Fisher Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valuation-rule-of-thumb">3. Valuation Rule of Thumb</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-taxation">Part 3: Taxation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tax-regimes">1. Tax Regimes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#after-tax-valuation">2. After-Tax Valuation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-variable-interest-rates-and-term-structure">Part 4: Variable Interest Rates and Term Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spot-rates-vs-forward-rates">1. Spot Rates vs. Forward Rates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrapping-the-yield-curve">2. Bootstrapping the Yield Curve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valuing-floating-rate-notes-frn">3. Valuing Floating Rate Notes (FRN)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-currency-and-exchange-rates">Part 5: Currency and Exchange Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Definitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interest-rate-parity-irp">2. Interest Rate Parity (IRP)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-event-risk-and-default">Part 6: Event Risk and Default</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-probabilistic-gve">1. The Probabilistic GVE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-risk-on-bonds">2. Default Risk on Bonds</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-frequency-conversion">Example 1: Frequency Conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-continuous-compounding-force-of-interest">Example 2: Continuous Compounding “Force of Interest”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-interest-rate-parity">Example 3: Interest Rate Parity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-defaultable-bond-price">Example 4: Defaultable Bond Price</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-after-tax-yield">Practice Problem 1: After-Tax Yield</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-bootstrapping">Practice Problem 2: Bootstrapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-continuous-inflation">Practice Problem 3: Continuous Inflation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-complications-and-resolutions">
+<h1>Chapter 3: Complications and Resolutions<a class="headerlink" href="#chapter-3-complications-and-resolutions" title="Link to this heading">#</a></h1>
+<section id="chapter-overview">
+<h2>Chapter Overview<a class="headerlink" href="#chapter-overview" title="Link to this heading">#</a></h2>
+<p>In previous chapters, we operated in a simplified world: payments occurred annually, interest rates were constant, and cash flows were risk-free. Chapter 3 strips away these simplifications to address the messy reality of financial markets.</p>
+<p>This chapter introduces the critical adjustments required for:</p>
+<ol class="arabic simple">
+<li><p><strong>Frequency Mismatches:</strong> When payments (e.g., monthly) differ from quoted rates (e.g., annual).</p></li>
+<li><p><strong>Compounding Regimes:</strong> From discrete compounding to continuous “force of interest.”</p></li>
+<li><p><strong>Inflation:</strong> The erosion of purchasing power and the distinction between nominal and real rates.</p></li>
+<li><p><strong>Taxation:</strong> How varying tax treatments for income versus capital gains alter valuation.</p></li>
+<li><p><strong>Variable Interest Rates:</strong> Spot rates, forward rates, and the bootstrapping of yield curves.</p></li>
+<li><p><strong>Currency Risk:</strong> Valuing foreign cash flows using Interest Rate Parity (IRP).</p></li>
+<li><p><strong>Event Risk:</strong> Modeling probabilistic cash flows like default, death, or accidents.</p></li>
+</ol>
+<p>These “complications” are not mere edge cases; they represent the standard operating environment for a financial engineer.</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol class="arabic simple">
+<li><p><strong>Convert</strong> interest rates between any compounding frequency, including calculating Effective Annual Rates (EAR) and continuous Force of Interest (<span class="math notranslate nohighlight">\(\delta\)</span>).</p></li>
+<li><p><strong>Derive</strong> the relationship between nominal rates, real rates, and inflation using the Fisher Equation.</p></li>
+<li><p><strong>Value</strong> assets with varying tax treatments by solving for the effective tax rate and after-tax yield.</p></li>
+<li><p><strong>Construct</strong> a Zero Coupon Bond (ZCB) yield curve from coupon-bearing bonds using the “bootstrapping” method.</p></li>
+<li><p><strong>Calculate</strong> implied forward interest rates from spot rates and explain the “no arbitrage” condition.</p></li>
+<li><p><strong>Apply</strong> Interest Rate Parity (IRP) to price forward currency contracts and value foreign cash flows.</p></li>
+<li><p><strong>Integrate</strong> event risk (probability of default or death) into the General Valuation Equation (GVE) to price insurance and defaultable bonds.</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Prerequisites</p>
+<p>Before studying this chapter, you should be familiar with:</p>
+<ul class="simple">
+<li><p><strong>Chapter 1 &amp; 2:</strong> The General Valuation Equation (GVE) and basic annuity formulas.</p></li>
+<li><p><strong>Logarithms and Exponentials:</strong> Properties of <span class="math notranslate nohighlight">\(\ln(x)\)</span> and <span class="math notranslate nohighlight">\(e^x\)</span> for continuous compounding.</p></li>
+<li><p><strong>Probability Theory:</strong> Expected Value <span class="math notranslate nohighlight">\(E[x]\)</span> for discrete random variables (e.g., default/no default).</p></li>
+<li><p><strong>Calculus:</strong> Basic limits (L’Hopital’s Rule) to derive continuous compounding formulas.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-1-frequency-and-compounding">
+<h2>Part 1: Frequency and Compounding<a class="headerlink" href="#part-1-frequency-and-compounding" title="Link to this heading">#</a></h2>
+<p>Real-world debt instruments rarely pay annually. Consumer loans pay monthly; corporate bonds often pay quarterly; [cite_start]US Government bonds pay semi-annually[cite: 125]. We must reconcile these frequencies with standard annual rate quotes.</p>
+<section id="simple-annual-rate-sar-vs-effective-annual-rate-ear">
+<h3>1. Simple Annual Rate (SAR) vs. Effective Annual Rate (EAR)<a class="headerlink" href="#simple-annual-rate-sar-vs-effective-annual-rate-ear" title="Link to this heading">#</a></h3>
+<p><strong>Definitions:</strong></p>
+<ul class="simple">
+<li><p><strong>Simple Annual Rate (SAR):</strong> The quoted annual rate. It ignores compounding within the year. Also called the Annual Percentage Rate (APR).</p></li>
+<li><p><strong>Periodic Rate:</strong> The rate actually applied to the balance each period.
+$<span class="math notranslate nohighlight">\( \text{Periodic Rate} = \frac{\text{SAR}}{m} \)</span><span class="math notranslate nohighlight">\(
+  where \)</span>m$ is the number of compounding periods per year.</p></li>
+<li><p>[cite_start]<strong>Effective Annual Rate (EAR):</strong> The rate you actually earn if you hold the asset for one year, accounting for interest-on-interest[cite: 127].</p></li>
+</ul>
+<p><strong>Fundamental Relationship:</strong>
+The accumulation of $1 over one year with <span class="math notranslate nohighlight">\(m\)</span> periods must equal the accumulation at the EAR.</p>
+<div class="math notranslate nohighlight">
+\[
+1 + \text{EAR} = \left( 1 + \frac{\text{SAR}}{m} \right)^m
+\]</div>
+<p><strong>Formulas:</strong>
+To find EAR given SAR:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{EAR} = \left( 1 + \frac{\text{SAR}}{m} \right)^m - 1
+\]</div>
+<p>To find SAR given EAR:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{SAR} = m \left[ (1 + \text{EAR})^{1/m} - 1 \right]
+\]</div>
+<p>[cite_start][cite: 130]</p>
+</section>
+<section id="continuous-compounding-the-limit-as-m-to-infty">
+<h3>2. Continuous Compounding (The Limit as <span class="math notranslate nohighlight">\(m \to \infty\)</span>)<a class="headerlink" href="#continuous-compounding-the-limit-as-m-to-infty" title="Link to this heading">#</a></h3>
+<p>As we increase the frequency <span class="math notranslate nohighlight">\(m\)</span> (monthly <span class="math notranslate nohighlight">\(\to\)</span> daily <span class="math notranslate nohighlight">\(\to\)</span> hourly), the EAR increases, but it converges to a limit.</p>
+<p><strong>Derivation:</strong>
+We want to find <span class="math notranslate nohighlight">\(\lim_{m \to \infty} \left( 1 + \frac{r}{m} \right)^m\)</span>.
+Let <span class="math notranslate nohighlight">\(L = \lim_{m \to \infty} \left( 1 + \frac{r}{m} \right)^m\)</span>.
+Take the natural log:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(L) = \lim_{m \to \infty} m \ln\left( 1 + \frac{r}{m} \right) = \lim_{m \to \infty} \frac{\ln(1 + r/m)}{1/m}
+\]</div>
+<p>This is a <span class="math notranslate nohighlight">\(0/0\)</span> indeterminate form. Apply L’Hopital’s Rule (differentiate with respect to <span class="math notranslate nohighlight">\(m\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(L) = \lim_{m \to \infty} \frac{\frac{1}{1+r/m} \cdot (-r/m^2)}{-1/m^2} = \lim_{m \to \infty} \frac{r}{1+r/m} = r
+\]</div>
+<p>So <span class="math notranslate nohighlight">\(\ln(L) = r \implies L = e^r\)</span>.</p>
+<p><strong>Result:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+1 + \text{EAR} = e^{\text{SAR}_{continuous}}
+\]</div>
+<p><strong>Terminology:</strong>
+[cite_start]The continuously compounded rate is often symbolized by <span class="math notranslate nohighlight">\(\delta\)</span> (delta) and called the <strong>Force of Interest</strong>[cite: 132].</p>
+<div class="math notranslate nohighlight">
+\[
+\delta = \ln(1 + \text{EAR})
+\]</div>
+<p><strong>Discount Factors:</strong></p>
+<ul class="simple">
+<li><p><strong>Discrete (<span class="math notranslate nohighlight">\(t\)</span> years):</strong> <span class="math notranslate nohighlight">\(v_t = \frac{1}{(1+r)^t}\)</span></p></li>
+<li><p>[cite_start]<strong>Continuous (<span class="math notranslate nohighlight">\(t\)</span> years):</strong> <span class="math notranslate nohighlight">\(v_t = e^{-\delta t}\)</span> [cite: 135]</p></li>
+</ul>
+</section>
+<section id="frequency-mismatch-strategy">
+<h3>3. Frequency Mismatch Strategy<a class="headerlink" href="#frequency-mismatch-strategy" title="Link to this heading">#</a></h3>
+<p><strong>Problem:</strong> You have a loan with monthly payments, but the rate is quoted as “8% Simple Annual.”
+<strong>Common Mistake:</strong> Using the annual formula with <span class="math notranslate nohighlight">\(r=8\%\)</span> and dividing the final answer.
+<strong>Correct Strategy:</strong></p>
+<ol class="arabic simple">
+<li><p>Find the discount rate <strong>for the payment frequency</strong>.</p>
+<ul class="simple">
+<li><p>If payments are monthly, use <span class="math notranslate nohighlight">\(r_{monthly} = 8\% / 12\)</span>.</p></li>
+</ul>
+</li>
+<li><p>If the rate is quoted as an EAR, convert it to the periodic rate first.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_{monthly} = (1 + \text{EAR})^{1/12} - 1\)</span>.</p></li>
+</ul>
+</li>
+<li><p>Discount the cash flows using this periodic rate.</p></li>
+</ol>
+<p>[cite_start][cite: 148]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-inflation-and-purchasing-power">
+<h2>Part 2: Inflation and Purchasing Power<a class="headerlink" href="#part-2-inflation-and-purchasing-power" title="Link to this heading">#</a></h2>
+<p>Inflation erodes the value of money. We must distinguish between the number of dollars (Nominal) and the purchasing power of those dollars (Real).</p>
+<section id="definitions">
+<h3>1. Definitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Nominal Dollars:</strong> The face value of currency.</p></li>
+<li><p><strong>Real Dollars:</strong> Purchasing power relative to a base year.</p></li>
+<li><p>[cite_start]<strong>CPI (Consumer Price Index):</strong> A standardized basket of goods used to measure price levels[cite: 158].
+$<span class="math notranslate nohighlight">\( \text{Inflation Rate (i)} = \frac{\text{CPI}_{new}}{\text{CPI}_{old}} - 1 \)</span>$</p></li>
+</ul>
+</section>
+<section id="the-fisher-equation">
+<h3>2. The Fisher Equation<a class="headerlink" href="#the-fisher-equation" title="Link to this heading">#</a></h3>
+<p>[cite_start]The relationship between Nominal Rate (<span class="math notranslate nohighlight">\(r\)</span>), Real Rate (<span class="math notranslate nohighlight">\(\rho\)</span>), and Inflation Rate (<span class="math notranslate nohighlight">\(i\)</span>) is given by the <strong>Fisher Equation</strong>[cite: 161]:</p>
+<div class="math notranslate nohighlight">
+\[
+(1 + r) = (1 + \rho)(1 + i)
+\]</div>
+<p><strong>Implication:</strong>
+You earn the nominal rate <span class="math notranslate nohighlight">\(r\)</span>. Part of that pays for the higher cost of goods (<span class="math notranslate nohighlight">\(i\)</span>), and the rest is your real increase in wealth (<span class="math notranslate nohighlight">\(\rho\)</span>).</p>
+<p><strong>Approximation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+r \approx \rho + i
+\]</div>
+<p><strong>Exact (Continuous):</strong>
+For continuous rates, the approximation becomes an exact equality:</p>
+<div class="math notranslate nohighlight">
+\[
+e^r = e^{\rho} e^i \implies r = \rho + i
+\]</div>
+<p>[cite_start][cite: 162]</p>
+</section>
+<section id="valuation-rule-of-thumb">
+<h3>3. Valuation Rule of Thumb<a class="headerlink" href="#valuation-rule-of-thumb" title="Link to this heading">#</a></h3>
+<p>To avoid errors, follow this strict rule:</p>
+<ul class="simple">
+<li><p><strong>Nominal Cash Flows</strong> must be discounted at <strong>Nominal Rates</strong>.</p></li>
+<li><p><strong>Real Cash Flows</strong> must be discounted at <strong>Real Rates</strong>.</p></li>
+</ul>
+<p><strong>Example: COLA (Cost of Living Adjustment)</strong>
+A contract pays $100,000 adjusted for inflation (<span class="math notranslate nohighlight">\(C_1 = C_0(1+i)\)</span>).</p>
+<ul class="simple">
+<li><p><strong>Method A (Nominal):</strong> Project the inflated cash flows (<span class="math notranslate nohighlight">\(100k(1.02), 100k(1.02)^2...\)</span>) and discount at the nominal rate <span class="math notranslate nohighlight">\(r\)</span>. This is a Growing Annuity.</p></li>
+<li><p><strong>Method B (Real):</strong> Recognize that the <em>Real</em> cash flow is constant ($100k). Discount this flat annuity at the Real Rate <span class="math notranslate nohighlight">\(\rho\)</span>.</p></li>
+</ul>
+<p>[cite_start]Both methods yield the exact same Present Value[cite: 170].</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-taxation">
+<h2>Part 3: Taxation<a class="headerlink" href="#part-3-taxation" title="Link to this heading">#</a></h2>
+<p>Taxes complicate valuation because different components of return (Ordinary Income vs. Capital Gains) are often taxed at different rates.</p>
+<section id="tax-regimes">
+<h3>1. Tax Regimes<a class="headerlink" href="#tax-regimes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Ordinary Income (OI):</strong> Interest payments, coupons, wages. Tax rate <span class="math notranslate nohighlight">\(\tau_{OI}\)</span>.</p></li>
+<li><p><strong>Capital Gains (CG):</strong> Profit from price appreciation (<span class="math notranslate nohighlight">\(P_{sell} - P_{buy}\)</span>). Tax rate <span class="math notranslate nohighlight">\(\tau_{CG}\)</span>.</p></li>
+</ul>
+</section>
+<section id="after-tax-valuation">
+<h3>2. After-Tax Valuation<a class="headerlink" href="#after-tax-valuation" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(\tau_{OI} = \tau_{CG} = \tau\)</span>, valuation is simple:
+$<span class="math notranslate nohighlight">\( r_{after-tax} = r_{pre-tax} (1 - \tau) \)</span><span class="math notranslate nohighlight">\(
+Simply discount after-tax cash flows at the after-tax rate. [cite_start]The GVE remains unchanged because both sides are multiplied by \)</span>(1-\tau)$[cite: 178].</p>
+<p><strong>The Problem: Differential Taxes</strong>
+If <span class="math notranslate nohighlight">\(\tau_{OI} \neq \tau_{CG}\)</span>, we cannot simply adjust the discount rate.
+<strong>The GVE Adjustment:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+r_{AT} V_0 = (1 - \tau_{CG}) E[V_1 - V_0] + (1 - \tau_{OI}) E[C_1]
+\]</div>
+<p>[cite_start]This implies an <strong>Effective Tax Rate (<span class="math notranslate nohighlight">\(\tau_e\)</span>)</strong> for the entire instrument, which depends on the mix of income vs. gains[cite: 179].</p>
+<p><strong>Procedure for Valuation:</strong></p>
+<ol class="arabic simple">
+<li><p>Compute the Pre-tax Value <span class="math notranslate nohighlight">\(V_0\)</span> using pre-tax cash flows and rates.</p></li>
+<li><p>Calculate the After-tax Cash Flows explicitly in a table.</p>
+<ul class="simple">
+<li><p>Tax on CF = <span class="math notranslate nohighlight">\(CF \times \tau_{OI}\)</span></p></li>
+<li><p>Tax on CG = <span class="math notranslate nohighlight">\((V_{end} - V_{start}) \times \tau_{CG}\)</span></p></li>
+</ul>
+</li>
+<li><p>Find the Internal Rate of Return (IRR) of these after-tax flows. [cite_start]This is the true after-tax yield[cite: 186].</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-variable-interest-rates-and-term-structure">
+<h2>Part 4: Variable Interest Rates and Term Structure<a class="headerlink" href="#part-4-variable-interest-rates-and-term-structure" title="Link to this heading">#</a></h2>
+<p>Interest rates are not constant over time. The yield curve (Term Structure) tells us the spot rate for every maturity.</p>
+<section id="spot-rates-vs-forward-rates">
+<h3>1. Spot Rates vs. Forward Rates<a class="headerlink" href="#spot-rates-vs-forward-rates" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Spot Rate (<span class="math notranslate nohighlight">\(r_{st}\)</span>):</strong> The rate earned on a Zero Coupon Bond (ZCB) maturing at time <span class="math notranslate nohighlight">\(t\)</span>. It is the average rate over the period <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><strong>Forward Rate (<span class="math notranslate nohighlight">\(f_{t,u}\)</span>):</strong> The rate implied for a future period starting at <span class="math notranslate nohighlight">\(t\)</span> and ending at <span class="math notranslate nohighlight">\(u\)</span>. It is the marginal rate.</p></li>
+</ul>
+<p><strong>No Arbitrage Condition:</strong>
+Investing for 2 years must yield the same result as investing for 1 year and rolling over at the forward rate.</p>
+<div class="math notranslate nohighlight">
+\[
+(1 + r_{s2})^2 = (1 + r_{s1})(1 + f_{1,2})
+\]</div>
+<p>[cite_start][cite: 210]</p>
+<p><strong>General Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+(1 + r_{sn})^n = (1 + r_{s1})(1 + f_{1,2})(1 + f_{2,3})\dots(1 + f_{n-1,n})
+\]</div>
+<p>[cite_start]This implies that the Spot Rate is the <strong>geometric average</strong> of the Forward Rates[cite: 217].</p>
+</section>
+<section id="bootstrapping-the-yield-curve">
+<h3>2. Bootstrapping the Yield Curve<a class="headerlink" href="#bootstrapping-the-yield-curve" title="Link to this heading">#</a></h3>
+<p>We often cannot observe spot rates directly for all maturities (only coupons). We must “strip” them.</p>
+<p><strong>The Algorithm:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Year 1:</strong> Observe a 1-year ZCB (or coupon bond nearing maturity). Its yield is the 1-year spot rate <span class="math notranslate nohighlight">\(r_{s1}\)</span>.</p></li>
+<li><p><strong>Year 2:</strong> Observe a 2-year Coupon Bond with price <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<ul class="simple">
+<li><p>It pays Coupon <span class="math notranslate nohighlight">\(C\)</span> at Year 1. Discount this using known <span class="math notranslate nohighlight">\(r_{s1}\)</span>.</p></li>
+<li><p>It pays <span class="math notranslate nohighlight">\(C+F\)</span> at Year 2.</p></li>
+<li><p>Solve for <span class="math notranslate nohighlight">\(r_{s2}\)</span>:
+$<span class="math notranslate nohighlight">\( P = \frac{C}{(1+r_{s1})} + \frac{C+F}{(1+r_{s2})^2} \)</span>$</p></li>
+</ul>
+</li>
+<li><p>[cite_start]<strong>Recursion:</strong> Use <span class="math notranslate nohighlight">\(r_{s1}, r_{s2}\)</span> to find <span class="math notranslate nohighlight">\(r_{s3}\)</span> from a 3-year bond, and so on[cite: 201].</p></li>
+</ol>
+</section>
+<section id="valuing-floating-rate-notes-frn">
+<h3>3. Valuing Floating Rate Notes (FRN)<a class="headerlink" href="#valuing-floating-rate-notes-frn" title="Link to this heading">#</a></h3>
+<p>An FRN pays a coupon linked to the future spot rate (<span class="math notranslate nohighlight">\(r_t\)</span>).
+<strong>Value at Reset Date:</strong>
+An FRN is unique: at every reset date, its value resets to Par (<span class="math notranslate nohighlight">\(F\)</span>).</p>
+<p><strong>Proof via GVE:</strong>
+At time 0, the bond promises to pay <span class="math notranslate nohighlight">\(r_0 F\)</span> (known) at time 1, plus the value of the bond at time 1 (<span class="math notranslate nohighlight">\(V_1\)</span>).
+$<span class="math notranslate nohighlight">\( r_0 V_0 = E[V_1 - V_0] + r_0 F \)</span><span class="math notranslate nohighlight">\(
+If the bond resets to Par at time 1 (\)</span>V_1 = F<span class="math notranslate nohighlight">\(), then:
+\)</span><span class="math notranslate nohighlight">\( r_0 V_0 = (F - V_0) + r_0 F \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( V_0 (1+r_0) = F(1+r_0) \implies V_0 = F \)</span>$</p>
+<p>[cite_start]<strong>Implication:</strong> The value of a pure FRN is always Par immediately after a coupon payment[cite: 235].</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-currency-and-exchange-rates">
+<h2>Part 5: Currency and Exchange Rates<a class="headerlink" href="#part-5-currency-and-exchange-rates" title="Link to this heading">#</a></h2>
+<p>Valuing foreign assets involves two sources of risk: the asset’s performance and the exchange rate.</p>
+<section id="id1">
+<h3>1. Definitions<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Spot Exchange Rate (<span class="math notranslate nohighlight">\(X\)</span>):</strong> Price of foreign currency today.</p>
+<ul>
+<li><p><em>Direct Quote:</em> Domestic per Foreign (e.g., $1.30/€).</p></li>
+<li><p><em>Indirect Quote:</em> Foreign per Domestic (e.g., ¥100/$).</p></li>
+</ul>
+</li>
+<li><p><strong>Forward Exchange Rate (<span class="math notranslate nohighlight">\(F\)</span>):</strong> The locked-in price for future delivery.</p></li>
+</ul>
+</section>
+<section id="interest-rate-parity-irp">
+<h3>2. Interest Rate Parity (IRP)<a class="headerlink" href="#interest-rate-parity-irp" title="Link to this heading">#</a></h3>
+<p>IRP relates Spot Rates, Forward Rates, and Interest Rates. It prevents risk-free arbitrage between currencies.</p>
+<p><strong>The Logic:</strong>
+Two strategies must have the same return:</p>
+<ol class="arabic simple">
+<li><p><strong>Domestic:</strong> Invest $1 at domestic rate <span class="math notranslate nohighlight">\(r_{dom}\)</span>.
+$<span class="math notranslate nohighlight">\( \text{Value} = (1 + r_{dom}) \)</span>$</p></li>
+<li><p><strong>Foreign:</strong> Convert $1 to Foreign (<span class="math notranslate nohighlight">\(1/X\)</span>), invest at <span class="math notranslate nohighlight">\(r_{for}\)</span>, then convert back at locked Forward rate <span class="math notranslate nohighlight">\(F\)</span>.
+$<span class="math notranslate nohighlight">\( \text{Value} = \frac{1}{X} (1 + r_{for}) F \)</span>$</p></li>
+</ol>
+<p><strong>The Equation:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+(1 + r_{dom}) = \frac{F}{X} (1 + r_{for})
+\]</div>
+<p>Rearranging for the Forward Rate:</p>
+<div class="math notranslate nohighlight">
+\[
+F = X \frac{(1 + r_{dom})}{(1 + r_{for})}
+\]</div>
+<p>[cite_start][cite: 255]</p>
+<p><strong>Approximation:</strong>
+$<span class="math notranslate nohighlight">\( \frac{F - X}{X} \approx r_{dom} - r_{for} \)</span>$
+The percentage premium of the forward rate equals the interest rate differential.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-6-event-risk-and-default">
+<h2>Part 6: Event Risk and Default<a class="headerlink" href="#part-6-event-risk-and-default" title="Link to this heading">#</a></h2>
+<p>Finally, we leave the world of “guaranteed” cash flows. We incorporate probabilities of events (Death, Default, Accident) into valuation.</p>
+<section id="the-probabilistic-gve">
+<h3>1. The Probabilistic GVE<a class="headerlink" href="#the-probabilistic-gve" title="Link to this heading">#</a></h3>
+<p>The GVE is robust enough to handle randomness.
+$<span class="math notranslate nohighlight">\( \text{Required Return} = E[\text{Capital Gain}] + E[\text{Cash Flow}] \)</span>$</p>
+<p><strong>Example: Life Insurance</strong></p>
+<ul class="simple">
+<li><p>Policy pays <span class="math notranslate nohighlight">\(C\)</span> upon death.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\pi\)</span> = Probability of death.</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> = Risk-free rate.</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_0\)</span> = Value of policy.</p></li>
+</ul>
+<p><strong>Expected Cash Flow:</strong></p>
+<ul class="simple">
+<li><p>If Death (prob <span class="math notranslate nohighlight">\(\pi\)</span>): Pay <span class="math notranslate nohighlight">\(C\)</span>.</p></li>
+<li><p>If Survive (prob <span class="math notranslate nohighlight">\(1-\pi\)</span>): Pay <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(E[CF] = \pi C\)</span>.</p></li>
+</ul>
+<p><strong>Expected Capital Gain:</strong></p>
+<ul class="simple">
+<li><p>If Death (prob <span class="math notranslate nohighlight">\(\pi\)</span>): Policy terminates (<span class="math notranslate nohighlight">\(V=0\)</span>). Loss is <span class="math notranslate nohighlight">\(-V_0\)</span>.</p></li>
+<li><p>If Survive (prob <span class="math notranslate nohighlight">\(1-\pi\)</span>): Policy continues. Value remains <span class="math notranslate nohighlight">\(V_0\)</span>. Gain is <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
+<li><p>Wait! The text clarifies:
+If the insured <em>survives</em>, the value at time 1 is roughly the same as time 0 (<span class="math notranslate nohighlight">\(V_1 \approx V_0\)</span>).
+If the insured <em>dies</em>, the value is 0 (policy ends).
+<span class="math notranslate nohighlight">\(E[CG] = \pi(0 - V_0) + (1-\pi)(V_0 - V_0) = -\pi V_0\)</span>.</p></li>
+</ul>
+<p><strong>GVE Solution:</strong>
+$<span class="math notranslate nohighlight">\( r V_0 = -\pi V_0 + \pi C \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( V_0 (r + \pi) = \pi C \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( V_0 = \frac{\pi C}{r + \pi} \)</span>$</p>
+<p>[cite_start]This looks like a perpetuity <span class="math notranslate nohighlight">\(\frac{C}{r}\)</span>, but the discount rate is increased by the hazard rate <span class="math notranslate nohighlight">\(\pi\)</span>[cite: 264].</p>
+</section>
+<section id="default-risk-on-bonds">
+<h3>2. Default Risk on Bonds<a class="headerlink" href="#default-risk-on-bonds" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\pi\)</span></strong>: Probability of default.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\lambda\)</span></strong>: Loss Given Default (LGD). (Recovery = <span class="math notranslate nohighlight">\(1-\lambda\)</span>).</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(F\)</span></strong>: Face Value.</p></li>
+</ul>
+<p><strong>Expected Payoff at Maturity:</strong>
+$<span class="math notranslate nohighlight">\( E[\text{Payoff}] = (1-\pi)F + \pi(1-\lambda)F \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( E[\text{Payoff}] = F [1 - \pi\lambda] \)</span>$</p>
+<p><strong>Valuation:</strong>
+$<span class="math notranslate nohighlight">\( V_0 = \frac{F (1 - \pi\lambda)}{1 + r} \)</span>$</p>
+<p><strong>Credit Spread Approximation:</strong>
+We can model this as a risk-free bond with a higher yield <span class="math notranslate nohighlight">\(y\)</span>.
+$<span class="math notranslate nohighlight">\( V_0 = \frac{F}{1 + y} \approx \frac{F (1 - \pi\lambda)}{1 + r} \)</span><span class="math notranslate nohighlight">\(
+Implies:
+\)</span><span class="math notranslate nohighlight">\( 1 + y \approx \frac{1+r}{1-\pi\lambda} \approx (1+r)(1+\pi\lambda) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( y \approx r + \pi\lambda \)</span><span class="math notranslate nohighlight">\(
+[cite_start]**Credit Spread \)</span>\approx<span class="math notranslate nohighlight">\( Expected Loss Rate (\)</span>\pi\lambda$)**[cite: 293].</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-7-worked-examples">
+<h2>Part 7: Worked Examples<a class="headerlink" href="#part-7-worked-examples" title="Link to this heading">#</a></h2>
+<section id="example-1-frequency-conversion">
+<h3>Example 1: Frequency Conversion<a class="headerlink" href="#example-1-frequency-conversion" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Context:</strong> Converting a quarterly compounded rate to a monthly compounded rate.</p>
+<p><strong>Problem:</strong> A bank quotes a Simple Annual Rate (SAR) of 8% compounded quarterly. What is the equivalent SAR compounded monthly?</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(SAR_{quarterly} = 0.08\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m_1 = 4\)</span> (Quarterly)</p></li>
+<li><p><span class="math notranslate nohighlight">\(m_2 = 12\)</span> (Monthly)</p></li>
+</ul>
+<p><strong>Step 1: Find the EAR</strong>
+$<span class="math notranslate nohighlight">\( \text{EAR} = \left( 1 + \frac{0.08}{4} \right)^4 - 1 = (1.02)^4 - 1 = 1.082432 - 1 = 8.2432\% \)</span>$</p>
+<p><strong>Step 2: Convert EAR to Monthly SAR</strong>
+$<span class="math notranslate nohighlight">\( \text{SAR}_{monthly} = 12 \left[ (1.082432)^{1/12} - 1 \right] \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( (1.082432)^{1/12} \approx 1.006622 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \text{SAR}_{monthly} = 12 \times 0.006622 = 0.07947 = 7.947\% \)</span>$</p>
+<p><strong>Result:</strong> The monthly compounded rate is slightly lower (7.95%) because it compounds more frequently to achieve the same yield.</p>
+</section>
+<hr class="docutils" />
+<section id="example-2-continuous-compounding-force-of-interest">
+<h3>Example 2: Continuous Compounding “Force of Interest”<a class="headerlink" href="#example-2-continuous-compounding-force-of-interest" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> An investment pays 3% simple interest per half-year. What is the equivalent continuously compounded annual rate (<span class="math notranslate nohighlight">\(\delta\)</span>)?</p>
+<p><strong>Analysis:</strong>
+“3% simple interest per half-year” means the periodic rate is 3% every 6 months.
+This corresponds to an EAR of <span class="math notranslate nohighlight">\((1.03)^2 - 1 = 6.09\%\)</span>.</p>
+<p><strong>Calculation:</strong>
+$<span class="math notranslate nohighlight">\( \delta = \ln(1 + \text{EAR}) = \ln(1.0609) \)</span><span class="math notranslate nohighlight">\(
+Alternatively, directly from the semi-annual accumulation:
+\)</span><span class="math notranslate nohighlight">\( e^{\delta \times 0.5} = 1.03 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 0.5 \delta = \ln(1.03) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \delta = 2 \ln(1.03) \approx 2(0.02956) = 5.91\% \)</span>$</p>
+<p>[cite_start][cite: 146]</p>
+</section>
+<hr class="docutils" />
+<section id="example-3-interest-rate-parity">
+<h3>Example 3: Interest Rate Parity<a class="headerlink" href="#example-3-interest-rate-parity" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong></p>
+<ul class="simple">
+<li><p>Spot Exchange Rate (<span class="math notranslate nohighlight">\(X\)</span>): $1.30 USD/EUR.</p></li>
+<li><p>USD Rate (<span class="math notranslate nohighlight">\(r_{USD}\)</span>): 10%.</p></li>
+<li><p>EUR Rate (<span class="math notranslate nohighlight">\(r_{EUR}\)</span>): 8%.</p></li>
+<li><p>Find the 1-year Forward Rate (<span class="math notranslate nohighlight">\(F\)</span>).</p></li>
+</ul>
+<p><strong>Logic:</strong>
+The currency with the <em>higher</em> interest rate (USD) must trade at a forward <em>discount</em> to offset the yield advantage. The EUR (lower rate) must trade at a premium.</p>
+<p><strong>Calculation:</strong>
+$<span class="math notranslate nohighlight">\( F = 1.30 \times \frac{1.10}{1.08} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( F = 1.30 \times 1.0185 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( F = 1.324 \text{ USD/EUR} \)</span>$</p>
+<p><strong>Check:</strong>
+Invest $1.30 USD <span class="math notranslate nohighlight">\(\to\)</span> $1.43.
+Invest €1.00 (converted) <span class="math notranslate nohighlight">\(\to\)</span> €1.08.
+Convert €1.08 back at 1.324 <span class="math notranslate nohighlight">\(\to\)</span> $1.43.
+[cite_start]Arbitrage free. [cite: 257]</p>
+</section>
+<hr class="docutils" />
+<section id="example-4-defaultable-bond-price">
+<h3>Example 4: Defaultable Bond Price<a class="headerlink" href="#example-4-defaultable-bond-price" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong></p>
+<ul class="simple">
+<li><p>1-year Zero Coupon Bond.</p></li>
+<li><p>Face Value: $100.</p></li>
+<li><p>Price: $95.</p></li>
+<li><p>Risk-free rate: 3%.</p></li>
+<li><p>Recovery rate (<span class="math notranslate nohighlight">\(1-\lambda\)</span>): 40% (so Loss Rate <span class="math notranslate nohighlight">\(\lambda = 60\%\)</span>).</p></li>
+<li><p>Find the Implied Default Probability (<span class="math notranslate nohighlight">\(\pi\)</span>).</p></li>
+</ul>
+<p><strong>Formula:</strong>
+$<span class="math notranslate nohighlight">\( V_0 = \frac{F [1 - \pi\lambda]}{1+r} \)</span>$</p>
+<p><strong>Setup:</strong>
+$<span class="math notranslate nohighlight">\( 95 = \frac{100 [1 - \pi(0.60)]}{1.03} \)</span>$</p>
+<p><strong>Algebra:</strong>
+$<span class="math notranslate nohighlight">\( 95(1.03) = 100 - 60\pi \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 97.85 = 100 - 60\pi \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 60\pi = 100 - 97.85 = 2.15 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \pi = \frac{2.15}{60} = 0.0358 \)</span>$</p>
+<p>[cite_start]<strong>Result:</strong> The market is pricing in a <strong>3.58% probability of default</strong>. [cite: 291]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-8-practice-problems">
+<h2>Part 8: Practice Problems<a class="headerlink" href="#part-8-practice-problems" title="Link to this heading">#</a></h2>
+<section id="practice-problem-1-after-tax-yield">
+<h3>Practice Problem 1: After-Tax Yield<a class="headerlink" href="#practice-problem-1-after-tax-yield" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> A bond pays 5% coupons (Ordinary Income) and is priced at Par. The tax rate on Ordinary Income is 40%. The tax rate on Capital Gains is 20%. What is the after-tax yield?</p>
+<p><strong>Hint:</strong> Since the bond is at Par, are there any Capital Gains?</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p>Since the bond is at Par (<span class="math notranslate nohighlight">\(P=F\)</span>), there is <strong>no Capital Gain</strong> or Loss upon maturity. The Capital Gains tax rate is irrelevant.
+We only tax the coupons.
+$<span class="math notranslate nohighlight">\( r_{AT} = r_{pre-tax} (1 - \tau_{OI}) \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( r_{AT} = 5\% (1 - 0.40) = 3\% \)</span>$</p>
+</details>
+</section>
+<section id="practice-problem-2-bootstrapping">
+<h3>Practice Problem 2: Bootstrapping<a class="headerlink" href="#practice-problem-2-bootstrapping" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong></p>
+<ul class="simple">
+<li><p>1-year ZCB Yield: 2.0%.</p></li>
+<li><p>2-year Par Bond Coupon: 3.0%.</p></li>
+<li><p>Find the 2-year Spot Rate (<span class="math notranslate nohighlight">\(r_{s2}\)</span>).</p></li>
+</ul>
+<p><strong>Hint:</strong> A Par bond’s price equals its Face Value ($100).</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p>Price = $100. Coupon = $3.
+$<span class="math notranslate nohighlight">\( 100 = \frac{3}{1.02} + \frac{103}{(1+r_{s2})^2} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 100 = 2.941 + \frac{103}{(1+r_{s2})^2} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 97.059 = \frac{103}{(1+r_{s2})^2} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( (1+r_{s2})^2 = \frac{103}{97.059} = 1.0612 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 1+r_{s2} = \sqrt{1.0612} = 1.03015 \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( r_{s2} = 3.015\% \)</span>$</p>
+</details>
+</section>
+<section id="practice-problem-3-continuous-inflation">
+<h3>Practice Problem 3: Continuous Inflation<a class="headerlink" href="#practice-problem-3-continuous-inflation" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Nominal continuous rate <span class="math notranslate nohighlight">\(r = 8\%\)</span>. Inflation continuous rate <span class="math notranslate nohighlight">\(i = 3\%\)</span>. What is the exact Real continuous rate <span class="math notranslate nohighlight">\(\rho\)</span>?</p>
+<p><strong>Hint:</strong> Use the continuous version of the Fisher equation.</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p>For continuous rates, the Fisher equation is additive:
+$<span class="math notranslate nohighlight">\( r = \rho + i \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( 8\% = \rho + 3\% \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( \rho = 5\% \)</span>$
+(Note: This is exact, unlike the discrete approximation).</p>
+</details>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-9-chapter-summary">
+<h2>Part 9: Chapter Summary<a class="headerlink" href="#part-9-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="key-concepts-recap">
+<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
+<p>:class: important</p>
+<p><strong>1. Frequency is Fundamental:</strong> Never mix annual rates with monthly payments. Always align the rate frequency to the payment frequency first.</p>
+<p><strong>2. The Fisher Equation:</strong> <span class="math notranslate nohighlight">\(1+r = (1+\rho)(1+i)\)</span>. Nominal returns are composed of real growth plus inflation compensation.</p>
+<p><strong>3. Tax Efficiency:</strong> The effective tax rate isn’t just the bracket rate; it’s a weighted average of income tax and capital gains tax, heavily influenced by the structure of the bond (Par vs. Discount).</p>
+<p><strong>4. Bootstrapping:</strong> The yield curve is constructed recursively. We use the known short-term present values to isolate and solve for the unknown long-term spot rates.</p>
+<p><strong>5. Interest Rate Parity:</strong> Forward exchange rates are determined by interest rate differentials, not just market sentiment. Currencies with high rates trade at a forward discount.</p>
+<p><strong>6. Probabilistic Valuation:</strong> The GVE adapts to risk by modifying the discount rate (<span class="math notranslate nohighlight">\(r + \pi\lambda\)</span>) or the cash flows. A defaultable bond is just a risk-free bond with an “expected loss” deduction.</p>
+</section>
+<section id="formula-cheat-sheet">
+<h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Concept</p></th>
+<th class="head text-left"><p>Formula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>EAR from SAR</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\((1 + \text{SAR}/m)^m - 1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Continuous Rate</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta = \ln(1 + \text{EAR})\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Fisher Equation</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(1+r = (1+\rho)(1+i)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>After-Tax Yield</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(r_{AT} \approx r(1-\tau)\)</span> (Simple case)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Forward Rate</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\((1+r_{s2})^2 / (1+r_{s1}) - 1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Interest Rate Parity</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(F = X \frac{1+r_{dom}}{1+r_{for}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Defaultable Value</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(V = \frac{F(1-\pi\lambda)}{1+r}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter02.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 2: Annuities and Perpetuities, Basic and Complex</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter04.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 4: Bonds</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-frequency-and-compounding">Part 1: Frequency and Compounding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-annual-rate-sar-vs-effective-annual-rate-ear">1. Simple Annual Rate (SAR) vs. Effective Annual Rate (EAR)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-compounding-the-limit-as-m-to-infty">2. Continuous Compounding (The Limit as <span class="math notranslate nohighlight">\(m \to \infty\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-mismatch-strategy">3. Frequency Mismatch Strategy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-inflation-and-purchasing-power">Part 2: Inflation and Purchasing Power</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">1. Definitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fisher-equation">2. The Fisher Equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valuation-rule-of-thumb">3. Valuation Rule of Thumb</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-taxation">Part 3: Taxation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tax-regimes">1. Tax Regimes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#after-tax-valuation">2. After-Tax Valuation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-variable-interest-rates-and-term-structure">Part 4: Variable Interest Rates and Term Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spot-rates-vs-forward-rates">1. Spot Rates vs. Forward Rates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrapping-the-yield-curve">2. Bootstrapping the Yield Curve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valuing-floating-rate-notes-frn">3. Valuing Floating Rate Notes (FRN)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-currency-and-exchange-rates">Part 5: Currency and Exchange Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. Definitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interest-rate-parity-irp">2. Interest Rate Parity (IRP)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-event-risk-and-default">Part 6: Event Risk and Default</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-probabilistic-gve">1. The Probabilistic GVE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-risk-on-bonds">2. Default Risk on Bonds</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-frequency-conversion">Example 1: Frequency Conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-continuous-compounding-force-of-interest">Example 2: Continuous Compounding “Force of Interest”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-interest-rate-parity">Example 3: Interest Rate Parity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-defaultable-bond-price">Example 4: Defaultable Bond Price</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-after-tax-yield">Practice Problem 1: After-Tax Yield</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-bootstrapping">Practice Problem 2: Bootstrapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-continuous-inflation">Practice Problem 3: Continuous Inflation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David C. Shimko
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

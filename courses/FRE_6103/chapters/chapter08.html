@@ -1,0 +1,1103 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 8: The Single Period CAPM and CFPM &#8212; FRE 6103: Valuation Methods for Financial Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"\\N": "\\mathbb{N}", "\\R": "\\mathbb{R}", "\\C": "\\mathbb{C}", "\\E": "\\mathbb{E}", "\\P": "\\mathbb{P}", "\\var": "\\text{var}", "\\cov": "\\text{cov}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter08';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 9: Derivative Pricing in the Static CAPM" href="chapter09.html" />
+    <link rel="prev" title="Chapter 7: Risk, Capital and Valuation" href="chapter07.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FRE 6103: Valuation Methods for Financial Engineering</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapters</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapter01.html">Chapter 1: Valuation Methods for Financial Engineers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter02.html">Chapter 2: Annuities and Perpetuities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter03.html">Chapter 3: Complications and Resolutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter04.html">Chapter 4: Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter05.html">Chapter 5: Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter06.html">Chapter 6: Stochastic Processes in Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter07.html">Chapter 7: Risk, Capital and Valuation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 8: The Single Period CAPM and CFPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter09.html">Chapter 9: Derivative Pricing in the Static CAPM</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/edit/main/chapters/chapter08.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/duymlcoding/NYU_FRE_Notes/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter08.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/chapter08.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 8: The Single Period CAPM and CFPM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-cash-flow-portfolio-model-cfpm">Part 1: The Cash Flow Portfolio Model (CFPM)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-and-notation">1. Assumptions and Notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-investor-s-problem">2. The Investor’s Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximizing-expected-utility">3. Maximizing Expected Utility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-deriving-market-equilibrium">Part 2: Deriving Market Equilibrium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-first-order-condition-gve">1. The First Order Condition (GVE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-clearing-and-equilibrium-prices">2. Market Clearing and Equilibrium Prices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-market-price-of-risk-a">3. The Market Price of Risk (<span class="math notranslate nohighlight">\(A\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-beta-and-the-black-ratio">Part 3: Beta and The “Black Ratio”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-beta-mathbf-beta">1. Defining Beta (<span class="math notranslate nohighlight">\(\mathbf{\beta}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-ratio">2. The Black Ratio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-sub-portfolio-pricing">Part 4: Sub-Portfolio Pricing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-the-classical-markowitz-model">Part 5: The Classical Markowitz Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-optimization-problem">1. The Optimization Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-lagrangian">2. Solving the Lagrangian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-efficient-frontier-the-hyperbola">3. The Efficient Frontier (The Hyperbola)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-the-tangency-portfolio">Part 6: The Tangency Portfolio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-tangency-logic">1. The Tangency Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">2. The Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-2-asset-cfpm-equilibrium">Example 1: 2-Asset CFPM Equilibrium</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-calculating-the-tangency-portfolio">Example 2: Calculating the Tangency Portfolio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-the-market-price-of-risk">Practice Problem 1: The Market Price of Risk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-sub-portfolio-beta">Practice Problem 2: Sub-Portfolio Beta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-8-the-single-period-capm-and-cfpm">
+<h1>Chapter 8: The Single Period CAPM and CFPM<a class="headerlink" href="#chapter-8-the-single-period-capm-and-cfpm" title="Link to this heading">#</a></h1>
+<section id="chapter-overview">
+<h2>Chapter Overview<a class="headerlink" href="#chapter-overview" title="Link to this heading">#</a></h2>
+<p>In the preceding chapters, we focused on <strong>valuation given a discount rate</strong>. We assumed the rate of return was known, or we estimated it using ad-hoc methods. In Chapter 8, we fundamentally shift our perspective. [cite_start]We move from <em>using</em> a discount rate to <em>determining</em> the discount rate based on market equilibrium[cite: 921].</p>
+<p>This chapter introduces two related but distinct frameworks:</p>
+<ol class="arabic simple">
+<li><p><strong>The Cash Flow Portfolio Model (CFPM):</strong> Also known as the Lintner-Mossin framework. This model values assets based on the properties of their liquidating <em>cash flows</em> (dollars) rather than percentage returns. [cite_start]It is robust for assets that are not fully funded or where percentage returns are difficult to define[cite: 922, 924].</p></li>
+<li><p><strong>The Capital Asset Pricing Model (CAPM):</strong> The classical Sharpe-Markowitz framework. This model focuses on <em>percentage returns</em> and standard deviations. [cite_start]While mathematically elegant, it relies on assumptions (like fully funded assets) that financial engineers often need to look beyond[cite: 923].</p></li>
+</ol>
+<p>We will traverse the landscape of portfolio mathematics, moving from the utility maximization of a single investor to the aggregation of the entire market. We will derive the efficient frontier using matrix calculus and prove the separation theorem that leads to the Tangency Portfolio.</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ol class="arabic simple">
+<li><p><strong>Contrast</strong> the Cash Flow Portfolio Model (CFPM) with the traditional CAPM, explaining why CFPM is often more suitable for financial engineering applications involving derivatives or leverage.</p></li>
+<li><p><strong>Formulate</strong> the investor’s utility maximization problem using matrix algebra and derive the First Order Condition (The General Valuation Equation vector).</p></li>
+<li><p><strong>Derive</strong> the equilibrium price vector <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> for a market of <span class="math notranslate nohighlight">\(N\)</span> risky assets by applying the market-clearing condition (<span class="math notranslate nohighlight">\(\nu = \mathbf{J}\)</span>).</p></li>
+<li><p><strong>Calculate</strong> the aggregate Risk Aversion parameter (<span class="math notranslate nohighlight">\(A\)</span>) and the Market Price of Risk from fundamental cash flow data.</p></li>
+<li><p><strong>Prove</strong> that the “Black Ratio” (Risk Premium divided by Beta) is constant across all assets in an equilibrium market.</p></li>
+<li><p><strong>Construct</strong> the Efficient Frontier by solving the Markowitz constrained optimization problem using Lagrange Multipliers.</p></li>
+<li><p><strong>Determine</strong> the weights of the Tangency Portfolio and the equation of the Capital Market Line (CML) in the presence of a risk-free asset.</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Prerequisites</p>
+<p>Before studying this chapter, you should be familiar with:</p>
+<ul class="simple">
+<li><p><strong>Matrix Algebra:</strong> Matrix multiplication, inversion, transposes, and differentiation (gradients).</p></li>
+<li><p><strong>Multivariate Statistics:</strong> Covariance matrices, expectation vectors, and properties of linear combinations of random vectors.</p></li>
+<li><p><strong>Calculus:</strong> Constrained optimization using Lagrange Multipliers.</p></li>
+<li><p><strong>Chapter 7:</strong> The concept of “Risk Capital” and the single-factor risk model.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-1-the-cash-flow-portfolio-model-cfpm">
+<h2>Part 1: The Cash Flow Portfolio Model (CFPM)<a class="headerlink" href="#part-1-the-cash-flow-portfolio-model-cfpm" title="Link to this heading">#</a></h2>
+<p>The CFPM allows us to value assets based on dollars of cash flow. [cite_start]This avoids the singularities involved in calculating percentage returns for zero-cost investments (like swaps or forwards)[cite: 923].</p>
+<section id="assumptions-and-notation">
+<h3>1. Assumptions and Notation<a class="headerlink" href="#assumptions-and-notation" title="Link to this heading">#</a></h3>
+<p>We assume a market exists for one period.</p>
+<ul class="simple">
+<li><p><strong>Assets:</strong> <span class="math notranslate nohighlight">\(N\)</span> distinct assets.</p></li>
+<li><p>[cite_start]<strong>Payoff:</strong> Each asset <span class="math notranslate nohighlight">\(i\)</span> produces a single, random liquidating cash flow <span class="math notranslate nohighlight">\(CF_i\)</span> at the end of the period[cite: 925].</p></li>
+<li><p>[cite_start]<strong>Distribution:</strong> The cash flows are jointly normally distributed[cite: 927].</p></li>
+</ul>
+<p><strong>Vector Notation:</strong>
+To handle <span class="math notranslate nohighlight">\(N\)</span> assets simultaneously, we use linear algebra.</p>
+<ul class="simple">
+<li><p><strong>Cash Flow Vector (<span class="math notranslate nohighlight">\(\mathbf{CF}\)</span>):</strong> An <span class="math notranslate nohighlight">\(N \times 1\)</span> random vector.
+$<span class="math notranslate nohighlight">\(
+  \mathbf{CF} = \begin{pmatrix} CF_1 \\ CF_2 \\ \vdots \\ CF_N \end{pmatrix}
+  \)</span>$</p></li>
+<li><p><strong>Expected Cash Flow Vector (<span class="math notranslate nohighlight">\(\mathbf{\mu}\)</span>):</strong>
+$<span class="math notranslate nohighlight">\(
+  \mathbf{\mu} = E[\mathbf{CF}] = \begin{pmatrix} E[CF_1] \\ E[CF_2] \\ \vdots \\ E[CF_N] \end{pmatrix}
+  \)</span>$
+[cite_start][cite: 927]</p></li>
+<li><p><strong>Covariance Matrix (<span class="math notranslate nohighlight">\(\mathbf{\Sigma}\)</span>):</strong> An <span class="math notranslate nohighlight">\(N \times N\)</span> symmetric matrix.
+$<span class="math notranslate nohighlight">\(
+  \mathbf{\Sigma} = E[(\mathbf{CF} - \mathbf{\mu})(\mathbf{CF} - \mathbf{\mu})^T]
+  \)</span><span class="math notranslate nohighlight">\(
+  [cite_start]Where the element \)</span>\sigma_{ij} = \text{Cov}(CF_i, CF_j)$[cite: 931].</p></li>
+<li><p><strong>Unit Vector (<span class="math notranslate nohighlight">\(\mathbf{J}\)</span>):</strong> An <span class="math notranslate nohighlight">\(N \times 1\)</span> vector of ones. (Note: The text sometimes uses <span class="math notranslate nohighlight">\(\mathbf{1}\)</span>, but we will use <span class="math notranslate nohighlight">\(\mathbf{J}\)</span> to avoid confusion with the scalar number 1) [cite_start][cite: 928, 929].
+$<span class="math notranslate nohighlight">\(
+  \mathbf{J} = \begin{pmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{pmatrix}
+  \)</span>$</p></li>
+<li><p><strong>Price Vector (<span class="math notranslate nohighlight">\(\mathbf{V}\)</span>):</strong> The unknown variables we wish to solve for.
+$<span class="math notranslate nohighlight">\(
+  \mathbf{V} = \begin{pmatrix} V_1 \\ V_2 \\ \vdots \\ V_N \end{pmatrix}
+  \)</span>$</p></li>
+<li><p><strong>Holdings Vector (<span class="math notranslate nohighlight">\(\mathbf{\nu}\)</span>):</strong> The number of units of each asset held by an investor. [cite_start]<span class="math notranslate nohighlight">\(\nu\)</span> is the Greek letter “nu”[cite: 933].</p></li>
+</ul>
+</section>
+<section id="the-investor-s-problem">
+<h3>2. The Investor’s Problem<a class="headerlink" href="#the-investor-s-problem" title="Link to this heading">#</a></h3>
+<p>Investors start with initial wealth <span class="math notranslate nohighlight">\(W_0\)</span>. They allocate this wealth across <span class="math notranslate nohighlight">\(N\)</span> risky assets and a risk-free asset (borrowing or lending at rate <span class="math notranslate nohighlight">\(r\)</span>).</p>
+<p><strong>End-of-Period Wealth (<span class="math notranslate nohighlight">\(W_1\)</span>):</strong>
+The wealth at time 1 is the sum of the risky cash flows plus the residual cash invested at the risk-free rate.</p>
+<p><strong>Step 1: Cost of Risky Assets</strong>
+The cost to purchase the portfolio <span class="math notranslate nohighlight">\(\mathbf{\nu}\)</span> is the dot product of holdings and prices:
+$<span class="math notranslate nohighlight">\(\text{Cost} = \mathbf{\nu}^T \mathbf{V}\)</span>$</p>
+<p><strong>Step 2: Residual Wealth</strong>
+$<span class="math notranslate nohighlight">\(\text{Residual} = W_0 - \mathbf{\nu}^T \mathbf{V}\)</span><span class="math notranslate nohighlight">\(
+This amount grows at the risk-free rate \)</span>(1+r)$.</p>
+<p><strong>Step 3: Total Wealth Equation</strong>
+$<span class="math notranslate nohighlight">\(W_1 = \underbrace{\mathbf{\nu}^T \mathbf{CF}}_{\text{Risky Payoff}} + \underbrace{(W_0 - \mathbf{\nu}^T \mathbf{V})(1+r)}_{\text{Risk-Free Payoff}}\)</span>$
+[cite_start][cite: 945, 946]</p>
+<p><strong>Expected Wealth (<span class="math notranslate nohighlight">\(E[W_1]\)</span>):</strong>
+$<span class="math notranslate nohighlight">\(E[W_1] = \mathbf{\nu}^T \mathbf{\mu} + (W_0 - \mathbf{\nu}^T \mathbf{V})(1+r)\)</span>$
+[cite_start][cite: 947]</p>
+<p><strong>Variance of Wealth (<span class="math notranslate nohighlight">\(Var(W_1)\)</span>):</strong>
+Since <span class="math notranslate nohighlight">\(W_0, \mathbf{V}, r\)</span> are constants, the variance comes solely from the risky cash flows.
+$<span class="math notranslate nohighlight">\(Var(W_1) = Var(\mathbf{\nu}^T \mathbf{CF}) = \mathbf{\nu}^T \mathbf{\Sigma} \mathbf{\nu}\)</span>$
+[cite_start][cite: 948, 949]</p>
+</section>
+<section id="maximizing-expected-utility">
+<h3>3. Maximizing Expected Utility<a class="headerlink" href="#maximizing-expected-utility" title="Link to this heading">#</a></h3>
+<p>We assume investors are risk-averse and maximize a <strong>Mean-Variance Utility Function</strong>.</p>
+<div class="math notranslate nohighlight">
+\[
+U = E[W_1] - \frac{1}{2} A \cdot Var(W_1)
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span>: The coefficient of risk aversion.</p></li>
+<li><p>[cite_start](Note: The slides use <span class="math notranslate nohighlight">\(U = E - A \cdot Var\)</span> without the <span class="math notranslate nohighlight">\(1/2\)</span> in some places[cite: 952], but we will proceed with the standard derivative logic. [cite_start]The slides later clarify <span class="math notranslate nohighlight">\(U = E[W] - A Var(W)\)</span>[cite: 960]. We will stick to the text’s definition).</p></li>
+</ul>
+<p><strong>The Utility Function in Matrix Form:</strong>
+$<span class="math notranslate nohighlight">\(U(\mathbf{\nu}) = \left[ \mathbf{\nu}^T \mathbf{\mu} + (W_0 - \mathbf{\nu}^T \mathbf{V})(1+r) \right] - A (\mathbf{\nu}^T \mathbf{\Sigma} \mathbf{\nu})\)</span>$
+[cite_start][cite: 960]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-deriving-market-equilibrium">
+<h2>Part 2: Deriving Market Equilibrium<a class="headerlink" href="#part-2-deriving-market-equilibrium" title="Link to this heading">#</a></h2>
+<p>To find the optimal portfolio, the investor chooses the vector <span class="math notranslate nohighlight">\(\mathbf{\nu}\)</span> that maximizes <span class="math notranslate nohighlight">\(U\)</span>. This is a calculus problem requiring matrix differentiation.</p>
+<section id="the-first-order-condition-gve">
+<h3>1. The First Order Condition (GVE)<a class="headerlink" href="#the-first-order-condition-gve" title="Link to this heading">#</a></h3>
+<p>We take the gradient (vector of partial derivatives) of <span class="math notranslate nohighlight">\(U\)</span> with respect to <span class="math notranslate nohighlight">\(\mathbf{\nu}\)</span> and set it to zero.</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla_{\nu} U = \mathbf{0}
+\]</div>
+<p><strong>Term-by-Term Differentiation:</strong></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{\partial}{\partial \nu} (\mathbf{\nu}^T \mathbf{\mu}) = \mathbf{\mu}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{\partial}{\partial \nu} (W_0(1+r)) = \mathbf{0}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{\partial}{\partial \nu} (-\mathbf{\nu}^T \mathbf{V}(1+r)) = -\mathbf{V}(1+r)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{\partial}{\partial \nu} (-A \mathbf{\nu}^T \mathbf{\Sigma} \mathbf{\nu}) = -2A \mathbf{\Sigma} \mathbf{\nu}\)</span> (if utilizing <span class="math notranslate nohighlight">\(1/2\)</span> convention) or similar. Let’s check the text’s specific derivative result.</p>
+<ul class="simple">
+<li><p>[cite_start]Text derivation result: <span class="math notranslate nohighlight">\(\nabla U = \mathbf{\mu} - \mathbf{V}(1+r) - 2A \mathbf{\Sigma} \mathbf{\nu}\)</span>[cite: 968].</p></li>
+<li><p><em>Correction:</em> The text slides actually derive: <span class="math notranslate nohighlight">\(\nabla U = \mathbf{\mu} - \mathbf{V}(1+r) - A (\mathbf{\Sigma} + \mathbf{\Sigma}^T) \mathbf{\nu}\)</span>. Since <span class="math notranslate nohighlight">\(\mathbf{\Sigma}\)</span> is symmetric, this becomes <span class="math notranslate nohighlight">\(\mathbf{\mu} - \mathbf{V}(1+r) - 2A \mathbf{\Sigma} \mathbf{\nu}\)</span>. However, slide 26 concludes <span class="math notranslate nohighlight">\(\nabla U = \mathbf{\mu} - \mathbf{V}(1+r) - \mathbf{\Sigma} \mathbf{\nu}\)</span>… Wait, let’s look closely at Slide 21.</p></li>
+<li><p>Slide 21 uses <span class="math notranslate nohighlight">\(U = E - 1/2 A Var\)</span>.</p></li>
+<li><p>Slide 26 says <span class="math notranslate nohighlight">\(\nabla U = \mathbf{\mu} - \mathbf{V}(1+r) - A \mathbf{\Sigma} \mathbf{\nu}\)</span>.</p></li>
+<li><p>This implies the derivative of <span class="math notranslate nohighlight">\(\frac{1}{2} \mathbf{\nu}^T \mathbf{\Sigma} \mathbf{\nu}\)</span> is <span class="math notranslate nohighlight">\(\mathbf{\Sigma} \mathbf{\nu}\)</span>. This is correct.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>The Optimal Holdings Vector:</strong>
+Setting the gradient to zero:
+$<span class="math notranslate nohighlight">\(\mathbf{0} = \mathbf{\mu} - \mathbf{V}(1+r) - A \mathbf{\Sigma} \mathbf{\nu}\)</span>$</p>
+<p>Rearranging to solve for <span class="math notranslate nohighlight">\(\mathbf{\nu}\)</span>:
+$<span class="math notranslate nohighlight">\(A \mathbf{\Sigma} \mathbf{\nu} = \mathbf{\mu} - \mathbf{V}(1+r)\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbf{\nu} = \frac{1}{A} \mathbf{\Sigma}^{-1} [\mathbf{\mu} - \mathbf{V}(1+r)]\)</span>$
+[cite_start][cite: 970, 971]</p>
+<p>This equation tells us exactly how many units of each asset an investor <em>wants</em> to hold given their risk aversion <span class="math notranslate nohighlight">\(A\)</span> and the prices <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>.</p>
+</section>
+<section id="market-clearing-and-equilibrium-prices">
+<h3>2. Market Clearing and Equilibrium Prices<a class="headerlink" href="#market-clearing-and-equilibrium-prices" title="Link to this heading">#</a></h3>
+<p>In equilibrium, every asset must be held by someone. If we aggregate across all investors, the sum of all holdings vectors must equal the total supply of assets.
+To simplify, we normalize the total supply of each asset to <strong>1 unit</strong>.</p>
+<p><strong>Market Clearing Condition:</strong>
+$<span class="math notranslate nohighlight">\(\mathbf{\nu}_{market} = \mathbf{J} = \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}\)</span>$
+[cite_start][cite: 981, 986]</p>
+<p><strong>Solving for Price (<span class="math notranslate nohighlight">\(\mathbf{V}\)</span>):</strong>
+We substitute <span class="math notranslate nohighlight">\(\mathbf{\nu} = \mathbf{J}\)</span> into the First Order Condition derived above. Note that <span class="math notranslate nohighlight">\(A\)</span> now represents the <em>aggregate</em> market risk aversion.</p>
+<div class="math notranslate nohighlight">
+\[
+A \mathbf{\Sigma} \mathbf{J} = \mathbf{\mu} - \mathbf{V}(1+r)
+\]</div>
+<p>Rearranging to solve for <span class="math notranslate nohighlight">\(\mathbf{V}\)</span>:
+$<span class="math notranslate nohighlight">\(\mathbf{V}(1+r) = \mathbf{\mu} - A \mathbf{\Sigma} \mathbf{J}\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{V} = \frac{\mathbf{\mu} - A \mathbf{\Sigma} \mathbf{J}}{1+r}
+\]</div>
+<p>[cite_start][cite: 985]</p>
+<p><strong>Physical Interpretation:</strong>
+This is the <strong>Fundamental Valuation Formula of CFPM</strong>.</p>
+<ul class="simple">
+<li><p><strong><span class="math notranslate nohighlight">\(\mathbf{V}\)</span></strong>: The value of the assets today.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\frac{1}{1+r}\)</span></strong>: The risk-free discount factor.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(\mathbf{\mu}\)</span></strong>: The expected future cash flows.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(- A \mathbf{\Sigma} \mathbf{J}\)</span></strong>: The <strong>Risk Discount</strong>. The value is reduced by the risk aversion times the covariance of the assets with the “Market Portfolio” (<span class="math notranslate nohighlight">\(\mathbf{J}\)</span>).</p></li>
+</ul>
+</section>
+<section id="the-market-price-of-risk-a">
+<h3>3. The Market Price of Risk (<span class="math notranslate nohighlight">\(A\)</span>)<a class="headerlink" href="#the-market-price-of-risk-a" title="Link to this heading">#</a></h3>
+<p>What is <span class="math notranslate nohighlight">\(A\)</span>? We can solve for it by pre-multiplying the valuation equation by <span class="math notranslate nohighlight">\(\mathbf{J}^T\)</span> (summing across all assets).</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{J}^T \mathbf{V} (1+r) = \mathbf{J}^T \mathbf{\mu} - A \mathbf{J}^T \mathbf{\Sigma} \mathbf{J}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{J}^T \mathbf{V}\)</span>: Total Market Value (<span class="math notranslate nohighlight">\(V_{mkt}\)</span>).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{J}^T \mathbf{\mu}\)</span>: Total Expected Cash Flow of Market (<span class="math notranslate nohighlight">\(\mu_{mkt}\)</span>).</p></li>
+<li><p>[cite_start]<span class="math notranslate nohighlight">\(\mathbf{J}^T \mathbf{\Sigma} \mathbf{J}\)</span>: Variance of the Market Portfolio (<span class="math notranslate nohighlight">\(\sigma_{mkt}^2\)</span>)[cite: 1024].</p></li>
+</ul>
+<p>Substituting these scalars:
+$<span class="math notranslate nohighlight">\(V_{mkt} (1+r) = \mu_{mkt} - A \sigma_{mkt}^2\)</span>$</p>
+<p>Solving for <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+A = \frac{\mu_{mkt} - V_{mkt}(1+r)}{\sigma_{mkt}^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+A = \frac{\text{Total Expected Market Risk Premium}}{\text{Variance of Market}}
+\]</div>
+<p>[cite_start][cite: 997, 998]</p>
+<p>This is often called <span class="math notranslate nohighlight">\(\lambda\)</span>, the <strong>Market Price of Risk</strong>. It tells us how much extra dollar return the market demands for every unit of variance it bears.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-beta-and-the-black-ratio">
+<h2>Part 3: Beta and The “Black Ratio”<a class="headerlink" href="#part-3-beta-and-the-black-ratio" title="Link to this heading">#</a></h2>
+<p>We can now relate individual assets to the market portfolio, deriving the concept of Beta from first principles.</p>
+<section id="defining-beta-mathbf-beta">
+<h3>1. Defining Beta (<span class="math notranslate nohighlight">\(\mathbf{\beta}\)</span>)<a class="headerlink" href="#defining-beta-mathbf-beta" title="Link to this heading">#</a></h3>
+<p>Beta is the covariance of an asset with the market, divided by the variance of the market.</p>
+<p><strong>Dollar Beta:</strong>
+$<span class="math notranslate nohighlight">\(\mathbf{\beta}_{dollar} = \frac{\mathbf{\Sigma} \mathbf{J}}{\mathbf{J}^T \mathbf{\Sigma} \mathbf{J}}\)</span>$
+[cite_start][cite: 1027]</p>
+<p><strong>Percentage Beta:</strong>
+$<span class="math notranslate nohighlight">\(\mathbf{\beta}_{\%} = \frac{\mathbf{\Sigma} (\mathbf{J} \oslash \mathbf{V})}{(\mathbf{J}^T \mathbf{V})^2}\)</span><span class="math notranslate nohighlight">\(
+(Wait, let's stick to the simpler algebraic definition derived in the notes).
+The notes define Beta vector \)</span>\mathbf{\beta}<span class="math notranslate nohighlight">\( as:
+\)</span><span class="math notranslate nohighlight">\(\mathbf{\beta} = \frac{\mathbf{\Sigma} \mathbf{J} \oslash \mathbf{V}}{\mathbf{J}^T \mathbf{\Sigma} \mathbf{J} / (\mathbf{J}^T \mathbf{V})^2}\)</span><span class="math notranslate nohighlight">\(
+Let's simplify using the property that \)</span>\mathbf{\Sigma} \mathbf{J}$ is the vector of covariances with the market total cash flow.</p>
+</section>
+<section id="the-black-ratio">
+<h3>2. The Black Ratio<a class="headerlink" href="#the-black-ratio" title="Link to this heading">#</a></h3>
+<p>A crucial finding in CFPM is the relationship between Risk Premium and Beta.
+From the valuation equation:
+$<span class="math notranslate nohighlight">\(\text{Risk Premium} = \mathbf{\mu} - \mathbf{V}(1+r) = A \mathbf{\Sigma} \mathbf{J}\)</span>$</p>
+<p>We know that <span class="math notranslate nohighlight">\(\mathbf{\beta} \propto \mathbf{\Sigma} \mathbf{J}\)</span>.
+Therefore, for every asset <span class="math notranslate nohighlight">\(i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\text{Risk Premium}_i}{\text{Beta}_i} = \text{Constant}
+\]</div>
+<p>This constant is the <strong>Black Ratio</strong>. It implies that the risk premium is perfectly proportional to Beta. [cite_start]There is no reward for idiosyncratic risk (risk not correlated with <span class="math notranslate nohighlight">\(\mathbf{\Sigma} \mathbf{J}\)</span>)[cite: 1003, 1004].</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-sub-portfolio-pricing">
+<h2>Part 4: Sub-Portfolio Pricing<a class="headerlink" href="#part-4-sub-portfolio-pricing" title="Link to this heading">#</a></h2>
+<p>One of the unique strengths of CFPM is that we can price any portfolio relative to any <em>other</em> portfolio, not just the total market.</p>
+<p>Suppose we have two sub-portfolios, <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, defined by weight vectors <span class="math notranslate nohighlight">\(\mathbf{w}_X\)</span> and <span class="math notranslate nohighlight">\(\mathbf{w}_Y\)</span>.</p>
+<p><strong>Valuation Relationship:</strong>
+We can express the required return of portfolio <span class="math notranslate nohighlight">\(Y\)</span> in terms of portfolio <span class="math notranslate nohighlight">\(X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mu_Y - V_Y(1+r) = \beta_{YX} (\mu_X - V_X(1+r))
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\beta_{YX}\)</span> is the beta of <span class="math notranslate nohighlight">\(Y\)</span> with respect to <span class="math notranslate nohighlight">\(X\)</span>:
+$<span class="math notranslate nohighlight">\(\beta_{YX} = \frac{Cov(Y, X)}{Var(X)}\)</span>$</p>
+<p>[cite_start][cite: 1066, 1067]</p>
+<p><strong>The Risk-Free Construction:</strong>
+By rearranging the equation:
+$<span class="math notranslate nohighlight">\(\frac{\mu_Y - V_Y(1+r)}{\beta_{YX}} = \mu_X - V_X(1+r)\)</span><span class="math notranslate nohighlight">\(
+This implies we can construct a zero-beta (risk-free) portfolio by combining \)</span>Y<span class="math notranslate nohighlight">\( and \)</span>X<span class="math notranslate nohighlight">\( in specific ratios. [cite_start]Buying \)</span>Y<span class="math notranslate nohighlight">\( and shorting \)</span>\beta_{YX}<span class="math notranslate nohighlight">\( units of \)</span>X<span class="math notranslate nohighlight">\( eliminates the systematic risk relative to \)</span>X$[cite: 1068].</p>
+</section>
+<hr class="docutils" />
+<section id="part-5-the-classical-markowitz-model">
+<h2>Part 5: The Classical Markowitz Model<a class="headerlink" href="#part-5-the-classical-markowitz-model" title="Link to this heading">#</a></h2>
+<p>We now shift to the percentage-return framework (Modern Portfolio Theory). Here, we solve for the <strong>Efficient Frontier</strong>: the set of portfolios that minimize variance for a given target return <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<section id="the-optimization-problem">
+<h3>1. The Optimization Problem<a class="headerlink" href="#the-optimization-problem" title="Link to this heading">#</a></h3>
+<p>We want to find the weight vector <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> that minimizes portfolio variance, subject to two constraints:</p>
+<ol class="arabic simple">
+<li><p><strong>Budget Constraint:</strong> Weights sum to 1 (<span class="math notranslate nohighlight">\(\mathbf{w}^T \mathbf{J} = 1\)</span>).</p></li>
+<li><p><strong>Return Constraint:</strong> Expected return equals target <span class="math notranslate nohighlight">\(R\)</span> (<span class="math notranslate nohighlight">\(\mathbf{w}^T \mathbf{r} = R\)</span>).</p></li>
+</ol>
+<p><strong>The Objective Function:</strong>
+$<span class="math notranslate nohighlight">\(\min \frac{1}{2} \mathbf{w}^T \mathbf{\Sigma} \mathbf{w}\)</span>$</p>
+<p><strong>The Lagrangian (<span class="math notranslate nohighlight">\(L\)</span>):</strong>
+$<span class="math notranslate nohighlight">\(L = \frac{1}{2} \mathbf{w}^T \mathbf{\Sigma} \mathbf{w} - \lambda (\mathbf{w}^T \mathbf{J} - 1) - \gamma (\mathbf{w}^T \mathbf{r} - R)\)</span>$
+[cite_start][cite: 1096, 1097]</p>
+</section>
+<section id="solving-the-lagrangian">
+<h3>2. Solving the Lagrangian<a class="headerlink" href="#solving-the-lagrangian" title="Link to this heading">#</a></h3>
+<p>We take the derivative w.r.t <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and set to zero:
+$<span class="math notranslate nohighlight">\(\mathbf{\Sigma} \mathbf{w} - \lambda \mathbf{J} - \gamma \mathbf{r} = \mathbf{0}\)</span>$</p>
+<p>Solving for optimal weights <span class="math notranslate nohighlight">\(\mathbf{w}_e\)</span> (efficient weights):
+$<span class="math notranslate nohighlight">\(\mathbf{w}_e = \mathbf{\Sigma}^{-1} (\lambda \mathbf{J} + \gamma \mathbf{r})\)</span>$
+[cite_start][cite: 1112]</p>
+<p>To find the multipliers <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span>, we substitute this back into the constraints. This generates a system of linear equations involving four fundamental scalars:</p>
+<div class="math notranslate nohighlight">
+\[
+A = \mathbf{J}^T \mathbf{\Sigma}^{-1} \mathbf{J}, \quad B = \mathbf{J}^T \mathbf{\Sigma}^{-1} \mathbf{r}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+C = \mathbf{r}^T \mathbf{\Sigma}^{-1} \mathbf{r}, \quad D = AC - B^2
+\]</div>
+<p>[cite_start][cite: 1111]</p>
+</section>
+<section id="the-efficient-frontier-the-hyperbola">
+<h3>3. The Efficient Frontier (The Hyperbola)<a class="headerlink" href="#the-efficient-frontier-the-hyperbola" title="Link to this heading">#</a></h3>
+<p>Solving the system yields the variance of the efficient portfolio as a function of its target return <span class="math notranslate nohighlight">\(R\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_p^2 (R) = \frac{A R^2 - 2B R + C}{D}
+\]</div>
+<p>[cite_start]This equation traces a <strong>Parabola</strong> in Mean-Variance space, or a <strong>Hyperbola</strong> in Mean-Standard Deviation space[cite: 1108].</p>
+<p><strong>Global Minimum Variance Portfolio:</strong>
+The absolute lowest risk portfolio is found at the vertex of the parabola.
+$<span class="math notranslate nohighlight">\(R_{min} = B/A\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\sigma_{min}^2 = 1/A\)</span>$
+[cite_start][cite: 1128, 1131]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-6-the-tangency-portfolio">
+<h2>Part 6: The Tangency Portfolio<a class="headerlink" href="#part-6-the-tangency-portfolio" title="Link to this heading">#</a></h2>
+<p>When we introduce a risk-free asset <span class="math notranslate nohighlight">\(r_f\)</span>, the efficient frontier changes from a hyperbola to a straight line: the <strong>Capital Market Line (CML)</strong>.</p>
+<section id="the-tangency-logic">
+<h3>1. The Tangency Logic<a class="headerlink" href="#the-tangency-logic" title="Link to this heading">#</a></h3>
+<p>We want to find the portfolio of risky assets <span class="math notranslate nohighlight">\(\mathbf{w}_T\)</span> that, when combined with the risk-free asset, produces the highest possible Sharpe Ratio (slope of the line).</p>
+<p><strong>Slope:</strong>
+$<span class="math notranslate nohighlight">\(\text{Slope} = \frac{\mathbf{w}^T \mathbf{r} - r_f}{(\mathbf{w}^T \mathbf{\Sigma} \mathbf{w})^{1/2}}\)</span>$
+[cite_start][cite: 1150]</p>
+</section>
+<section id="the-solution">
+<h3>2. The Solution<a class="headerlink" href="#the-solution" title="Link to this heading">#</a></h3>
+<p>Maximizing the slope leads to the optimal weights for the <strong>Tangency Portfolio</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{w}_T = \frac{\mathbf{\Sigma}^{-1} (\mathbf{r} - r_f \mathbf{J})}{B - A r_f}
+\]</div>
+<p>[cite_start][cite: 1155]</p>
+<p>This is a profound result. It states that the optimal mix of risky assets is proportional to the inverse covariance matrix times the vector of excess returns. This is the mathematical justification for the <strong>Separation Theorem</strong>: all investors should hold the <em>same</em> mix of risky assets (the Tangency Portfolio) and adjust their risk only by borrowing or lending cash.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-7-worked-examples">
+<h2>Part 7: Worked Examples<a class="headerlink" href="#part-7-worked-examples" title="Link to this heading">#</a></h2>
+<section id="example-1-2-asset-cfpm-equilibrium">
+<h3>Example 1: 2-Asset CFPM Equilibrium<a class="headerlink" href="#example-1-2-asset-cfpm-equilibrium" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Context:</strong> A mini-market with 2 assets. We want to find the equilibrium prices.</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p><strong>Expected Cash Flows:</strong> <span class="math notranslate nohighlight">\(\mathbf{\mu} = \begin{pmatrix} 110 \\ 220 \end{pmatrix}\)</span>.</p></li>
+<li><p><strong>Covariance Matrix:</strong> <span class="math notranslate nohighlight">\(\mathbf{\Sigma} = \begin{pmatrix} 100 &amp; 50 \\ 50 &amp; 400 \end{pmatrix}\)</span>.</p></li>
+<li><p><strong>Risk-Free Rate:</strong> <span class="math notranslate nohighlight">\(r = 5\%\)</span>.</p></li>
+<li><p><strong>Aggregate Risk Aversion:</strong> <span class="math notranslate nohighlight">\(A = 0.01\)</span>.</p></li>
+</ul>
+<p><strong>Step 1: Calculate Market Covariance Sum (<span class="math notranslate nohighlight">\(\mathbf{\Sigma} \mathbf{J}\)</span>)</strong>
+$<span class="math notranslate nohighlight">\(\mathbf{\Sigma} \mathbf{J} = \begin{pmatrix} 100 &amp; 50 \\ 50 &amp; 400 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 150 \\ 450 \end{pmatrix}\)</span>$</p>
+<p><strong>Step 2: Calculate Risk Discount</strong>
+$<span class="math notranslate nohighlight">\(A \mathbf{\Sigma} \mathbf{J} = 0.01 \begin{pmatrix} 150 \\ 450 \end{pmatrix} = \begin{pmatrix} 1.5 \\ 4.5 \end{pmatrix}\)</span>$</p>
+<p><strong>Step 3: Calculate Equilibrium Prices (<span class="math notranslate nohighlight">\(\mathbf{V}\)</span>)</strong>
+$<span class="math notranslate nohighlight">\(\mathbf{V} = \frac{\mathbf{\mu} - A \mathbf{\Sigma} \mathbf{J}}{1+r}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbf{V} = \frac{1}{1.05} \left[ \begin{pmatrix} 110 \\ 220 \end{pmatrix} - \begin{pmatrix} 1.5 \\ 4.5 \end{pmatrix} \right]\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbf{V} = \frac{1}{1.05} \begin{pmatrix} 108.5 \\ 215.5 \end{pmatrix} = \begin{pmatrix} 103.33 \\ 205.24 \end{pmatrix}\)</span>$</p>
+<p><strong>Interpretation:</strong>
+Asset 2 has higher expected cash flow (220 vs 110) but much higher risk (Variance 400 vs 100). The market penalizes Asset 2 more heavily ($4.50 discount vs $1.50), lowering its price relative to the risk-free valuation.</p>
+</section>
+<hr class="docutils" />
+<section id="example-2-calculating-the-tangency-portfolio">
+<h3>Example 2: Calculating the Tangency Portfolio<a class="headerlink" href="#example-2-calculating-the-tangency-portfolio" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Context:</strong> You have 2 risky stocks and a risk-free rate of 2%. Find the optimal risky portfolio weights.</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{r} = \begin{pmatrix} 0.10 \\ 0.15 \end{pmatrix}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{\Sigma} = \begin{pmatrix} 0.04 &amp; 0.01 \\ 0.01 &amp; 0.09 \end{pmatrix}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r_f = 0.02\)</span></p></li>
+</ul>
+<p><strong>Step 1: Inverse Covariance Matrix (<span class="math notranslate nohighlight">\(\mathbf{\Sigma}^{-1}\)</span>)</strong>
+Determinant <span class="math notranslate nohighlight">\(D = (0.04)(0.09) - (0.01)(0.01) = 0.0036 - 0.0001 = 0.0035\)</span>.
+$<span class="math notranslate nohighlight">\(\mathbf{\Sigma}^{-1} = \frac{1}{0.0035} \begin{pmatrix} 0.09 &amp; -0.01 \\ -0.01 &amp; 0.04 \end{pmatrix}\)</span>$</p>
+<p><strong>Step 2: Excess Returns Vector</strong>
+$<span class="math notranslate nohighlight">\(\mathbf{Z} = \mathbf{r} - r_f \mathbf{J} = \begin{pmatrix} 0.10 - 0.02 \\ 0.15 - 0.02 \end{pmatrix} = \begin{pmatrix} 0.08 \\ 0.13 \end{pmatrix}\)</span>$</p>
+<p><strong>Step 3: Unscaled Weights (<span class="math notranslate nohighlight">\(\mathbf{\Sigma}^{-1} \mathbf{Z}\)</span>)</strong>
+$<span class="math notranslate nohighlight">\(\mathbf{u} = \frac{1}{0.0035} \begin{pmatrix} 0.09 &amp; -0.01 \\ -0.01 &amp; 0.04 \end{pmatrix} \begin{pmatrix} 0.08 \\ 0.13 \end{pmatrix}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbf{u} \propto \begin{pmatrix} (0.09)(0.08) + (-0.01)(0.13) \\ (-0.01)(0.08) + (0.04)(0.13) \end{pmatrix}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\mathbf{u} \propto \begin{pmatrix} 0.0072 - 0.0013 \\ -0.0008 + 0.0052 \end{pmatrix} = \begin{pmatrix} 0.0059 \\ 0.0044 \end{pmatrix}\)</span>$</p>
+<p><strong>Step 4: Normalize Weights</strong>
+Sum = <span class="math notranslate nohighlight">\(0.0059 + 0.0044 = 0.0103\)</span>.
+<span class="math notranslate nohighlight">\(w_1 = 0.0059 / 0.0103 = 57.3\%\)</span>.
+<span class="math notranslate nohighlight">\(w_2 = 0.0044 / 0.0103 = 42.7\%\)</span>.</p>
+<p><strong>Result:</strong> The Tangency Portfolio is 57.3% Asset 1 and 42.7% Asset 2.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-8-practice-problems">
+<h2>Part 8: Practice Problems<a class="headerlink" href="#part-8-practice-problems" title="Link to this heading">#</a></h2>
+<section id="practice-problem-1-the-market-price-of-risk">
+<h3>Practice Problem 1: The Market Price of Risk<a class="headerlink" href="#practice-problem-1-the-market-price-of-risk" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> The total market portfolio has an expected value of $1,000,000 and a variance of 100,000,000. The current price of the market is $900,000. The risk-free rate is 5%. Calculate the aggregate risk aversion parameter <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p><strong>Given:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mu_{mkt} = 1,000,000\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma^2_{mkt} = 100,000,000\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V_{mkt} = 900,000\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r = 0.05\)</span></p></li>
+</ul>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p><strong>Formula:</strong>
+$<span class="math notranslate nohighlight">\(A = \frac{\mu_{mkt} - V_{mkt}(1+r)}{\sigma^2_{mkt}}\)</span>$</p>
+<p><strong>Calculation:</strong>
+$<span class="math notranslate nohighlight">\(A = \frac{1,000,000 - 900,000(1.05)}{100,000,000}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(A = \frac{1,000,000 - 945,000}{100,000,000}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(A = \frac{55,000}{100,000,000} = 0.00055\)</span>$</p>
+<p><strong>Answer:</strong> <span class="math notranslate nohighlight">\(A = 0.00055\)</span>. The market demands 0.055 cents of premium for every dollar of variance.</p>
+</details>
+</section>
+<section id="practice-problem-2-sub-portfolio-beta">
+<h3>Practice Problem 2: Sub-Portfolio Beta<a class="headerlink" href="#practice-problem-2-sub-portfolio-beta" title="Link to this heading">#</a></h3>
+<p>:class: tip</p>
+<p><strong>Problem:</strong> Portfolio <span class="math notranslate nohighlight">\(X\)</span> has a variance of 0.04. Portfolio <span class="math notranslate nohighlight">\(Y\)</span> has a covariance with <span class="math notranslate nohighlight">\(X\)</span> of 0.06. If Portfolio <span class="math notranslate nohighlight">\(X\)</span> yields 10% and the risk-free rate is 4%, what return would CFPM predict for Portfolio <span class="math notranslate nohighlight">\(Y\)</span> if it were priced solely relative to <span class="math notranslate nohighlight">\(X\)</span>?</p>
+<details>
+<summary><strong>Click for Solution</strong></summary>
+<p><strong>Step 1: Calculate Beta of Y relative to X</strong>
+$<span class="math notranslate nohighlight">\(\beta_{YX} = \frac{Cov(Y,X)}{Var(X)} = \frac{0.06}{0.04} = 1.5\)</span>$</p>
+<p><strong>Step 2: Apply CFPM/CAPM Relation</strong>
+$<span class="math notranslate nohighlight">\(E[r_Y] = r_f + \beta_{YX} (E[r_X] - r_f)\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(E[r_Y] = 0.04 + 1.5 (0.10 - 0.04)\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(E[r_Y] = 0.04 + 1.5 (0.06)\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(E[r_Y] = 0.04 + 0.09 = 0.13\)</span>$</p>
+<p><strong>Answer:</strong> 13%.</p>
+</details>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-9-chapter-summary">
+<h2>Part 9: Chapter Summary<a class="headerlink" href="#part-9-chapter-summary" title="Link to this heading">#</a></h2>
+<section id="key-concepts-recap">
+<h3>Key Concepts Recap<a class="headerlink" href="#key-concepts-recap" title="Link to this heading">#</a></h3>
+<p>:class: important</p>
+<p><strong>1. CFPM vs. CAPM:</strong></p>
+<ul class="simple">
+<li><p><strong>CFPM:</strong> Values assets based on <em>dollars</em>. Essential for derivatives, leverage, and non-standard assets.</p></li>
+<li><p><strong>CAPM:</strong> Values assets based on <em>returns</em>. Good for stocks and mutual funds.</p></li>
+<li><p><strong>Link:</strong> Both models are consistent. CAPM is just CFPM normalized by price.</p></li>
+</ul>
+<p><strong>2. The Fundamental Pricing Equation:</strong>
+$<span class="math notranslate nohighlight">\(\mathbf{V} = \frac{\mathbf{\mu} - A \mathbf{\Sigma} \mathbf{J}}{1+r}\)</span>$
+This equation summarizes the entire chapter. Price = (Expected Cash Flow - Risk Penalty) / Time Value.</p>
+<p><strong>3. The Market Portfolio:</strong>
+The market portfolio is not arbitrary; it is the unique aggregate of all optimal individual portfolios. Its risk aversion <span class="math notranslate nohighlight">\(A\)</span> sets the price of risk for every other asset in the economy.</p>
+<p><strong>4. Efficiency:</strong></p>
+<ul class="simple">
+<li><p><strong>Minimum Variance Portfolio:</strong> The vertex of the parabola. Lowest possible risk.</p></li>
+<li><p><strong>Tangency Portfolio:</strong> The point where the Capital Market Line touches the efficient frontier. Highest possible Sharpe Ratio.</p></li>
+</ul>
+</section>
+<section id="formula-cheat-sheet">
+<h3>Formula Cheat Sheet<a class="headerlink" href="#formula-cheat-sheet" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Concept</p></th>
+<th class="head text-left"><p>Formula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>CFPM Equilibrium</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{V} = \frac{\mathbf{\mu} - A \mathbf{\Sigma} \mathbf{J}}{1+r}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Risk Aversion (A)</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(A = \frac{\mu_{mkt} - V_{mkt}(1+r)}{\sigma^2_{mkt}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Efficient Weights</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{w} = \mathbf{\Sigma}^{-1} (\lambda \mathbf{J} + \gamma \mathbf{r})\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Tangency Weights</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{w}_T \propto \mathbf{\Sigma}^{-1} (\mathbf{r} - r_f \mathbf{J})\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Scalars</strong></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(A = \mathbf{J}^T \mathbf{\Sigma}^{-1} \mathbf{J}, \quad B = \mathbf{J}^T \mathbf{\Sigma}^{-1} \mathbf{r}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter07.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 7: Risk, Capital and Valuation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter09.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 9: Derivative Pricing in the Static CAPM</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-overview">Chapter Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-the-cash-flow-portfolio-model-cfpm">Part 1: The Cash Flow Portfolio Model (CFPM)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-and-notation">1. Assumptions and Notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-investor-s-problem">2. The Investor’s Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximizing-expected-utility">3. Maximizing Expected Utility</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-deriving-market-equilibrium">Part 2: Deriving Market Equilibrium</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-first-order-condition-gve">1. The First Order Condition (GVE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-clearing-and-equilibrium-prices">2. Market Clearing and Equilibrium Prices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-market-price-of-risk-a">3. The Market Price of Risk (<span class="math notranslate nohighlight">\(A\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-beta-and-the-black-ratio">Part 3: Beta and The “Black Ratio”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-beta-mathbf-beta">1. Defining Beta (<span class="math notranslate nohighlight">\(\mathbf{\beta}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-black-ratio">2. The Black Ratio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-sub-portfolio-pricing">Part 4: Sub-Portfolio Pricing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-the-classical-markowitz-model">Part 5: The Classical Markowitz Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-optimization-problem">1. The Optimization Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-lagrangian">2. Solving the Lagrangian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-efficient-frontier-the-hyperbola">3. The Efficient Frontier (The Hyperbola)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-the-tangency-portfolio">Part 6: The Tangency Portfolio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-tangency-logic">1. The Tangency Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">2. The Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-2-asset-cfpm-equilibrium">Example 1: 2-Asset CFPM Equilibrium</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-calculating-the-tangency-portfolio">Example 2: Calculating the Tangency Portfolio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-the-market-price-of-risk">Practice Problem 1: The Market Price of Risk</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-sub-portfolio-beta">Practice Problem 2: Sub-Portfolio Beta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David C. Shimko
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
