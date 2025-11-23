@@ -431,18 +431,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-analytic-decomposition-growing-annuity">3. The Analytic Decomposition (Growing Annuity)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-worked-examples">Part 6: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-t-bill-valuation">Example 1: T-Bill Valuation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-corporate-bond-valuation-approximate">Example 2: Corporate Bond Valuation (Approximate)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-exact-default-valuation-the-geometric-model">Example 3: Exact Default Valuation (The Geometric Model)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-practice-problems">Part 7: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-muni-tax-implication">Practice Problem 1: Muni Tax Implication</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-t-bill-d-vs-r">Practice Problem 2: T-Bill “d” vs “r”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-decomposition">Practice Problem 3: Decomposition</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-worked-examples">Part 6: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-practice-problems">Part 7: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-chapter-summary">Part 8: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
@@ -500,6 +490,9 @@ document.write(`
 <li><p><strong>Annuities:</strong> Proficiency with annuity summation formulas from Chapter 2.</p></li>
 <li><p><strong>Calculus:</strong> Basic limits and derivatives for sensitivity analysis.</p></li>
 </ul>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </section>
 </section>
@@ -781,9 +774,8 @@ $<span class="math notranslate nohighlight">\( r^* \approx r + \theta + \pi \)</
 <hr class="docutils" />
 <section id="part-6-worked-examples">
 <h2>Part 6: Worked Examples<a class="headerlink" href="#part-6-worked-examples" title="Link to this heading">#</a></h2>
-<section id="example-1-t-bill-valuation">
-<h3>Example 1: T-Bill Valuation<a class="headerlink" href="#example-1-t-bill-valuation" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 1: T-Bill Valuation</p>
 <p><strong>Problem:</strong> A 146-day T-Bill has a quoted Ask Yield (Discount) of 0.985%. Face Value is $10,000. Find the Price and the EAY.</p>
 <p><strong>Given:</strong></p>
 <ul class="simple">
@@ -805,10 +797,8 @@ $<span class="math notranslate nohighlight">\( r^* \approx r + \theta + \pi \)</
 \[ 1 + \text{EAY} = (1.00401)^{1/0.4} = (1.00401)^{2.5} \]</div>
 <div class="math notranslate nohighlight">
 \[ \text{EAY} \approx 1.01005 \implies 1.005\% \]</div>
-</section>
-<section id="example-2-corporate-bond-valuation-approximate">
-<h3>Example 2: Corporate Bond Valuation (Approximate)<a class="headerlink" href="#example-2-corporate-bond-valuation-approximate" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 2: Corporate Bond Valuation (Approximate)</p>
 <p><strong>Problem:</strong> A corporate bond yields 4.04%. A comparable Treasury yields 2.84%. The bond has an AA rating with an annual default probability of 0.02%. Assume Loss Given Default (LGD) is 100%. Calculate the implied Risk Premium.</p>
 <p><strong>Given:</strong></p>
 <ul class="simple">
@@ -831,10 +821,8 @@ $<span class="math notranslate nohighlight">\( r^* \approx r + \theta + \pi \)</
 <div class="math notranslate nohighlight">
 \[ \kappa = 1.18\% \]</div>
 <p><strong>Insight:</strong> The vast majority of the spread (1.18% vs 0.02%) is due to risk aversion (the premium), not the actuarial expected loss. This is typical for high-grade bonds.</p>
-</section>
-<section id="example-3-exact-default-valuation-the-geometric-model">
-<h3>Example 3: Exact Default Valuation (The Geometric Model)<a class="headerlink" href="#example-3-exact-default-valuation-the-geometric-model" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 3: Exact Default Valuation (The Geometric Model)</p>
 <p><strong>Problem:</strong></p>
 <ul class="simple">
 <li><p>5-year bond, annual coupon $55, Face $1000.</p></li>
@@ -868,14 +856,15 @@ Actually, the text derivation simplifies this:
 <span class="math notranslate nohighlight">\(PV = 965.58/1.04^5 = 793.63\)</span>.</p></li>
 </ul>
 <p><strong>Total Value:</strong> Sum of PVs.</p>
-</section>
+</div>
+</div>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-7-practice-problems">
 <h2>Part 7: Practice Problems<a class="headerlink" href="#part-7-practice-problems" title="Link to this heading">#</a></h2>
-<section id="practice-problem-1-muni-tax-implication">
-<h3>Practice Problem 1: Muni Tax Implication<a class="headerlink" href="#practice-problem-1-muni-tax-implication" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 1: Muni Tax Implication</p>
 <p><strong>Problem:</strong> A 20-year Treasury yields 2.91%. A 20-year Muni yields 2.02%. Assuming the Muni has an expected loss rate of 0.05% and no liquidity premium, what is the implied marginal tax rate?</p>
 <p><strong>Given:</strong></p>
 <ul class="simple">
@@ -899,10 +888,9 @@ Actually, the text derivation simplifies this:
 \[ \tau = 1 - 0.677 = 0.323 \]</div>
 <p><strong>Implied Tax Rate = 32.3%</strong></p>
 </details>
-</section>
-<section id="practice-problem-2-t-bill-d-vs-r">
-<h3>Practice Problem 2: T-Bill “d” vs “r”<a class="headerlink" href="#practice-problem-2-t-bill-d-vs-r" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 2: T-Bill “d” vs “r”</p>
 <p><strong>Problem:</strong> A T-Bill has a discount yield <span class="math notranslate nohighlight">\(d=2.00\%\)</span> and 90 days to maturity. Is the continuously compounded yield <span class="math notranslate nohighlight">\(r\)</span> higher or lower than 2.00%? Calculate it.</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
@@ -922,10 +910,9 @@ Actually, the text derivation simplifies this:
 \[ r = 0.0203 \implies 2.03\% \]</div>
 <p><strong>Result:</strong> Higher, as expected.</p>
 </details>
-</section>
-<section id="practice-problem-3-decomposition">
-<h3>Practice Problem 3: Decomposition<a class="headerlink" href="#practice-problem-3-decomposition" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 3: Decomposition</p>
 <p><strong>Problem:</strong> Value a 1-year corporate ZCB with Face $100. Risk-free rate 5%. Default prob 2%. Recovery 40% (<span class="math notranslate nohighlight">\(\lambda=60\%\)</span>). No risk premium (<span class="math notranslate nohighlight">\(\theta=0\)</span>). Use the <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> decomposition method.</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
@@ -956,7 +943,7 @@ Valued at rate <span class="math notranslate nohighlight">\(r^* \approx r + \pi 
 <span class="math notranslate nohighlight">\(PV = 98.8 / 1.05 = 94.095\)</span>.
 (Difference due to <span class="math notranslate nohighlight">\(r^*\)</span> approximation <span class="math notranslate nohighlight">\(1+r+\pi \approx (1+r)(1+\pi)^{-1}\)</span>).</p>
 </details>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-8-chapter-summary">
@@ -1115,18 +1102,8 @@ A defaultable bond is mathematically equivalent to a portfolio of:</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-analytic-decomposition-growing-annuity">3. The Analytic Decomposition (Growing Annuity)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-worked-examples">Part 6: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-t-bill-valuation">Example 1: T-Bill Valuation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-corporate-bond-valuation-approximate">Example 2: Corporate Bond Valuation (Approximate)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-exact-default-valuation-the-geometric-model">Example 3: Exact Default Valuation (The Geometric Model)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-practice-problems">Part 7: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-muni-tax-implication">Practice Problem 1: Muni Tax Implication</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-t-bill-d-vs-r">Practice Problem 2: T-Bill “d” vs “r”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-decomposition">Practice Problem 3: Decomposition</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-worked-examples">Part 6: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-practice-problems">Part 7: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-chapter-summary">Part 8: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>

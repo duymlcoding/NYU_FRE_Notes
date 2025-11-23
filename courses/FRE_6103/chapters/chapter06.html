@@ -421,18 +421,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-grw">4. Critique of GRW</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simulating-an-arw">Example 1: Simulating an ARW</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-ou-expected-value">Example 2: OU Expected Value</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-grw-convexity-adjustment">Example 3: GRW Convexity Adjustment</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-arw-variance">Practice Problem 1: ARW Variance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-ou-limit">Practice Problem 2: OU Limit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-grw-simulation">Practice Problem 3: GRW Simulation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
@@ -484,6 +474,9 @@ document.write(`
 <li><p><strong>Calculus:</strong> Basic derivatives and integration (for proving properties of MGFs and limits).</p></li>
 <li><p><strong>Geometric Series:</strong> Summation formulas for <span class="math notranslate nohighlight">\(\sum r^k\)</span>.</p></li>
 </ul>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </section>
 </section>
@@ -723,9 +716,8 @@ To simulate a stock with expected return <span class="math notranslate nohighlig
 <hr class="docutils" />
 <section id="part-4-worked-examples">
 <h2>Part 4: Worked Examples<a class="headerlink" href="#part-4-worked-examples" title="Link to this heading">#</a></h2>
-<section id="example-1-simulating-an-arw">
-<h3>Example 1: Simulating an ARW<a class="headerlink" href="#example-1-simulating-an-arw" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 1: Simulating an ARW</p>
 <p><strong>Problem:</strong> Simulate 3 periods of a stock price using ARW.
 <span class="math notranslate nohighlight">\(S_0 = 20, \mu = 0, \sigma = 5\)</span>.
 Random draws <span class="math notranslate nohighlight">\(Z_1 = 0.5, Z_2 = -1.2, Z_3 = 0.8\)</span>.</p>
@@ -736,10 +728,8 @@ Random draws <span class="math notranslate nohighlight">\(Z_1 = 0.5, Z_2 = -1.2,
 <p><strong>Step 3: <span class="math notranslate nohighlight">\(t=3\)</span></strong>
 <span class="math notranslate nohighlight">\(S_3 = S_2 + \mu + \sigma Z_3 = 16.5 + 0 + 5(0.8) = 16.5 + 4 = 20.5\)</span>.</p>
 <p><strong>Path:</strong> 20 <span class="math notranslate nohighlight">\(\to\)</span> 22.5 <span class="math notranslate nohighlight">\(\to\)</span> 16.5 <span class="math notranslate nohighlight">\(\to\)</span> 20.5.</p>
-</section>
-<section id="example-2-ou-expected-value">
-<h3>Example 2: OU Expected Value<a class="headerlink" href="#example-2-ou-expected-value" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 2: OU Expected Value</p>
 <p><strong>Problem:</strong> Corn price <span class="math notranslate nohighlight">\(S_0 = 5\)</span>. Long run mean <span class="math notranslate nohighlight">\(\mu = 4\)</span>. Mean reversion <span class="math notranslate nohighlight">\(\kappa = 0.20\)</span>. Volatility <span class="math notranslate nohighlight">\(\sigma = 0.75\)</span>. Calculate expected price at <span class="math notranslate nohighlight">\(t=5\)</span>.</p>
 <p><strong>Formula:</strong>
 <span class="math notranslate nohighlight">\(E[S_t] = \mu + (1-\kappa)^t (S_0 - \mu)\)</span>.</p>
@@ -752,10 +742,8 @@ Random draws <span class="math notranslate nohighlight">\(Z_1 = 0.5, Z_2 = -1.2,
 \[ E[S_5] = 4 + 0.32768 = 4.33 \]</div>
 <p><strong>Interpretation:</strong>
 The price started high (5) relative to the mean (4). Over 5 years, it is expected to drift down towards 4, reaching 4.33.</p>
-</section>
-<section id="example-3-grw-convexity-adjustment">
-<h3>Example 3: GRW Convexity Adjustment<a class="headerlink" href="#example-3-grw-convexity-adjustment" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 3: GRW Convexity Adjustment</p>
 <p><strong>Problem:</strong> A stock has an expected annual return of 10% (<span class="math notranslate nohighlight">\(\mu=0.10\)</span>) and volatility of 20% (<span class="math notranslate nohighlight">\(\sigma=0.20\)</span>). What is the mean of the <em>log-returns</em> (<span class="math notranslate nohighlight">\(\nu\)</span>)?</p>
 <p><strong>Formula:</strong>
 <span class="math notranslate nohighlight">\(\nu = \mu - \frac{1}{2}\sigma^2\)</span>.</p>
@@ -768,14 +756,15 @@ The price started high (5) relative to the mean (4). Over 5 years, it is expecte
 \[ \nu = 0.10 - 0.02 = 0.08 \]</div>
 <p><strong>Result:</strong>
 Even though the arithmetic expected return is 10%, the most likely path (geometric drift) grows at 8%. This 2% drag is the “volatility tax.”</p>
-</section>
+</div>
+</div>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-5-practice-problems">
 <h2>Part 5: Practice Problems<a class="headerlink" href="#part-5-practice-problems" title="Link to this heading">#</a></h2>
-<section id="practice-problem-1-arw-variance">
-<h3>Practice Problem 1: ARW Variance<a class="headerlink" href="#practice-problem-1-arw-variance" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 1: ARW Variance</p>
 <p><strong>Problem:</strong> An ARW process has <span class="math notranslate nohighlight">\(\sigma = 2\)</span>. What is the standard deviation of the price at <span class="math notranslate nohighlight">\(t=16\)</span>?</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
@@ -784,10 +773,9 @@ Even though the arithmetic expected return is 10%, the most likely path (geometr
 Standard Deviation <span class="math notranslate nohighlight">\(= \sqrt{64} = 8\)</span>.
 Alternatively: <span class="math notranslate nohighlight">\(\text{StdDev} = \sigma \sqrt{t} = 2 \sqrt{16} = 2 \times 4 = 8\)</span>.</p>
 </details>
-</section>
-<section id="practice-problem-2-ou-limit">
-<h3>Practice Problem 2: OU Limit<a class="headerlink" href="#practice-problem-2-ou-limit" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 2: OU Limit</p>
 <p><strong>Problem:</strong> For an OU process with <span class="math notranslate nohighlight">\(\sigma = 10\)</span> and <span class="math notranslate nohighlight">\(\kappa = 0.5\)</span>, what is the maximum long-term variance?</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
@@ -801,10 +789,9 @@ Alternatively: <span class="math notranslate nohighlight">\(\text{StdDev} = \sig
 Denominator <span class="math notranslate nohighlight">\(= 1 - (0.5)^2 = 1 - 0.25 = 0.75\)</span>.
 <span class="math notranslate nohighlight">\(\text{Var} = 100 / 0.75 = 133.33\)</span>.</p>
 </details>
-</section>
-<section id="practice-problem-3-grw-simulation">
-<h3>Practice Problem 3: GRW Simulation<a class="headerlink" href="#practice-problem-3-grw-simulation" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 3: GRW Simulation</p>
 <p><strong>Problem:</strong> Simulate one step of a GRW. <span class="math notranslate nohighlight">\(S_0 = 100, \mu = 0.05, \sigma = 0.10, Z = -1\)</span>.</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
@@ -818,7 +805,7 @@ Denominator <span class="math notranslate nohighlight">\(= 1 - (0.5)^2 = 1 - 0.2
 <div class="math notranslate nohighlight">
 \[ S_1 = 100 (0.9465) = 94.65 \]</div>
 </details>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-6-chapter-summary">
@@ -963,18 +950,8 @@ When moving from Normal shocks to Lognormal prices, we must subtract <span class
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critique-of-grw">4. Critique of GRW</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simulating-an-arw">Example 1: Simulating an ARW</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-ou-expected-value">Example 2: OU Expected Value</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-grw-convexity-adjustment">Example 3: GRW Convexity Adjustment</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-arw-variance">Practice Problem 1: ARW Variance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-ou-limit">Practice Problem 2: OU Limit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-grw-simulation">Practice Problem 3: GRW Simulation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-worked-examples">Part 4: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-practice-problems">Part 5: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>

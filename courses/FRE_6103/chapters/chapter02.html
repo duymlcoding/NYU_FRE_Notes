@@ -441,19 +441,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-valuation-strategy-decomposition">The Valuation Strategy: Decomposition</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-the-double-payment-challenge-solving-for-n">Example 1: The Double-Payment Challenge (Solving for <span class="math notranslate nohighlight">\(n\)</span>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-the-growing-annuity-with-inflation">Example 2: The Growing Annuity with Inflation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-valuing-a-client-acquisition-strategy-linear-growth">Example 3: Valuing a Client Acquisition Strategy (Linear Growth)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-mean-reversion-corn-prices">Example 4: Mean Reversion Corn Prices</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-the-infinite-graduate-student">Practice Problem 1: The Infinite Graduate Student</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-the-zero-coupon-bond">Practice Problem 2: The “Zero” Coupon Bond</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-the-arithmetic-pension">Practice Problem 3: The Arithmetic Pension</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
@@ -826,9 +815,8 @@ Spot price <span class="math notranslate nohighlight">\(S_t\)</span> reverts to 
 <hr class="docutils" />
 <section id="part-7-worked-examples">
 <h2>Part 7: Worked Examples<a class="headerlink" href="#part-7-worked-examples" title="Link to this heading">#</a></h2>
-<section id="example-1-the-double-payment-challenge-solving-for-n">
-<h3>Example 1: The Double-Payment Challenge (Solving for <span class="math notranslate nohighlight">\(n\)</span>)<a class="headerlink" href="#example-1-the-double-payment-challenge-solving-for-n" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 1: The Double-Payment Challenge (Solving for <span class="math notranslate nohighlight">\(n\)</span>)</p>
 <p><strong>Context:</strong> A client receives a structured settlement. We need to manipulate the annuity formula to solve for time <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p><strong>Problem Statement:</strong>
 A client has a settlement of $50,000/year for 25 years, discount rate 8%.
@@ -866,11 +854,10 @@ The insurance company offers to <strong>double</strong> the annual payment to $1
 <div class="math notranslate nohighlight">
 \[n = \frac{0.5568}{0.07696} \approx 7.24 \text{ years}\]</div>
 <p><strong>Final Answer:</strong> The client can receive $100,000 for roughly 7.24 years.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-2-the-growing-annuity-with-inflation">
-<h3>Example 2: The Growing Annuity with Inflation<a class="headerlink" href="#example-2-the-growing-annuity-with-inflation" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 2: The Growing Annuity with Inflation</p>
 <p><strong>Context:</strong> Same client, but now the $50,000 payments grow by 2% inflation (<span class="math notranslate nohighlight">\(g\)</span>). We want to double the base payment to $100,000 (also growing at 2%).</p>
 <p><strong>Given:</strong></p>
 <ul class="simple">
@@ -897,11 +884,10 @@ New Adjusted Payment <span class="math notranslate nohighlight">\(C_{adj} = 100,
 <p><strong>Calculation:</strong>
 Term inside log <span class="math notranslate nohighlight">\(\approx 1 - 0.38 = 0.62\)</span>.
 <span class="math notranslate nohighlight">\(n \approx 8.37\)</span> years.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-3-valuing-a-client-acquisition-strategy-linear-growth">
-<h3>Example 3: Valuing a Client Acquisition Strategy (Linear Growth)<a class="headerlink" href="#example-3-valuing-a-client-acquisition-strategy-linear-growth" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 3: Valuing a Client Acquisition Strategy (Linear Growth)</p>
 <p><strong>Context:</strong> A business brings in 1 new client per year for 15 years. Each client pays $50,000/year in perpetuity. <span class="math notranslate nohighlight">\(r=12\%\)</span>.</p>
 <p><strong>Analysis:</strong>
 This is an increasing perpetuity of perpetuities.
@@ -926,11 +912,10 @@ Value at year 0: <span class="math notranslate nohighlight">\(V_0 = 6,250,000 / 
 <span class="math notranslate nohighlight">\(V_0 = 1,141,851.63\)</span>.</p>
 <p><strong>Step 3: Total Value</strong>
 <span class="math notranslate nohighlight">\(Total = 2,036,551.79 + 1,141,851.63 = \mathbf{\$3,178,403.45}\)</span>.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-4-mean-reversion-corn-prices">
-<h3>Example 4: Mean Reversion Corn Prices<a class="headerlink" href="#example-4-mean-reversion-corn-prices" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 4: Mean Reversion Corn Prices</p>
 <p><strong>Context:</strong> Current corn price <span class="math notranslate nohighlight">\(S_0 = \$3.50\)</span>. Long run mean <span class="math notranslate nohighlight">\(\mu = \$5.00\)</span>. Speed <span class="math notranslate nohighlight">\(\kappa = 10\%\)</span>. Rate <span class="math notranslate nohighlight">\(r=5\%\)</span>.
 Value 20 years of 1 million bushels/year.</p>
 <p><strong>Step 1: Decompose the Price Path</strong>
@@ -950,14 +935,13 @@ Wait, the text uses the formula with <span class="math notranslate nohighlight">
 <p><strong>Step 4: Total Value</strong>
 <span class="math notranslate nohighlight">\(PV_{total} = 62.31 - 8.59 = 53.72\)</span> per bushel.
 For 1 million bushels: <strong>$53,723,440.37</strong>.</p>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-8-practice-problems">
 <h2>Part 8: Practice Problems<a class="headerlink" href="#part-8-practice-problems" title="Link to this heading">#</a></h2>
-<section id="practice-problem-1-the-infinite-graduate-student">
-<h3>Practice Problem 1: The Infinite Graduate Student<a class="headerlink" href="#practice-problem-1-the-infinite-graduate-student" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 1: The Infinite Graduate Student</p>
 <p><strong>Problem:</strong> A university endowment wants to fund a scholarship that pays $20,000 next year, growing by 3% annually forever. The endowment can earn 7% per year. How much must be deposited today?</p>
 <p><strong>Given:</strong> <span class="math notranslate nohighlight">\(C_1 = 20,000\)</span>, <span class="math notranslate nohighlight">\(g=0.03\)</span>, <span class="math notranslate nohighlight">\(r=0.07\)</span>.</p>
 <details>
@@ -967,10 +951,9 @@ Formula: <span class="math notranslate nohighlight">\(V_0 = C_1 / (r-g)\)</span>
 <div class="math notranslate nohighlight">
 \[V_0 = \frac{20,000}{0.07 - 0.03} = \frac{20,000}{0.04} = \$500,000\]</div>
 </details>
-</section>
-<section id="practice-problem-2-the-zero-coupon-bond">
-<h3>Practice Problem 2: The “Zero” Coupon Bond<a class="headerlink" href="#practice-problem-2-the-zero-coupon-bond" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 2: The “Zero” Coupon Bond</p>
 <p><strong>Problem:</strong> A 10-year Zero Coupon Bond has a Face Value of $1,000. The yield (discount rate) is 6%. What is its price?</p>
 <p><strong>Given:</strong> <span class="math notranslate nohighlight">\(F=1000\)</span>, <span class="math notranslate nohighlight">\(n=10\)</span>, <span class="math notranslate nohighlight">\(C=0\)</span>, <span class="math notranslate nohighlight">\(r=0.06\)</span>.</p>
 <details>
@@ -979,10 +962,9 @@ Formula: <span class="math notranslate nohighlight">\(V_0 = C_1 / (r-g)\)</span>
 <div class="math notranslate nohighlight">
 \[V = \frac{1000}{(1.06)^{10}} = \frac{1000}{1.7908} = \$558.39\]</div>
 </details>
-</section>
-<section id="practice-problem-3-the-arithmetic-pension">
-<h3>Practice Problem 3: The Arithmetic Pension<a class="headerlink" href="#practice-problem-3-the-arithmetic-pension" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 3: The Arithmetic Pension</p>
 <p><strong>Problem:</strong> A retiree receives $10,000 next year. Each subsequent year, the payment increases by a fixed $1,000 (Arithmetic, not geometric). Discount rate is 5%. Value this as a perpetuity.</p>
 <p><strong>Given:</strong> <span class="math notranslate nohighlight">\(a=10,000\)</span> (Wait, <span class="math notranslate nohighlight">\(CF_1 = a+b\)</span>. If <span class="math notranslate nohighlight">\(CF_1=10k\)</span> and <span class="math notranslate nohighlight">\(b=1k\)</span>, then <span class="math notranslate nohighlight">\(a=9k\)</span>).
 Let’s stick to the formula <span class="math notranslate nohighlight">\(PVLGP(a,b,r,s=1)\)</span>.
@@ -1005,7 +987,7 @@ Term 1: <span class="math notranslate nohighlight">\(10,000 / 0.05 = 200,000\)</
 Term 2: <span class="math notranslate nohighlight">\(1,000(1.05) / 0.0025 = 1,050 / 0.0025 = 420,000\)</span>.
 Total = <strong>$620,000</strong>.</p>
 </details>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-9-chapter-summary">
@@ -1176,19 +1158,8 @@ Bond prices are not linear. The curve <span class="math notranslate nohighlight"
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-valuation-strategy-decomposition">The Valuation Strategy: Decomposition</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-the-double-payment-challenge-solving-for-n">Example 1: The Double-Payment Challenge (Solving for <span class="math notranslate nohighlight">\(n\)</span>)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-the-growing-annuity-with-inflation">Example 2: The Growing Annuity with Inflation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-valuing-a-client-acquisition-strategy-linear-growth">Example 3: Valuing a Client Acquisition Strategy (Linear Growth)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-mean-reversion-corn-prices">Example 4: Mean Reversion Corn Prices</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-the-infinite-graduate-student">Practice Problem 1: The Infinite Graduate Student</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-the-zero-coupon-bond">Practice Problem 2: The “Zero” Coupon Bond</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-the-arithmetic-pension">Practice Problem 3: The Arithmetic Pension</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>

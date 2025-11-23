@@ -429,16 +429,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">2. The Solution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-2-asset-cfpm-equilibrium">Example 1: 2-Asset CFPM Equilibrium</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-calculating-the-tangency-portfolio">Example 2: Calculating the Tangency Portfolio</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-the-market-price-of-risk">Practice Problem 1: The Market Price of Risk</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-sub-portfolio-beta">Practice Problem 2: Sub-Portfolio Beta</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
@@ -490,6 +482,9 @@ document.write(`
 <li><p><strong>Calculus:</strong> Constrained optimization using Lagrange Multipliers.</p></li>
 <li><p><strong>Chapter 7:</strong> The concept of “Risk Capital” and the single-factor risk model.</p></li>
 </ul>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </section>
 </section>
@@ -776,9 +771,8 @@ The absolute lowest risk portfolio is found at the vertex of the parabola.</p>
 <hr class="docutils" />
 <section id="part-7-worked-examples">
 <h2>Part 7: Worked Examples<a class="headerlink" href="#part-7-worked-examples" title="Link to this heading">#</a></h2>
-<section id="example-1-2-asset-cfpm-equilibrium">
-<h3>Example 1: 2-Asset CFPM Equilibrium<a class="headerlink" href="#example-1-2-asset-cfpm-equilibrium" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 1: 2-Asset CFPM Equilibrium</p>
 <p><strong>Context:</strong> A mini-market with 2 assets. We want to find the equilibrium prices.</p>
 <p><strong>Given:</strong></p>
 <ul class="simple">
@@ -802,11 +796,10 @@ The absolute lowest risk portfolio is found at the vertex of the parabola.</p>
 \[\begin{split}\mathbf{V} = \frac{1}{1.05} \begin{pmatrix} 108.5 \\ 215.5 \end{pmatrix} = \begin{pmatrix} 103.33 \\ 205.24 \end{pmatrix}\end{split}\]</div>
 <p><strong>Interpretation:</strong>
 Asset 2 has higher expected cash flow (220 vs 110) but much higher risk (Variance 400 vs 100). The market penalizes Asset 2 more heavily ($4.50 discount vs $1.50), lowering its price relative to the risk-free valuation.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-2-calculating-the-tangency-portfolio">
-<h3>Example 2: Calculating the Tangency Portfolio<a class="headerlink" href="#example-2-calculating-the-tangency-portfolio" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 2: Calculating the Tangency Portfolio</p>
 <p><strong>Context:</strong> You have 2 risky stocks and a risk-free rate of 2%. Find the optimal risky portfolio weights.</p>
 <p><strong>Given:</strong></p>
 <ul class="simple">
@@ -833,14 +826,13 @@ Sum = <span class="math notranslate nohighlight">\(0.0059 + 0.0044 = 0.0103\)</s
 <span class="math notranslate nohighlight">\(w_1 = 0.0059 / 0.0103 = 57.3\%\)</span>.
 <span class="math notranslate nohighlight">\(w_2 = 0.0044 / 0.0103 = 42.7\%\)</span>.</p>
 <p><strong>Result:</strong> The Tangency Portfolio is 57.3% Asset 1 and 42.7% Asset 2.</p>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-8-practice-problems">
 <h2>Part 8: Practice Problems<a class="headerlink" href="#part-8-practice-problems" title="Link to this heading">#</a></h2>
-<section id="practice-problem-1-the-market-price-of-risk">
-<h3>Practice Problem 1: The Market Price of Risk<a class="headerlink" href="#practice-problem-1-the-market-price-of-risk" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 1: The Market Price of Risk</p>
 <p><strong>Problem:</strong> The total market portfolio has an expected value of $1,000,000 and a variance of 100,000,000. The current price of the market is $900,000. The risk-free rate is 5%. Calculate the aggregate risk aversion parameter <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p><strong>Given:</strong></p>
 <ul class="simple">
@@ -863,10 +855,9 @@ Sum = <span class="math notranslate nohighlight">\(0.0059 + 0.0044 = 0.0103\)</s
 \[A = \frac{55,000}{100,000,000} = 0.00055\]</div>
 <p><strong>Answer:</strong> <span class="math notranslate nohighlight">\(A = 0.00055\)</span>. The market demands 0.055 cents of premium for every dollar of variance.</p>
 </details>
-</section>
-<section id="practice-problem-2-sub-portfolio-beta">
-<h3>Practice Problem 2: Sub-Portfolio Beta<a class="headerlink" href="#practice-problem-2-sub-portfolio-beta" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 2: Sub-Portfolio Beta</p>
 <p><strong>Problem:</strong> Portfolio <span class="math notranslate nohighlight">\(X\)</span> has a variance of 0.04. Portfolio <span class="math notranslate nohighlight">\(Y\)</span> has a covariance with <span class="math notranslate nohighlight">\(X\)</span> of 0.06. If Portfolio <span class="math notranslate nohighlight">\(X\)</span> yields 10% and the risk-free rate is 4%, what return would CFPM predict for Portfolio <span class="math notranslate nohighlight">\(Y\)</span> if it were priced solely relative to <span class="math notranslate nohighlight">\(X\)</span>?</p>
 <details>
 <summary><strong>Click for Solution</strong></summary>
@@ -884,7 +875,7 @@ Sum = <span class="math notranslate nohighlight">\(0.0059 + 0.0044 = 0.0103\)</s
 \[E[r_Y] = 0.04 + 0.09 = 0.13\]</div>
 <p><strong>Answer:</strong> 13%.</p>
 </details>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-9-chapter-summary">
@@ -1039,16 +1030,8 @@ The market portfolio is not arbitrary; it is the unique aggregate of all optimal
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">2. The Solution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-2-asset-cfpm-equilibrium">Example 1: 2-Asset CFPM Equilibrium</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-calculating-the-tangency-portfolio">Example 2: Calculating the Tangency Portfolio</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-the-market-price-of-risk">Practice Problem 1: The Market Price of Risk</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-sub-portfolio-beta">Practice Problem 2: Sub-Portfolio Beta</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>

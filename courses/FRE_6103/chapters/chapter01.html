@@ -434,19 +434,8 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-worked-examples">Part 3: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-applying-the-gve-to-a-risk-free-asset">Example 1: Applying the GVE to a Risk-Free Asset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-the-walmart-investment-return-calculation">Example 2: The Walmart Investment (Return Calculation)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-the-short-sale-negative-investment">Example 3: The Short Sale (Negative Investment)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-insurance-reserves-backward-vs-forward">Example 4: Insurance Reserves (Backward vs. Forward)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-practice-problems">Part 4: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-applying-the-gve">Practice Problem 1: Applying the GVE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-dollar-returns-on-forwards">Practice Problem 2: Dollar Returns on Forwards</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-private-vs-public-value">Practice Problem 3: Private vs. Public Value</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-worked-examples">Part 3: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-practice-problems">Part 4: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-advanced-topics-and-extensions">Part 5: Advanced Topics and Extensions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-1-the-gve-and-capm">Extension 1: The GVE and CAPM</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-2-valuation-models">Extension 2: Valuation Models</a></li>
@@ -454,7 +443,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-tips">Study Tips</a></li>
 </ul>
 </li>
 </ul>
@@ -750,9 +738,8 @@ This equation states that the <em>cost</em> of holding the asset (lost interest 
 <hr class="docutils" />
 <section id="part-3-worked-examples">
 <h2>Part 3: Worked Examples<a class="headerlink" href="#part-3-worked-examples" title="Link to this heading">#</a></h2>
-<section id="example-1-applying-the-gve-to-a-risk-free-asset">
-<h3>Example 1: Applying the GVE to a Risk-Free Asset<a class="headerlink" href="#example-1-applying-the-gve-to-a-risk-free-asset" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 1: Applying the GVE to a Risk-Free Asset</p>
 <p><strong>Context:</strong> We will use the General Valuation Equation to derive the standard Present Value formula for a risk-free bond.</p>
 <p><strong>Problem Statement:</strong>
 Consider a risk-free asset that promises a single cash flow <span class="math notranslate nohighlight">\(C\)</span> one year from now. The risk-free rate is <span class="math notranslate nohighlight">\(r\)</span>. There is no uncertainty, so risk <span class="math notranslate nohighlight">\(\sigma = 0\)</span>. Determine the value <span class="math notranslate nohighlight">\(V_0\)</span> using the GVE.</p>
@@ -788,11 +775,10 @@ Add <span class="math notranslate nohighlight">\(V_0\)</span> to both sides:</p>
 \[V_0 = \frac{C}{1+r}\]</div>
 <p><strong>Physical Interpretation:</strong>
 This confirms that the GVE is consistent with the standard Present Value formula. The value of a risk-free cash flow is simply the cash flow discounted by the risk-free rate.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-2-the-walmart-investment-return-calculation">
-<h3>Example 2: The Walmart Investment (Return Calculation)<a class="headerlink" href="#example-2-the-walmart-investment-return-calculation" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 2: The Walmart Investment (Return Calculation)</p>
 <p><strong>Context:</strong> Analyzing the components of return for a standard equity investment.</p>
 <p><strong>Problem Statement:</strong>
 One year ago, you bought a share of Walmart for $70 (<span class="math notranslate nohighlight">\(V_0\)</span>). You expected it to pay a $1.00 dividend (<span class="math notranslate nohighlight">\(C_{expected}\)</span>) and appreciate by $6.00 (<span class="math notranslate nohighlight">\(CG_{expected}\)</span>).
@@ -824,11 +810,10 @@ Actually, it paid $0.50 in dividends and appreciated by $10.00 (<span class="mat
 \[\text{ROR} \% = \frac{10.50}{70.00} = 0.15 = 15\%\]</div>
 <p><strong>Key Insight:</strong>
 For a standard “long” asset like this, both dollar and percentage returns are easily calculated and meaningful .</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-3-the-short-sale-negative-investment">
-<h3>Example 3: The Short Sale (Negative Investment)<a class="headerlink" href="#example-3-the-short-sale-negative-investment" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 3: The Short Sale (Negative Investment)</p>
 <p><strong>Context:</strong> Demonstrating why percentage returns fail for short sales and how to fix it using the “alternative” view.</p>
 <p><strong>Problem Statement:</strong>
 You short sell a stock at $50 (<span class="math notranslate nohighlight">\(V_0\)</span>). One year later, the price drops, and you buy it back for $40 (<span class="math notranslate nohighlight">\(V_1\)</span>).</p>
@@ -866,11 +851,10 @@ This result is mathematically consistent but intuitively strange. You made a pro
 <li><p>Dollar Return = (-20%) <span class="math notranslate nohighlight">\(\times\)</span> (-<span class="math notranslate nohighlight">\(50) = +\)</span>10.</p></li>
 </ul>
 <p><strong>Conclusion:</strong> This confusing sign-flipping is why <strong>Dollar Returns</strong> are preferred in financial engineering. It is unambiguous to say “I made $10.”</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-4-insurance-reserves-backward-vs-forward">
-<h3>Example 4: Insurance Reserves (Backward vs. Forward)<a class="headerlink" href="#example-4-insurance-reserves-backward-vs-forward" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 4: Insurance Reserves (Backward vs. Forward)</p>
 <p><strong>Context:</strong> A simple 3-year term policy to demonstrate how reserves work.</p>
 <p><strong>Problem Statement:</strong>
 An insurance company issues a policy.</p>
@@ -896,15 +880,14 @@ An insurance company issues a policy.</p>
 </ul>
 <p><strong>Result:</strong>
 Both methods yield a Reserve of <strong>50</strong>. This requires the company to hold 50 in assets to ensure they can pay the Year 3 deficit.</p>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-4-practice-problems">
 <h2>Part 4: Practice Problems<a class="headerlink" href="#part-4-practice-problems" title="Link to this heading">#</a></h2>
 <p>Test your understanding with these problems. Try them before looking at solutions!</p>
-<section id="practice-problem-1-applying-the-gve">
-<h3>Practice Problem 1: Applying the GVE<a class="headerlink" href="#practice-problem-1-applying-the-gve" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 1: Applying the GVE</p>
 <p><strong>Problem:</strong>
 An asset has a current value <span class="math notranslate nohighlight">\(V_0 = \$100\)</span>. The risk-free rate is <span class="math notranslate nohighlight">\(5\%\)</span>. The asset carries risk <span class="math notranslate nohighlight">\(\sigma = 10\)</span> units, and the market price of risk is <span class="math notranslate nohighlight">\(k = \$0.50\)</span> per unit. The expected cash flow <span class="math notranslate nohighlight">\(E[C_1]\)</span> is $4. What is the expected capital gain <span class="math notranslate nohighlight">\(E[V_1 - V_0]\)</span> required to satisfy the market equilibrium?</p>
 <p><strong>Given:</strong></p>
@@ -932,10 +915,9 @@ An asset has a current value <span class="math notranslate nohighlight">\(V_0 = 
 \[E[V_1 - V_0] = 10 - 4 = 6\]</div>
 <p><strong>Answer:</strong> The expected capital gain must be <strong>$6</strong>.</p>
 </details>
-</section>
-<section id="practice-problem-2-dollar-returns-on-forwards">
-<h3>Practice Problem 2: Dollar Returns on Forwards<a class="headerlink" href="#practice-problem-2-dollar-returns-on-forwards" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 2: Dollar Returns on Forwards</p>
 <p><strong>Problem:</strong>
 You enter a forward contract to buy oil at $75/barrel in one year. The initial cost of the contract is $0. One year later, the spot price of oil is $72.</p>
 <ol class="arabic simple">
@@ -959,10 +941,9 @@ Profit/Loss = Value - Cost = <span class="math notranslate nohighlight">\(72 - 7
 \[\% \text{Return} = \frac{\text{Dollar Return}}{\text{Initial Investment}} = \frac{-3}{0}\]</div>
 <p>Division by zero is undefined. This illustrates why we must use dollar returns for zero-cost derivatives.</p>
 </details>
-</section>
-<section id="practice-problem-3-private-vs-public-value">
-<h3>Practice Problem 3: Private vs. Public Value<a class="headerlink" href="#practice-problem-3-private-vs-public-value" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 3: Private vs. Public Value</p>
 <p><strong>Problem:</strong>
 A publicly traded bond is priced at $950 (Public Valuation). You have a specific tax advantage that makes the bond’s cash flows worth $980 to you (Private Valuation). According to the valuation trading rules, what should you do?</p>
 <details>
@@ -971,7 +952,7 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 <strong>Analysis:</strong> <span class="math notranslate nohighlight">\(980 &gt; 950\)</span>.
 <strong>Decision:</strong> <strong>Buy the bond.</strong> You represent a “high value” user of this asset.</p>
 </details>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-5-advanced-topics-and-extensions">
@@ -1021,16 +1002,15 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 <div class="math notranslate nohighlight">
 \[r V_0 + k \sigma = E[V_1 - V_0] + E[C_1]\]</div>
 <p>This equation enforces that the compensation for time and risk must equal the expected financial gain.</p>
-</section>
-<section id="study-tips">
-<h3>Study Tips<a class="headerlink" href="#study-tips" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Study Tips</p>
 <ol class="arabic simple">
 <li><p><strong>Think in Dollars:</strong> Whenever you see a derivative or a short position, immediately switch your mental model from “% return” to “$ profit/loss”.</p></li>
 <li><p><strong>Master the GVE:</strong> Practice rearranging the GVE variables. Can you solve for <span class="math notranslate nohighlight">\(k\)</span>? Can you solve for <span class="math notranslate nohighlight">\(V_0\)</span>?</p></li>
 <li><p><strong>Visualize Reserves:</strong> When working with liabilities (insurance), draw a timeline. “Retrospective” looks left; “Prospective” looks right. They must meet in the middle.</p></li>
 <li><p><strong>Remember the Goal:</strong> We are not just calculating numbers; we are trying to determine the <em>fair market value</em> of assets by comparing them to what is already trading.</p></li>
 </ol>
+</div>
 </section>
 </section>
 </section>
@@ -1138,19 +1118,8 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-worked-examples">Part 3: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-applying-the-gve-to-a-risk-free-asset">Example 1: Applying the GVE to a Risk-Free Asset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-the-walmart-investment-return-calculation">Example 2: The Walmart Investment (Return Calculation)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-the-short-sale-negative-investment">Example 3: The Short Sale (Negative Investment)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-insurance-reserves-backward-vs-forward">Example 4: Insurance Reserves (Backward vs. Forward)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-practice-problems">Part 4: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-applying-the-gve">Practice Problem 1: Applying the GVE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-dollar-returns-on-forwards">Practice Problem 2: Dollar Returns on Forwards</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-private-vs-public-value">Practice Problem 3: Private vs. Public Value</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-worked-examples">Part 3: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-practice-problems">Part 4: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-advanced-topics-and-extensions">Part 5: Advanced Topics and Extensions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-1-the-gve-and-capm">Extension 1: The GVE and CAPM</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-2-valuation-models">Extension 2: Valuation Models</a></li>
@@ -1158,7 +1127,6 @@ A publicly traded bond is priced at $950 (Public Valuation). You have a specific
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-chapter-summary">Part 6: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-tips">Study Tips</a></li>
 </ul>
 </li>
 </ul>

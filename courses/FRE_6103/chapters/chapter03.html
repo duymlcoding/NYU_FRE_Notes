@@ -433,19 +433,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-risk-on-bonds">2. Default Risk on Bonds</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-frequency-conversion">Example 1: Frequency Conversion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-continuous-compounding-force-of-interest">Example 2: Continuous Compounding “Force of Interest”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-interest-rate-parity">Example 3: Interest Rate Parity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-defaultable-bond-price">Example 4: Defaultable Bond Price</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-after-tax-yield">Practice Problem 1: After-Tax Yield</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-bootstrapping">Practice Problem 2: Bootstrapping</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-continuous-inflation">Practice Problem 3: Continuous Inflation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
@@ -587,16 +576,15 @@ The continuously compounded rate is often symbolized by <span class="math notran
 <p>Inflation erodes the value of money. We must distinguish between the number of dollars (Nominal) and the purchasing power of those dollars (Real).</p>
 <section id="definitions">
 <h3>1. Definitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h3>
-<ul>
+<ul class="simple">
 <li><p><strong>Nominal Dollars:</strong> The face value of currency.</p></li>
 <li><p><strong>Real Dollars:</strong> Purchasing power relative to a base year.</p></li>
-<li><p><strong>CPI (Consumer Price Index):</strong> A standardized basket of goods used to measure price levels.</p>
+<li><p><strong>CPI (Consumer Price Index):</strong> A standardized basket of goods used to measure price levels.</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[
-    \text{Inflation Rate (i)} = \frac{\text{CPI}_{new}}{\text{CPI}_{old}} - 1
-    \]</div>
-</li>
-</ul>
+\text{Inflation Rate (i)} = \frac{\text{CPI}_{new}}{\text{CPI}_{old}} - 1
+\]</div>
 </section>
 <section id="the-fisher-equation">
 <h3>2. The Fisher Equation<a class="headerlink" href="#the-fisher-equation" title="Link to this heading">#</a></h3>
@@ -869,9 +857,8 @@ y \approx r + \pi\lambda
 <hr class="docutils" />
 <section id="part-7-worked-examples">
 <h2>Part 7: Worked Examples<a class="headerlink" href="#part-7-worked-examples" title="Link to this heading">#</a></h2>
-<section id="example-1-frequency-conversion">
-<h3>Example 1: Frequency Conversion<a class="headerlink" href="#example-1-frequency-conversion" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 1: Frequency Conversion</p>
 <p><strong>Context:</strong> Converting a quarterly compounded rate to a monthly compounded rate.</p>
 <p><strong>Problem:</strong> A bank quotes a Simple Annual Rate (SAR) of 8% compounded quarterly. What is the equivalent SAR compounded monthly?</p>
 <p><strong>Given:</strong></p>
@@ -899,11 +886,10 @@ y \approx r + \pi\lambda
 \text{SAR}_{monthly} = 12 \times 0.006622 = 0.07947 = 7.947\%
 \]</div>
 <p><strong>Result:</strong> The monthly compounded rate is slightly lower (7.95%) because it compounds more frequently to achieve the same yield.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-2-continuous-compounding-force-of-interest">
-<h3>Example 2: Continuous Compounding “Force of Interest”<a class="headerlink" href="#example-2-continuous-compounding-force-of-interest" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 2: Continuous Compounding “Force of Interest”</p>
 <p><strong>Problem:</strong> An investment pays 3% simple interest per half-year. What is the equivalent continuously compounded annual rate (<span class="math notranslate nohighlight">\(\delta\)</span>)?</p>
 <p><strong>Analysis:</strong>
 “3% simple interest per half-year” means the periodic rate is 3% every 6 months.
@@ -926,11 +912,10 @@ e^{\delta \times 0.5} = 1.03
 \[
 \delta = 2 \ln(1.03) \approx 2(0.02956) = 5.91\%
 \]</div>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-3-interest-rate-parity">
-<h3>Example 3: Interest Rate Parity<a class="headerlink" href="#example-3-interest-rate-parity" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 3: Interest Rate Parity</p>
 <p><strong>Problem:</strong></p>
 <ul class="simple">
 <li><p>Spot Exchange Rate (<span class="math notranslate nohighlight">\(X\)</span>): $1.30 USD/EUR.</p></li>
@@ -958,11 +943,10 @@ Invest $1.30 USD <span class="math notranslate nohighlight">\(\to\)</span> $1.43
 Invest €1.00 (converted) <span class="math notranslate nohighlight">\(\to\)</span> €1.08.
 Convert €1.08 back at 1.324 <span class="math notranslate nohighlight">\(\to\)</span> $1.43.
 Arbitrage free.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="example-4-defaultable-bond-price">
-<h3>Example 4: Defaultable Bond Price<a class="headerlink" href="#example-4-defaultable-bond-price" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 4: Defaultable Bond Price</p>
 <p><strong>Problem:</strong></p>
 <ul class="simple">
 <li><p>1-year Zero Coupon Bond.</p></li>
@@ -1000,14 +984,13 @@ V_0 = \frac{F [1 - \pi\lambda]}{1+r}
 \pi = \frac{2.15}{60} = 0.0358
 \]</div>
 <p><strong>Result:</strong> The market is pricing in a <strong>3.58% probability of default</strong>.</p>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-8-practice-problems">
 <h2>Part 8: Practice Problems<a class="headerlink" href="#part-8-practice-problems" title="Link to this heading">#</a></h2>
-<section id="practice-problem-1-after-tax-yield">
-<h3>Practice Problem 1: After-Tax Yield<a class="headerlink" href="#practice-problem-1-after-tax-yield" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 1: After-Tax Yield</p>
 <p><strong>Problem:</strong> A bond pays 5% coupons (Ordinary Income) and is priced at Par. The tax rate on Ordinary Income is 40%. The tax rate on Capital Gains is 20%. What is the after-tax yield?</p>
 <p><strong>Hint:</strong> Since the bond is at Par, are there any Capital Gains?</p>
 <details>
@@ -1023,10 +1006,9 @@ r_{AT} = r_{pre-tax} (1 - \tau_{OI})
 r_{AT} = 5\% (1 - 0.40) = 3\%
 \]</div>
 </details>
-</section>
-<section id="practice-problem-2-bootstrapping">
-<h3>Practice Problem 2: Bootstrapping<a class="headerlink" href="#practice-problem-2-bootstrapping" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 2: Bootstrapping</p>
 <p><strong>Problem:</strong></p>
 <ul class="simple">
 <li><p>1-year ZCB Yield: 2.0%.</p></li>
@@ -1062,10 +1044,9 @@ r_{AT} = 5\% (1 - 0.40) = 3\%
 r_{s2} = 3.015\%
 \]</div>
 </details>
-</section>
-<section id="practice-problem-3-continuous-inflation">
-<h3>Practice Problem 3: Continuous Inflation<a class="headerlink" href="#practice-problem-3-continuous-inflation" title="Link to this heading">#</a></h3>
-<p>:class: tip</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Practice Problem 3: Continuous Inflation</p>
 <p><strong>Problem:</strong> Nominal continuous rate <span class="math notranslate nohighlight">\(r = 8\%\)</span>. Inflation continuous rate <span class="math notranslate nohighlight">\(i = 3\%\)</span>. What is the exact Real continuous rate <span class="math notranslate nohighlight">\(\rho\)</span>?</p>
 <p><strong>Hint:</strong> Use the continuous version of the Fisher equation.</p>
 <details>
@@ -1085,7 +1066,7 @@ r = \rho + i
 \]</div>
 <p>(Note: This is exact, unlike the discrete approximation).</p>
 </details>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="part-9-chapter-summary">
@@ -1239,19 +1220,8 @@ r = \rho + i
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-risk-on-bonds">2. Default Risk on Bonds</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-frequency-conversion">Example 1: Frequency Conversion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-continuous-compounding-force-of-interest">Example 2: Continuous Compounding “Force of Interest”</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-interest-rate-parity">Example 3: Interest Rate Parity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-defaultable-bond-price">Example 4: Defaultable Bond Price</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-1-after-tax-yield">Practice Problem 1: After-Tax Yield</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-2-bootstrapping">Practice Problem 2: Bootstrapping</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-problem-3-continuous-inflation">Practice Problem 3: Continuous Inflation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-worked-examples">Part 7: Worked Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-8-practice-problems">Part 8: Practice Problems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-9-chapter-summary">Part 9: Chapter Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-recap">Key Concepts Recap</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-cheat-sheet">Formula Cheat Sheet</a></li>
